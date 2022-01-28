@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://github.com/slimcandy/slimcandy/blob/master/images/alex.png" alt="👨🏻‍💻" />
+    <img src="https://raw.githubusercontent.com/slimcandy/slimcandy/master/images/alex.png" alt="👨🏻‍💻" />
 </p>
 
 ### Hi, I'm Alex!
