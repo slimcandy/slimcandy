@@ -1,0 +1,51 @@
+---
+date: 2022-01-31
+title: CSS for text cheat sheet
+description: Start Displaying Text the “Correct” Way.
+icon: 📚
+category: CSS
+---
+
+[Live demo](https://jsbin.com/muqomobeyu)
+
+```css
+blockquote {
+  /* Safari only hanging punctuation */
+  hanging-punctuation: first force-end last;
+  font-variant-ligatures: normal;
+  /* First load native font, than custom one */
+  text-rendering: geometricPrecision;
+  /* Book-like hyphens */
+  hyphens: auto;
+
+  /* Native quotes */
+  quotes: '\00AB''\00BB''\201E''\201C';
+}
+
+blockquote:before {
+  /* Native quotes */
+  content: open-quote;
+}
+blockquote:after {
+  /* Native quotes */
+  content: close-quote;
+}
+```
+
+> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque recusandae quasi laboriosam ipsa, delectus temporibus architecto tempora? Facilis repellendus nihil vero a aspernatur earum quis. Dignissimos corrupti magnam quas quia?
+
+> В белом плаще с кровавым подбоем, шаркающей кавалерийской походкой, ранним утром четырнадцатого числа весеннего месяца нисана в крытую колоннаду между двумя крыльями дворца ирода великого вышел прокуратор Иудеи Понтий Пилат.
+
+> 1234567890
+
+## Links
+
+- [Content Structure](https://www.w3.org/WAI/tutorials/page-structure/content/)
+- [Start Using Quotation Marks the “Correct” Way](https://webdesign.tutsplus.com/articles/start-using-quotation-marks-the-correct-way--webdesign-16905)
+- [§ 104. Кавычки](https://www.artlebedev.ru/kovodstvo/sections/104/)
+- [§ 62. Экранная типографика](https://www.artlebedev.ru/kovodstvo/sections/62/)
+- [Unicode code point table](https://en.wikipedia.org/wiki/Quotation_mark#Unicode_code_point_table) @ wiki
+- [§ 120. Висячая пунктуация](https://www.artlebedev.ru/kovodstvo/sections/120/)
+- [hanging-punctuation](https://css-tricks.com/almanac/properties/h/hanging-punctuation/) @ css-tricks
+- [Typekit Practice Lessons](https://practice.typekit.com/lesson/)
+- [hyphens](https://developer.mozilla.org/en-US/docs/Web/CSS/hyphens) @ MDN

@@ -1,0 +1,68 @@
+.blog-post {
+  pre {
+    border-radius: 0.25em;
+    background-color: #f4f4f4;
+  }
+
+  code {
+    font-family: 'JetBrains Mono', Menlo, Monaco, 'Courier New',
+      'Lucida Console', Courier, monospace;
+    text-rendering: geometricPrecision;
+    font-variant-ligatures: common-ligatures;
+    line-height: 1.4;
+    color: #1b1b1b;
+    border-left: medium solid #005282;
+    padding: 1em;
+    display: block;
+    white-space: pre;
+  }
+
+  q,
+  blockquote {
+    hanging-punctuation: first force-end last;
+    font-family: 'New York Medium', 'New York', charter, Georgia, Cambria,
+      'Times New Roman', Times, serif;
+    font-variant-ligatures: normal;
+    text-rendering: geometricPrecision;
+    hyphens: auto;
+    text-align: justify;
+    line-height: 1.5;
+
+    quotes: '\00AB''\00BB''\201E''\201C';
+    font-style: italic;
+    text-indent: -0.2em;
+    font-size: 1.25em;
+
+    margin: 1rem 0;
+    padding: 0 0.5rem;
+    clear: both;
+  }
+
+  blockquote p:first-letter {
+    font-size: larger;
+    font-weight: bold;
+  }
+
+  blockquote p {
+    margin: 0;
+    padding: 0;
+    display: inline;
+  }
+
+  q:before,
+  blockquote:before {
+    content: open-quote;
+  }
+
+  q:after,
+  blockquote:after {
+    content: close-quote;
+  }
+
+  .post-date {
+    color: #727272;
+  }
+  .post-button {
+    border-radius: 2em;
+  }
+}

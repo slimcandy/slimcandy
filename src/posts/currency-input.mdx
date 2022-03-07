@@ -1,0 +1,106 @@
+---
+date: 2022-02-01
+title: Pure JS Currency Field
+description: Boilerplate for currency input field. You might not need react-*-mask lib.
+icon: 💵
+category: JS
+---
+
+[Live demo](https://jsbin.com/barofowiti/)
+
+```js
+// global variable
+const POSTFIX = ' 🪙'
+
+/**
+ * Build display value
+ */
+// leave only one decimal symbol
+const sanitizeDecimalSymbol = (value = '', decimalSymbol = ',') => {
+  const singleDecimalSymbolRegExp = {
+    '.': /(\..*)\./g,
+    ',': /(\,.*)\,/g,
+  }
+  return value
+    .trim()
+    .replace(/(,|\.)/g, decimalSymbol)
+    .replace(singleDecimalSymbolRegExp[decimalSymbol], '$1')
+}
+// append postfix
+const addPostfix = (value = '', postfix = '') =>
+  value.trim().length === 0
+    ? ''
+    : value.replace(postfix, '').trim().concat(postfix)
+const addThousandsSeparatorSymbol = (
+  value = '',
+  thousandsSeparatorSymbol = ' '
+) => value.trim().replace(/\B(?=(\d{3})+(?!\d))/g, thousandsSeparatorSymbol)
+
+/**
+ * Calculate cursor position
+ */
+const setCaretPosition = (element, caretPosition) => {
+  if (element.setSelectionRange) {
+    element.focus()
+    element.setSelectionRange(caretPosition, caretPosition)
+  }
+}
+const getNextCaretPosition = ({ value, maskedValue, mask, caretPosition }) => {
+  const rightBoundary = maskedValue.length - mask.length
+  if (typeof caretPosition === 'number') {
+    const valuesDifference = maskedValue.length - value.length
+    if (valuesDifference === 1 && value === maskedValue) {
+      return caretPosition
+    }
+    const nextCaretPosition = caretPosition + valuesDifference
+    if (caretPosition < 1) {
+      return 0
+    } else {
+      return nextCaretPosition > rightBoundary
+        ? rightBoundary
+        : nextCaretPosition
+    }
+  }
+  return rightBoundary
+}
+// main on change event
+const onChangeHandler = (event) => {
+  const value = event.target.value
+  // leave only number and decimal symbol
+  const numberValue = value.replace(/[^\d,\.]/g, '')
+  const displayValue = sanitizeDecimalSymbol(numberValue, ',')
+  const valueWithThousands = addThousandsSeparatorSymbol(displayValue)
+  const maskedValue = addPostfix(valueWithThousands, MASK)
+
+  const nextCaretPostion = getNextCaretPosition({
+    value,
+    maskedValue,
+    mask: POSTFIX,
+    caretPosition: event.target.selectionStart,
+  })
+
+  // update value
+  event.target.value = maskedValue
+  // update cursor position
+  setCaretPosition(event.target, nextCaretPostion)
+}
+
+document.getElementById('currency').addEventListener('input', onChangeHandler)
+```
+
+## Many npm libs cannot, but this js could use custom
+
+- decimal symbol
+- postfix
+- thousand separator
+- onChange event whith **displayValue** and real **value** (with dot delimiter for server)
+
+## Before you copy and paste into prod
+
+- **onChangeHandler** should be debounced or throttled
+- **element.setSelectionRange** is tricky and not completed yet. Test with ultra-speed typing
+
+## MDN
+
+- [setSelectionRange](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/setSelectionRange)
+- [onInput](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event)
