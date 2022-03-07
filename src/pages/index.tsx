@@ -4,7 +4,7 @@ import { useStaticQuery, graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import AboutMe from '../components/AboutMe'
 import { PostType } from '../utils/shared-types'
-import { article } from '../styles/post/styles.module.scss'
+import { article } from '../styles/styles.module.scss'
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
