@@ -6,7 +6,11 @@ icon: 📚
 category: CSS
 ---
 
-[Live demo](https://jsbin.com/muqomobeyu)
+import { blockquote } from '../styles/post/css-for-text.module.scss'
+
+Start displaying texts the “correct“ way. Use hyphens, right dashes, hanging punctuation and quotation. A few lines of css make text book-like looking.
+
+## Code
 
 ```css
 blockquote {
@@ -32,14 +36,26 @@ blockquote:after {
 }
 ```
 
-> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque recusandae quasi laboriosam ipsa, delectus temporibus architecto tempora? Facilis repellendus nihil vero a aspernatur earum quis. Dignissimos corrupti magnam quas quia?
+## Example
 
-> В белом плаще с кровавым подбоем, шаркающей кавалерийской походкой, ранним утром четырнадцатого числа весеннего месяца нисана в крытую колоннаду между двумя крыльями дворца ирода великого вышел прокуратор Иудеи Понтий Пилат.
+<blockquote className={blockquote}>
+  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque recusandae
+  quasi laboriosam ipsa, delectus temporibus architecto tempora? Facilis
+  repellendus nihil vero a aspernatur earum quis. Dignissimos corrupti magnam
+  quas quia?
+</blockquote>
 
-> 1234567890
+<blockquote className={blockquote}>
+  В белом плаще с кровавым подбоем, шаркающей кавалерийской походкой, ранним
+  утром четырнадцатого числа весеннего месяца нисана в крытую колоннаду между
+  двумя крыльями дворца ирода великого вышел прокуратор Иудеи Понтий Пилат.
+</blockquote>
+
+<blockquote className={blockquote}>1234567890</blockquote>
 
 ## Links
 
+- [Live demo ⚡️](https://jsbin.com/muqomobeyu)
 - [Content Structure](https://www.w3.org/WAI/tutorials/page-structure/content/)
 - [Start Using Quotation Marks the “Correct” Way](https://webdesign.tutsplus.com/articles/start-using-quotation-marks-the-correct-way--webdesign-16905)
 - [§ 104. Кавычки](https://www.artlebedev.ru/kovodstvo/sections/104/)
