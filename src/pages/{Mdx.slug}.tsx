@@ -4,7 +4,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 
 import Layout from '../components/Layout'
 import AboutMe from '../components/AboutMe'
-import { article } from '../styles/post/styles.module.scss'
+import { article } from '../styles/styles.module.scss'
 import { PostType } from '../utils/shared-types'
 
 export const query = graphql`

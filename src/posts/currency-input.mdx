@@ -6,7 +6,22 @@ icon: 💵
 category: JS
 ---
 
-[Live demo](https://jsbin.com/barofowiti/)
+import { Link } from 'gatsby'
+
+Making input field for currency, it feels naturally to use dead-simple type='number' input. But it's extremely user-unfriendly. Common gotchas were described in <Link to='/currency-input'>previous post</Link>.
+
+Here is a look under the hood of boilerplate.
+
+## Motivation
+
+Many npm libs cannot, but this js could use custom:
+
+- decimal symbol
+- postfix
+- thousand separator
+- onChange event whith **displayValue** and real **value** (with dot delimiter for server)
+
+## Solution
 
 ```js
 // global variable
@@ -88,19 +103,13 @@ const onChangeHandler = (event) => {
 document.getElementById('currency').addEventListener('input', onChangeHandler)
 ```
 
-## Many npm libs cannot, but this js could use custom
-
-- decimal symbol
-- postfix
-- thousand separator
-- onChange event whith **displayValue** and real **value** (with dot delimiter for server)
-
 ## Before you copy and paste into prod
 
 - **onChangeHandler** should be debounced or throttled
 - **element.setSelectionRange** is tricky and not completed yet. Test with ultra-speed typing
 
-## MDN
+## Links
 
+- [live demo ⚡️](https://jsbin.com/barofowiti/)
 - [setSelectionRange](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/setSelectionRange)
 - [onInput](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event)

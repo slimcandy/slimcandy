@@ -6,46 +6,137 @@ icon: 📔
 category: Web
 ---
 
-## Front End Set Up
+Every time I reinstall my system or move to a new project I read and updated this file below.
+
+---
+
+## Set Up
+
+---
 
 - [How to Set Up a Mac for Web Development](https://michaeluloth.com/how-to-set-up-a-mac-for-web-development)
 
-### NPM
-
-`npm install npm@latest -g`
-
-npm 6 latest:
-`npm install npm@6.14.14 -g`
-
 ### Node
 
-Install `brew` and `n`
-Use n to install `node`
+- Install [Homebrew](https://docs.brew.sh/Installation)
+- Install [`n`](https://www.npmjs.com/package/n) via brew to omit `node` duplicates (Apple M1)
+- Use `sudo n` to choose `node` version
+
+### NPM
+
+- Latest: `npm install npm@latest -g`
+- Specific version: `npm install npm@6.14.14 -g`
 
 ### Terminal
 
-`sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
-`upgrade_oh_my_zsh`
+Install [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
 
-## Chrome extensions
+### Chrome extensions
 
 - [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
 - [JSON Viewer](https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh)
 - [WhatFont](https://chrome.google.com/webstore/detail/whatfont/jabopobgcpjmedljpbcaablpmlmfcogm?hl=en) or use FireFox
 - [Octotree](https://chrome.google.com/webstore/detail/octotree-github-code-tree/bkhaagjahfmjljalopjnoealnfndnagc)
 
-## Safari extensions
+### Safari extensions
 
 - [JSON View](https://apps.apple.com/ru/app/json-peep-for-safari/id1458969831?l=en&mt=12)
 - [Octotree](https://apps.apple.com/ru/app/octotree/id1457450145?l=en&mt=12)
 
-check: https://ralphjsmit.com/switch-between-nodejs-versions-homebrew/
-
-## Git
+### Git
 
 `ssh-keygen` - to make a key pair and link to bitbucket/gitlab/github. [HOWTO: Set up an SSH key](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/). [Troubles](https://support.atlassian.com/bitbucket-cloud/docs/troubleshoot-ssh-issues/)
 
 ## Web development
+
+---
+
+### VSCode
+
+- Install open-source [VS Codium](https://vscodium.com) via brew: `brew install --cask vscodium`
+- Set its settings:
+
+  ```json
+  {
+    "files.autoSave": "afterDelay",
+    "workbench.iconTheme": "material-icon-theme",
+    "vsicons.dontShowNewVersionMessage": true,
+    "emmet.triggerExpansionOnTab": true,
+    "explorer.confirmDragAndDrop": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.fontSize": 14,
+    "editor.tabSize": 2,
+    "editor.renderWhitespace": "all",
+    "editor.wordWrap": "on",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.linkedEditing": true,
+    "editor.formatOnSave": true,
+    "[html]": {
+      "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    // "[javascript]": {
+    //   "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    // },
+    "editor.codeActionsOnSave": [
+      "source.fixAll.format",
+      "source.fixAll.eslint"
+    ],
+    "editor.snippetSuggestions": "bottom",
+    // Disable “Peek” Previews
+    "editor.gotoLocation.multipleReferences": "goto",
+    "editor.gotoLocation.multipleDefinitions": "goto",
+    "editor.gotoLocation.multipleDeclarations": "goto",
+    "editor.gotoLocation.multipleImplementations": "goto",
+    "editor.gotoLocation.multipleTypeDefinitions": "goto",
+
+    // Format
+    "eslint.alwaysShowStatus": true,
+    "eslint.codeActionsOnSave.mode": "problems",
+    "eslint.format.enable": true,
+    "prettier.semi": false,
+    "prettier.singleQuote": true,
+    "prettier.jsxSingleQuote": true,
+    "prettier.jsxBracketSameLine": true,
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "update.showReleaseNotes": false,
+    "editor.suggestSelection": "first",
+    "editor.accessibilitySupport": "off",
+    "security.workspace.trust.untrustedFiles": "open",
+    "window.zoomLevel": 1,
+    "git.autofetch": true,
+    "workbench.preferredDarkColorTheme": "One Dark Pro",
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
+    "workbench.colorTheme": "Default Light+",
+    "editor.minimap.enabled": false,
+    "workbench.sideBar.location": "right",
+    "explorer.openEditors.visible": 0,
+    "workbench.statusBar.visible": false,
+    "window.autoDetectColorScheme": true,
+    "gitlens.hovers.currentLine.over": "line"
+  }
+  ```
+
+  - Install extensions
+    - Auto Rename Tag Clone
+    - Babel JavaScript
+    - Better TOML
+    - Bracket Pair Colorizer 2
+    - EditorConfig for VS Code
+    - ES7+ React/Redux/React-Native snippets
+    - ESLint
+    - GitLens
+    - Import Cost
+    - JavaScript (ES6) code snippets
+    - Material Icon Theme
+    - MDX
+    - One Dark Pro
+    - Path Intellisense
+    - Prettier - Code formatter
+    - TODO Highlight
+
+### Tips
 
 Leave versions of each project in package.json:
 

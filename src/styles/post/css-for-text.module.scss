@@ -1,0 +1,26 @@
+.blockquote {
+  margin: 1rem 0;
+  padding: 0 0.5rem;
+  clear: both;
+
+  hanging-punctuation: first force-end last;
+  font-family: 'New York Medium', 'New York', charter, Georgia, Cambria,
+    'Times New Roman', Times, serif;
+  font-variant-ligatures: normal;
+  text-rendering: geometricPrecision;
+  hyphens: auto;
+  text-align: justify;
+  line-height: 1.5;
+
+  quotes: '\00AB''\00BB''\201E''\201C';
+  font-style: italic;
+  text-indent: -0.2em;
+  font-size: 1.25em;
+
+  &:before {
+    content: open-quote;
+  }
+  &:after {
+    content: close-quote;
+  }
+}

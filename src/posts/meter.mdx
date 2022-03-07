@@ -8,8 +8,7 @@ category: CSS
 
 import { meter } from '../styles/post/meter.module.scss'
 
-The best semantic way to represent percentage is **<meter\>** tag. It [_represents a scalar value within a known range_](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter).
-**<progress\>** [_displays an indicator showing the completion progress of a task_](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress), so it should be used for dynamic values.
+The best semantic way to represent percentage is `<meter>` tag. It represents some value. While `<progress>` represents some progress.
 
 Best resource is [css-tricks](https://css-tricks.com/html5-meter-element/), but some examples are outdated.
 
@@ -67,4 +66,9 @@ meter > div {
 
 ### Another solution
 
-Instead of **<meter\>** children fallback, [radial gradient](https://www.kirupa.com/css/circles_radial_gradient.htm) can be used.
+Instead of `<meter>` children fallback, [radial gradient](https://www.kirupa.com/css/circles_radial_gradient.htm) can be used.
+
+## Links
+
+- [`<meter>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter)
+- [`<progress>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress)
