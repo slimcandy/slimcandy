@@ -1,0 +1,70 @@
+---
+date: 2022-02-24
+title: Styling meter
+description: The best semantic way to represent percentage.
+icon: 📏
+category: CSS
+---
+
+import { meter } from '../styles/post/meter.module.scss'
+
+The best semantic way to represent percentage is **<meter\>** tag. It [_represents a scalar value within a known range_](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter).
+**<progress\>** [_displays an indicator showing the completion progress of a task_](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress), so it should be used for dynamic values.
+
+Best resource is [css-tricks](https://css-tricks.com/html5-meter-element/), but some examples are outdated.
+
+I made [an example for meter](https://jsbin.com/vitaxabope/edit?css,output):
+
+## Source Code
+
+```css
+meter {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 5em;
+  border-radius: 2.5em;
+  width: 100%;
+
+  background: none;
+  background-color: #f0f4ff;
+}
+
+meter::-moz-meter-bar {
+  background: none;
+  background-color: #4e76fc;
+  border-radius: 2.5em;
+}
+
+meter::-webkit-meter-bar {
+  background: none;
+  background-color: #f0f4ff;
+  border-radius: 2.5em;
+}
+
+meter::-webkit-meter-optimum-value {
+  background: none;
+  background-color: #4e76fc;
+  border-radius: 2.5em;
+}
+
+meter > div {
+  height: 5em;
+  background-color: #4e76fc;
+  border-radius: 2.5em;
+
+  /* Hide the text. */
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+```
+
+## Real example
+
+<meter min='0' max='100' value='45' className={meter}>
+  <div style='width: 45%;'> 45 out of 100</div>
+</meter>
+
+### Another solution
+
+Instead of **<meter\>** children fallback, [radial gradient](https://www.kirupa.com/css/circles_radial_gradient.htm) can be used.

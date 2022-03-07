@@ -1,0 +1,49 @@
+.text {
+  font-family: 'New York Medium', 'New York', charter, Georgia, Cambria,
+    'Times New Roman', Times, serif;
+  text-rendering: geometricPrecision;
+  font-variant-ligatures: common-ligatures;
+}
+
+.article {
+  overflow: scroll;
+
+  h1 {
+    @extend .text;
+
+    margin-bottom: 0.25rem;
+    margin-top: 0;
+
+    font-size: 2.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+  h2 {
+    @extend .text;
+
+    margin-top: 0;
+    margin-bottom: 0.25rem;
+
+    font-size: 2.5em;
+    line-height: 1.2;
+    font-weight: 600;
+  }
+  h3 {
+    @extend .text;
+
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+
+    font-size: 1.75em;
+    line-height: 1.2;
+    font-weight: 500;
+  }
+  small {
+    display: inline-block;
+    margin-bottom: 1.25rem;
+    color: #727272;
+
+    font-size: 1em;
+    line-height: 1.5;
+  }
+}

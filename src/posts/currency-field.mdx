@@ -1,0 +1,23 @@
+---
+date: 2022-02-12
+title: Input field for currency gotchas
+description: Inputmode, numbered type and decimal symbol issues.
+icon: 🤑
+category: Semantics
+---
+
+1. Most suprised - it's **type="text"** field. Since it should be float number with custom decimal symbols (**,** or **/**), [**type="number"**](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number#allowing_decimal_values) is not the solution. Mind that **type="number"** still [may allow characters](https://bugzilla.mozilla.org/show_bug.cgi?id=1398528).
+1. Above probles are solved by [**inputmode="decimal"**](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode).
+1. Choosing the right library keep user experience and design in mind:
+
+   - what decimal symbols should be allowed
+   - where to place minus sign for prefixed sum
+   - how to allow leading zeros
+
+     Popular ones:
+
+     - [**react-number-format**](https://www.npmjs.com/package/react-number-format) - it has _leading zeros issues_ over and over, but it's [statement by owner](https://github.com/s-yadav/react-number-format/issues/588#issuecomment-958634908);
+     - [**imask**](https://github.com/uNmAnNeR/imaskjs) - it's a bit raw, but support is quick and [reachable via telegram (🇷🇺)](https://t.me/imaskjs).
+
+1. Most of libraries are the same and basic boilerplate to look under the hood is [input-currency-field
+   ](https://www.npmjs.com/package/input-currency-field).
