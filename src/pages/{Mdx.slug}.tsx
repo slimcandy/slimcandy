@@ -4,7 +4,6 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 
 import Layout from '../components/Layout'
 import AboutMe from '../components/AboutMe'
-import { blogPost } from '../components/BlogLayout/BlogLayout.module.scss'
 import { article } from '../styles/post/styles.module.scss'
 import { PostType } from '../utils/shared-types'
 
@@ -36,10 +35,7 @@ const SinglePost = ({ data }: any) => {
   }
 
   return (
-    <Layout
-      title={post.frontmatter.title}
-      description={post.excerpt}
-      className={blogPost}>
+    <Layout title={post.frontmatter.title} description={post.excerpt}>
       <div className='row position-relative border-top pt-4'>
         <div className='col-md-8'>
           <article className={`position-relative ${article}`} key={post.id}>

@@ -1,5 +1,6 @@
 import * as React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader'
 
 import Seo from '../Seo'
 import Footer from '../Footer'
@@ -20,6 +21,10 @@ const Layout = ({
   description = '',
   path,
 }: LayoutPropsType) => {
+  React.useEffect(() => {
+    deckDeckGoHighlightElement()
+  }, [])
+
   return (
     <>
       <Seo title={title} description={description} path={path} />
