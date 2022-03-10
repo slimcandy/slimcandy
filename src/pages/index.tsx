@@ -106,7 +106,7 @@ const IndexPage = () => {
           })}
         </div>
       )}
-      <div className='row g-5 position-relative'>
+      <div className='row g-sm-5 position-relative'>
         {restPosts && (
           <div className='col-md-8 mb-5'>
             {siteTitle && (
