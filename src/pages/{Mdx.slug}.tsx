@@ -34,7 +34,7 @@ const SinglePost = ({ data }: any) => {
     setIsBrowser(typeof window !== 'undefined')
 
     return () => setIsBrowser(false)
-  }, [window])
+  }, [])
 
   const copyUrl = async (url: string) => navigator.clipboard.writeText(url)
   const shareUrl = async ({ url, title }: { url: string; title: string }) =>
