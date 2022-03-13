@@ -29,6 +29,11 @@ export const query = graphql`
 
 const SinglePost = ({ data }: any) => {
   const post: PostType = data?.allMdx?.nodes[0]
+  const [isBrowser, setIsBrowser] = React.useState(false)
+  React.useEffect(() => {
+    setIsBrowser(typeof window !== 'undefined')
+    return setIsBrowser(false)
+  }, [])
 
   const copyUrl = async (url: string) => navigator.clipboard.writeText(url)
   const shareUrl = async ({ url, title }: { url: string; title: string }) =>
@@ -55,7 +60,8 @@ const SinglePost = ({ data }: any) => {
             <Link className='btn btn-outline-primary rounded-pill' to='/'>
               ← Back to posts
             </Link>
-            {window.navigator.canShare &&
+            {isBrowser &&
+            window.navigator.canShare &&
             window.navigator.canShare({
               title: post.frontmatter.title,
               url: document.URL,
