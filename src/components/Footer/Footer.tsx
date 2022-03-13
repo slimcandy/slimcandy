@@ -10,7 +10,7 @@ const Footer = () => (
       <a href='#top'>↑ Back to top</a>
     </p>
     <p>
-      <a href='/rss.xml'>
+      <a href='/rss.xml' className='btn btn-link'>
         <StaticImage
           src='./rss.svg'
           alt='rss feed'
