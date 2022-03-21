@@ -6,7 +6,8 @@ icon: 📔
 category: Web
 ---
 
-Every time I reinstall my system or move to a new project I read and updated this file below.
+Every time I reinstall my system or move to a new project I read and updated
+this file below.
 
 ---
 
@@ -19,7 +20,8 @@ Every time I reinstall my system or move to a new project I read and updated thi
 ### Node
 
 - Install [Homebrew](https://docs.brew.sh/Installation)
-- Install [`n`](https://www.npmjs.com/package/n) via brew to omit `node` duplicates (Apple M1)
+- Install [`n`](https://www.npmjs.com/package/n) via brew to omit `node`
+  duplicates (Apple M1)
 - Use `sudo n` to choose `node` version
 
 ### NPM
@@ -35,7 +37,8 @@ Install [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
 
 - [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
 - [JSON Viewer](https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh)
-- [WhatFont](https://chrome.google.com/webstore/detail/whatfont/jabopobgcpjmedljpbcaablpmlmfcogm?hl=en) or use FireFox
+- [WhatFont](https://chrome.google.com/webstore/detail/whatfont/jabopobgcpjmedljpbcaablpmlmfcogm?hl=en)
+  or use FireFox
 - [Octotree](https://chrome.google.com/webstore/detail/octotree-github-code-tree/bkhaagjahfmjljalopjnoealnfndnagc)
 
 ### Safari extensions
@@ -45,7 +48,9 @@ Install [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
 
 ### Git
 
-`ssh-keygen` - to make a key pair and link to bitbucket/gitlab/github. [HOWTO: Set up an SSH key](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/). [Troubles](https://support.atlassian.com/bitbucket-cloud/docs/troubleshoot-ssh-issues/)
+`ssh-keygen` - to make a key pair and link to bitbucket/gitlab/github.
+[HOWTO: Set up an SSH key](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/).
+[Troubles](https://support.atlassian.com/bitbucket-cloud/docs/troubleshoot-ssh-issues/)
 
 ## Web development
 
@@ -53,68 +58,83 @@ Install [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
 
 ### VSCode
 
-- Install open-source [VS Codium](https://vscodium.com) via brew: `brew install --cask vscodium`
+- Install open-source [VS Codium](https://vscodium.com) via brew:
+  `brew install --cask vscodium`
 - Set its settings:
 
   ```json
   {
-    "files.autoSave": "afterDelay",
+    // Best resources:
+    // https://frontendmasters.com/courses/customize-vs-code/
+    // https://www.youtube.com/watch?v=QeUp3CahkQw
+
+    // Theme
+    "workbench.colorTheme": "Default Light+", // default theme
+    "window.autoDetectColorScheme": true, // change to dark after OS
+    "workbench.preferredDarkColorTheme": "One Dark Pro", // default dark theme
     "workbench.iconTheme": "material-icon-theme",
-    "vsicons.dontShowNewVersionMessage": true,
-    "emmet.triggerExpansionOnTab": true,
-    "explorer.confirmDragAndDrop": false,
-    "diffEditor.ignoreTrimWhitespace": false,
+    "workbench.sideBar.location": "right",
+    "workbench.statusBar.visible": false,
+    "window.zoomLevel": 1,
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "JetBrains Mono", // @url https://www.jetbrains.com/lp/mono/#how-to-install
     "editor.fontSize": 14,
+    "editor.gotoLocation.multipleReferences": "goto", // Disable "Peek" preview
+    "editor.gotoLocation.multipleDefinitions": "goto", // @url https://stackoverflow.com/questions/50993353/disable-preview-when-go-to-definition-in-vscode
+    "editor.gotoLocation.multipleDeclarations": "goto",
+    "editor.gotoLocation.multipleImplementations": "goto",
+    "editor.gotoLocation.multipleTypeDefinitions": "goto",
+    "editor.snippetSuggestions": "bottom",
+    "editor.suggestSelection": "recentlyUsed",
+    "editor.minimap.enabled": false,
+    "explorer.openEditors.visible": 0,
+
+    // App
+    "files.autoSave": "afterDelay",
+    "telemetry.telemetryLevel": "off",
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "explorer.confirmDragAndDrop": false,
+    "update.showReleaseNotes": false,
+    "security.workspace.trust.untrustedFiles": "open",
+
+    // Extensions
+    "emmet.triggerExpansionOnTab": true,
+
+    // Lint
     "editor.tabSize": 2,
     "editor.renderWhitespace": "all",
     "editor.wordWrap": "on",
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.linkedEditing": true,
-    "editor.formatOnSave": true,
-    "[html]": {
-      "editor.defaultFormatter": "vscode.html-language-features"
-    },
-    // "[javascript]": {
-    //   "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-    // },
     "editor.codeActionsOnSave": [
       "source.fixAll.format",
       "source.fixAll.eslint"
     ],
-    "editor.snippetSuggestions": "bottom",
-    // Disable “Peek” Previews
-    "editor.gotoLocation.multipleReferences": "goto",
-    "editor.gotoLocation.multipleDefinitions": "goto",
-    "editor.gotoLocation.multipleDeclarations": "goto",
-    "editor.gotoLocation.multipleImplementations": "goto",
-    "editor.gotoLocation.multipleTypeDefinitions": "goto",
+    "editor.formatOnSave": true,
 
-    // Format
-    "eslint.alwaysShowStatus": true,
-    "eslint.codeActionsOnSave.mode": "problems",
-    "eslint.format.enable": true,
-    "prettier.semi": false,
-    "prettier.singleQuote": true,
-    "prettier.jsxSingleQuote": true,
-    "prettier.jsxBracketSameLine": true,
-    "telemetry.enableCrashReporter": false,
-    "telemetry.enableTelemetry": false,
-    "update.showReleaseNotes": false,
-    "editor.suggestSelection": "first",
-    "editor.accessibilitySupport": "off",
-    "security.workspace.trust.untrustedFiles": "open",
-    "window.zoomLevel": 1,
+    // Prettier
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+    // Git
     "git.autofetch": true,
-    "workbench.preferredDarkColorTheme": "One Dark Pro",
-    "editor.fontLigatures": true,
-    "editor.fontFamily": "'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
-    "workbench.colorTheme": "Default Light+",
-    "editor.minimap.enabled": false,
-    "workbench.sideBar.location": "right",
-    "explorer.openEditors.visible": 0,
-    "workbench.statusBar.visible": false,
-    "window.autoDetectColorScheme": true,
-    "gitlens.hovers.currentLine.over": "line"
+    "diffEditor.ignoreTrimWhitespace": false,
+    "gitlens.hovers.currentLine.over": "annotation"
+
+    // Redundant rules:
+    //
+    // "[html]": {
+    //   "editor.defaultFormatter": "vscode.html-language-features"
+    // }
+    // "[javascript]": {
+    //   "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    // },
+    // "eslint.codeActionsOnSave.mode": "problems",
+    // "eslint.format.enable": true,
+    // "prettier.semi": false,
+    // "prettier.singleQuote": true,
+    // "prettier.jsxSingleQuote": true,
+    // "prettier.jsxBracketSameLine": true,
+    // "prettier.eslintIntegration": true,
   }
   ```
 
@@ -135,6 +155,26 @@ Install [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
     - Path Intellisense
     - Prettier - Code formatter
     - TODO Highlight
+
+#### Lint
+
+Install [Prettier](https://prettier.io/docs/en/install.html) and
+[ESLint](https://eslint.org/docs/user-guide/getting-started).
+
+_.prettierrc.json:_
+
+```json
+{
+  "printWidth": 80,
+  "tabWidth": 2,
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "none",
+  "bracketSpacing": true,
+  "arrowParens": "avoid",
+  "proseWrap": "always"
+}
+```
 
 ### Tips
 
