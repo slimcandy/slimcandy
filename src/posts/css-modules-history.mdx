@@ -1,0 +1,32 @@
+---
+date: 2022-03-30
+title: A Brief History of CSS Modules
+description: Finish googling for a css modules in react, webpack and library
+icon: 📜
+category: CSS
+---
+
+_CSS Modules just work_. That was the answer to my junior questions: How do they
+work in my [CRA](https://create-react-app.dev) project and where do I find docs.
+
+## TL;DR
+
+- [CSS Modules](https://github.com/css-modules/css-modules) is a library hosted
+  in GitHub
+- [css-loader](https://github.com/webpack-contrib/css-loader) is a library
+  hosted in GitHub. It uses `postcss` which uses `react-css-modules` which
+  implements CSS Modules
+- [Webpack](https://webpack.js.org/loaders/css-loader/) includes css-loader as
+  thrid-party package.
+- [CRA](https://create-react-app.dev) includes webpack.
+
+[CSS Modules](https://github.com/css-modules/css-modules) is the interface, no
+real usage in your project.
+
+## Links
+
+1. [GitHub: CSS-Modules](https://github.com/css-modules/css-modules)
+1. [Webpack: css-loader](https://webpack.js.org/loaders/css-loader/#modules)
+1. [Webpack: package.json](https://github.com/webpack-contrib/css-loader/blob/master/package.json)
+1. [PostCSS includes react-css-modules](https://github.com/postcss/postcss#solve-global-css-problem)
+1. [Glen Maddern's article about CSS Modules](https://glenmaddern.com/articles/css-modules)
