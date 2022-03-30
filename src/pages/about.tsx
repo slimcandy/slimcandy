@@ -88,6 +88,45 @@ const About = () => (
         </div>
         <div className="row">
           <dt className="col-3 mb-1 text-secondary fw-light">
+            June 2020 — October 2020
+          </dt>
+          <dd
+            className="col-9 px-1 d-flex flex-column flex-wrap"
+            itemScope
+            itemType="https://schema.org/Organization"
+          >
+            <h3>
+              <a
+                href="https://molinos.ru"
+                rel="nofollow noopener"
+                itemProp="url"
+                className="link-dark"
+                title="molinos.ru"
+              >
+                <span itemProp="name">Molinos</span>
+              </a>{' '}
+              🇷🇺
+            </h3>
+            <p className="text-secondary">Full-Stack PHP Developer</p>
+            <p>Outstanging tasks:</p>
+            <ul>
+              <li>
+                script for transferring content from a self-written CMS to
+                Laravel;
+              </li>
+              <li>
+                a script for parsing by Puppeteer, sending the data through
+                RabbitMQ and parsing Laravel at the backend;
+              </li>
+              <li>
+                legacy code:<code>&lt;map&gt; &lt;area&gt; &lt;/map&gt;</code>.
+              </li>
+            </ul>
+            <p>Everything else is on Laravel + React + Vanilla JS + SCSS.</p>
+          </dd>
+        </div>
+        <div className="row">
+          <dt className="col-3 mb-1 text-secondary fw-light">
             October 2015 — June 2020
           </dt>
           <dd
