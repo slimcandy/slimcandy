@@ -21,55 +21,56 @@ No auth services needed. Native sharing based on user's OS.
 
 Using typescript and react there are two things to keep in mind:
 
-1. `window.navigator` may not support new share functions, so make a copy of
-   that.
 1. since it's a side effect (webapi), put it in `useEffect`.
 1. mind that `window.navigator.canShare` checks if the info is shareable, not
    sharing in general.
 
-```tsx
-const [canIShareFile, setCanIShareFile] = useState<boolean>(false)
-const navigatorHack = window.navigator
-
-useEffect(() => {
-  if (
-    navigatorHack &&
-    typeof navigatorHack.canShare === 'function' &&
-    navigatorHack.canShare({
-      text: noteText,
-      title: packageJSON.name,
-      url: document.URL
-    })
-  ) {
-    setCanIShareFile(true)
-  }
-  return () => {
-    setCanIShareFile(false)
-  }
-}, [navigatorHack, noteText])
+```jsx
+<button
+  onClick={() => {
+    if (
+      window.navigator.canShare &&
+      window.navigator.canShare({
+        url: document.URL
+      })
+    ) {
+      window.navigator
+        .share({ url: document.URL })
+        .then(console.log)
+        .catch(console.error)
+    } else {
+      navigator.clipboard
+        .writeText(document.URL)
+        .then(console.log)
+        .catch(console.error)
+    }
+  }}
+>
+  Share or copy
+</button>
 ```
 
 ## Example
 
 <button
-  type="button"
-  class="btn btn-primary d-flex flex-wrap flex-row align-items-center gap-2"
-  onClick={async () =>
-    window.navigator.canShare &&
-    window.navigator.canShare({ url: document.URL })
-      ? await window.navigator.share({ url: document.URL })
-      : alert("Your browser doesn't support native sharing")
-  }
+  onClick={() => {
+    if (
+      window.navigator.canShare &&
+      window.navigator.canShare({
+        url: document.URL
+      })
+    ) {
+      window.navigator
+        .share({ url: document.URL })
+        .then(console.log)
+        .catch(console.error)
+    } else {
+      navigator.clipboard
+        .writeText(document.URL)
+        .then(console.log)
+        .catch(console.error)
+    }
+  }}
 >
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="16"
-    height="16"
-    fill="currentColor"
-    class="bi bi-share"
-    viewBox="0 0 16 16"
-  >
-    <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" />
-  </svg>
-  Share this page
+  Share or copy
 </button>
