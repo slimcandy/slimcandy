@@ -72,13 +72,12 @@ and
     // https://www.youtube.com/watch?v=QeUp3CahkQw
 
     // Theme
-    "workbench.colorTheme": "Default Light+", // default theme
+    "workbench.colorTheme": "One Dark Pro", // default theme
     "window.autoDetectColorScheme": true, // change to dark after OS
     "workbench.preferredDarkColorTheme": "One Dark Pro", // default dark theme
     "workbench.iconTheme": "material-icon-theme",
     "workbench.sideBar.location": "right",
     "workbench.statusBar.visible": false,
-    "window.zoomLevel": 1,
     "editor.fontLigatures": true,
     "editor.fontFamily": "JetBrains Mono", // @url https://www.jetbrains.com/lp/mono/#how-to-install
     "editor.fontSize": 14,
@@ -91,6 +90,7 @@ and
     "editor.suggestSelection": "recentlyUsed",
     "editor.minimap.enabled": false,
     "explorer.openEditors.visible": 0,
+    "debug.internalConsoleOptions": "neverOpen",
 
     // App
     "files.autoSave": "afterDelay",
@@ -121,23 +121,11 @@ and
     // Git
     "git.autofetch": true,
     "diffEditor.ignoreTrimWhitespace": false,
-    "gitlens.hovers.currentLine.over": "annotation"
-
-    // Redundant rules:
-    //
-    // "[html]": {
-    //   "editor.defaultFormatter": "vscode.html-language-features"
-    // }
-    // "[javascript]": {
-    //   "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-    // },
-    // "eslint.codeActionsOnSave.mode": "problems",
-    // "eslint.format.enable": true,
-    // "prettier.semi": false,
-    // "prettier.singleQuote": true,
-    // "prettier.jsxSingleQuote": true,
-    // "prettier.jsxBracketSameLine": true,
-    // "prettier.eslintIntegration": true,
+    "gitlens.hovers.currentLine.over": "annotation",
+    "editor.inlineSuggest.enabled": true,
+    "vsicons.dontShowNewVersionMessage": true,
+    "vsintellicode.modify.editor.suggestSelection": "disabled",
+    "window.zoomLevel": 1
   }
   ```
 
@@ -145,18 +133,22 @@ and
     - Auto Rename Tag Clone
     - Babel JavaScript
     - Better TOML
-    - Bracket Pair Colorizer 2
+    - Code Spell Checker
     - EditorConfig for VS Code
     - ES7+ React/Redux/React-Native snippets
     - ESLint
+    - GitHub Copilot
     - GitLens
     - Import Cost
+    - IntelliCode
     - JavaScript (ES6) code snippets
     - Material Icon Theme
     - MDX
     - One Dark Pro
     - Path Intellisense
     - Prettier - Code formatter
+    - Prettier ESLint
+    - SCSS Formatter
     - TODO Highlight
 
 #### Lint

@@ -1,21 +1,13 @@
 import * as React from 'react'
 
 import { ShareIcon, CopyIcon } from './icons'
-
-export interface IShareLink {
-  url: string
-  title?: string
-}
-export interface IShareLinkProps extends IShareLink {
-  className: string
-}
+import { IShareLink, IShareLinkProps } from './types'
 
 export const shareUrl = ({ url, title }: IShareLink) =>
-  window.navigator.share({ url, title }).then(console.log).catch(console.error)
-export const copyUrl = (url: string) =>
-  navigator.clipboard.writeText(url).then(console.log).catch(console.error)
+  window.navigator.share({ url, title })
+export const copyUrl = (url: string) => navigator.clipboard.writeText(url)
 
-const ShareLink = ({ title, url, className }: IShareLinkProps) => {
+function ShareLink({ title, url, className }: IShareLinkProps) {
   const [canShare, setCanShare] = React.useState(false)
   const handleShareUrl = () =>
     shareUrl({
@@ -25,17 +17,19 @@ const ShareLink = ({ title, url, className }: IShareLinkProps) => {
   const handleCopyUrl = () => copyUrl(url)
 
   React.useEffect(() => {
-    window.navigator.canShare &&
+    if (
+      typeof window.navigator.canShare !== 'undefined' &&
       window.navigator.canShare({
         title,
         url
-      }) &&
+      }) === true
+    )
       setCanShare(true)
   }, [])
 
   if (canShare) {
     return (
-      <button className={className} onClick={handleShareUrl}>
+      <button type="button" className={className} onClick={handleShareUrl}>
         <ShareIcon />
         Share url
       </button>
@@ -43,7 +37,7 @@ const ShareLink = ({ title, url, className }: IShareLinkProps) => {
   }
 
   return (
-    <button className={className} onClick={handleCopyUrl}>
+    <button type="button" className={className} onClick={handleCopyUrl}>
       <CopyIcon />
       Copy url
     </button>
