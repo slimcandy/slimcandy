@@ -2,11 +2,9 @@ import * as React from 'react'
 import { graphql, Link } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 
-import Layout from '../components/Layout'
-import AboutMe from '../components/AboutMe'
+import { Layout, AboutMe, ShareLink } from '../components'
 import { article } from '../styles/styles.module.scss'
 import { PostType } from '../utils/shared-types'
-import ShareLink from '../components/ShareLink'
 
 export const query = graphql`
   query FetchPostQuery($id: String!) {
@@ -28,7 +26,7 @@ export const query = graphql`
   }
 `
 
-const SinglePost = ({ data }: any) => {
+function SinglePost({ data }: any) {
   const post: PostType = data?.allMdx?.nodes[0]
   const [isBrowser, setIsBrowser] = React.useState(false)
   React.useEffect(() => {
@@ -36,10 +34,6 @@ const SinglePost = ({ data }: any) => {
 
     return () => setIsBrowser(false)
   }, [])
-
-  const copyUrl = async (url: string) => navigator.clipboard.writeText(url)
-  const shareUrl = async ({ url, title }: { url: string; title: string }) =>
-    await window.navigator.share({ url, title })
 
   if (!post) {
     return <p>Cannot find this post</p>

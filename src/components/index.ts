@@ -1,0 +1,7 @@
+export { default as AboutMe } from './AboutMe/AboutMe'
+export { default as ContactForm } from './ContactForm/ContactForm'
+export { default as Footer } from './Footer/Footer'
+export { default as Layout } from './Layout/Layout'
+export { default as Navigation } from './Navigation/Navigation'
+export { default as Seo } from './Seo/Seo'
+export { default as ShareLink } from './ShareLink/ShareLink'

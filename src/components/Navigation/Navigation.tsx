@@ -2,45 +2,47 @@ import * as React from 'react'
 import { Link } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 
-import { github, fontSerif } from './Navigation.module.scss'
+import { github } from './Navigation.module.scss'
 
-const Navigation = () => {
+function Navigation() {
   return (
-    <nav className='d-flex flex-row justify-content-between align-items-center py-2'>
-      <ul className='nav'>
-        <li className='nav-link'>
-          <Link to='/about' className='link-secondary' title='Send a message'>
+    <nav className="d-flex flex-row justify-content-between align-items-center py-2">
+      <ul className="nav">
+        <li className="nav-link">
+          <Link to="/about" className="link-secondary" title="Send a message">
             About Me
           </Link>
         </li>
       </ul>
-      <ul className='nav'>
-        <li className='nav-link text-center'>
+      <ul className="nav">
+        <li className="nav-link text-center">
           <Link
-            to='/'
-            className='link-secondary text-decoration-none'
-            title='Main page'>
-            <span className='text-dark fs-2'>👨🏻‍💻</span>
+            to="/"
+            className="link-secondary text-decoration-none"
+            title="Main page"
+          >
+            <span className="text-dark fs-2">👨🏻‍💻</span>
           </Link>
         </li>
       </ul>
-      <ul className='nav'>
-        <li className='nav-link'>
+      <ul className="nav">
+        <li className="nav-link">
           <a
-            href='https://github.com/slimcandy'
-            rel='nofollow noopener'
-            className='link-secondary text-decoration-none d-flex flex-row align-items-center gap-1'
-            title='GitHub profile'>
+            href="https://github.com/slimcandy"
+            rel="nofollow noopener"
+            className="link-secondary text-decoration-none d-flex flex-row align-items-center gap-1"
+            title="GitHub profile"
+          >
             <StaticImage
-              src='../../images/github.svg'
-              alt='GitHub logo'
+              src="../../images/github.svg"
+              alt="GitHub logo"
               className={github}
-              placeholder='blurred'
+              placeholder="blurred"
               quality={100}
-              objectFit='contain'
+              objectFit="contain"
               height={28}
               width={28}
-              layout='constrained'
+              layout="constrained"
             />{' '}
             GitHub
           </a>
