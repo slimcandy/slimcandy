@@ -9,9 +9,10 @@ import { ArrowLeft, GitHub, Twitter } from '../utils/icons'
 
 const GITHUB_USERNAME = 'slimcandy'
 const GITHUB_REPO_NAME = 'slimcandy'
-const discussUrl = `https://mobile.twitter.com/search?q=${encodeURIComponent(
-  document.URL
-)}`
+const discussUrl =
+  typeof window === 'undefined'
+    ? ''
+    : `https://mobile.twitter.com/search?q=${encodeURIComponent(document.URL)}`
 
 export const query = graphql`
   query FetchPostQuery($id: String!) {
@@ -80,12 +81,14 @@ function SinglePost({ data }: any) {
               )}
             </div>
             <div className="btn-group" role="group">
-              <Link
-                className="btn btn-outline-primary d-flex flex-row align-items-center gap-2"
-                to={discussUrl}
-              >
-                <Twitter /> Discuss on Twitter
-              </Link>
+              {isBrowser && (
+                <Link
+                  className="btn btn-outline-primary d-flex flex-row align-items-center gap-2"
+                  to={discussUrl}
+                >
+                  <Twitter /> Discuss on Twitter
+                </Link>
+              )}
               <Link
                 className="btn btn-outline-primary d-flex flex-row align-items-center gap-2"
                 to={editUrl}
