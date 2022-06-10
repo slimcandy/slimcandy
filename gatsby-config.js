@@ -3,7 +3,7 @@ module.exports = {
   siteMetadata: {
     title: `React developer blog`,
     siteUrl: `https://reactdeveloper.netlify.app`,
-    description: `I have been programming for more than 7 years. Started from html landing pages and WordPress plugins up to react-native apps and micro frontend form`,
+    description: `I have been programming for more than 7 years. Started from html landing pages and WordPress plugins up to react-native apps and micro frontend form`
   },
   plugins: [
     'gatsby-plugin-sass',
@@ -16,30 +16,30 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: `${__dirname}/src/images/`,
+        path: `${__dirname}/src/images/`
       },
-      __key: 'images',
+      __key: 'images'
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'pages',
-        path: `${__dirname}/src/pages/`,
+        path: `${__dirname}/src/pages/`
       },
-      __key: 'pages',
+      __key: 'pages'
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'posts',
-        path: `${__dirname}/src/posts/`,
-      },
+        path: `${__dirname}/src/posts/`
+      }
     },
     {
       resolve: 'gatsby-plugin-page-creator',
       options: {
-        path: `${__dirname}/src/posts/`,
-      },
+        path: `${__dirname}/src/posts/`
+      }
     },
     {
       resolve: `gatsby-plugin-feed`,
@@ -59,13 +59,13 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMdx } }) => {
-              return allMdx.nodes.map((node) => {
+              return allMdx.nodes.map(node => {
                 return Object.assign({}, node.frontmatter, {
                   description: node.excerpt,
                   date: node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + '/' + node.slug,
                   guid: site.siteMetadata.siteUrl + '/' + node.slug,
-                  custom_elements: [{ 'content:encoded': node.html }],
+                  custom_elements: [{ 'content:encoded': node.html }]
                 })
               })
             },
@@ -88,10 +88,10 @@ module.exports = {
             }
             `,
             output: '/rss.xml',
-            title: "React Developer's Blog RSS Feed",
-          },
-        ],
-      },
+            title: "React Developer's Blog RSS Feed"
+          }
+        ]
+      }
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -103,8 +103,8 @@ module.exports = {
         theme_color: `#343a40`,
         display: `minimal-ui`,
         icon: require.resolve('./src/images/apple.png'),
-        theme_color_in_head: false,
-      },
+        theme_color_in_head: false
+      }
     },
     {
       resolve: `gatsby-plugin-mdx`,
@@ -116,11 +116,11 @@ module.exports = {
             options: {
               terminal: 'carbon',
               theme: 'one-dark',
-              lineNumbers: true,
-            },
-          },
-        ],
-      },
-    },
-  ],
+              lineNumbers: true
+            }
+          }
+        ]
+      }
+    }
+  ]
 }

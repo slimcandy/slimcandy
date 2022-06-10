@@ -1,4 +1,3 @@
-export { default as AboutMe } from './AboutMe/AboutMe'
 export { default as ContactForm } from './ContactForm/ContactForm'
 export { default as Footer } from './Footer/Footer'
 export { default as Layout } from './Layout/Layout'

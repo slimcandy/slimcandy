@@ -4,53 +4,48 @@ import { StaticImage } from 'gatsby-plugin-image'
 import { appleImage } from './ContactForm.module.scss'
 
 function ContactForm() {
-  return <article
-    className="d-flex flex-row flex-wrap justify-content-center rounded overflow-hidden align-items-center mb-4 h-md-250 shadow-sm border"
-    itemScope
-    itemType="https://schema.org/Person"
-  >
-    <picture className="">
-      <StaticImage
-        src="../../images/apple.png"
-        alt="👨🏻‍💻"
-        className={`img-fluid ${appleImage}`}
-        placeholder="blurred"
-        quality={100}
-        objectFit="contain"
-      />
-    </picture>
-    <div className="p-2 d-flex flex-column">
-      <h3 itemProp="name">Alex</h3>
-      <span className="mb-1 text-muted" itemProp="jobTitle">
-        🚀 React developer.
-        <br />
-        👨🏻‍💻 Adore semantic html.
-        <br />
-        🕶 Care about privacy.
-      </span>
-    </div>
-    <div className="flex-grow-1 p-2 d-flex flex-column">
-      <form name="contact form" data-netlify="true" method="POST">
+  return (
+    <div className="col-md-10 mx-auto col-lg-5">
+      <form
+        className="p-4 p-md-5 border rounded-3 bg-light"
+        name="contact form"
+        data-netlify="true"
+        method="POST"
+      >
         <input type="hidden" name="form-name" value="contact form" />
-        <legend className="visually-hidden">Contact</legend>
-        <div className="mb-3">
-          <label htmlFor="messageID" className="form-label visually-hidden">
-            Message
-          </label>
+        <aside className=" d-flex flex-wrap flex-md-nowrap justify-content-center align-items-center">
+          <StaticImage
+            src="../../images/apple.png"
+            alt="👨🏻‍💻"
+            className={appleImage}
+            placeholder="blurred"
+            quality={100}
+            objectFit="contain"
+          />
+          <small className="mb-1 text-muted" itemProp="jobTitle">
+            🚀 React developer.
+            <br />
+            👨🏻‍💻 Adore semantic html.
+            <br />
+            🕶 Care about privacy.
+          </small>
+        </aside>
+        <hr className="my-4" />
+        <div className="form-floating mb-3">
           <textarea
             className="form-control"
             id="messageID"
-            rows={3}
             name="message"
             placeholder="Leave email or telegram so I could reply"
-           />
+          />
+          <label htmlFor="messageID">Message</label>
         </div>
-        <button type="submit" className="btn btn-sm btn-outline-secondary">
+        <button className="w-100 btn btn-lg btn-primary" type="submit">
           Send message to Alex
         </button>
       </form>
     </div>
-  </article>
+  )
 }
 
 export default ContactForm

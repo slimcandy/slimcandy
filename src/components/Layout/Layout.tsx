@@ -7,6 +7,8 @@ import Footer from '../Footer/Footer'
 import Navigation from '../Navigation/Navigation'
 import { LayoutPropsType } from './types'
 
+import './style.css'
+
 function Layout({
   children,
   className = '',
