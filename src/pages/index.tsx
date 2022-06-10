@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 
-import { Layout, AboutMe } from '../components'
+import { Layout } from '../components'
 import { PostType } from '../utils/shared-types'
 import { article } from '../styles/styles.module.scss'
 
@@ -34,7 +34,6 @@ function IndexPage() {
   const firstPost: PostType = posts[0] || null
   const lastTwoPosts: PostType[] = [posts[1], posts[2]] || []
   const restPosts: PostType[] = posts.slice(3) || []
-  const restPostsLength = restPosts.length
 
   const siteTitle = data?.site?.siteMetadata?.title
 
@@ -103,38 +102,34 @@ function IndexPage() {
           ))}
         </div>
       )}
-      <div className="row g-sm-5 position-relative">
+      <div className="row">
         {restPosts && (
-          <div className="col-md-8 mb-5">
+          <div className="col mb-5">
             {siteTitle && (
               <h3 className="pb-4 mb-4 fst-italic border-bottom">
                 {siteTitle}
               </h3>
             )}
+            <div className="row row-cols-1 row-cols-md-2 g-sm-5">
+              {restPosts.map((post: PostType) => (
+                <article
+                  className={`blog-post position-relative border-start ${article}`}
+                  key={post.id}
+                >
+                  <h2>{post.frontmatter.title}</h2>
+                  <small>
+                    {post.frontmatter.date}, {post.timeToRead} min read
+                  </small>
 
-            {restPosts.map((post: PostType, index) => (
-              <article
-                className={`blog-post position-relative ${article}`}
-                key={post.id}
-              >
-                <h2>{post.frontmatter.title}</h2>
-                <small>
-                  {post.frontmatter.date}, {post.timeToRead} min read
-                </small>
-
-                <p>{post.excerpt}</p>
-                <Link to={post.slug} className="stretched-link">
-                  Continue reading
-                </Link>
-
-                {index + 1 === restPostsLength ? '' : <hr />}
-              </article>
-            ))}
+                  <p>{post.excerpt}</p>
+                  <Link to={post.slug} className="stretched-link">
+                    Continue reading
+                  </Link>
+                </article>
+              ))}
+            </div>
           </div>
         )}
-        <aside className="col-md-4">
-          <AboutMe />
-        </aside>
       </div>
     </Layout>
   )

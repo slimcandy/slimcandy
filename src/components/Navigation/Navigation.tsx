@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
-import { StaticImage } from 'gatsby-plugin-image'
 
-import { github, font_serif } from './Navigation.module.scss'
+import { font_serif } from './Navigation.module.scss'
+import { GitHub } from '../../utils/icons'
 
 function Navigation() {
   return (
@@ -30,20 +30,10 @@ function Navigation() {
           <a
             href="https://github.com/slimcandy"
             rel="nofollow noopener"
-            className="link-secondary text-decoration-none d-flex flex-row align-items-center gap-1"
+            className="link-secondary d-flex flex-row align-items-center gap-2"
             title="GitHub profile"
           >
-            <StaticImage
-              src="../../images/github.svg"
-              alt="GitHub logo"
-              className={github}
-              placeholder="blurred"
-              quality={100}
-              objectFit="contain"
-              height={28}
-              width={28}
-              layout="constrained"
-            />{' '}
+            <GitHub />
             GitHub
           </a>
         </li>
