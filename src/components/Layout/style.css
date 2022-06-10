@@ -1,0 +1,16 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Playfair Display', 'New York Medium', 'New York', charter,
+    Georgia, Cambria, 'Times New Roman', Times, serif;
+  text-rendering: geometricPrecision;
+  font-variant-ligatures: common-ligatures;
+}
+
+.bd-placeholder-img {
+  max-width: 250px;
+  height: 100%;
+}

@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Link } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 
-import { github } from './Navigation.module.scss'
+import { github, font_serif } from './Navigation.module.scss'
 
 function Navigation() {
   return (
@@ -18,10 +18,10 @@ function Navigation() {
         <li className="nav-link text-center">
           <Link
             to="/"
-            className="link-secondary text-decoration-none"
+            className={`link-secondary fs-2 ${font_serif}`}
             title="Main page"
           >
-            <span className="text-dark fs-2">👨🏻‍💻</span>
+            <span className="text-dark fs-2">👨🏻‍💻 Alex</span>
           </Link>
         </li>
       </ul>

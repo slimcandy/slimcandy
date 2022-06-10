@@ -18,7 +18,7 @@ function IndexPage() {
             category
           }
           slug
-          excerpt(pruneLength: 80, truncate: true)
+          excerpt(pruneLength: 140, truncate: true)
           timeToRead
         }
       }
@@ -77,8 +77,6 @@ function IndexPage() {
                   <div className="col-auto d-none d-lg-block">
                     <svg
                       className="bd-placeholder-img"
-                      width="200"
-                      height="250"
                       xmlns="http://www.w3.org/2000/svg"
                       role="img"
                       aria-label={`${post.frontmatter.title}: Thumbnail`}
