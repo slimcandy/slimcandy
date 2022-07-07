@@ -3,9 +3,9 @@ h2,
 h3,
 h4,
 h5,
-h6 {
-  font-family: 'Playfair Display', 'New York Medium', 'New York', charter,
-    Georgia, Cambria, 'Times New Roman', Times, serif;
+h6,
+.font-serif {
+  font-family: charter, Georgia, Cambria, 'Times New Roman', Times, serif;
   text-rendering: geometricPrecision;
   font-variant-ligatures: common-ligatures;
 }
@@ -17,4 +17,13 @@ h6 {
 
 code {
   user-select: all;
+}
+.blog-header {
+  border-bottom: thin solid #e5e5e5;
+}
+
+@media (min-width: 768px) {
+  .h-md-250 {
+    height: 25em;
+  }
 }

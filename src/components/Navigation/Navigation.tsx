@@ -1,32 +1,32 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 
-import { font_serif } from './Navigation.module.scss'
+import { logo } from './Navigation.module.scss'
 import { GitHub } from '../../utils/icons'
 
 function Navigation() {
   return (
-    <nav className="d-flex flex-row justify-content-between align-items-center py-2">
-      <ul className="nav">
+    <nav className="row flex-nowrap justify-content-between align-items-center">
+      <ul className="nav col-4 pt-1">
         <li className="nav-link">
           <Link to="/about" className="link-secondary" title="Send a message">
             About Me
           </Link>
         </li>
       </ul>
-      <ul className="nav">
+      <ul className="nav col-4 text-center">
         <li className="nav-link text-center">
           <Link
             to="/"
-            className={`link-secondary fs-2 ${font_serif}`}
+            className={`link-secondary text-dark fs-2 fw-bold font-serif ${logo}`}
             title="Main page"
           >
-            <span className="text-dark fs-2">👨🏻‍💻 Alex</span>
+            React Developer
           </Link>
         </li>
       </ul>
-      <ul className="nav">
-        <li className="nav-link">
+      <ul className="nav col-4 d-flex justify-content-end align-items-center">
+        <li className="nav-link px-0">
           <a
             href="https://github.com/slimcandy"
             rel="nofollow noopener"

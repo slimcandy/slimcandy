@@ -1,6 +1,5 @@
-.font_serif {
-  font-family: 'Playfair Display', 'New York Medium', 'New York', charter,
-    Georgia, Cambria, 'Times New Roman', Times, serif;
-  text-rendering: geometricPrecision;
-  font-variant-ligatures: common-ligatures;
+.logo {
+  &:hover {
+    text-decoration: none;
+  }
 }

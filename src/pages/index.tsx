@@ -75,7 +75,7 @@ function IndexPage() {
                 {post.frontmatter.icon && (
                   <div className="col-auto d-none d-lg-block">
                     <svg
-                      className="bd-placeholder-img"
+                      className="bd-placeholder-img h-md-250"
                       xmlns="http://www.w3.org/2000/svg"
                       role="img"
                       aria-label={`${post.frontmatter.title}: Thumbnail`}
@@ -110,24 +110,22 @@ function IndexPage() {
                 {siteTitle}
               </h3>
             )}
-            <div className="row row-cols-1 row-cols-md-2 g-sm-5">
-              {restPosts.map((post: PostType) => (
-                <article
-                  className={`blog-post position-relative border-start ${article}`}
-                  key={post.id}
-                >
-                  <h2>{post.frontmatter.title}</h2>
-                  <small>
-                    {post.frontmatter.date}, {post.timeToRead} min read
-                  </small>
+            {restPosts.map((post: PostType) => (
+              <article
+                className={`blog-post position-relative py-3 border-bottom ${article}`}
+                key={post.id}
+              >
+                <h2>{post.frontmatter.title}</h2>
+                <small>
+                  {post.frontmatter.date}, {post.timeToRead} min read
+                </small>
 
-                  <p>{post.excerpt}</p>
-                  <Link to={post.slug} className="stretched-link">
-                    Continue reading
-                  </Link>
-                </article>
-              ))}
-            </div>
+                <p>{post.excerpt}</p>
+                <Link to={post.slug} className="stretched-link">
+                  Continue reading
+                </Link>
+              </article>
+            ))}
           </div>
         )}
       </div>
