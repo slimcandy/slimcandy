@@ -12,7 +12,7 @@ import './style.css'
 function Layout({
   children,
   className = '',
-  title = '',
+  title,
   description = '',
   path
 }: LayoutPropsType) {

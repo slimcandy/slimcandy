@@ -38,7 +38,7 @@ function IndexPage() {
   const siteTitle = data?.site?.siteMetadata?.title
 
   return (
-    <Layout>
+    <Layout title={siteTitle}>
       {firstPost && (
         <div className="p-4 p-md-5 mb-4 text-white rounded bg-dark">
           <div className="col-md-6 px-0">
