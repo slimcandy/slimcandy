@@ -1,25 +1,36 @@
+---
+date: 2022-10-11
+title: Linting in Monorepo
+description: Handle sharable ESlint, Prettier and Husky configs in mono repositories
+icon: 🗂
+category: JS
+---
+
+The article shows two possible methods of handling formatting and linting code in monorepos.
+
+---
+
 ## Package method
 
-Take linters as independent repositories. Apply them as if they were imported
-from NPM.
+Take linters as independent repositories. Apply them as if they were imported from NPM.
 
 ### Install
 
 Add new packages via lerna.
 
-**Prettier**
+#### Prettier
 
 `npx lerna create prettier-config --yes`
 
-**ESlint**
+#### ESlint
 
 `npx lerna create eslint-config-react --yes`
 
-## Configure
+### Configure
 
 Only two files are necessary: _index.js_ and _package.json_.
 
-**Prettier**
+#### Prettier
 
 `cd packages/prettier-config`
 
@@ -30,7 +41,7 @@ _packages/prettier-config/index.js_
 ```js
 module.exports = {
   printWidth: 80
-  // ...
+  // ... configuration
 }
 ```
 
@@ -40,222 +51,130 @@ _packages/prettier-config/package.json_
 {
   "name": "@my-local-scope/prettier-config",
   "main": "index.js"
-  // ...
+  // ... configuration
 }
 ```
 
-2. Configure it as
-   [you want](https://reactdeveloper.netlify.app/typescript-cra-eslint-airbnb-prettier)
-   `cd packages/prettier-config`
-
-`npm install --save-dev --save-exact prettier`
-
-3. _index.js_ and _package.json_ are only necessary.
-
-_index.js_ example
-
-```js
-module.exports = {
-  printWidth: 80,
-  tabWidth: 2,
-  semi: false,
-  singleQuote: true,
-  trailingComma: 'none',
-  bracketSpacing: true,
-  arrowParens: 'avoid',
-  proseWrap: 'always'
-}
-```
-
-_package.json_ example
+Wire it up with target project. Update its _package.json_ file.
 
 ```json
 {
-  "name": "@my-local-scope/prettier-config",
-  "version": "1.0.0",
-  "main": "index.js",
-  "publishConfig": {
-    "access": "public"
-  },
-  "devDependencies": {
-    "prettier": "2.7.1"
+  "prettier": "@my-local-scope/prettier-config"
+}
+```
+
+#### ESlint
+
+`cd packages/eslint-config-react`
+
+`npm init @eslint/config`
+
+`npm install --save-dev eslint-config-prettier`
+
+_packages/eslint-config-react/index.js_
+
+```js
+module.exports = {
+  extends: ['plugin:react/recommended', 'airbnb', 'prettier']
+  // ... configuration
+}
+```
+
+_packages/eslint-config-react/package.json_
+
+```json
+{
+  "name": "@my-local-scope/eslint-config-react",
+  "main": "index.js"
+  // ... configuration
+}
+```
+
+Wire it up with target project. Update its _.eslintrc_ file.
+
+```json
+{
+  "extends": ["@my-local-scope/eslint-config-react"]
+}
+```
+
+### Update target project's _package.json_
+
+```json
+{
+  "scripts": {
+    "format": "prettier --write src/**/*.js",
+    "lint": "eslint --fix src/**/*.js",
+    "test": "npm run format && npm run lint"
   }
 }
 ```
 
-4. Add to target project's _package.json_
+## Global extend method
 
-   ```json
-   {
-     "scripts": { "format": "prettier --write src/**/*.js" }
-   }
-   ```
+### Install
 
-5. Connect it into target project.
+[ESLint + Prettier](https://reactdeveloper.netlify.app/typescript-cra-eslint-airbnb-prettier) into root foder as if it's regular repository
 
-   Paste it into root object in package.json (or inside config file as a plain
-   string)[https://prettier.io/docs/en/configuration.html#sharing-configurations]
+### Extend
 
-   ```json
-   {
-     "prettier": "@my-local-scope/prettier-config"
-   }
-   ```
+Import global configs
 
-6. PROFIT!!!
+#### Prettier
 
-   `npx lerna link`
+Prettier can be extended [just from js file](https://prettier.io/docs/en/configuration.html#sharing-configurations).
 
-   `npx lerna bootstrap`
+_./.prettierrc.js_
 
-   `npx lerna build`
+```js
+module.exports = {
+  // ... configuration
+}
+```
 
-   `npx lerna run format --scope=app`
+_packages/app/.prettierrc.js_
 
-## ESlint
+```js
+module.exports = {
+  ...require('../../.prettierrc')
+  // ... configuration
+}
+```
 
-1. Install packages to
-   [share configs](https://medium.com/reactbrasil/reuse-your-eslint-prettier-config-in-a-monorepo-with-lerna-54c1800cacdc)
-   `npx lerna create eslint-config-react --yes`
+#### ESlint
 
-2. Configure it as
-   [you want](https://reactdeveloper.netlify.app/typescript-cra-eslint-airbnb-prettier)
+_packages/app/.eslintrc_
 
-   `cd packages/eslint-config-react`
+```json
+{
+  "extends": "../../.eslintrc.json"
+  // ... configuration
+}
+```
 
-   `npm init @eslint/config`
+## Rebuild project
 
-   `npm install --save-dev eslint-config-prettier`
+`npx lerna link`
 
-3. _index.js_ and _package.json_ are only necessary.
+`npx lerna bootstrap`
 
-   _index.js_ example
+`npx lerna build`
 
-   ```js
-   module.exports = {
-     env: {
-       browser: true,
-       es2021: true
-     },
-     extends: ['plugin:react/recommended', 'airbnb', 'prettier'],
-     parserOptions: {
-       ecmaFeatures: {
-         jsx: true
-       },
-       ecmaVersion: 'latest',
-       sourceType: 'module'
-     },
-     plugins: ['react'],
-     rules: {}
-   }
-   ```
-
-   _package.json_ example
-
-   ```json
-   {
-     "name": "@my-local-scope/eslint-config-react",
-     "version": "1.0.0",
-     "main": "index.js",
-     "publishConfig": {
-       "access": "public"
-     },
-     "devDependencies": {
-       "eslint": "^8.25.0",
-       "eslint-config-airbnb": "^19.0.4",
-       "eslint-config-prettier": "^8.5.0",
-       "eslint-plugin-import": "^2.26.0",
-       "eslint-plugin-jsx-a11y": "^6.6.1",
-       "eslint-plugin-react": "^7.31.10",
-       "eslint-plugin-react-hooks": "^4.6.0"
-     }
-   }
-   ```
-
-4. Add to target project's _package.json_
-
-   ```json
-   {
-     "scripts": { "lint": "eslint --fix src/**/*.js" }
-   }
-   ```
-
-5. Connect it into target project.
-
-   Paste it into (eslintrc
-   file)[https://eslint.org/docs/latest/developer-guide/shareable-configs]
-
-   ```json
-   {
-     "extends": ["@my-local-scope/eslint-config-react"]
-   }
-   ```
-
-6. PROFIT!!!
-
-   `npx lerna link`
-
-   `npx lerna bootstrap`
-
-   `npx lerna build`
-
-   `npx lerna run lint --scope=app`
+`npx lerna run test --scope=app`
 
 ## Husky
 
-1. Install it
+Install it
 
-   `npx husky-init && npm install`
+`npx husky-init && npm install`
 
-2. Update pre-commit file
+Update pre-commit file
 
-   _./.husky/pre-commit_: ~npm run test~ -> `npx lerna run test --scope=my-app`
-
-   1. Update target project's package.json
-
-   ```json
-   {
-     "scripts": {
-       "test": "npm run format && npm run lint"
-     }
-   }
-   ```
-
-# Global method
-
-1. Install into root foder
-   https://reactdeveloper.netlify.app/typescript-cra-eslint-airbnb-prettier
-2. Extend from global config files.
-
-   1. Prettier can be extended from js file.
-
-   _./.prettierrc.js_
-
-   ```js
-   module.exports = {
-     //.. configuration
-   }
-   ```
-
-   _packages/app/.prettierrc.js_
-
-   ```js
-   module.exports = {
-     ...require('../../.prettierrc'),
-     semi: false
-   }
-   ```
-
-   2. ESlint extends the same way.
-
-   _packages/app/.eslintrc_
-
-   ```json
-   {
-     "extends": "../../.eslintrc.json"
-   }
-   ```
+_./.husky/pre-commit_: Replace ~npm run test~ with `npx lerna run test --scope=my-app`
 
 ## Links
 
 1. https://medium.com/reactbrasil/reuse-your-eslint-prettier-config-in-a-monorepo-with-lerna-54c1800cacdc
+1. https://eslint.org/docs/latest/developer-guide/shareable-configs
+1. https://prettier.io/docs/en/configuration.html#sharing-configurations
+1. https://frontendmasters.com/courses/monorepos/
