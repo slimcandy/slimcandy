@@ -9,10 +9,7 @@ import { ArrowLeft, GitHub, Twitter } from '../utils/icons'
 
 const GITHUB_USERNAME = 'slimcandy'
 const GITHUB_REPO_NAME = 'slimcandy'
-const discussUrl =
-  typeof window === 'undefined'
-    ? ''
-    : `https://mobile.twitter.com/search?q=${encodeURIComponent(document.URL)}`
+const discussUrl = typeof window === 'undefined' ? '' : `https://mobile.twitter.com/search?q=${encodeURIComponent(document.URL)}`
 
 export const query = graphql`
   query FetchPostQuery($id: String!) {
@@ -61,38 +58,22 @@ function SinglePost({ data }: any) {
             </small>
             <MDXRenderer>{post.body}</MDXRenderer>
           </article>
-          <nav
-            className="my-4 mt-5 d-flex flex-wrap flex-column flex-md-row justify-content-between gap-2 gap-md-0"
-            aria-label="Pagination"
-          >
+          <nav className="my-4 mt-5 d-flex flex-wrap flex-column flex-md-row justify-content-between gap-2 gap-md-0" aria-label="Pagination">
             <div className="btn-group" role="group">
-              <Link
-                className="btn btn-outline-primary d-flex flex-row align-items-center gap-2"
-                to="/"
-              >
+              <Link className="btn btn-outline-primary d-flex flex-row align-items-center gap-2" to="/">
                 <ArrowLeft /> Back to posts
               </Link>
               {isBrowser && (
-                <ShareLink
-                  url={document.URL}
-                  title={post.frontmatter.title}
-                  className="btn btn-outline-primary d-flex flex-row align-items-center gap-2"
-                />
+                <ShareLink url={document.URL} title={post.frontmatter.title} className="btn btn-outline-primary d-flex flex-row align-items-center gap-2" />
               )}
             </div>
             <div className="btn-group" role="group">
               {isBrowser && (
-                <Link
-                  className="btn btn-outline-primary d-flex flex-row align-items-center gap-2"
-                  to={discussUrl}
-                >
+                <Link className="btn btn-outline-primary d-flex flex-row align-items-center gap-2" to={discussUrl}>
                   <Twitter /> Discuss on Twitter
                 </Link>
               )}
-              <Link
-                className="btn btn-outline-primary d-flex flex-row align-items-center gap-2"
-                to={editUrl}
-              >
+              <Link className="btn btn-outline-primary d-flex flex-row align-items-center gap-2" to={editUrl}>
                 <GitHub /> Edit on GitHub
               </Link>
             </div>
