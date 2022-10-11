@@ -42,9 +42,7 @@ function IndexPage() {
       {firstPost && (
         <div className="p-4 p-md-5 mb-4 text-white rounded bg-dark">
           <div className="col-md-6 px-0">
-            <h1 className="display-4 fst-italic">
-              {firstPost.frontmatter.title}
-            </h1>
+            <h1 className="display-4 fst-italic">{firstPost.frontmatter.title}</h1>
             <p className="lead my-3">{firstPost.excerpt}</p>
             <p className="lead mb-0">
               <Link to={firstPost.slug} className="text-white fw-bold">
@@ -60,9 +58,7 @@ function IndexPage() {
             <div className="col-md-6" key={post.id}>
               <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div className="col p-4 d-flex flex-column position-static">
-                  <strong className="d-inline-block mb-2 text-primary">
-                    {post.frontmatter.category}
-                  </strong>
+                  <strong className="d-inline-block mb-2 text-primary">{post.frontmatter.category}</strong>
                   <h3 className="mb-0">{post.frontmatter.title}</h3>
                   <div className="mb-1 text-muted">
                     {post.frontmatter.date}, {post.timeToRead} min read
@@ -84,14 +80,7 @@ function IndexPage() {
                     >
                       <title>{post.frontmatter.title}</title>
                       <rect width="100%" height="100%" fill="#55595c" />
-                      <text
-                        x="50%"
-                        y="50%"
-                        fill="#eceeef"
-                        dy=".3em"
-                        fontSize="3em"
-                        textAnchor="middle"
-                      >
+                      <text x="50%" y="50%" fill="#eceeef" dy=".3em" fontSize="3em" textAnchor="middle">
                         {post.frontmatter.icon}
                       </text>
                     </svg>
@@ -105,16 +94,9 @@ function IndexPage() {
       <div className="row">
         {restPosts && (
           <div className="col mb-5">
-            {siteTitle && (
-              <h3 className="pb-4 mb-4 fst-italic border-bottom">
-                {siteTitle}
-              </h3>
-            )}
+            {siteTitle && <h3 className="pb-4 mb-4 fst-italic border-bottom">{siteTitle}</h3>}
             {restPosts.map((post: PostType) => (
-              <article
-                className={`blog-post position-relative py-3 border-bottom ${article}`}
-                key={post.id}
-              >
+              <article className={`blog-post position-relative py-3 border-bottom ${article}`} key={post.id}>
                 <h2>{post.frontmatter.title}</h2>
                 <small>
                   {post.frontmatter.date}, {post.timeToRead} min read
