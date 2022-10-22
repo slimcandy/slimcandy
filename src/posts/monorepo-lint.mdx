@@ -26,11 +26,7 @@ Take linters as independent repositories. Apply them as if they were imported fr
 
 Add new packages via lerna.
 
-#### Prettier
-
 `npx lerna create prettier-config --yes`
-
-#### ESlint
 
 `npx lerna create eslint-config-react --yes`
 
@@ -166,7 +162,7 @@ _packages/app/.eslintrc_
 
 `npx lerna bootstrap`
 
-`npx lerna build`
+`npx lerna run build`
 
 `npx lerna run test --scope=app`
 
