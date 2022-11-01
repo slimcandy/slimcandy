@@ -6,8 +6,7 @@ icon: 📔
 category: Web
 ---
 
-Every time I reinstall my system or move to a new project I read and updated
-this file below.
+Every time I reinstall my system or move to a new project I read and updated this file below.
 
 ---
 
@@ -20,8 +19,7 @@ this file below.
 ### Node
 
 - Install [Homebrew](https://docs.brew.sh/Installation)
-- Install [`n`](https://www.npmjs.com/package/n) via brew to omit `node`
-  duplicates (Apple M1)
+- Install [`n`](https://www.npmjs.com/package/n) via brew to omit `node` duplicates (Apple M1)
 - Use `sudo n` to choose `node` version
 
 ### NPM
@@ -31,17 +29,14 @@ this file below.
 
 ### Terminal
 
-Install [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh). Choose
-[themes](https://travis.media/top-12-oh-my-zsh-themes-for-productive-developers/)
-and
+Install [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh). Choose [themes](https://travis.media/top-12-oh-my-zsh-themes-for-productive-developers/) and
 [plugins](https://travis.media/top-10-oh-my-zsh-plugins-for-productive-developers/).
 
 ### Chrome extensions
 
 - [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
 - [JSON Viewer](https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh)
-- [WhatFont](https://chrome.google.com/webstore/detail/whatfont/jabopobgcpjmedljpbcaablpmlmfcogm?hl=en)
-  or use FireFox
+- [WhatFont](https://chrome.google.com/webstore/detail/whatfont/jabopobgcpjmedljpbcaablpmlmfcogm?hl=en) or use FireFox
 - [Octotree](https://chrome.google.com/webstore/detail/octotree-github-code-tree/bkhaagjahfmjljalopjnoealnfndnagc)
 
 ### Safari extensions
@@ -61,8 +56,7 @@ and
 
 ### VSCode
 
-- Install open-source [VS Codium](https://vscodium.com) via brew:
-  `brew install --cask vscodium`
+- Install open-source [VS Codium](https://vscodium.com) via brew: `brew install --cask vscodium`
 - Set its settings:
 
   ```json
@@ -72,7 +66,7 @@ and
     // https://www.youtube.com/watch?v=QeUp3CahkQw
 
     // Theme
-    "workbench.colorTheme": "One Dark Pro", // default theme
+    "workbench.colorTheme": "Default Light+", // default theme
     "window.autoDetectColorScheme": true, // change to dark after OS
     "workbench.preferredDarkColorTheme": "One Dark Pro", // default dark theme
     "workbench.iconTheme": "material-icon-theme",
@@ -100,6 +94,9 @@ and
     "explorer.confirmDragAndDrop": false,
     "update.showReleaseNotes": false,
     "security.workspace.trust.untrustedFiles": "open",
+    "editor.inlineSuggest.enabled": true,
+    "vsintellicode.modify.editor.suggestSelection": "disabled",
+    "window.zoomLevel": 1,
 
     // Extensions
     "emmet.triggerExpansionOnTab": true,
@@ -109,11 +106,11 @@ and
     "editor.renderWhitespace": "all",
     "editor.wordWrap": "on",
     "editor.linkedEditing": true,
-    "editor.codeActionsOnSave": [
-      "source.fixAll.format",
-      "source.fixAll.eslint"
-    ],
+    "editor.codeActionsOnSave": ["source.fixAll.format", "source.fixAll.eslint"],
     "editor.formatOnSave": true,
+    "[html]": {
+      "editor.defaultFormatter": "vscode.html-language-features"
+    },
 
     // Prettier
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -121,11 +118,7 @@ and
     // Git
     "git.autofetch": true,
     "diffEditor.ignoreTrimWhitespace": false,
-    "gitlens.hovers.currentLine.over": "annotation",
-    "editor.inlineSuggest.enabled": true,
-    "vsicons.dontShowNewVersionMessage": true,
-    "vsintellicode.modify.editor.suggestSelection": "disabled",
-    "window.zoomLevel": 1
+    "gitlens.hovers.currentLine.over": "annotation"
   }
   ```
 
@@ -153,8 +146,7 @@ and
 
 #### Lint
 
-Install [Prettier](https://prettier.io/docs/en/install.html) and
-[ESLint](https://eslint.org/docs/user-guide/getting-started).
+Install [Prettier](https://prettier.io/docs/en/install.html) and [ESLint](https://eslint.org/docs/user-guide/getting-started).
 
 _.prettierrc.json:_
 
