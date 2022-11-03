@@ -30,6 +30,7 @@
   }
 
   /* Variations and variables */
+  code,
   p {
     font-size: calc(var(--p-font-size-min) * 1rem);
     line-height: var(--p-line-height-min);
@@ -110,5 +111,10 @@
 
     font-size: 1em;
     line-height: 1.5;
+  }
+
+  code {
+    font-family: var(--monospace);
+    white-space: break-spaces;
   }
 }
