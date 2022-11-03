@@ -16,11 +16,7 @@ function Navigation() {
       </ul>
       <ul className="nav col-4 text-center">
         <li className="nav-link text-center">
-          <Link
-            to="/"
-            className={`link-secondary text-dark fs-2 fw-bold font-serif ${logo}`}
-            title="Main page"
-          >
+          <Link to="/" className={`link-secondary text-dark fs-2 fw-bold ${logo}`} title="Main page">
             React Developer
           </Link>
         </li>
