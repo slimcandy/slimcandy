@@ -51,7 +51,7 @@ function SinglePost({ data }: any) {
     <Layout title={post.frontmatter.title} description={post.excerpt}>
       <div className="row position-relative pt-4">
         <div className="col-12">
-          <article className={`position-relative ${article}`} key={post.id}>
+          <article className={`position-relative ${article}`} key={post.id} lang="en">
             <h1>{post.frontmatter.title}</h1>
             <small>
               {post.frontmatter.date}, {post.timeToRead} min read
