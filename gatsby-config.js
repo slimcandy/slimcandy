@@ -1,46 +1,67 @@
-/** @type {import('gatsby).GatsbyConfig} */
+/**
+ * Configure your Gatsby site with this file.
+ *
+ * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
+ */
+
+/**
+ * @type {import('gatsby').GatsbyConfig}
+ */
+require("dotenv").config({
+  path: `.env`,
+})
+
 module.exports = {
   siteMetadata: {
-    title: `React developer blog`,
-    siteUrl: `https://reactdeveloper.netlify.app`,
-    description: `I have been programming for more than 7 years. Started from html landing pages and WordPress plugins up to react-native apps and micro frontend form`
+    title: `JS Garden`,
+    author: {
+      name: `Alex`,
+      summary: `Inspired by Japanese gardens, each page is a new world of possibilities, opening up a Pandora box of codes and applications.`,
+    },
+    description: `JS Garden is a part time web development blog, where I show my tech ideas, collections from around the net, and solutions for common problems.`,
+    siteUrl: `https://js.garden/`,
+    social: {
+      github: `slimcandy`,
+    },
   },
   plugins: [
-    'gatsby-plugin-sass',
-    'gatsby-plugin-image',
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sitemap',
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
+    `gatsby-plugin-image`,
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: 'images',
-        path: `${__dirname}/src/images/`
+        path: `${__dirname}/content/blog`,
+        name: `blog`,
       },
-      __key: 'images'
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: 'pages',
-        path: `${__dirname}/src/pages/`
+        name: `images`,
+        path: `${__dirname}/src/images`,
       },
-      __key: 'pages'
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-transformer-remark`,
       options: {
-        name: 'posts',
-        path: `${__dirname}/src/posts/`
-      }
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 630,
+            },
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+          `gatsby-remark-prismjs`,
+        ],
+      },
     },
-    {
-      resolve: 'gatsby-plugin-page-creator',
-      options: {
-        path: `${__dirname}/src/posts/`
-      }
-    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -58,69 +79,58 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMdx } }) => {
-              return allMdx.nodes.map(node => {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.nodes.map(node => {
                 return Object.assign({}, node.frontmatter, {
                   description: node.excerpt,
                   date: node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + '/' + node.slug,
-                  guid: site.siteMetadata.siteUrl + '/' + node.slug,
-                  custom_elements: [{ 'content:encoded': node.html }]
+                  url: site.siteMetadata.siteUrl + node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + node.fields.slug,
+                  custom_elements: [{ "content:encoded": node.html }],
                 })
               })
             },
-            query: `
-            {
-              allMdx {
+            query: `{
+              allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
                 nodes {
-                  id
+                  excerpt
+                  html
+                  fields {
+                    slug
+                  }
                   frontmatter {
                     title
                     date
-                    icon
-                    category
                   }
-                  slug
-                  excerpt(pruneLength: 100, truncate: true)
-                  timeToRead
                 }
               }
-            }
-            `,
-            output: '/rss.xml',
-            title: "React Developer's Blog RSS Feed"
-          }
-        ]
-      }
+            }`,
+            output: "/rss.xml",
+            title: "Gatsby Starter Blog RSS Feed",
+          },
+        ],
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `React Developer`,
-        short_name: `Alex`,
+        name: `JS Garden`,
+        short_name: `js.garden`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#343a40`,
+        // This will impact how browsers show your PWA/website
+        // https://css-tricks.com/meta-theme-color-and-trickery/
+        // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: require.resolve('./src/images/apple.png'),
-        theme_color_in_head: false
-      }
+        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
     },
     {
-      resolve: `gatsby-plugin-mdx`,
+      resolve: `gatsby-source-sanity`,
       options: {
-        extensions: ['.mdx', '.md'],
-        gatsbyRemarkPlugins: [
-          {
-            resolve: `gatsby-remark-highlight-code`,
-            options: {
-              terminal: 'none',
-              theme: 'one-light',
-              lineNumbers: true
-            }
-          }
-        ]
-      }
-    }
-  ]
+        projectId: process.env.SANITY_PROJECT_ID,
+        dataset: process.env.SANITY_DATASET,
+      },
+    },
+  ],
 }

@@ -11,4 +11,4 @@
 
 <p align="center"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=slimcandy&exclude_repo=witcher-api&langs_count=8&layout=compact&hide=makefile&theme=react" alt="Most used languages" /></p>
 
-<p align="center"><img src="https://activity-graph.herokuapp.com/graph?username=slimcandy&theme=react-dark" alt="Alex's contribution graph" /></p>
+<p align="center"><img src="https://github-readme-activity-graph.cyclic.app/graph?username=slimcandy&theme=react-dark" alt="Alex's contribution graph" /></p>
