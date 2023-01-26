@@ -6,20 +6,12 @@
  */
 
 import * as React from "react"
-import { StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
-const Bio = ({ author, children }) => {
+const Bio = ({ author, children, imageUrl }) => {
   return (
     <div className="bio">
-      <StaticImage
-        className="bio-avatar"
-        layout="fixed"
-        formats={["auto", "webp", "avif"]}
-        width={50}
-        height={50}
-        quality={95}
-        alt="Profile picture"
-      />
+      <GatsbyImage image={imageUrl} className="bio-avatar" />
       {author && (
         <p>
           Written by <strong>{author}</strong>

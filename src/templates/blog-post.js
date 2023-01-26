@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 import { PortableText } from "@portabletext/react"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -12,7 +13,7 @@ const BlogPostTemplate = ({
   location,
 }) => {
   const siteTitle = site.siteMetadata?.title || `Title`
-  console.log("post", post.author.name)
+
   return (
     <Layout location={location} title={siteTitle}>
       <article
@@ -24,6 +25,7 @@ const BlogPostTemplate = ({
           <h1 itemProp="headline">{post.title}</h1>
           <p>{post.publishedAt}</p>
         </header>
+        <GatsbyImage image={post.mainImage.asset.gatsbyImageData} />
         <section itemProp="articleBody">
           <PortableText
             value={post._rawContent}
@@ -32,7 +34,10 @@ const BlogPostTemplate = ({
         </section>
         <hr />
         <footer>
-          <Bio author={post.author.name}>
+          <Bio
+            author={post.author.name}
+            imageUrl={post.author.image.asset.gatsbyImageData}
+          >
             <PortableText
               value={post.author.bio}
               components={portableTextComponents}
@@ -107,8 +112,35 @@ export const pageQuery = graphql`
           list
           style
         }
+        image {
+          asset {
+            gatsbyImageData(
+              aspectRatio: 1.1
+              height: 50
+              width: 50
+              placeholder: DOMINANT_COLOR
+              layout: FULL_WIDTH
+              formats: [AUTO, WEBP, AVIF, JPG, PNG]
+              breakpoints: [750, 1080, 1366, 1920]
+              fit: CROP
+            )
+          }
+        }
       }
       _rawContent
+      mainImage {
+        asset {
+          gatsbyImageData(
+            aspectRatio: 16.9
+            height: 400
+            placeholder: DOMINANT_COLOR
+            layout: FULL_WIDTH
+            formats: [AUTO, WEBP, AVIF, JPG, PNG]
+            breakpoints: [750, 1080, 1366, 1920]
+            fit: FILL
+          )
+        }
+      }
       categories {
         description
         title
