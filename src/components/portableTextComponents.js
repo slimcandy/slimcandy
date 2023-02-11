@@ -2,11 +2,15 @@ import * as React from "react"
 import Refractor from "react-refractor"
 import js from "refractor/lang/javascript"
 import typescript from "refractor/lang/typescript"
+import json from "refractor/lang/json"
+import yaml from "refractor/lang/yaml"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { getGatsbyImageData } from "gatsby-source-sanity"
 
 Refractor.registerLanguage(js)
 Refractor.registerLanguage(typescript)
+Refractor.registerLanguage(json)
+Refractor.registerLanguage(yaml)
 
 const components = {
   types: {
