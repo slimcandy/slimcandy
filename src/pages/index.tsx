@@ -22,14 +22,14 @@ function IndexPage(props: PageProps) {
             Subscribe to{" "}
             <a
               href="#RSS"
-              className="underline decoration-sky-800 decoration-2 underline-offset-3 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white"
+              className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white"
             >
               rss feed
             </a>
             ,{" "}
             <a
               href="#YOUTUBE"
-              className="underline decoration-sky-800 decoration-2 underline-offset-3 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white"
+              className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white"
             >
               {" "}
               youtube channel
@@ -37,7 +37,7 @@ function IndexPage(props: PageProps) {
             and{" "}
             <a
               href="#PODCAST"
-              className="underline decoration-sky-800 decoration-2 underline-offset-3 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white"
+              className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white"
             >
               {" "}
               apple podcasts
@@ -51,14 +51,14 @@ function IndexPage(props: PageProps) {
             Discover my{" "}
             <a
               href="#Github"
-              className="underline decoration-sky-800 decoration-2 underline-offset-3 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white"
+              className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white"
             >
               Github
             </a>{" "}
             and explore my{" "}
             <a
               href="#LinkedIn"
-              className="underline decoration-sky-800 decoration-2 underline-offset-3 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white"
+              className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white"
             >
               LinkedIn profile
             </a>
@@ -72,7 +72,7 @@ function IndexPage(props: PageProps) {
               <li>
                 <a
                   href="#tag1"
-                  className="underline decoration-sky-800 decoration-2 underline-offset-3 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
+                  className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
                 >
                   tag1
                 </a>{" "}
@@ -81,7 +81,7 @@ function IndexPage(props: PageProps) {
               <li>
                 <a
                   href="#tag1"
-                  className="underline decoration-sky-800 decoration-2 underline-offset-3 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
+                  className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
                 >
                   tag1
                 </a>{" "}
@@ -90,7 +90,7 @@ function IndexPage(props: PageProps) {
               <li>
                 <a
                   href="#tag1"
-                  className="underline decoration-sky-800 decoration-2 underline-offset-3 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
+                  className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
                 >
                   tag1
                 </a>{" "}
@@ -99,7 +99,7 @@ function IndexPage(props: PageProps) {
               <li>
                 <a
                   href="#tag1"
-                  className="underline decoration-sky-800 decoration-2 underline-offset-3 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
+                  className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
                 >
                   tag1
                 </a>{" "}
@@ -112,7 +112,7 @@ function IndexPage(props: PageProps) {
               <li>
                 <a
                   href="#category"
-                  className="underline decoration-sky-800 decoration-2 underline-offset-3 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
+                  className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
                 >
                   css
                 </a>
@@ -121,7 +121,7 @@ function IndexPage(props: PageProps) {
               <li>
                 <a
                   href="#category"
-                  className="underline decoration-sky-800 decoration-2 underline-offset-3 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
+                  className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
                 >
                   html
                 </a>
@@ -130,7 +130,7 @@ function IndexPage(props: PageProps) {
               <li>
                 <a
                   href="#category"
-                  className="underline decoration-sky-800 decoration-2 underline-offset-3 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
+                  className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
                 >
                   life
                 </a>
@@ -139,7 +139,7 @@ function IndexPage(props: PageProps) {
               <li>
                 <a
                   href="#category"
-                  className="underline decoration-sky-800 decoration-2 underline-offset-3 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
+                  className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
                 >
                   js
                 </a>
@@ -177,7 +177,7 @@ function IndexPage(props: PageProps) {
               </p>
               <a
                 href="#read"
-                className="underline decoration-sky-800 decoration-2 underline-offset-3 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-2 border-double border-stone-900 flex items-center gap-x-2 my-2 px-2 py-1"
+                className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-2 border-double border-stone-900 flex items-center gap-x-2 my-2 px-2 py-1"
               >
                 <GrFormNextLink />
                 Read more...
@@ -208,7 +208,7 @@ function IndexPage(props: PageProps) {
               </p>
               <a
                 href="#read"
-                className="underline decoration-sky-800 decoration-2 underline-offset-3 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-4 border-double border-stone-900 flex items-center gap-x-2 my-2 px-4 py-2 text-xl"
+                className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-4 border-double border-stone-900 flex items-center gap-x-2 my-2 px-4 py-2 text-xl"
               >
                 <GrFormNextLink />
                 Read more...
@@ -234,7 +234,7 @@ function IndexPage(props: PageProps) {
               </p>
               <a
                 href="#read"
-                className="underline decoration-sky-800 decoration-2 underline-offset-3 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-2 border-double border-stone-900 flex items-center gap-x-2 my-2 px-2 py-1"
+                className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-2 border-double border-stone-900 flex items-center gap-x-2 my-2 px-2 py-1"
               >
                 <GrFormNextLink />
                 Read more...
@@ -256,7 +256,7 @@ function IndexPage(props: PageProps) {
             </p>
             <a
               href="#read"
-              className="underline decoration-sky-800 decoration-2 underline-offset-3 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-2 border-double border-stone-900 flex items-center gap-x-2 my-2 px-2 py-1"
+              className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-2 border-double border-stone-900 flex items-center gap-x-2 my-2 px-2 py-1"
             >
               <GrFormNextLink />
               Read more...
@@ -275,7 +275,7 @@ function IndexPage(props: PageProps) {
             </p>
             <a
               href="#read"
-              className="underline decoration-sky-800 decoration-2 underline-offset-3 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-2 border-double border-stone-900 flex items-center gap-x-2 my-2 px-2 py-1"
+              className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-2 border-double border-stone-900 flex items-center gap-x-2 my-2 px-2 py-1"
             >
               <GrFormNextLink />
               Read more...
@@ -294,7 +294,7 @@ function IndexPage(props: PageProps) {
             </p>
             <a
               href="#read"
-              className="underline decoration-sky-800 decoration-2 underline-offset-3 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-2 border-double border-stone-900 flex items-center gap-x-2 my-2 px-2 py-1"
+              className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-2 border-double border-stone-900 flex items-center gap-x-2 my-2 px-2 py-1"
             >
               <GrFormNextLink />
               Read more...
@@ -303,11 +303,11 @@ function IndexPage(props: PageProps) {
         </div>
       </main>
       <footer className="text-stone-500 my-2 max-w-screen-2xl mx-auto hyphens-auto">
-        <ul className="flex items-center justify-center gap-x-2 md:gap-x-4 lg:gap-x-6 xl:gap-x-8 border-y-2 border-stone-500 py-2">
+        <ul className="flex items-center justify-center gap-x-2 md:gap-x-4 lg:gap-x-6 xl:gap-x-8 border-y-2 border-stone-500 py-2 text-sm">
           <li>
             <a
               href=""
-              className="underline decoration-sky-800 decoration-2 underline-offset-3 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+              className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
             >
               <AiFillYoutube /> youtube
             </a>
@@ -315,7 +315,7 @@ function IndexPage(props: PageProps) {
           <li>
             <a
               href=""
-              className="underline decoration-sky-800 decoration-2 underline-offset-3 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+              className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
             >
               <AiFillGithub /> github
             </a>
@@ -323,7 +323,7 @@ function IndexPage(props: PageProps) {
           <li>
             <a
               href=""
-              className="underline decoration-sky-800 decoration-2 underline-offset-3 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+              className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
             >
               <BsFillRssFill /> rss
             </a>
@@ -331,7 +331,7 @@ function IndexPage(props: PageProps) {
           <li>
             <a
               href=""
-              className="underline decoration-sky-800 decoration-2 underline-offset-3 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+              className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
             >
               <SiApplepodcasts /> podcasts
             </a>
@@ -339,7 +339,7 @@ function IndexPage(props: PageProps) {
           <li>
             <a
               href=""
-              className="underline decoration-sky-800 decoration-2 underline-offset-3 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+              className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
             >
               <AiTwotoneMail /> email
             </a>
@@ -347,16 +347,19 @@ function IndexPage(props: PageProps) {
           <li>
             <a
               href=""
-              className="underline decoration-sky-800 decoration-2 underline-offset-3 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+              className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
             >
               <AiFillLinkedin /> linkedin
             </a>
           </li>
         </ul>
-        <p className="flex items-center justify-center gap-x-2 py-2">
-          All rights reserved <FaRegCopyright /> Aleksei Volkov{" "}
-          {new Date().getFullYear().toString()}
-        </p>
+        <ul className="flex items-center justify-between gap-x-2 py-1 px-4 text-xs">
+          <li>All rights reserved</li>
+          <li className="flex items-center gap-x-2">
+            <FaRegCopyright /> Aleksei Volkov
+          </li>
+          <li>{new Date().getFullYear().toString()}</li>
+        </ul>
       </footer>
     </>
   )
