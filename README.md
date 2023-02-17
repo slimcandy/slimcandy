@@ -1,14 +1,49 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/slimcandy/slimcandy/master/images/alex.png" alt="👨🏻‍💻" />
+  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
+    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+  </a>
 </p>
+<h1 align="center">
+  Gatsby Minimal TypeScript Starter
+</h1>
 
-### Hi, I'm Alex!
+## 🚀 Quick start
 
-- 💳 I’m currently working at an online bank.
-- 🌱 I’m currently challenging myself with frontendmasters.com pwa courses.
-- 🤔 I’m looking for help with JS native version of exiftool.
-- 💬 Fell free to ask me about html semantics
+1.  **Create a Gatsby site.**
 
-<p align="center"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=slimcandy&exclude_repo=witcher-api&langs_count=8&layout=compact&hide=makefile&theme=react" alt="Most used languages" /></p>
+    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
 
-<p align="center"><img src="https://github-readme-activity-graph.cyclic.app/graph?username=slimcandy&theme=react-dark" alt="Alex's contribution graph" /></p>
+    ```shell
+    # create a new Gatsby site using the minimal TypeScript starter
+    npm init gatsby -- -ts
+    ```
+
+2.  **Start developing.**
+
+    Navigate into your new site’s directory and start it up.
+
+    ```shell
+    cd my-gatsby-site/
+    npm run develop
+    ```
+
+3.  **Open the code and start customizing!**
+
+    Your site is now running at http://localhost:8000!
+
+    Edit `src/pages/index.tsx` to see your site update in real-time!
+
+4.  **Learn more**
+
+    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+
+## 🚀 Quick start (Netlify)
+
+Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
+
+[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
