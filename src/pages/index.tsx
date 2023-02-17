@@ -16,7 +16,7 @@ import { FaRegCopyright } from "react-icons/fa"
 function IndexPage(props: PageProps) {
   return (
     <>
-      <header className="text-stone-500 my-2 max-w-screen-2xl mx-auto hyphens-auto">
+      <header className="my-2 max-w-screen-2xl mx-auto">
         <div className="grid md:grid-cols-5 mx-2 my-1 items-stretch justify-center">
           <p className="border border-stone-500 px-4 py-2 text-xs md:text-sm text-center font-light first-line:tracking-widest first-line:uppercase">
             Subscribe to{" "}
@@ -44,9 +44,17 @@ function IndexPage(props: PageProps) {
             </a>
             .
           </p>
-          <h1 className="uppercase font-serif font-black text-6xl text-center col-span-3 flex items-center justify-center">
-            js.garden
-          </h1>
+          <div className=" text-center col-span-3 flex items-center justify-center">
+            <a
+              href="#category"
+              className="hover:underline hover:decoration-8 hover:underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white inline-block"
+            >
+              <h1 className="uppercase font-serif font-black text-6xl">
+                js.garden
+              </h1>
+            </a>
+          </div>
+
           <p className="border border-stone-500 px-4 py-2 text-xs md:text-sm text-center font-light first-line:tracking-widest first-line:uppercase">
             Discover my{" "}
             <a
@@ -148,17 +156,27 @@ function IndexPage(props: PageProps) {
           </div>
         </div>
       </header>
-      <main className="font-serif my-4 max-w-screen-2xl mx-auto hyphens-auto">
-        <h2 className="text-3xl md:text-5xl p-2 text-center my-2">
-          Turn Your Pet Projects into Profits and Become a Programming Pro: A
-          Guide to Success
-        </h2>
+      <main className="font-serif my-4 max-w-screen-2xl mx-auto">
+        <a
+          href="#category"
+          className="hover:underline hover:decoration-8 hover:underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white inline-block"
+        >
+          <h2 className="text-3xl md:text-5xl p-2 text-center my-2 text-stone-900">
+            Turn Your Pet Projects into Profits and Become a Programming Pro: A
+            Guide to Success
+          </h2>
+        </a>
         <div className="grid md:grid-cols-5 xl:grid-cols-4 gap-x-4 items-stretch justify-center border-b-2 border-b-stone-900 border-double">
           <div className="px-4 border-r-2 border-r-stone-900 border-double flex justify-center">
-            <article className="font-light font-serif  leading-none max-w-xl md:font-normal text-sm md:text-base text-justify transition-all text-stone-500">
-              <h3 className="text-xl md:text-2xl mb-2 tracking-widest font-light">
-                My New MacBook Setup
-              </h3>
+            <article className="font-light font-serif  leading-none max-w-xl md:font-normal text-sm md:text-base text-justify transition-all">
+              <a
+                href="#category"
+                className="hover:underline hover:decoration-4 hover:underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white inline-block"
+              >
+                <h3 className="text-xl md:text-2xl mb-2 tracking-widest font-light">
+                  My New MacBook Setup
+                </h3>
+              </a>
               <img
                 src="https://cdn.sanity.io/images/qtyf8bhl/production/25b2e957914f6142695ab5bc8082f297489c8d1e-1024x1024.png?rect=0,312,1024,400&w=1024&h=400&auto=format"
                 alt="logo"
@@ -185,7 +203,7 @@ function IndexPage(props: PageProps) {
             </article>
           </div>
           <div className="md:col-span-3 xl:col-span-2 flex flex-col items-center">
-            <article className="font-light font-serif  leading-normal max-w-xl md:font-normal text-base md:text-lg text-justify transition-all">
+            <article className="font-light font-serif  leading-normal max-w-xl md:font-normal text-base md:text-lg text-justify transition-all text-stone-900">
               <img
                 src="https://cdn.sanity.io/images/qtyf8bhl/production/f51dc2aeabea156f5d32dc1e4b0475e300910ff0-1024x1024.png?rect=0,312,1024,400&w=1024&h=400&auto=format"
                 alt="logo"
@@ -216,10 +234,16 @@ function IndexPage(props: PageProps) {
             </article>
           </div>
           <div className="px-4 border-l-2 border-l-stone-900 border-double flex justify-center">
-            <article className=" font-light font-serif leading-none max-w-xl md:font-normal text-sm md:text-base text-justify transition-all text-stone-500">
-              <h3 className="text-xl md:text-2xl mb-2 tracking-widest font-light">
-                HDR in CSS
-              </h3>
+            <article className=" font-light font-serif leading-none max-w-xl md:font-normal text-sm md:text-base text-justify transition-all ">
+              <a
+                href="#category"
+                className="hover:underline hover:decoration-4 hover:underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white inline-block"
+              >
+                {" "}
+                <h3 className="text-xl md:text-2xl mb-2 tracking-widest font-light">
+                  HDR in CSS
+                </h3>
+              </a>
               <img
                 src="https://cdn.sanity.io/images/qtyf8bhl/production/b5bddacb5423ebcf2280d6ae7e84e172d1bba877-777x892.png?w=654&h=751&auto=format"
                 alt="logo"
@@ -243,7 +267,7 @@ function IndexPage(props: PageProps) {
           </div>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-2 md:gap-x-2 lg:gap-x-4 xl:gap-x-6 items-stretch justify-center mx-auto px-4 py-2">
-          <article className=" font-light font-serif leading-none max-w-xl md:font-normal text-sm md:text-base text-justify transition-all text-stone-500 mt-1 pt-2">
+          <article className=" font-light font-serif leading-none max-w-xl md:font-normal text-sm md:text-base text-justify transition-all  mt-1 pt-2">
             <h3 className="text-xl md:text-2xl mb-2 tracking-widest font-light">
               HDR in CSS
             </h3>
@@ -262,7 +286,7 @@ function IndexPage(props: PageProps) {
               Read more...
             </a>
           </article>
-          <article className=" font-light font-serif leading-none max-w-xl md:font-normal text-sm md:text-base text-justify transition-all text-stone-500 mt-1 pt-2">
+          <article className=" font-light font-serif leading-none max-w-xl md:font-normal text-sm md:text-base text-justify transition-all  mt-1 pt-2">
             <h3 className="text-xl md:text-2xl mb-2 tracking-widest font-light">
               HDR in CSS
             </h3>
@@ -281,7 +305,7 @@ function IndexPage(props: PageProps) {
               Read more...
             </a>
           </article>
-          <article className=" font-light font-serif leading-none max-w-xl md:font-normal text-sm md:text-base text-justify transition-all text-stone-500 mt-1 pt-2">
+          <article className=" font-light font-serif leading-none max-w-xl md:font-normal text-sm md:text-base text-justify transition-all  mt-1 pt-2">
             <h3 className="text-xl md:text-2xl mb-2 tracking-widest font-light">
               HDR in CSS
             </h3>
@@ -302,7 +326,7 @@ function IndexPage(props: PageProps) {
           </article>
         </div>
       </main>
-      <footer className="text-stone-500 my-2 max-w-screen-2xl mx-auto hyphens-auto">
+      <footer className=" my-2 max-w-screen-2xl mx-auto">
         <ul className="flex items-center justify-center gap-x-2 md:gap-x-4 lg:gap-x-6 xl:gap-x-8 border-y-2 border-stone-500 py-2 text-sm">
           <li>
             <a
@@ -371,7 +395,7 @@ export function Head() {
   return (
     <>
       <html lang="en" />
-      <body className="my-body-class" />
+      <body className="text-stone-600 hyphens-auto" />
       <title>Home page | JS.Garden</title>
     </>
   )
