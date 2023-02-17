@@ -16,9 +16,9 @@ import { FaRegCopyright } from "react-icons/fa"
 function IndexPage(props: PageProps) {
   return (
     <>
-      <header className="my-2 max-w-screen-2xl mx-auto">
-        <div className="grid md:grid-cols-5 mx-2 my-1 items-stretch justify-center">
-          <p className="border border-stone-500 px-4 py-2 text-xs md:text-sm text-center font-light first-line:tracking-widest first-line:uppercase">
+      <header className="my-1 lg:my-2 max-w-screen-2xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-5 mx-1 lg:mx-2 lg:my-1 items-stretch justify-center md:gap-y-2">
+          <p className="hidden md:block border border-stone-500 px-4 py-2 text-xs md:text-sm text-center font-light first-line:tracking-widest first-line:uppercase">
             Subscribe to{" "}
             <a
               href="#RSS"
@@ -44,18 +44,17 @@ function IndexPage(props: PageProps) {
             </a>
             .
           </p>
-          <div className=" text-center col-span-3 flex items-center justify-center">
+          <div className=" text-center md:col-span-3 flex items-center justify-center">
             <a
               href="#category"
               className="hover:underline hover:decoration-8 hover:underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white inline-block"
             >
-              <h1 className="uppercase font-serif font-black text-6xl">
+              <h1 className="uppercase font-serif font-black text-xl lg:text-6xl">
                 js.garden
               </h1>
             </a>
           </div>
-
-          <p className="border border-stone-500 px-4 py-2 text-xs md:text-sm text-center font-light first-line:tracking-widest first-line:uppercase">
+          <p className="hidden md:block border border-stone-500 px-4 py-2 text-xs md:text-sm text-center font-light first-line:tracking-widest first-line:uppercase">
             Discover my{" "}
             <a
               href="#Github"
@@ -73,10 +72,10 @@ function IndexPage(props: PageProps) {
             .
           </p>
         </div>
-        <div className="grid md:grid-cols-5 mx-2 my-4 items-stretch lowercase text-xs border-y-2 border-double border-stone-900 px-4 py-2">
-          <div className="col-span-2 flex gap-x-1 items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 mx-2 my-1 sm:my-2 md:my-3 lg:my-4 items-stretch lowercase text-xs border-y-2 border-double border-stone-900 px-2 md:px-3 lg:px-4 py-1 md:py-2 gap-1">
+          <div className="col-span-1 md:col-span-2 flex gap-1 items-center">
             <AiFillTag />
-            <ul className="flex gap-x-1">
+            <ul className="flex flex-wrap items-center gap-1">
               <li>
                 <a
                   href="#tag1"
@@ -114,9 +113,9 @@ function IndexPage(props: PageProps) {
               </li>
             </ul>
           </div>
-          <div className="col-span-3 flex gap-x-1 items-center uppercase">
+          <div className="col-span-1 md:col-span-3 flex gap-x-1 items-center uppercase">
             <BiCategoryAlt />
-            <ul className="flex gap-x-1">
+            <ul className="flex flex-wrap items-center gap-1">
               <li>
                 <a
                   href="#category"
@@ -156,19 +155,50 @@ function IndexPage(props: PageProps) {
           </div>
         </div>
       </header>
-      <main className="font-serif my-4 max-w-screen-2xl mx-auto">
+      <main className="font-serif my-1 sm:my-2 md:my-3 lg:my-4 max-w-screen-2xl mx-auto">
         <a
           href="#category"
           className="hover:underline hover:decoration-8 hover:underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white inline-block"
         >
-          <h2 className="text-3xl md:text-5xl p-2 text-center my-2 text-stone-900">
+          <h2 className="text-xl sm:text-3xl md:text-5xl sm:p-1 md:p-2 text-center my-1 md:my-2 text-stone-900 px-1 md:px-2 lg:px-4">
             Turn Your Pet Projects into Profits and Become a Programming Pro: A
             Guide to Success
           </h2>
         </a>
-        <div className="grid md:grid-cols-5 xl:grid-cols-4 gap-x-4 items-stretch justify-center border-b-2 border-b-stone-900 border-double">
-          <div className="px-4 border-r-2 border-r-stone-900 border-double flex justify-center">
-            <article className="font-light font-serif  leading-none max-w-xl md:font-normal text-sm md:text-base text-justify transition-all">
+        <div className="grid md:grid-cols-5 xl:grid-cols-4 gap-x-4 gap-y-2 items-stretch justify-center border-b-2 border-b-stone-900 border-double px-4 sm:px-3 md:px-2 lg:px-1 xl:px-0 text-justify">
+          <div className="md:order-2 md:col-span-3 xl:col-span-2 flex flex-col items-center">
+            <article className="font-light font-serif leading-normal max-w-xl md:font-normal text-base md:text-lg  text-stone-900">
+              <img
+                src="https://cdn.sanity.io/images/qtyf8bhl/production/f51dc2aeabea156f5d32dc1e4b0475e300910ff0-1024x1024.png?rect=0,312,1024,400&w=1024&h=400&auto=format"
+                alt="logo"
+                className="block w-full max-h-40 sm:max-h-52 md:max-h-72 lg:max-h-80 object-cover mb-2 border-4 border-stone-900"
+              />
+              <p>
+                As a programmer, you are likely familiar with the excitement
+                from pet projects. Whether it's a passion project or an
+                experiment with new technologies, these projects can be
+                rewarding. But what if you could turn your pet projects into
+                profits and become a programming pro? This guide will show you
+                how to do that.
+              </p>
+
+              <h3 className="text-xl md:text-3xl my-2">GitHub</h3>
+              <p>
+                The first step in turning your pet projects into profits is to
+                make your GitHub repository contribution-ready. This means
+                adding a license and contribution files to your repository.
+              </p>
+              <a
+                href="#read"
+                className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-4 border-double border-stone-900 flex items-center gap-x-2 my-2 px-4 py-2 text-xl"
+              >
+                <GrFormNextLink />
+                Read more...
+              </a>
+            </article>
+          </div>
+          <div className="md:order-1 md:px-4 md:border-r-2 md:border-r-stone-900 md:border-double flex justify-center">
+            <article className="font-light font-serif  leading-none max-w-xl md:font-normal text-sm md:text-base ">
               <a
                 href="#category"
                 className="hover:underline hover:decoration-4 hover:underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white inline-block"
@@ -202,39 +232,8 @@ function IndexPage(props: PageProps) {
               </a>
             </article>
           </div>
-          <div className="md:col-span-3 xl:col-span-2 flex flex-col items-center">
-            <article className="font-light font-serif  leading-normal max-w-xl md:font-normal text-base md:text-lg text-justify transition-all text-stone-900">
-              <img
-                src="https://cdn.sanity.io/images/qtyf8bhl/production/f51dc2aeabea156f5d32dc1e4b0475e300910ff0-1024x1024.png?rect=0,312,1024,400&w=1024&h=400&auto=format"
-                alt="logo"
-                className="block w-full max-h-80 object-cover mb-2 border-4 border-stone-900"
-              />
-              <p>
-                As a programmer, you are likely familiar with the excitement
-                from pet projects. Whether it's a passion project or an
-                experiment with new technologies, these projects can be
-                rewarding. But what if you could turn your pet projects into
-                profits and become a programming pro? This guide will show you
-                how to do that.
-              </p>
-
-              <h3 className="text-xl md:text-3xl my-2">GitHub</h3>
-              <p>
-                The first step in turning your pet projects into profits is to
-                make your GitHub repository contribution-ready. This means
-                adding a license and contribution files to your repository.
-              </p>
-              <a
-                href="#read"
-                className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-4 border-double border-stone-900 flex items-center gap-x-2 my-2 px-4 py-2 text-xl"
-              >
-                <GrFormNextLink />
-                Read more...
-              </a>
-            </article>
-          </div>
-          <div className="px-4 border-l-2 border-l-stone-900 border-double flex justify-center">
-            <article className=" font-light font-serif leading-none max-w-xl md:font-normal text-sm md:text-base text-justify transition-all ">
+          <div className="order-3 md:px-4 md:border-l-2 md:border-l-stone-900 md:border-double flex justify-center">
+            <article className=" font-light font-serif leading-none max-w-xl md:font-normal text-sm md:text-base  ">
               <a
                 href="#category"
                 className="hover:underline hover:decoration-4 hover:underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white inline-block"
@@ -267,7 +266,7 @@ function IndexPage(props: PageProps) {
           </div>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-2 md:gap-x-2 lg:gap-x-4 xl:gap-x-6 items-stretch justify-center mx-auto px-4 py-2">
-          <article className=" font-light font-serif leading-none max-w-xl md:font-normal text-sm md:text-base text-justify transition-all  mt-1 pt-2">
+          <article className=" font-light font-serif leading-none max-w-xl md:font-normal text-sm md:text-base text-justify   mt-1 pt-2">
             <h3 className="text-xl md:text-2xl mb-2 tracking-widest font-light">
               HDR in CSS
             </h3>
@@ -286,7 +285,7 @@ function IndexPage(props: PageProps) {
               Read more...
             </a>
           </article>
-          <article className=" font-light font-serif leading-none max-w-xl md:font-normal text-sm md:text-base text-justify transition-all  mt-1 pt-2">
+          <article className=" font-light font-serif leading-none max-w-xl md:font-normal text-sm md:text-base text-justify   mt-1 pt-2">
             <h3 className="text-xl md:text-2xl mb-2 tracking-widest font-light">
               HDR in CSS
             </h3>
@@ -305,7 +304,7 @@ function IndexPage(props: PageProps) {
               Read more...
             </a>
           </article>
-          <article className=" font-light font-serif leading-none max-w-xl md:font-normal text-sm md:text-base text-justify transition-all  mt-1 pt-2">
+          <article className=" font-light font-serif leading-none max-w-xl md:font-normal text-sm md:text-base text-justify   mt-1 pt-2">
             <h3 className="text-xl md:text-2xl mb-2 tracking-widest font-light">
               HDR in CSS
             </h3>
@@ -327,7 +326,7 @@ function IndexPage(props: PageProps) {
         </div>
       </main>
       <footer className=" my-2 max-w-screen-2xl mx-auto">
-        <ul className="flex items-center justify-center gap-x-2 md:gap-x-4 lg:gap-x-6 xl:gap-x-8 border-y-2 border-stone-500 py-2 text-sm">
+        <ul className="flex flex-wrap items-center justify-center gap-x-2 md:gap-x-4 lg:gap-x-6 xl:gap-x-8 border-y-2 border-stone-500 py-2 text-sm">
           <li>
             <a
               href=""
@@ -377,7 +376,7 @@ function IndexPage(props: PageProps) {
             </a>
           </li>
         </ul>
-        <ul className="flex items-center justify-between gap-x-2 py-1 px-4 text-xs">
+        <ul className="flex flex-wrap items-center justify-between gap-x-2 py-1 px-4 text-xs">
           <li>All rights reserved</li>
           <li className="flex items-center gap-x-2">
             <FaRegCopyright /> Aleksei Volkov
@@ -395,7 +394,7 @@ export function Head() {
   return (
     <>
       <html lang="en" />
-      <body className="text-stone-600 hyphens-auto" />
+      <body className="text-stone-600 hyphens-auto transition-all" />
       <title>Home page | JS.Garden</title>
     </>
   )
