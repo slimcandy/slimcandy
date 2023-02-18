@@ -1445,6 +1445,9 @@ type Query = {
   readonly allSanityFileAsset: SanityFileAssetConnection;
   readonly allSanityImageAsset: SanityImageAssetConnection;
   readonly allSanityPost: SanityPostConnection;
+  readonly allSanityPublication: SanityPublicationConnection;
+  readonly allSanitySettings: SanitySettingsConnection;
+  readonly allSanityTag: SanityTagConnection;
   readonly allSite: SiteConnection;
   readonly allSiteBuildMetadata: SiteBuildMetadataConnection;
   readonly allSiteFunction: SiteFunctionConnection;
@@ -1459,6 +1462,9 @@ type Query = {
   readonly sanityFileAsset: Maybe<SanityFileAsset>;
   readonly sanityImageAsset: Maybe<SanityImageAsset>;
   readonly sanityPost: Maybe<SanityPost>;
+  readonly sanityPublication: Maybe<SanityPublication>;
+  readonly sanitySettings: Maybe<SanitySettings>;
+  readonly sanityTag: Maybe<SanityTag>;
   readonly site: Maybe<Site>;
   readonly siteBuildMetadata: Maybe<SiteBuildMetadata>;
   readonly siteFunction: Maybe<SiteFunction>;
@@ -1536,6 +1542,30 @@ type Query_allSanityPostArgs = {
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
   sort: InputMaybe<ReadonlyArray<InputMaybe<SanityPostSortInput>>>;
+};
+
+
+type Query_allSanityPublicationArgs = {
+  filter: InputMaybe<SanityPublicationFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<SanityPublicationSortInput>>>;
+};
+
+
+type Query_allSanitySettingsArgs = {
+  filter: InputMaybe<SanitySettingsFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<SanitySettingsSortInput>>>;
+};
+
+
+type Query_allSanityTagArgs = {
+  filter: InputMaybe<SanityTagFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<SanityTagSortInput>>>;
 };
 
 
@@ -1717,8 +1747,8 @@ type Query_sanityCategoryArgs = {
   description: InputMaybe<StringQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
+  name: InputMaybe<StringQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
-  title: InputMaybe<StringQueryOperatorInput>;
 };
 
 
@@ -1794,16 +1824,18 @@ type Query_sanityPostArgs = {
   _id: InputMaybe<StringQueryOperatorInput>;
   _key: InputMaybe<StringQueryOperatorInput>;
   _rawAuthor: InputMaybe<JSONQueryOperatorInput>;
-  _rawCategories: InputMaybe<JSONQueryOperatorInput>;
+  _rawCategory: InputMaybe<JSONQueryOperatorInput>;
   _rawContent: InputMaybe<JSONQueryOperatorInput>;
   _rawDescription: InputMaybe<JSONQueryOperatorInput>;
   _rawMainImage: InputMaybe<JSONQueryOperatorInput>;
   _rawSlug: InputMaybe<JSONQueryOperatorInput>;
+  _rawTags: InputMaybe<JSONQueryOperatorInput>;
   _rev: InputMaybe<StringQueryOperatorInput>;
   _type: InputMaybe<StringQueryOperatorInput>;
   _updatedAt: InputMaybe<DateQueryOperatorInput>;
+  applePodcastUrl: InputMaybe<StringQueryOperatorInput>;
   author: InputMaybe<SanityAuthorFilterInput>;
-  categories: InputMaybe<SanityCategoryFilterListInput>;
+  category: InputMaybe<SanityCategoryFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
   content: InputMaybe<SanityBlockFilterListInput>;
   description: InputMaybe<SanityBlockFilterListInput>;
@@ -1812,8 +1844,82 @@ type Query_sanityPostArgs = {
   mainImage: InputMaybe<SanityImageFilterInput>;
   parent: InputMaybe<NodeFilterInput>;
   publishedAt: InputMaybe<DateQueryOperatorInput>;
+  readMore: InputMaybe<StringQueryOperatorInput>;
+  slug: InputMaybe<SanitySlugFilterInput>;
+  tags: InputMaybe<SanityTagFilterListInput>;
+  title: InputMaybe<StringQueryOperatorInput>;
+  youtubeUrl: InputMaybe<StringQueryOperatorInput>;
+};
+
+
+type Query_sanityPublicationArgs = {
+  _createdAt: InputMaybe<DateQueryOperatorInput>;
+  _id: InputMaybe<StringQueryOperatorInput>;
+  _key: InputMaybe<StringQueryOperatorInput>;
+  _rawAuthor: InputMaybe<JSONQueryOperatorInput>;
+  _rawCategory: InputMaybe<JSONQueryOperatorInput>;
+  _rawDescription: InputMaybe<JSONQueryOperatorInput>;
+  _rawMainImage: InputMaybe<JSONQueryOperatorInput>;
+  _rawTags: InputMaybe<JSONQueryOperatorInput>;
+  _rev: InputMaybe<StringQueryOperatorInput>;
+  _type: InputMaybe<StringQueryOperatorInput>;
+  _updatedAt: InputMaybe<DateQueryOperatorInput>;
+  applePodcastUrl: InputMaybe<StringQueryOperatorInput>;
+  author: InputMaybe<SanityAuthorFilterInput>;
+  category: InputMaybe<SanityCategoryFilterInput>;
+  children: InputMaybe<NodeFilterListInput>;
+  description: InputMaybe<SanityBlockFilterListInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  mainImage: InputMaybe<SanityImageFilterInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  publishedAt: InputMaybe<DateQueryOperatorInput>;
+  sourceURL: InputMaybe<StringQueryOperatorInput>;
+  tags: InputMaybe<SanityTagFilterListInput>;
+  title: InputMaybe<StringQueryOperatorInput>;
+  youtubeUrl: InputMaybe<StringQueryOperatorInput>;
+};
+
+
+type Query_sanitySettingsArgs = {
+  _createdAt: InputMaybe<DateQueryOperatorInput>;
+  _id: InputMaybe<StringQueryOperatorInput>;
+  _key: InputMaybe<StringQueryOperatorInput>;
+  _rawFooter: InputMaybe<JSONQueryOperatorInput>;
+  _rawLeftBlock: InputMaybe<JSONQueryOperatorInput>;
+  _rawRightBlock: InputMaybe<JSONQueryOperatorInput>;
+  _rawSlug: InputMaybe<JSONQueryOperatorInput>;
+  _rev: InputMaybe<StringQueryOperatorInput>;
+  _type: InputMaybe<StringQueryOperatorInput>;
+  _updatedAt: InputMaybe<DateQueryOperatorInput>;
+  children: InputMaybe<NodeFilterListInput>;
+  description: InputMaybe<StringQueryOperatorInput>;
+  footer: InputMaybe<SanityBlockFilterListInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  leftBlock: InputMaybe<SanityBlockFilterListInput>;
+  motto: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  rightBlock: InputMaybe<SanityBlockFilterListInput>;
   slug: InputMaybe<SanitySlugFilterInput>;
   title: InputMaybe<StringQueryOperatorInput>;
+};
+
+
+type Query_sanityTagArgs = {
+  _createdAt: InputMaybe<DateQueryOperatorInput>;
+  _id: InputMaybe<StringQueryOperatorInput>;
+  _key: InputMaybe<StringQueryOperatorInput>;
+  _rawSlug: InputMaybe<JSONQueryOperatorInput>;
+  _rev: InputMaybe<StringQueryOperatorInput>;
+  _type: InputMaybe<StringQueryOperatorInput>;
+  _updatedAt: InputMaybe<DateQueryOperatorInput>;
+  children: InputMaybe<NodeFilterListInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  name: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  slug: InputMaybe<SanitySlugFilterInput>;
 };
 
 
@@ -2280,8 +2386,8 @@ type SanityCategory = Node & SanityDocument & {
   readonly description: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
   readonly parent: Maybe<Node>;
-  readonly title: Maybe<Scalars['String']>;
 };
 
 
@@ -2356,8 +2462,8 @@ type SanityCategoryFieldSelector = {
   readonly description: InputMaybe<FieldSelectorEnum>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly name: InputMaybe<FieldSelectorEnum>;
   readonly parent: InputMaybe<NodeFieldSelector>;
-  readonly title: InputMaybe<FieldSelectorEnum>;
 };
 
 type SanityCategoryFilterInput = {
@@ -2371,12 +2477,8 @@ type SanityCategoryFilterInput = {
   readonly description: InputMaybe<StringQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
-  readonly title: InputMaybe<StringQueryOperatorInput>;
-};
-
-type SanityCategoryFilterListInput = {
-  readonly elemMatch: InputMaybe<SanityCategoryFilterInput>;
 };
 
 type SanityCategoryGroupConnection = {
@@ -2431,8 +2533,8 @@ type SanityCategorySortInput = {
   readonly description: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
+  readonly name: InputMaybe<SortOrderEnum>;
   readonly parent: InputMaybe<NodeSortInput>;
-  readonly title: InputMaybe<SortOrderEnum>;
 };
 
 type SanityCode = {
@@ -3424,16 +3526,18 @@ type SanityPost = Node & SanityDocument & {
   readonly _id: Maybe<Scalars['String']>;
   readonly _key: Maybe<Scalars['String']>;
   readonly _rawAuthor: Maybe<Scalars['JSON']>;
-  readonly _rawCategories: Maybe<Scalars['JSON']>;
+  readonly _rawCategory: Maybe<Scalars['JSON']>;
   readonly _rawContent: Maybe<Scalars['JSON']>;
   readonly _rawDescription: Maybe<Scalars['JSON']>;
   readonly _rawMainImage: Maybe<Scalars['JSON']>;
   readonly _rawSlug: Maybe<Scalars['JSON']>;
+  readonly _rawTags: Maybe<Scalars['JSON']>;
   readonly _rev: Maybe<Scalars['String']>;
   readonly _type: Maybe<Scalars['String']>;
   readonly _updatedAt: Maybe<Scalars['Date']>;
+  readonly applePodcastUrl: Maybe<Scalars['String']>;
   readonly author: Maybe<SanityAuthor>;
-  readonly categories: Maybe<ReadonlyArray<Maybe<SanityCategory>>>;
+  readonly category: Maybe<SanityCategory>;
   readonly children: ReadonlyArray<Node>;
   readonly content: Maybe<ReadonlyArray<Maybe<SanityBlock>>>;
   readonly description: Maybe<ReadonlyArray<Maybe<SanityBlock>>>;
@@ -3442,8 +3546,11 @@ type SanityPost = Node & SanityDocument & {
   readonly mainImage: Maybe<SanityImage>;
   readonly parent: Maybe<Node>;
   readonly publishedAt: Maybe<Scalars['Date']>;
+  readonly readMore: Maybe<Scalars['String']>;
   readonly slug: Maybe<SanitySlug>;
+  readonly tags: Maybe<ReadonlyArray<Maybe<SanityTag>>>;
   readonly title: Maybe<Scalars['String']>;
+  readonly youtubeUrl: Maybe<Scalars['String']>;
 };
 
 
@@ -3460,7 +3567,7 @@ type SanityPost__rawAuthorArgs = {
 };
 
 
-type SanityPost__rawCategoriesArgs = {
+type SanityPost__rawCategoryArgs = {
   resolveReferences: InputMaybe<SanityResolveReferencesConfiguration>;
 };
 
@@ -3481,6 +3588,11 @@ type SanityPost__rawMainImageArgs = {
 
 
 type SanityPost__rawSlugArgs = {
+  resolveReferences: InputMaybe<SanityResolveReferencesConfiguration>;
+};
+
+
+type SanityPost__rawTagsArgs = {
   resolveReferences: InputMaybe<SanityResolveReferencesConfiguration>;
 };
 
@@ -3550,16 +3662,18 @@ type SanityPostFieldSelector = {
   readonly _id: InputMaybe<FieldSelectorEnum>;
   readonly _key: InputMaybe<FieldSelectorEnum>;
   readonly _rawAuthor: InputMaybe<FieldSelectorEnum>;
-  readonly _rawCategories: InputMaybe<FieldSelectorEnum>;
+  readonly _rawCategory: InputMaybe<FieldSelectorEnum>;
   readonly _rawContent: InputMaybe<FieldSelectorEnum>;
   readonly _rawDescription: InputMaybe<FieldSelectorEnum>;
   readonly _rawMainImage: InputMaybe<FieldSelectorEnum>;
   readonly _rawSlug: InputMaybe<FieldSelectorEnum>;
+  readonly _rawTags: InputMaybe<FieldSelectorEnum>;
   readonly _rev: InputMaybe<FieldSelectorEnum>;
   readonly _type: InputMaybe<FieldSelectorEnum>;
   readonly _updatedAt: InputMaybe<FieldSelectorEnum>;
+  readonly applePodcastUrl: InputMaybe<FieldSelectorEnum>;
   readonly author: InputMaybe<SanityAuthorFieldSelector>;
-  readonly categories: InputMaybe<SanityCategoryFieldSelector>;
+  readonly category: InputMaybe<SanityCategoryFieldSelector>;
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly content: InputMaybe<SanityBlockFieldSelector>;
   readonly description: InputMaybe<SanityBlockFieldSelector>;
@@ -3568,8 +3682,11 @@ type SanityPostFieldSelector = {
   readonly mainImage: InputMaybe<SanityImageFieldSelector>;
   readonly parent: InputMaybe<NodeFieldSelector>;
   readonly publishedAt: InputMaybe<FieldSelectorEnum>;
+  readonly readMore: InputMaybe<FieldSelectorEnum>;
   readonly slug: InputMaybe<SanitySlugFieldSelector>;
+  readonly tags: InputMaybe<SanityTagFieldSelector>;
   readonly title: InputMaybe<FieldSelectorEnum>;
+  readonly youtubeUrl: InputMaybe<FieldSelectorEnum>;
 };
 
 type SanityPostFilterInput = {
@@ -3577,16 +3694,18 @@ type SanityPostFilterInput = {
   readonly _id: InputMaybe<StringQueryOperatorInput>;
   readonly _key: InputMaybe<StringQueryOperatorInput>;
   readonly _rawAuthor: InputMaybe<JSONQueryOperatorInput>;
-  readonly _rawCategories: InputMaybe<JSONQueryOperatorInput>;
+  readonly _rawCategory: InputMaybe<JSONQueryOperatorInput>;
   readonly _rawContent: InputMaybe<JSONQueryOperatorInput>;
   readonly _rawDescription: InputMaybe<JSONQueryOperatorInput>;
   readonly _rawMainImage: InputMaybe<JSONQueryOperatorInput>;
   readonly _rawSlug: InputMaybe<JSONQueryOperatorInput>;
+  readonly _rawTags: InputMaybe<JSONQueryOperatorInput>;
   readonly _rev: InputMaybe<StringQueryOperatorInput>;
   readonly _type: InputMaybe<StringQueryOperatorInput>;
   readonly _updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly applePodcastUrl: InputMaybe<StringQueryOperatorInput>;
   readonly author: InputMaybe<SanityAuthorFilterInput>;
-  readonly categories: InputMaybe<SanityCategoryFilterListInput>;
+  readonly category: InputMaybe<SanityCategoryFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly content: InputMaybe<SanityBlockFilterListInput>;
   readonly description: InputMaybe<SanityBlockFilterListInput>;
@@ -3595,8 +3714,11 @@ type SanityPostFilterInput = {
   readonly mainImage: InputMaybe<SanityImageFilterInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
   readonly publishedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly readMore: InputMaybe<StringQueryOperatorInput>;
   readonly slug: InputMaybe<SanitySlugFilterInput>;
+  readonly tags: InputMaybe<SanityTagFilterListInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
+  readonly youtubeUrl: InputMaybe<StringQueryOperatorInput>;
 };
 
 type SanityPostGroupConnection = {
@@ -3645,16 +3767,18 @@ type SanityPostSortInput = {
   readonly _id: InputMaybe<SortOrderEnum>;
   readonly _key: InputMaybe<SortOrderEnum>;
   readonly _rawAuthor: InputMaybe<SortOrderEnum>;
-  readonly _rawCategories: InputMaybe<SortOrderEnum>;
+  readonly _rawCategory: InputMaybe<SortOrderEnum>;
   readonly _rawContent: InputMaybe<SortOrderEnum>;
   readonly _rawDescription: InputMaybe<SortOrderEnum>;
   readonly _rawMainImage: InputMaybe<SortOrderEnum>;
   readonly _rawSlug: InputMaybe<SortOrderEnum>;
+  readonly _rawTags: InputMaybe<SortOrderEnum>;
   readonly _rev: InputMaybe<SortOrderEnum>;
   readonly _type: InputMaybe<SortOrderEnum>;
   readonly _updatedAt: InputMaybe<SortOrderEnum>;
+  readonly applePodcastUrl: InputMaybe<SortOrderEnum>;
   readonly author: InputMaybe<SanityAuthorSortInput>;
-  readonly categories: InputMaybe<SanityCategorySortInput>;
+  readonly category: InputMaybe<SanityCategorySortInput>;
   readonly children: InputMaybe<NodeSortInput>;
   readonly content: InputMaybe<SanityBlockSortInput>;
   readonly description: InputMaybe<SanityBlockSortInput>;
@@ -3663,13 +3787,481 @@ type SanityPostSortInput = {
   readonly mainImage: InputMaybe<SanityImageSortInput>;
   readonly parent: InputMaybe<NodeSortInput>;
   readonly publishedAt: InputMaybe<SortOrderEnum>;
+  readonly readMore: InputMaybe<SortOrderEnum>;
   readonly slug: InputMaybe<SanitySlugSortInput>;
+  readonly tags: InputMaybe<SanityTagSortInput>;
   readonly title: InputMaybe<SortOrderEnum>;
+  readonly youtubeUrl: InputMaybe<SortOrderEnum>;
+};
+
+type SanityPublication = Node & SanityDocument & {
+  readonly _createdAt: Maybe<Scalars['Date']>;
+  readonly _id: Maybe<Scalars['String']>;
+  readonly _key: Maybe<Scalars['String']>;
+  readonly _rawAuthor: Maybe<Scalars['JSON']>;
+  readonly _rawCategory: Maybe<Scalars['JSON']>;
+  readonly _rawDescription: Maybe<Scalars['JSON']>;
+  readonly _rawMainImage: Maybe<Scalars['JSON']>;
+  readonly _rawTags: Maybe<Scalars['JSON']>;
+  readonly _rev: Maybe<Scalars['String']>;
+  readonly _type: Maybe<Scalars['String']>;
+  readonly _updatedAt: Maybe<Scalars['Date']>;
+  readonly applePodcastUrl: Maybe<Scalars['String']>;
+  readonly author: Maybe<SanityAuthor>;
+  readonly category: Maybe<SanityCategory>;
+  readonly children: ReadonlyArray<Node>;
+  readonly description: Maybe<ReadonlyArray<Maybe<SanityBlock>>>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly mainImage: Maybe<SanityImage>;
+  readonly parent: Maybe<Node>;
+  readonly publishedAt: Maybe<Scalars['Date']>;
+  readonly sourceURL: Maybe<Scalars['String']>;
+  readonly tags: Maybe<ReadonlyArray<Maybe<SanityTag>>>;
+  readonly title: Maybe<Scalars['String']>;
+  readonly youtubeUrl: Maybe<Scalars['String']>;
+};
+
+
+type SanityPublication__createdAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type SanityPublication__rawAuthorArgs = {
+  resolveReferences: InputMaybe<SanityResolveReferencesConfiguration>;
+};
+
+
+type SanityPublication__rawCategoryArgs = {
+  resolveReferences: InputMaybe<SanityResolveReferencesConfiguration>;
+};
+
+
+type SanityPublication__rawDescriptionArgs = {
+  resolveReferences: InputMaybe<SanityResolveReferencesConfiguration>;
+};
+
+
+type SanityPublication__rawMainImageArgs = {
+  resolveReferences: InputMaybe<SanityResolveReferencesConfiguration>;
+};
+
+
+type SanityPublication__rawTagsArgs = {
+  resolveReferences: InputMaybe<SanityResolveReferencesConfiguration>;
+};
+
+
+type SanityPublication__updatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type SanityPublication_publishedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type SanityPublicationConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<SanityPublicationEdge>;
+  readonly group: ReadonlyArray<SanityPublicationGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<SanityPublication>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type SanityPublicationConnection_distinctArgs = {
+  field: SanityPublicationFieldSelector;
+};
+
+
+type SanityPublicationConnection_groupArgs = {
+  field: SanityPublicationFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type SanityPublicationConnection_maxArgs = {
+  field: SanityPublicationFieldSelector;
+};
+
+
+type SanityPublicationConnection_minArgs = {
+  field: SanityPublicationFieldSelector;
+};
+
+
+type SanityPublicationConnection_sumArgs = {
+  field: SanityPublicationFieldSelector;
+};
+
+type SanityPublicationEdge = {
+  readonly next: Maybe<SanityPublication>;
+  readonly node: SanityPublication;
+  readonly previous: Maybe<SanityPublication>;
+};
+
+type SanityPublicationFieldSelector = {
+  readonly _createdAt: InputMaybe<FieldSelectorEnum>;
+  readonly _id: InputMaybe<FieldSelectorEnum>;
+  readonly _key: InputMaybe<FieldSelectorEnum>;
+  readonly _rawAuthor: InputMaybe<FieldSelectorEnum>;
+  readonly _rawCategory: InputMaybe<FieldSelectorEnum>;
+  readonly _rawDescription: InputMaybe<FieldSelectorEnum>;
+  readonly _rawMainImage: InputMaybe<FieldSelectorEnum>;
+  readonly _rawTags: InputMaybe<FieldSelectorEnum>;
+  readonly _rev: InputMaybe<FieldSelectorEnum>;
+  readonly _type: InputMaybe<FieldSelectorEnum>;
+  readonly _updatedAt: InputMaybe<FieldSelectorEnum>;
+  readonly applePodcastUrl: InputMaybe<FieldSelectorEnum>;
+  readonly author: InputMaybe<SanityAuthorFieldSelector>;
+  readonly category: InputMaybe<SanityCategoryFieldSelector>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly description: InputMaybe<SanityBlockFieldSelector>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly mainImage: InputMaybe<SanityImageFieldSelector>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly publishedAt: InputMaybe<FieldSelectorEnum>;
+  readonly sourceURL: InputMaybe<FieldSelectorEnum>;
+  readonly tags: InputMaybe<SanityTagFieldSelector>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+  readonly youtubeUrl: InputMaybe<FieldSelectorEnum>;
+};
+
+type SanityPublicationFilterInput = {
+  readonly _createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly _id: InputMaybe<StringQueryOperatorInput>;
+  readonly _key: InputMaybe<StringQueryOperatorInput>;
+  readonly _rawAuthor: InputMaybe<JSONQueryOperatorInput>;
+  readonly _rawCategory: InputMaybe<JSONQueryOperatorInput>;
+  readonly _rawDescription: InputMaybe<JSONQueryOperatorInput>;
+  readonly _rawMainImage: InputMaybe<JSONQueryOperatorInput>;
+  readonly _rawTags: InputMaybe<JSONQueryOperatorInput>;
+  readonly _rev: InputMaybe<StringQueryOperatorInput>;
+  readonly _type: InputMaybe<StringQueryOperatorInput>;
+  readonly _updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly applePodcastUrl: InputMaybe<StringQueryOperatorInput>;
+  readonly author: InputMaybe<SanityAuthorFilterInput>;
+  readonly category: InputMaybe<SanityCategoryFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly description: InputMaybe<SanityBlockFilterListInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly mainImage: InputMaybe<SanityImageFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly publishedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly sourceURL: InputMaybe<StringQueryOperatorInput>;
+  readonly tags: InputMaybe<SanityTagFilterListInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
+  readonly youtubeUrl: InputMaybe<StringQueryOperatorInput>;
+};
+
+type SanityPublicationGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<SanityPublicationEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<SanityPublicationGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<SanityPublication>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type SanityPublicationGroupConnection_distinctArgs = {
+  field: SanityPublicationFieldSelector;
+};
+
+
+type SanityPublicationGroupConnection_groupArgs = {
+  field: SanityPublicationFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type SanityPublicationGroupConnection_maxArgs = {
+  field: SanityPublicationFieldSelector;
+};
+
+
+type SanityPublicationGroupConnection_minArgs = {
+  field: SanityPublicationFieldSelector;
+};
+
+
+type SanityPublicationGroupConnection_sumArgs = {
+  field: SanityPublicationFieldSelector;
+};
+
+type SanityPublicationSortInput = {
+  readonly _createdAt: InputMaybe<SortOrderEnum>;
+  readonly _id: InputMaybe<SortOrderEnum>;
+  readonly _key: InputMaybe<SortOrderEnum>;
+  readonly _rawAuthor: InputMaybe<SortOrderEnum>;
+  readonly _rawCategory: InputMaybe<SortOrderEnum>;
+  readonly _rawDescription: InputMaybe<SortOrderEnum>;
+  readonly _rawMainImage: InputMaybe<SortOrderEnum>;
+  readonly _rawTags: InputMaybe<SortOrderEnum>;
+  readonly _rev: InputMaybe<SortOrderEnum>;
+  readonly _type: InputMaybe<SortOrderEnum>;
+  readonly _updatedAt: InputMaybe<SortOrderEnum>;
+  readonly applePodcastUrl: InputMaybe<SortOrderEnum>;
+  readonly author: InputMaybe<SanityAuthorSortInput>;
+  readonly category: InputMaybe<SanityCategorySortInput>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly description: InputMaybe<SanityBlockSortInput>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly mainImage: InputMaybe<SanityImageSortInput>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly publishedAt: InputMaybe<SortOrderEnum>;
+  readonly sourceURL: InputMaybe<SortOrderEnum>;
+  readonly tags: InputMaybe<SanityTagSortInput>;
+  readonly title: InputMaybe<SortOrderEnum>;
+  readonly youtubeUrl: InputMaybe<SortOrderEnum>;
 };
 
 type SanityResolveReferencesConfiguration = {
   /** Max depth to resolve references to */
   readonly maxDepth: Scalars['Int'];
+};
+
+type SanitySettings = Node & SanityDocument & {
+  readonly _createdAt: Maybe<Scalars['Date']>;
+  readonly _id: Maybe<Scalars['String']>;
+  readonly _key: Maybe<Scalars['String']>;
+  readonly _rawFooter: Maybe<Scalars['JSON']>;
+  readonly _rawLeftBlock: Maybe<Scalars['JSON']>;
+  readonly _rawRightBlock: Maybe<Scalars['JSON']>;
+  readonly _rawSlug: Maybe<Scalars['JSON']>;
+  readonly _rev: Maybe<Scalars['String']>;
+  readonly _type: Maybe<Scalars['String']>;
+  readonly _updatedAt: Maybe<Scalars['Date']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly description: Maybe<Scalars['String']>;
+  readonly footer: Maybe<ReadonlyArray<Maybe<SanityBlock>>>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly leftBlock: Maybe<ReadonlyArray<Maybe<SanityBlock>>>;
+  readonly motto: Maybe<Scalars['String']>;
+  readonly parent: Maybe<Node>;
+  readonly rightBlock: Maybe<ReadonlyArray<Maybe<SanityBlock>>>;
+  readonly slug: Maybe<SanitySlug>;
+  readonly title: Maybe<Scalars['String']>;
+};
+
+
+type SanitySettings__createdAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type SanitySettings__rawFooterArgs = {
+  resolveReferences: InputMaybe<SanityResolveReferencesConfiguration>;
+};
+
+
+type SanitySettings__rawLeftBlockArgs = {
+  resolveReferences: InputMaybe<SanityResolveReferencesConfiguration>;
+};
+
+
+type SanitySettings__rawRightBlockArgs = {
+  resolveReferences: InputMaybe<SanityResolveReferencesConfiguration>;
+};
+
+
+type SanitySettings__rawSlugArgs = {
+  resolveReferences: InputMaybe<SanityResolveReferencesConfiguration>;
+};
+
+
+type SanitySettings__updatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type SanitySettingsConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<SanitySettingsEdge>;
+  readonly group: ReadonlyArray<SanitySettingsGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<SanitySettings>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type SanitySettingsConnection_distinctArgs = {
+  field: SanitySettingsFieldSelector;
+};
+
+
+type SanitySettingsConnection_groupArgs = {
+  field: SanitySettingsFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type SanitySettingsConnection_maxArgs = {
+  field: SanitySettingsFieldSelector;
+};
+
+
+type SanitySettingsConnection_minArgs = {
+  field: SanitySettingsFieldSelector;
+};
+
+
+type SanitySettingsConnection_sumArgs = {
+  field: SanitySettingsFieldSelector;
+};
+
+type SanitySettingsEdge = {
+  readonly next: Maybe<SanitySettings>;
+  readonly node: SanitySettings;
+  readonly previous: Maybe<SanitySettings>;
+};
+
+type SanitySettingsFieldSelector = {
+  readonly _createdAt: InputMaybe<FieldSelectorEnum>;
+  readonly _id: InputMaybe<FieldSelectorEnum>;
+  readonly _key: InputMaybe<FieldSelectorEnum>;
+  readonly _rawFooter: InputMaybe<FieldSelectorEnum>;
+  readonly _rawLeftBlock: InputMaybe<FieldSelectorEnum>;
+  readonly _rawRightBlock: InputMaybe<FieldSelectorEnum>;
+  readonly _rawSlug: InputMaybe<FieldSelectorEnum>;
+  readonly _rev: InputMaybe<FieldSelectorEnum>;
+  readonly _type: InputMaybe<FieldSelectorEnum>;
+  readonly _updatedAt: InputMaybe<FieldSelectorEnum>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly description: InputMaybe<FieldSelectorEnum>;
+  readonly footer: InputMaybe<SanityBlockFieldSelector>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly leftBlock: InputMaybe<SanityBlockFieldSelector>;
+  readonly motto: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly rightBlock: InputMaybe<SanityBlockFieldSelector>;
+  readonly slug: InputMaybe<SanitySlugFieldSelector>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+};
+
+type SanitySettingsFilterInput = {
+  readonly _createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly _id: InputMaybe<StringQueryOperatorInput>;
+  readonly _key: InputMaybe<StringQueryOperatorInput>;
+  readonly _rawFooter: InputMaybe<JSONQueryOperatorInput>;
+  readonly _rawLeftBlock: InputMaybe<JSONQueryOperatorInput>;
+  readonly _rawRightBlock: InputMaybe<JSONQueryOperatorInput>;
+  readonly _rawSlug: InputMaybe<JSONQueryOperatorInput>;
+  readonly _rev: InputMaybe<StringQueryOperatorInput>;
+  readonly _type: InputMaybe<StringQueryOperatorInput>;
+  readonly _updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly description: InputMaybe<StringQueryOperatorInput>;
+  readonly footer: InputMaybe<SanityBlockFilterListInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly leftBlock: InputMaybe<SanityBlockFilterListInput>;
+  readonly motto: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly rightBlock: InputMaybe<SanityBlockFilterListInput>;
+  readonly slug: InputMaybe<SanitySlugFilterInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
+};
+
+type SanitySettingsGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<SanitySettingsEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<SanitySettingsGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<SanitySettings>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type SanitySettingsGroupConnection_distinctArgs = {
+  field: SanitySettingsFieldSelector;
+};
+
+
+type SanitySettingsGroupConnection_groupArgs = {
+  field: SanitySettingsFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type SanitySettingsGroupConnection_maxArgs = {
+  field: SanitySettingsFieldSelector;
+};
+
+
+type SanitySettingsGroupConnection_minArgs = {
+  field: SanitySettingsFieldSelector;
+};
+
+
+type SanitySettingsGroupConnection_sumArgs = {
+  field: SanitySettingsFieldSelector;
+};
+
+type SanitySettingsSortInput = {
+  readonly _createdAt: InputMaybe<SortOrderEnum>;
+  readonly _id: InputMaybe<SortOrderEnum>;
+  readonly _key: InputMaybe<SortOrderEnum>;
+  readonly _rawFooter: InputMaybe<SortOrderEnum>;
+  readonly _rawLeftBlock: InputMaybe<SortOrderEnum>;
+  readonly _rawRightBlock: InputMaybe<SortOrderEnum>;
+  readonly _rawSlug: InputMaybe<SortOrderEnum>;
+  readonly _rev: InputMaybe<SortOrderEnum>;
+  readonly _type: InputMaybe<SortOrderEnum>;
+  readonly _updatedAt: InputMaybe<SortOrderEnum>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly description: InputMaybe<SortOrderEnum>;
+  readonly footer: InputMaybe<SanityBlockSortInput>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly leftBlock: InputMaybe<SanityBlockSortInput>;
+  readonly motto: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly rightBlock: InputMaybe<SanityBlockSortInput>;
+  readonly slug: InputMaybe<SanitySlugSortInput>;
+  readonly title: InputMaybe<SortOrderEnum>;
 };
 
 type SanitySlug = {
@@ -3730,6 +4322,181 @@ type SanitySpanSortInput = {
   readonly _type: InputMaybe<SortOrderEnum>;
   readonly marks: InputMaybe<SortOrderEnum>;
   readonly text: InputMaybe<SortOrderEnum>;
+};
+
+type SanityTag = Node & SanityDocument & {
+  readonly _createdAt: Maybe<Scalars['Date']>;
+  readonly _id: Maybe<Scalars['String']>;
+  readonly _key: Maybe<Scalars['String']>;
+  readonly _rawSlug: Maybe<Scalars['JSON']>;
+  readonly _rev: Maybe<Scalars['String']>;
+  readonly _type: Maybe<Scalars['String']>;
+  readonly _updatedAt: Maybe<Scalars['Date']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly parent: Maybe<Node>;
+  readonly slug: Maybe<SanitySlug>;
+};
+
+
+type SanityTag__createdAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type SanityTag__rawSlugArgs = {
+  resolveReferences: InputMaybe<SanityResolveReferencesConfiguration>;
+};
+
+
+type SanityTag__updatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type SanityTagConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<SanityTagEdge>;
+  readonly group: ReadonlyArray<SanityTagGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<SanityTag>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type SanityTagConnection_distinctArgs = {
+  field: SanityTagFieldSelector;
+};
+
+
+type SanityTagConnection_groupArgs = {
+  field: SanityTagFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type SanityTagConnection_maxArgs = {
+  field: SanityTagFieldSelector;
+};
+
+
+type SanityTagConnection_minArgs = {
+  field: SanityTagFieldSelector;
+};
+
+
+type SanityTagConnection_sumArgs = {
+  field: SanityTagFieldSelector;
+};
+
+type SanityTagEdge = {
+  readonly next: Maybe<SanityTag>;
+  readonly node: SanityTag;
+  readonly previous: Maybe<SanityTag>;
+};
+
+type SanityTagFieldSelector = {
+  readonly _createdAt: InputMaybe<FieldSelectorEnum>;
+  readonly _id: InputMaybe<FieldSelectorEnum>;
+  readonly _key: InputMaybe<FieldSelectorEnum>;
+  readonly _rawSlug: InputMaybe<FieldSelectorEnum>;
+  readonly _rev: InputMaybe<FieldSelectorEnum>;
+  readonly _type: InputMaybe<FieldSelectorEnum>;
+  readonly _updatedAt: InputMaybe<FieldSelectorEnum>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly name: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly slug: InputMaybe<SanitySlugFieldSelector>;
+};
+
+type SanityTagFilterInput = {
+  readonly _createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly _id: InputMaybe<StringQueryOperatorInput>;
+  readonly _key: InputMaybe<StringQueryOperatorInput>;
+  readonly _rawSlug: InputMaybe<JSONQueryOperatorInput>;
+  readonly _rev: InputMaybe<StringQueryOperatorInput>;
+  readonly _type: InputMaybe<StringQueryOperatorInput>;
+  readonly _updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly slug: InputMaybe<SanitySlugFilterInput>;
+};
+
+type SanityTagFilterListInput = {
+  readonly elemMatch: InputMaybe<SanityTagFilterInput>;
+};
+
+type SanityTagGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<SanityTagEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<SanityTagGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<SanityTag>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type SanityTagGroupConnection_distinctArgs = {
+  field: SanityTagFieldSelector;
+};
+
+
+type SanityTagGroupConnection_groupArgs = {
+  field: SanityTagFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type SanityTagGroupConnection_maxArgs = {
+  field: SanityTagFieldSelector;
+};
+
+
+type SanityTagGroupConnection_minArgs = {
+  field: SanityTagFieldSelector;
+};
+
+
+type SanityTagGroupConnection_sumArgs = {
+  field: SanityTagFieldSelector;
+};
+
+type SanityTagSortInput = {
+  readonly _createdAt: InputMaybe<SortOrderEnum>;
+  readonly _id: InputMaybe<SortOrderEnum>;
+  readonly _key: InputMaybe<SortOrderEnum>;
+  readonly _rawSlug: InputMaybe<SortOrderEnum>;
+  readonly _rev: InputMaybe<SortOrderEnum>;
+  readonly _type: InputMaybe<SortOrderEnum>;
+  readonly _updatedAt: InputMaybe<SortOrderEnum>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly name: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly slug: InputMaybe<SanitySlugSortInput>;
 };
 
 type Site = Node & {
@@ -4549,6 +5316,11 @@ type GatsbyImageSharpFluid_withWebp_noBase64Fragment = { readonly aspectRatio: n
 type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = { readonly tracedSVG: string | null, readonly aspectRatio: number, readonly src: string, readonly srcSet: string, readonly srcWebp: string | null, readonly srcSetWebp: string | null, readonly sizes: string };
 
 type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: number, readonly maxWidth: number };
+
+type MyQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type MyQueryQuery = { readonly allSanityPost: { readonly totalCount: number, readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly readMore: string | null, readonly slug: { readonly current: string | null } | null, readonly description: ReadonlyArray<{ readonly _key: string | null, readonly _type: string | null, readonly list: string | null, readonly style: string | null, readonly children: ReadonlyArray<{ readonly _key: string | null, readonly _type: string | null, readonly marks: ReadonlyArray<string | null> | null, readonly text: string | null } | null> | null } | null> | null, readonly mainImage: { readonly asset: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }>, readonly pageInfo: { readonly hasNextPage: boolean, readonly hasPreviousPage: boolean, readonly currentPage: number } } };
 
 
 }
