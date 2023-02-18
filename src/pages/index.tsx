@@ -49,7 +49,7 @@ function IndexPage(props: PageProps) {
               href="#category"
               className="hover:underline hover:decoration-8 hover:underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white inline-block"
             >
-              <h1 className="uppercase font-serif font-black text-xl lg:text-6xl">
+              <h1 className="uppercase font-serif font-black text-xl sm:text-2xl md:text-4xl lg:text-6xl">
                 js.garden
               </h1>
             </a>
@@ -72,7 +72,8 @@ function IndexPage(props: PageProps) {
             .
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 mx-2 my-1 sm:my-2 md:my-3 lg:my-4 items-stretch lowercase text-xs border-y-2 border-double border-stone-900 px-2 md:px-3 lg:px-4 py-1 md:py-2 gap-1">
+        <hr className="md:hidden border-t-4 sm:border-t-2 border-double border-stone-500 mx-2 my-1 sm:my-2 md:my-3 lg:my-4" />
+        <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 mx-2 my-1 sm:my-2 md:my-3 lg:my-4 items-stretch lowercase text-xs border-y-2 border-double border-stone-500 px-2 md:px-3 lg:px-4 py-1 md:py-2 gap-1">
           <div className="col-span-1 md:col-span-2 flex gap-1 items-center">
             <AiFillTag />
             <ul className="flex flex-wrap items-center gap-1">
@@ -265,7 +266,7 @@ function IndexPage(props: PageProps) {
             </article>
           </div>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-2 md:gap-x-2 lg:gap-x-4 xl:gap-x-6 items-stretch justify-center mx-auto px-4 py-2">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-2 md:gap-x-4 lg:gap-x-6 xl:gap-x-8 items-stretch justify-center mx-auto px-4 py-2">
           <article className=" font-light font-serif leading-none max-w-xl md:font-normal text-sm md:text-base text-justify   mt-1 pt-2">
             <h3 className="text-xl md:text-2xl mb-2 tracking-widest font-light">
               HDR in CSS
