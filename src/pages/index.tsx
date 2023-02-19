@@ -143,9 +143,8 @@ export function Head() {
 }
 
 export const articlesQuery = graphql`
-  query MyQuery {
+  query Articles {
     allSanityPost(sort: { publishedAt: DESC }, limit: 100) {
-      totalCount
       nodes {
         title
         slug {

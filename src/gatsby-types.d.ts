@@ -5226,26 +5226,70 @@ type SitePluginSortInput = {
 };
 
 type SiteSiteMetadata = {
+  readonly author: Maybe<Scalars['String']>;
   readonly description: Maybe<Scalars['String']>;
   readonly siteUrl: Maybe<Scalars['String']>;
+  readonly social: Maybe<SiteSiteMetadataSocial>;
   readonly title: Maybe<Scalars['String']>;
 };
 
 type SiteSiteMetadataFieldSelector = {
+  readonly author: InputMaybe<FieldSelectorEnum>;
   readonly description: InputMaybe<FieldSelectorEnum>;
   readonly siteUrl: InputMaybe<FieldSelectorEnum>;
+  readonly social: InputMaybe<SiteSiteMetadataSocialFieldSelector>;
   readonly title: InputMaybe<FieldSelectorEnum>;
 };
 
 type SiteSiteMetadataFilterInput = {
+  readonly author: InputMaybe<StringQueryOperatorInput>;
   readonly description: InputMaybe<StringQueryOperatorInput>;
   readonly siteUrl: InputMaybe<StringQueryOperatorInput>;
+  readonly social: InputMaybe<SiteSiteMetadataSocialFilterInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
 };
 
+type SiteSiteMetadataSocial = {
+  readonly email: Maybe<Scalars['String']>;
+  readonly github: Maybe<Scalars['String']>;
+  readonly linkedin: Maybe<Scalars['String']>;
+  readonly podcast: Maybe<Scalars['String']>;
+  readonly rss: Maybe<Scalars['String']>;
+  readonly youtube: Maybe<Scalars['String']>;
+};
+
+type SiteSiteMetadataSocialFieldSelector = {
+  readonly email: InputMaybe<FieldSelectorEnum>;
+  readonly github: InputMaybe<FieldSelectorEnum>;
+  readonly linkedin: InputMaybe<FieldSelectorEnum>;
+  readonly podcast: InputMaybe<FieldSelectorEnum>;
+  readonly rss: InputMaybe<FieldSelectorEnum>;
+  readonly youtube: InputMaybe<FieldSelectorEnum>;
+};
+
+type SiteSiteMetadataSocialFilterInput = {
+  readonly email: InputMaybe<StringQueryOperatorInput>;
+  readonly github: InputMaybe<StringQueryOperatorInput>;
+  readonly linkedin: InputMaybe<StringQueryOperatorInput>;
+  readonly podcast: InputMaybe<StringQueryOperatorInput>;
+  readonly rss: InputMaybe<StringQueryOperatorInput>;
+  readonly youtube: InputMaybe<StringQueryOperatorInput>;
+};
+
+type SiteSiteMetadataSocialSortInput = {
+  readonly email: InputMaybe<SortOrderEnum>;
+  readonly github: InputMaybe<SortOrderEnum>;
+  readonly linkedin: InputMaybe<SortOrderEnum>;
+  readonly podcast: InputMaybe<SortOrderEnum>;
+  readonly rss: InputMaybe<SortOrderEnum>;
+  readonly youtube: InputMaybe<SortOrderEnum>;
+};
+
 type SiteSiteMetadataSortInput = {
+  readonly author: InputMaybe<SortOrderEnum>;
   readonly description: InputMaybe<SortOrderEnum>;
   readonly siteUrl: InputMaybe<SortOrderEnum>;
+  readonly social: InputMaybe<SiteSiteMetadataSocialSortInput>;
   readonly title: InputMaybe<SortOrderEnum>;
 };
 
@@ -5291,6 +5335,11 @@ type WebPOptions = {
   readonly quality: InputMaybe<Scalars['Int']>;
 };
 
+type ArticlesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type ArticlesQuery = { readonly allSanityPost: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly readMore: string | null, readonly slug: { readonly current: string | null } | null, readonly description: ReadonlyArray<{ readonly _key: string | null, readonly _type: string | null, readonly list: string | null, readonly style: string | null, readonly children: ReadonlyArray<{ readonly _key: string | null, readonly _type: string | null, readonly marks: ReadonlyArray<string | null> | null, readonly text: string | null } | null> | null } | null> | null, readonly mainImage: { readonly asset: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }>, readonly pageInfo: { readonly hasNextPage: boolean, readonly hasPreviousPage: boolean, readonly currentPage: number } } };
+
 type GatsbyImageSharpFixedFragment = { readonly base64: string | null, readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
 
 type GatsbyImageSharpFixed_noBase64Fragment = { readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
@@ -5317,10 +5366,10 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = { readonly tracedSVG: st
 
 type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: number, readonly maxWidth: number };
 
-type MyQueryQueryVariables = Exact<{ [key: string]: never; }>;
+type siteMetaQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type MyQueryQuery = { readonly allSanityPost: { readonly totalCount: number, readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly readMore: string | null, readonly slug: { readonly current: string | null } | null, readonly description: ReadonlyArray<{ readonly _key: string | null, readonly _type: string | null, readonly list: string | null, readonly style: string | null, readonly children: ReadonlyArray<{ readonly _key: string | null, readonly _type: string | null, readonly marks: ReadonlyArray<string | null> | null, readonly text: string | null } | null> | null } | null> | null, readonly mainImage: { readonly asset: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }>, readonly pageInfo: { readonly hasNextPage: boolean, readonly hasPreviousPage: boolean, readonly currentPage: number } } };
+type siteMetaQuery = { readonly site: { readonly siteMetadata: { readonly title: string | null, readonly description: string | null, readonly author: string | null, readonly siteUrl: string | null, readonly social: { readonly email: string | null, readonly github: string | null, readonly linkedin: string | null, readonly podcast: string | null, readonly rss: string | null, readonly youtube: string | null } | null } | null } | null };
 
 
 }
