@@ -15,8 +15,27 @@ import { graphql, Link, useStaticQuery } from "gatsby"
 function IndexPageLayout({ children }: { children: React.ReactNode }) {
   const {
     site: { siteMetadata },
+    allSanityTag: { nodes: tags },
+    allSanityCategory: { nodes: categories },
   } = useStaticQuery(graphql`
     query siteMeta {
+      allSanityCategory(limit: 6) {
+        nodes {
+          description
+          name
+          slug {
+            current
+          }
+        }
+      }
+      allSanityTag(limit: 4) {
+        nodes {
+          name
+          slug {
+            current
+          }
+        }
+      }
       site {
         siteMetadata {
           title
@@ -96,86 +115,43 @@ function IndexPageLayout({ children }: { children: React.ReactNode }) {
         </div>
         <hr className="md:hidden border-t-4 sm:border-t-2 border-double border-stone-500 mx-2 my-1 sm:my-2 md:my-3 lg:my-4" />
         <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 mx-2 my-1 sm:my-2 md:my-3 lg:my-4 items-stretch lowercase text-xs border-y-2 border-double border-stone-500 px-2 md:px-3 lg:px-4 py-1 md:py-2 gap-1">
-          <div className="col-span-1 md:col-span-2 flex gap-1 items-center">
-            <AiFillTag />
-            <ul className="flex flex-wrap items-center gap-1">
-              <li>
-                <a
-                  href="#tag1"
-                  className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
-                >
-                  tag1
-                </a>{" "}
-                /
-              </li>
-              <li>
-                <a
-                  href="#tag1"
-                  className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
-                >
-                  tag1
-                </a>{" "}
-                /
-              </li>
-              <li>
-                <a
-                  href="#tag1"
-                  className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
-                >
-                  tag1
-                </a>{" "}
-                /
-              </li>
-              <li>
-                <a
-                  href="#tag1"
-                  className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
-                >
-                  tag1
-                </a>{" "}
-              </li>
-            </ul>
-          </div>
-          <div className="col-span-1 md:col-span-3 flex gap-x-1 items-center uppercase">
-            <BiCategoryAlt />
-            <ul className="flex flex-wrap items-center gap-1">
-              <li>
-                <a
-                  href="#category"
-                  className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
-                >
-                  css
-                </a>
-                /
-              </li>
-              <li>
-                <a
-                  href="#category"
-                  className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
-                >
-                  html
-                </a>
-                /
-              </li>
-              <li>
-                <a
-                  href="#category"
-                  className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
-                >
-                  life
-                </a>
-                /
-              </li>
-              <li>
-                <a
-                  href="#category"
-                  className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
-                >
-                  js
-                </a>
-              </li>
-            </ul>
-          </div>
+          {tags && (
+            <div className="col-span-1 md:col-span-2 flex gap-1 items-center">
+              <AiFillTag />
+              <ul className="flex flex-wrap items-center gap-1">
+                {tags.map(tag => (
+                  <li key={tag.slug.current}>
+                    <Link
+                      to={`/tag/${tag.slug.current}`}
+                      className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
+                    >
+                      {tag.name}
+                    </Link>
+                    /
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {categories && categories[0]?.slug?.current && (
+            <div className="col-span-1 md:col-span-3 flex gap-x-1 items-center uppercase">
+              <BiCategoryAlt />
+              <ul className="flex flex-wrap items-center gap-1">
+                {categories.map(category => (
+                  <li key={category.slug.current}>
+                    <Link
+                      to={`/category/${category.slug.current}`}
+                      className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
+                      title={category.description}
+                    >
+                      {category.name}
+                    </Link>
+                    /
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </header>
       <main className="font-serif my-1 sm:my-2 md:my-3 lg:my-4 max-w-screen-2xl mx-auto">
