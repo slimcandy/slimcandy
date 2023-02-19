@@ -6,8 +6,9 @@ import { PortableText } from "@portabletext/react"
 
 import IndexPageLayout from "../components/IndexPageLayout"
 import portableTextComponents from "../utils/portableText"
+import Seo from "../components/Seo"
 
-function IndexPage({ data }: PageProps<any>) {
+function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
   const posts = data.allSanityPost.nodes
   const postsWithoutFirstThree = posts.slice(3)
 
@@ -20,28 +21,30 @@ function IndexPage({ data }: PageProps<any>) {
   }
   return (
     <IndexPageLayout>
-      <a
-        href="#category"
+      <Link
+        to={`/posts/${posts[0].slug?.current}`}
         className="hover:underline hover:decoration-8 hover:underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white inline-block"
       >
         <h2 className="text-xl sm:text-3xl md:text-5xl sm:p-1 md:p-2 text-center my-1 md:my-2 text-stone-900 px-1 md:px-2 lg:px-4">
           {posts[0].title}
         </h2>
-      </a>
+      </Link>
       <div className="grid md:grid-cols-5 xl:grid-cols-4 gap-x-4 gap-y-2 items-stretch justify-center border-b-2 border-b-stone-900 border-double px-4 sm:px-3 md:px-2 lg:px-1 xl:px-0 text-justify">
         <div className="md:order-2 md:col-span-3 xl:col-span-2 flex flex-col items-center">
           <article className="font-light font-serif leading-normal max-w-xl md:font-normal text-base md:text-lg text-stone-900">
-            <GatsbyImage
-              image={posts[0].mainImage.asset.gatsbyImageData}
-              alt="a funnel. laptops go from the top.  dollar banknotes go out of it in the bottom"
-              className="block w-full max-h-40 sm:max-h-52 md:max-h-72 lg:max-h-80 object-cover mb-2 border-4 border-stone-900"
-            />
+            {posts[0].mainImage && posts[0].mainImage.asset && (
+              <GatsbyImage
+                image={posts[0].mainImage.asset.gatsbyImageData}
+                alt="a funnel. laptops go from the top.  dollar banknotes go out of it in the bottom"
+                className="block w-full max-h-40 sm:max-h-52 md:max-h-72 lg:max-h-80 object-cover mb-2 border-4 border-stone-900"
+              />
+            )}
             <PortableText
               value={posts[0].description}
               components={portableTextComponents}
             />
             <Link
-              to={posts[0].slug.current}
+              to={`/posts/${posts[0].slug?.current}`}
               className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-4 border-double border-stone-900 flex items-center gap-x-2 my-2 px-4 py-2 text-xl"
             >
               <GrFormNextLink />
@@ -52,24 +55,26 @@ function IndexPage({ data }: PageProps<any>) {
         <div className="md:order-1 md:px-4 md:border-r-2 md:border-r-stone-900 md:border-double flex justify-center">
           <article className="font-light font-serif  leading-none max-w-xl md:font-normal text-sm md:text-base ">
             <Link
-              to={"posts/" + posts[1].slug.current}
+              to={`/posts/${posts[1].slug?.current}`}
               className="hover:underline hover:decoration-4 hover:underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white inline-block"
             >
               <h3 className="text-xl md:text-2xl mb-2 tracking-widest font-light">
                 {posts[1].title}
               </h3>
             </Link>
-            <GatsbyImage
-              image={posts[1].mainImage.asset.gatsbyImageData}
-              alt="a funnel. laptops go from the top.  dollar banknotes go out of it in the bottom"
-              className="block w-full max-h-48 object-cover mb-2 border-2 border-stone-600"
-            />
+            {posts[1].mainImage && posts[1].mainImage.asset && (
+              <GatsbyImage
+                image={posts[1].mainImage.asset.gatsbyImageData}
+                alt="a funnel. laptops go from the top.  dollar banknotes go out of it in the bottom"
+                className="block w-full max-h-48 object-cover mb-2 border-2 border-stone-600"
+              />
+            )}
             <PortableText
               value={posts[1].description}
               components={portableTextComponents}
             />
             <Link
-              to={posts[1].slug.current}
+              to={`/posts/${posts[1].slug?.current}`}
               className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-2 border-double border-stone-900 flex items-center gap-x-2 my-2 px-2 py-1"
             >
               <GrFormNextLink />
@@ -80,24 +85,26 @@ function IndexPage({ data }: PageProps<any>) {
         <div className="order-3 md:px-4 md:border-l-2 md:border-l-stone-900 md:border-double flex justify-center">
           <article className="font-light font-serif  leading-none max-w-xl md:font-normal text-sm md:text-base ">
             <Link
-              to={"posts/" + posts[2].slug.current}
+              to={`/posts/${posts[2].slug?.current}`}
               className="hover:underline hover:decoration-4 hover:underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white inline-block"
             >
               <h3 className="text-xl md:text-2xl mb-2 tracking-widest font-light">
                 {posts[2].title}
               </h3>
             </Link>
-            <GatsbyImage
-              image={posts[2].mainImage.asset.gatsbyImageData}
-              alt="a funnel. laptops go from the top.  dollar banknotes go out of it in the bottom"
-              className="block w-full max-h-48 object-cover mb-2 border-2 border-stone-600"
-            />
+            {posts[2].mainImage && posts[2].mainImage.asset && (
+              <GatsbyImage
+                image={posts[2].mainImage.asset.gatsbyImageData}
+                alt="a funnel. laptops go from the top.  dollar banknotes go out of it in the bottom"
+                className="block w-full max-h-48 object-cover mb-2 border-2 border-stone-600"
+              />
+            )}
             <PortableText
               value={posts[2].description}
               components={portableTextComponents}
             />
             <Link
-              to={posts[2].slug.current}
+              to={`/posts/${posts[2].slug?.current}`}
               className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-2 border-double border-stone-900 flex items-center gap-x-2 my-2 px-2 py-1"
             >
               <GrFormNextLink />
@@ -117,7 +124,7 @@ function IndexPage({ data }: PageProps<any>) {
               components={portableTextComponents}
             />
             <Link
-              to={post.slug.current}
+              to={`/posts/${post.slug?.current}`}
               className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-2 border-double border-stone-900 flex items-center gap-x-2 my-2 px-2 py-1"
             >
               <GrFormNextLink />
@@ -133,13 +140,7 @@ function IndexPage({ data }: PageProps<any>) {
 export default IndexPage
 
 export function Head() {
-  return (
-    <>
-      <html lang="en" />
-      <body className="text-stone-600 hyphens-auto transition-all" />
-      <title>Home page | JS.Garden</title>
-    </>
-  )
+  return <Seo title="Home page" />
 }
 
 export const articlesQuery = graphql`
