@@ -14,11 +14,11 @@ import { graphql, Link, useStaticQuery } from "gatsby"
 
 function IndexPageLayout({ children }: { children: React.ReactNode }) {
   const {
-    site: { siteMetadata },
+    site,
     allSanityTag: { nodes: tags },
     allSanityCategory: { nodes: categories },
-  } = useStaticQuery(graphql`
-    query siteMeta {
+  }: Queries.IndexPageLayoutQuery = useStaticQuery(graphql`
+    query IndexPageLayout {
       allSanityCategory(limit: 6) {
         nodes {
           description
@@ -55,6 +55,8 @@ function IndexPageLayout({ children }: { children: React.ReactNode }) {
     }
   `)
 
+  const siteMetadata = site?.siteMetadata
+
   return (
     <>
       <header className="my-1 lg:my-2 max-w-screen-2xl mx-auto">
@@ -62,14 +64,14 @@ function IndexPageLayout({ children }: { children: React.ReactNode }) {
           <p className="hidden md:block border border-stone-500 px-4 py-2 text-xs md:text-sm text-center font-light first-line:tracking-widest first-line:uppercase">
             Subscribe to{" "}
             <a
-              href={siteMetadata.social.rss}
+              href={siteMetadata?.social?.rss || ""}
               className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white"
             >
               rss feed
             </a>
             ,{" "}
             <a
-              href={siteMetadata.social.youtube}
+              href={siteMetadata?.social?.youtube || ""}
               className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white"
             >
               {" "}
@@ -77,7 +79,7 @@ function IndexPageLayout({ children }: { children: React.ReactNode }) {
             </a>{" "}
             and{" "}
             <a
-              href={siteMetadata.social.podcast}
+              href={siteMetadata?.social?.podcast || ""}
               className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white"
             >
               {" "}
@@ -85,33 +87,37 @@ function IndexPageLayout({ children }: { children: React.ReactNode }) {
             </a>
             .
           </p>
-          <div className=" text-center md:col-span-3 flex items-center justify-center">
+          <div className="text-center md:col-span-3 flex items-center justify-center">
             <Link
-              to={"/"}
+              to="/"
               className="hover:underline hover:decoration-8 hover:underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white inline-block"
             >
-              <h1 className="uppercase font-serif font-black text-xl sm:text-2xl md:text-4xl lg:text-6xl">
-                {siteMetadata.title}
-              </h1>
+              {siteMetadata && (
+                <h1 className="uppercase font-serif font-black text-lg sm:text-xl md:text-2xl lg:text-4xl 2xl:text-6xl">
+                  {siteMetadata.title}
+                </h1>
+              )}
             </Link>
           </div>
-          <p className="hidden md:block border border-stone-500 px-4 py-2 text-xs md:text-sm text-center font-light first-line:tracking-widest first-line:uppercase">
-            Discover my{" "}
-            <a
-              href={siteMetadata.social.github}
-              className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white"
-            >
-              Github
-            </a>{" "}
-            and explore my{" "}
-            <a
-              href={siteMetadata.social.linkedin}
-              className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white"
-            >
-              LinkedIn profile
-            </a>
-            .
-          </p>
+          {siteMetadata && (
+            <p className="hidden md:block border border-stone-500 px-4 py-2 text-xs md:text-sm text-center font-light first-line:tracking-widest first-line:uppercase">
+              Discover my{" "}
+              <a
+                href={siteMetadata?.social?.github || ""}
+                className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white"
+              >
+                Github
+              </a>{" "}
+              and explore my{" "}
+              <a
+                href={siteMetadata?.social?.linkedin || ""}
+                className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white"
+              >
+                LinkedIn profile
+              </a>
+              .
+            </p>
+          )}
         </div>
         <hr className="md:hidden border-t-4 sm:border-t-2 border-double border-stone-500 mx-2 my-1 sm:my-2 md:my-3 lg:my-4" />
         <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 mx-2 my-1 sm:my-2 md:my-3 lg:my-4 items-stretch lowercase text-xs border-y-2 border-double border-stone-500 px-2 md:px-3 lg:px-4 py-1 md:py-2 gap-1">
@@ -120,9 +126,9 @@ function IndexPageLayout({ children }: { children: React.ReactNode }) {
               <AiFillTag />
               <ul className="flex flex-wrap items-center gap-1">
                 {tags.map(tag => (
-                  <li key={tag.slug.current}>
+                  <li key={tag?.slug?.current}>
                     <Link
-                      to={`/tag/${tag.slug.current}`}
+                      to={`/tag/${tag?.slug?.current}`}
                       className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
                     >
                       {tag.name}
@@ -138,11 +144,11 @@ function IndexPageLayout({ children }: { children: React.ReactNode }) {
               <BiCategoryAlt />
               <ul className="flex flex-wrap items-center gap-1">
                 {categories.map(category => (
-                  <li key={category.slug.current}>
+                  <li key={category?.slug?.current}>
                     <Link
-                      to={`/category/${category.slug.current}`}
+                      to={`/category/${category?.slug?.current}`}
                       className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
-                      title={category.description}
+                      title={category.description || ""}
                     >
                       {category.name}
                     </Link>
@@ -157,11 +163,11 @@ function IndexPageLayout({ children }: { children: React.ReactNode }) {
       <main className="font-serif my-1 sm:my-2 md:my-3 lg:my-4 max-w-screen-2xl mx-auto">
         {children}
       </main>
-      <footer className=" my-2 max-w-screen-2xl mx-auto">
-        <ul className="flex flex-wrap items-center justify-center gap-x-2 md:gap-x-4 lg:gap-x-6 xl:gap-x-8 border-y-2 border-stone-500 py-2 text-sm">
+      <footer className="my-2 max-w-screen-2xl mx-auto">
+        <ul className="flex flex-wrap items-center justify-center gap-x-2 md:gap-x-4 lg:gap-x-6 xl:gap-x-8 border-y-2 border-double border-stone-500 py-2 text-sm">
           <li>
             <a
-              href={siteMetadata.social.youtube}
+              href={siteMetadata?.social?.youtube || ""}
               className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
             >
               <AiFillYoutube /> youtube
@@ -169,7 +175,7 @@ function IndexPageLayout({ children }: { children: React.ReactNode }) {
           </li>
           <li>
             <a
-              href={siteMetadata.social.github}
+              href={siteMetadata?.social?.github || ""}
               className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
             >
               <AiFillGithub /> github
@@ -177,7 +183,7 @@ function IndexPageLayout({ children }: { children: React.ReactNode }) {
           </li>
           <li>
             <a
-              href={siteMetadata.social.rss}
+              href={siteMetadata?.social?.rss || ""}
               className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
             >
               <BsFillRssFill /> rss
@@ -185,7 +191,7 @@ function IndexPageLayout({ children }: { children: React.ReactNode }) {
           </li>
           <li>
             <a
-              href={siteMetadata.social.podcast}
+              href={siteMetadata?.social?.podcast || ""}
               className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
             >
               <SiApplepodcasts /> podcasts
@@ -193,7 +199,7 @@ function IndexPageLayout({ children }: { children: React.ReactNode }) {
           </li>
           <li>
             <a
-              href={siteMetadata.social.email}
+              href={siteMetadata?.social?.email || ""}
               className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
             >
               <AiTwotoneMail /> email
@@ -201,7 +207,7 @@ function IndexPageLayout({ children }: { children: React.ReactNode }) {
           </li>
           <li>
             <a
-              href={siteMetadata.social.linkedin}
+              href={siteMetadata?.social?.linkedin || ""}
               className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
             >
               <AiFillLinkedin /> linkedin
@@ -211,7 +217,7 @@ function IndexPageLayout({ children }: { children: React.ReactNode }) {
         <ul className="flex flex-wrap items-center justify-between gap-x-2 py-1 px-4 text-xs">
           <li>All rights reserved</li>
           <li className="flex items-center gap-x-2">
-            <FaRegCopyright /> {siteMetadata.author}
+            <FaRegCopyright /> {siteMetadata?.author || ""}
           </li>
           <li>{new Date().getFullYear().toString()}</li>
         </ul>

@@ -1,10 +1,10 @@
 import * as React from "react"
-import { graphql, Link, PageProps } from "gatsby"
+import { graphql, HeadProps, Link, PageProps } from "gatsby"
 import { GrFormNextLink } from "react-icons/gr"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { PortableText } from "@portabletext/react"
 
-import IndexPageLayout from "../components/IndexPageLayout"
+import IndexPageLayout from "../templates/Index"
 import portableTextComponents from "../utils/portableText"
 import Seo from "../components/Seo"
 
@@ -25,7 +25,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
         to={`/posts/${posts[0].slug?.current}`}
         className="hover:underline hover:decoration-8 hover:underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white inline-block"
       >
-        <h2 className="text-xl sm:text-3xl md:text-5xl sm:p-1 md:p-2 text-center my-1 md:my-2 text-stone-900 px-1 md:px-2 lg:px-4">
+        <h2 className="text-stone-900 font-medium sm:font-semibold md:font-bold lg:font-extrabold xl:font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl sm:p-1 md:p-2 text-center my-1 md:my-2 px-1 md:px-2 lg:px-4">
           {posts[0].title}
         </h2>
       </Link>
@@ -39,10 +39,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
                 className="block w-full max-h-40 sm:max-h-52 md:max-h-72 lg:max-h-80 object-cover mb-2 border-4 border-stone-900"
               />
             )}
-            <PortableText
-              value={posts[0].description}
-              components={portableTextComponents}
-            />
+            <p>{posts[0].description}</p>
             <Link
               to={`/posts/${posts[0].slug?.current}`}
               className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-4 border-double border-stone-900 flex items-center gap-x-2 my-2 px-4 py-2 text-xl"
@@ -58,7 +55,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
               to={`/posts/${posts[1].slug?.current}`}
               className="hover:underline hover:decoration-4 hover:underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white inline-block"
             >
-              <h3 className="text-xl md:text-2xl mb-2 tracking-widest font-light">
+              <h3 className="font-semibold sm:font-bold md:font-extrabold lg:font-black xl:font-black text-lg md:text-xl lg:text-2xl xl:text-3xl my-1 md:mb-2 md:mt-3 py-1 sm:pb-1 sm:pt-2 md:pb-2 md:pt-3 lg:pb-3 lg:pt-4 xl:pb-4 xl:pt-5">
                 {posts[1].title}
               </h3>
             </Link>
@@ -69,10 +66,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
                 className="block w-full max-h-48 object-cover mb-2 border-2 border-stone-600"
               />
             )}
-            <PortableText
-              value={posts[1].description}
-              components={portableTextComponents}
-            />
+            <p>{posts[1].description}</p>
             <Link
               to={`/posts/${posts[1].slug?.current}`}
               className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-2 border-double border-stone-900 flex items-center gap-x-2 my-2 px-2 py-1"
@@ -88,7 +82,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
               to={`/posts/${posts[2].slug?.current}`}
               className="hover:underline hover:decoration-4 hover:underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white inline-block"
             >
-              <h3 className="text-xl md:text-2xl mb-2 tracking-widest font-light">
+              <h3 className="font-semibold sm:font-bold md:font-extrabold lg:font-black xl:font-black text-lg md:text-xl lg:text-2xl xl:text-3xl my-1 md:mb-2 md:mt-3 py-1 sm:pb-1 sm:pt-2 md:pb-2 md:pt-3 lg:pb-3 lg:pt-4 xl:pb-4 xl:pt-5">
                 {posts[2].title}
               </h3>
             </Link>
@@ -99,10 +93,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
                 className="block w-full max-h-48 object-cover mb-2 border-2 border-stone-600"
               />
             )}
-            <PortableText
-              value={posts[2].description}
-              components={portableTextComponents}
-            />
+            <p>{posts[2].description}</p>
             <Link
               to={`/posts/${posts[2].slug?.current}`}
               className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-2 border-double border-stone-900 flex items-center gap-x-2 my-2 px-2 py-1"
@@ -116,13 +107,10 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
       <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-2 md:gap-x-4 lg:gap-x-6 xl:gap-x-8 items-stretch justify-center mx-auto px-4 py-2">
         {postsWithoutFirstThree.map(post => (
           <article className=" font-light font-serif leading-none max-w-xl md:font-normal text-sm md:text-base text-justify   mt-1 pt-2">
-            <h3 className="text-xl md:text-2xl mb-2 tracking-widest font-light">
+            <h3 className="font-semibold sm:font-bold md:font-extrabold lg:font-black xl:font-black text-lg md:text-xl lg:text-2xl xl:text-3xl my-1 md:mb-2 md:mt-3 py-1 sm:pb-1 sm:pt-2 md:pb-2 md:pt-3 lg:pb-3 lg:pt-4 xl:pb-4 xl:pt-5">
               {post.title}
             </h3>
-            <PortableText
-              value={post.description}
-              components={portableTextComponents}
-            />
+            <p>{post.description}</p>
             <Link
               to={`/posts/${post.slug?.current}`}
               className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-2 border-double border-stone-900 flex items-center gap-x-2 my-2 px-2 py-1"
@@ -139,8 +127,13 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
 
 export default IndexPage
 
-export function Head() {
-  return <Seo title="Home page" />
+export function Head({ data }: HeadProps<Queries.ArticlesQuery>) {
+  const siteTitle = data.site?.siteMetadata?.title
+  const siteDescription = data.site?.siteMetadata?.description || ``
+
+  return (
+    <Seo title={`Home Page | ${siteTitle}`} description={siteDescription} />
+  )
 }
 
 export const articlesQuery = graphql`
@@ -151,18 +144,7 @@ export const articlesQuery = graphql`
         slug {
           current
         }
-        description {
-          _key
-          _type
-          children {
-            _key
-            _type
-            marks
-            text
-          }
-          list
-          style
-        }
+        description
         mainImage {
           asset {
             gatsbyImageData(
@@ -182,6 +164,12 @@ export const articlesQuery = graphql`
         hasNextPage
         hasPreviousPage
         currentPage
+      }
+    }
+    site {
+      siteMetadata {
+        title
+        description
       }
     }
   }

@@ -79,16 +79,31 @@ const components: Partial<PortableTextReactComponents> = {
   block: {
     h2: function h2({ children }) {
       return (
-        <h2 className="text-xl sm:text-3xl md:text-5xl sm:p-1 md:p-2 text-center my-1 md:my-2 text-stone-900 px-1 md:px-2 lg:px-4">
+        <h2 className="font-semibold sm:font-bold md:font-extrabold lg:font-black xl:font-black text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl my-1 sm:my-2 md:my-3 lg:my-4 xl:my-5 py-1 sm:py-2 md:py-3lg:py-4 xl:py-5">
           {children}
         </h2>
       )
     },
     h3: function h3({ children }) {
-      return <h3 className="text-xl md:text-3xl my-2">{children}</h3>
+      return (
+        <h3 className="font-semibold sm:font-bold md:font-extrabold lg:font-black xl:font-black text-lg md:text-xl lg:text-2xl xl:text-3xl my-1 md:mb-2 md:mt-3 py-1 sm:pb-1 sm:pt-2 md:pb-2 md:pt-3 lg:pb-3 lg:pt-4 xl:pb-4 xl:pt-5">
+          {children}
+        </h3>
+      )
     },
     h4: function h4({ children }) {
-      return <h4 className="text-lg md:text-2xl my-2">{children}</h4>
+      return (
+        <h4 className="font-semibold sm:font-bold md:font-extrabold lg:font-black xl:font-black md:text-lg lg:text-xl xl:text-2xl my-1 md:mb-2 md:mt-3 py-1 sm:pb-1 sm:pt-2 md:pb-2 md:pt-3 lg:pb-3 lg:pt-4 xl:pb-4 xl:pt-5">
+          {children}
+        </h4>
+      )
+    },
+    normal: function p({ children }) {
+      return (
+        <p className="font-serif font-light md:font-normal xl:font-medium leading-normal lg:leading-relaxed text-base md:text-lg lg:text-xl xl:text-2xl">
+          {children}
+        </p>
+      )
     },
   },
 }
