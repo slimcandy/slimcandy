@@ -146,7 +146,7 @@ function IndexPageLayout({ children }: { children: React.ReactNode }) {
                 {categories.map(category => (
                   <li key={category?.slug?.current}>
                     <Link
-                      to={`/category/${category?.slug?.current}`}
+                      to={`/categories/${category?.slug?.current}`}
                       className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
                       title={category.description || ""}
                     >

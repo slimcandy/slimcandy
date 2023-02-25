@@ -100,7 +100,7 @@ const components: Partial<PortableTextReactComponents> = {
     },
     normal: function p({ children }) {
       return (
-        <p className="font-serif font-light md:font-normal xl:font-medium leading-normal lg:leading-relaxed text-base md:text-lg lg:text-xl xl:text-2xl">
+        <p className="font-serif font-light md:font-normal xl:font-medium leading-snug md:leading-normal xl:leading-relaxed text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">
           {children}
         </p>
       )

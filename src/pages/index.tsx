@@ -25,13 +25,13 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
         to={`/posts/${posts[0].slug?.current}`}
         className="hover:underline hover:decoration-8 hover:underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white inline-block"
       >
-        <h2 className="text-stone-900 font-medium sm:font-semibold md:font-bold lg:font-extrabold xl:font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl sm:p-1 md:p-2 text-center my-1 md:my-2 px-1 md:px-2 lg:px-4">
+        <h2 className="text-stone-700 font-medium sm:font-semibold md:font-bold lg:font-extrabold xl:font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl sm:p-1 md:p-2 text-center my-1 md:my-2 px-1 md:px-2 lg:px-4">
           {posts[0].title}
         </h2>
       </Link>
       <div className="grid md:grid-cols-5 xl:grid-cols-4 gap-x-4 gap-y-2 items-stretch justify-center border-b-2 border-b-stone-900 border-double px-4 sm:px-3 md:px-2 lg:px-1 xl:px-0 text-justify">
         <div className="md:order-2 md:col-span-3 xl:col-span-2 flex flex-col items-center">
-          <article className="font-light font-serif leading-normal max-w-xl md:font-normal text-base md:text-lg text-stone-900">
+          <article className="font-light font-serif leading-normal max-w-xl md:font-normal text-base md:text-lg text-stone-700">
             {posts[0].mainImage && posts[0].mainImage.asset && (
               <GatsbyImage
                 image={posts[0].mainImage.asset.gatsbyImageData}
