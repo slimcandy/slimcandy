@@ -54,3 +54,5 @@ export type TCategoryContext = {
     current: string
   }
 }
+
+export interface TTagContext extends TCategoryContext {}
