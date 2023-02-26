@@ -43,7 +43,7 @@ async function turnPostsIntoPages({ graphql, actions }: CreatePagesArgs) {
 
 async function turnCategoriesIntoPages({ graphql, actions }: CreatePagesArgs) {
   // 1. Get a template for this page
-  const categoryTemplate = path.resolve("./src/templates/PostList.tsx")
+  const categoryTemplate = path.resolve("./src/templates/Categories.tsx")
   // 2. Query all categories
   const {
     data,

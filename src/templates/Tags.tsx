@@ -1,8 +1,9 @@
 import * as React from "react"
 import { GrFormNextLink } from "react-icons/gr"
 import { graphql, HeadProps, Link } from "gatsby"
+
 import Seo from "../components/Seo"
-import TinyLayout from "./TinyLayout"
+import TinyLayout from "../layouts/TinyLayout"
 import { SiteMetadata, TCategoryContext } from "../utils/types"
 
 function PostsByTag({
@@ -14,7 +15,6 @@ function PostsByTag({
   const posts = data?.allSanityPost?.nodes
   const siteMetadata = SiteMetadata(data?.site?.siteMetadata)
 
-  console.log("data", data)
   if (!posts || posts.length === 0) {
     return (
       <TinyLayout siteMetadata={siteMetadata}>

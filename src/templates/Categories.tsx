@@ -1,11 +1,12 @@
 import * as React from "react"
 import { GrFormNextLink } from "react-icons/gr"
 import { graphql, HeadProps, Link } from "gatsby"
+
 import Seo from "../components/Seo"
-import TinyLayout from "./TinyLayout"
+import TinyLayout from "../layouts/TinyLayout"
 import { SiteMetadata, TCategoryContext } from "../utils/types"
 
-function SinglePostLayout({
+function PostsByCategory({
   data,
 }: {
   children: React.ReactNode
@@ -14,7 +15,6 @@ function SinglePostLayout({
   const posts = data?.allSanityPost?.nodes
   const siteMetadata = SiteMetadata(data?.site?.siteMetadata)
 
-  console.log("data", data)
   if (!posts || posts.length === 0) {
     return (
       <TinyLayout siteMetadata={siteMetadata}>
@@ -51,19 +51,19 @@ function SinglePostLayout({
   )
 }
 
-export default SinglePostLayout
+export default PostsByCategory
 
 export function Head({
   data,
   pageContext,
-}: HeadProps<Queries.SinglePostLayoutQuery, TCategoryContext>) {
+}: HeadProps<Queries.PostsByCategoryQuery, TCategoryContext>) {
   const siteTitle = data.site?.siteMetadata?.title
   const category = pageContext.name || "Posts by Category"
 
   return <Seo title={`${category} | ${siteTitle}`} />
 }
 
-export const SinglePostLayoutQuery = graphql`
+export const PostsByCategoryQuery = graphql`
   query PostsByCategory($slug: String!) {
     allSanityPost(
       sort: { publishedAt: DESC }

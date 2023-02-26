@@ -3,19 +3,19 @@ export type TUnknownObject = {
 }
 
 export type TSiteMetadata = {
-  title?: string
-  description?: string
-  author?: string
-  siteUrl?: string
+  title?: string | null
+  description?: string | null
+  author?: string | null
+  siteUrl?: string | null
   social?: {
-    email?: string
-    github?: string
-    linkedin?: string
-    podcast?: string
-    rss?: string
-    youtube?: string
-  }
-}
+    email?: string | null
+    github?: string | null
+    linkedin?: string | null
+    podcast?: string | null
+    rss?: string | null
+    youtube?: string | null
+  } | null
+} | null
 
 export function SiteMetadata(data: unknown): TSiteMetadata {
   const result: TSiteMetadata = {}
@@ -56,3 +56,14 @@ export type TCategoryContext = {
 }
 
 export interface TTagContext extends TCategoryContext {}
+
+export type TTags = ReadonlyArray<{
+  readonly name: string | null
+  readonly slug: { readonly current: string | null } | null
+}>
+
+export type TCategories = ReadonlyArray<{
+  readonly description: string | null
+  readonly name: string | null
+  readonly slug: { readonly current: string | null } | null
+}>

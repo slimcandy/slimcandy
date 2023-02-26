@@ -1,12 +1,14 @@
-import { graphql, HeadProps } from "gatsby"
+import { graphql, HeadProps, PageProps } from "gatsby"
 import * as React from "react"
 
-import IndexPageLayout from "../templates/Index"
 import Seo from "../components/Seo"
+import TinyLayout from "../layouts/TinyLayout"
 
-function Page404() {
+function Page404({ data }: PageProps<Queries.Page404Query>) {
+  const siteMetadata = data.site?.siteMetadata
+
   return (
-    <IndexPageLayout>
+    <TinyLayout siteMetadata={siteMetadata}>
       <h1 className="text-xl sm:text-3xl md:text-5xl sm:p-1 md:p-2 text-center my-1 md:my-2 text-stone-900 px-1 md:px-2 lg:px-4">
         Page not found
       </h1>
@@ -17,7 +19,7 @@ function Page404() {
           </article>
         </div>
       </div>
-    </IndexPageLayout>
+    </TinyLayout>
   )
 }
 
@@ -35,12 +37,22 @@ export function Head({ data }: HeadProps<Queries.Page404Query>) {
   )
 }
 
-export const articlesQuery = graphql`
+export const Page404Query = graphql`
   query Page404 {
     site {
       siteMetadata {
         title
         description
+        author
+        siteUrl
+        social {
+          email
+          github
+          linkedin
+          podcast
+          rss
+          youtube
+        }
       }
     }
   }
