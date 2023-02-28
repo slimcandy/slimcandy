@@ -50,34 +50,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
             <p>{posts[0].description}</p>
           </div>
         </article>
-        <Link
-          to={`/posts/${posts[0].slug?.current}`}
-          className="hover:underline hover:decoration-8 hover:underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white inline-block"
-        >
-          <h2 className="text-stone-700 font-medium sm:font-semibold md:font-bold lg:font-extrabold xl:font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl sm:p-1 md:p-2 text-center my-1 md:my-2 px-1 md:px-2 lg:px-4">
-            {posts[0].title}
-          </h2>
-        </Link>
         <div className="grid md:grid-cols-5 xl:grid-cols-4 gap-x-4 gap-y-2 items-stretch justify-center border-b-2 border-b-stone-900 border-double px-4 sm:px-3 md:px-2 lg:px-1 xl:px-0 text-justify">
-          <div className="md:order-2 md:col-span-3 xl:col-span-2 flex flex-col items-center">
-            <article className="font-light font-serif leading-normal max-w-xl md:font-normal text-base md:text-lg text-stone-700">
-              {posts[0].mainImage && posts[0].mainImage.asset && (
-                <GatsbyImage
-                  image={posts[0].mainImage.asset.gatsbyImageData}
-                  alt="a funnel. laptops go from the top.  dollar banknotes go out of it in the bottom"
-                  className="block w-full max-h-40 sm:max-h-52 md:max-h-72 lg:max-h-80 object-cover mb-2 border-4 border-stone-900"
-                />
-              )}
-              <p>{posts[0].description}</p>
-              <Link
-                to={`/posts/${posts[0].slug?.current}`}
-                className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-4 border-double border-stone-900 flex items-center gap-x-2 my-2 px-4 py-2 text-xl"
-              >
-                <GrFormNextLink />
-                {posts[0].readMore || "Read more…"}
-              </Link>
-            </article>
-          </div>
           <div className="md:order-1 md:px-4 md:border-r-2 md:border-r-stone-900 md:border-double flex justify-center">
             <article className="font-light font-serif  leading-none max-w-xl md:font-normal text-sm md:text-base ">
               <Link

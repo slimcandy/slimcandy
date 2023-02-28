@@ -28,14 +28,9 @@ function RichHeaderLayout({
           <header className="grid grid-cols-1 justify-center items-center mx-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-full lg:w-full">
             {siteMetadata.title && (
               <div className="order-1 md:order-2 text-center">
-                <Link
-                  to="/"
-                  className="hover:underline hover:decoration-8 hover:underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white inline-block"
-                >
-                  <h1 className="font-serif text-xl sm:text-2xl md:text-4xl lg:text-6xl xl:text-8xl uppercase font-bold py-1 sm:py-1.5 md:py-2.5 lg:py-3 xl:py-3.5 sm:tracking-wide md:tracking-wider lg:tracking-widest">
-                    {siteMetadata.title}
-                  </h1>
-                </Link>
+                <h1 className="font-serif text-xl sm:text-2xl md:text-4xl lg:text-6xl xl:text-8xl uppercase font-bold py-1 sm:py-1.5 md:py-2.5 lg:py-3 xl:py-3.5 sm:tracking-wide md:tracking-wider lg:tracking-widest">
+                  {siteMetadata.title}
+                </h1>
               </div>
             )}
             {siteMetadata.motto && (
@@ -46,7 +41,7 @@ function RichHeaderLayout({
               </div>
             )}
           </header>
-          <menu className="grid grid-cols-4 md:grid-cols-6 items-center justify-between mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl border-[thin] border-black my-1 sm:my-2 md:my-4 lg:my-5 xl:my-6 text-lg md:text-xl font-thin sm:font-extralight md:font-light lg:font-normal text-center capitalize">
+          <menu className="grid grid-cols-4 items-center justify-between mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl border-[thin] border-black my-1 sm:my-2 md:my-4 lg:my-5 xl:my-6 text-lg md:text-xl font-thin sm:font-extralight md:font-light lg:font-normal text-center capitalize">
             {categories &&
               categories.map(category => (
                 <li className="h-full border-r-[thin] border-black col-span-1 flex items-center justify-center">
@@ -59,7 +54,7 @@ function RichHeaderLayout({
                   </Link>
                 </li>
               ))}
-            <li className="h-full md:border-r-[thin] md:border-black col-span-1 flex items-center justify-center">
+            <li className="h-full col-span-1 flex items-center justify-center">
               <Link
                 to="/about"
                 className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white p-1 sm:p-2 md:p-3 lg:p-4 xl:p-5  flex justify-center items-center gap-1.5 h-full w-full"
@@ -68,60 +63,6 @@ function RichHeaderLayout({
                 About me
               </Link>
             </li>
-            {siteMetadata && (
-              <li className="col-span-4 md:col-span-2 border-t-[thin] border-black md:border-0">
-                <ul className="h-full grid grid-cols-6 md:grid-cols-3 items-center justify-center py-1 md:gap-x-2">
-                  <li>
-                    <a
-                      href={siteMetadata?.social?.youtube || ""}
-                      className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white p-1 flex justify-center"
-                    >
-                      <AiFillYoutube />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href={siteMetadata?.social?.github || ""}
-                      className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white p-1 flex justify-center"
-                    >
-                      <AiFillGithub />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href={siteMetadata?.social?.rss || ""}
-                      className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white p-1 flex justify-center"
-                    >
-                      <BsFillRssFill />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href={siteMetadata?.social?.podcast || ""}
-                      className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white p-1 flex justify-center"
-                    >
-                      <SiApplepodcasts />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href={siteMetadata?.social?.email || ""}
-                      className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white p-1 flex justify-center"
-                    >
-                      <AiTwotoneMail />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href={siteMetadata?.social?.linkedin || ""}
-                      className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white p-1 flex justify-center"
-                    >
-                      <AiFillLinkedin />
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            )}
           </menu>
         </>
       )}
