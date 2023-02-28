@@ -32,7 +32,7 @@ function RichHeaderLayout({
                   to="/"
                   className="hover:underline hover:decoration-8 hover:underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white inline-block"
                 >
-                  <h1 className="font-serif text-xl sm:text-2xl md:text-4xl lg:text-6xl xl:text-8xl uppercase font-bold py-1 sm:py-1.5 md:py-3 lg:py-3.5 xl:py-4 sm:tracking-wide md:tracking-wider lg:tracking-widest">
+                  <h1 className="font-serif text-xl sm:text-2xl md:text-4xl lg:text-6xl xl:text-8xl uppercase font-bold py-1 sm:py-1.5 md:py-2.5 lg:py-3 xl:py-3.5 sm:tracking-wide md:tracking-wider lg:tracking-widest">
                     {siteMetadata.title}
                   </h1>
                 </Link>
@@ -40,7 +40,7 @@ function RichHeaderLayout({
             )}
             {siteMetadata.motto && (
               <div className="order-2 md:order-1 text-center">
-                <h3 className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-1.5 sm:py-2 md:py-2.5 lg:py-3 xl:py-3.5">
+                <h3 className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5">
                   {siteMetadata.motto}
                 </h3>
               </div>

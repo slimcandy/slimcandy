@@ -22,12 +22,34 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
     )
   }
   return (
-    <RichHeaderLayout
-      siteMetadata={siteMetadata}
-      tags={tags}
-      categories={categories}
-    >
-      <main className="font-serif my-1 sm:my-2 md:my-3 lg:my-4 max-w-screen-2xl mx-auto">
+    <RichHeaderLayout siteMetadata={siteMetadata} categories={categories}>
+      <main className="font-serif my-2 sm:my-3 md:my-4 lg:my-5 xl:my-6 max-w-screen-2xl mx-auto pt-4 sm:pt-2 md:pt-1 lg:pt-0">
+        <article className="mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl border-[thin] border-black px-4 sm:px-3 md:px-2 lg:px-1 xl:px-0 relative">
+          <div className="absolute -top-4 -left-1 bg-white border-[thin] border-black h-8 sm:h-10 md:h-12 lg:h-14 xl:h-16 z-10 px-1 sm:px-2 md:px-3 lg:px-4 flex items-center justify-center">
+            <p className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin">
+              Featured Article
+            </p>
+          </div>
+          {posts[0].mainImage && posts[0].mainImage.asset && (
+            <GatsbyImage
+              image={posts[0].mainImage.asset.gatsbyImageData}
+              alt="a funnel. laptops go from the top.  dollar banknotes go out of it in the bottom"
+              className="block w-full max-h-16 sm:max-h-32 md:max-h-44 lg:max-h-52 object-cover mb-2"
+            />
+          )}
+          <div className="mx-auto sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl md:text-lg xl:text-xl pb-4 sm:pb-5 md:pb-6 lg:pb-7 xl:pb-8">
+            <small className="font-sans">{posts[0].publishedAt}</small>
+            <Link
+              to={`/posts/${posts[0].slug?.current}`}
+              className="underline decoration-black decoration-4 underline-offset-4 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+            >
+              <h2 className="font-medium sm:font-semibold md:font-bold lg:font-extrabold xl:font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl sm:py-1 md:py-2 my-1 md:my-2">
+                {posts[0].title}
+              </h2>
+            </Link>
+            <p>{posts[0].description}</p>
+          </div>
+        </article>
         <Link
           to={`/posts/${posts[0].slug?.current}`}
           className="hover:underline hover:decoration-8 hover:underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white inline-block"
@@ -184,6 +206,7 @@ export const articlesQuery = graphql`
           }
         }
         readMore
+        publishedAt(formatString: "MMMM DD, YYYY")
       }
       pageInfo {
         hasNextPage
