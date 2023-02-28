@@ -4970,6 +4970,8 @@ type SitePluginSortInput = {
 type SiteSiteMetadata = {
   readonly author: Maybe<Scalars['String']>;
   readonly description: Maybe<Scalars['String']>;
+  readonly footer: Maybe<Scalars['String']>;
+  readonly motto: Maybe<Scalars['String']>;
   readonly siteUrl: Maybe<Scalars['String']>;
   readonly social: Maybe<SiteSiteMetadataSocial>;
   readonly title: Maybe<Scalars['String']>;
@@ -4978,6 +4980,8 @@ type SiteSiteMetadata = {
 type SiteSiteMetadataFieldSelector = {
   readonly author: InputMaybe<FieldSelectorEnum>;
   readonly description: InputMaybe<FieldSelectorEnum>;
+  readonly footer: InputMaybe<FieldSelectorEnum>;
+  readonly motto: InputMaybe<FieldSelectorEnum>;
   readonly siteUrl: InputMaybe<FieldSelectorEnum>;
   readonly social: InputMaybe<SiteSiteMetadataSocialFieldSelector>;
   readonly title: InputMaybe<FieldSelectorEnum>;
@@ -4986,6 +4990,8 @@ type SiteSiteMetadataFieldSelector = {
 type SiteSiteMetadataFilterInput = {
   readonly author: InputMaybe<StringQueryOperatorInput>;
   readonly description: InputMaybe<StringQueryOperatorInput>;
+  readonly footer: InputMaybe<StringQueryOperatorInput>;
+  readonly motto: InputMaybe<StringQueryOperatorInput>;
   readonly siteUrl: InputMaybe<StringQueryOperatorInput>;
   readonly social: InputMaybe<SiteSiteMetadataSocialFilterInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
@@ -5030,6 +5036,8 @@ type SiteSiteMetadataSocialSortInput = {
 type SiteSiteMetadataSortInput = {
   readonly author: InputMaybe<SortOrderEnum>;
   readonly description: InputMaybe<SortOrderEnum>;
+  readonly footer: InputMaybe<SortOrderEnum>;
+  readonly motto: InputMaybe<SortOrderEnum>;
   readonly siteUrl: InputMaybe<SortOrderEnum>;
   readonly social: InputMaybe<SiteSiteMetadataSocialSortInput>;
   readonly title: InputMaybe<SortOrderEnum>;
@@ -5080,7 +5088,7 @@ type WebPOptions = {
 type ArticlesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type ArticlesQuery = { readonly allSanityCategory: { readonly nodes: ReadonlyArray<{ readonly description: string | null, readonly name: string | null, readonly slug: { readonly current: string | null } | null }> }, readonly allSanityTag: { readonly nodes: ReadonlyArray<{ readonly name: string | null, readonly slug: { readonly current: string | null } | null }> }, readonly allSanityPost: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly description: string | null, readonly readMore: string | null, readonly slug: { readonly current: string | null } | null, readonly mainImage: { readonly asset: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }>, readonly pageInfo: { readonly hasNextPage: boolean, readonly hasPreviousPage: boolean, readonly currentPage: number } }, readonly site: { readonly siteMetadata: { readonly title: string | null, readonly description: string | null, readonly author: string | null, readonly siteUrl: string | null, readonly social: { readonly email: string | null, readonly github: string | null, readonly linkedin: string | null, readonly podcast: string | null, readonly rss: string | null, readonly youtube: string | null } | null } | null } | null };
+type ArticlesQuery = { readonly allSanityCategory: { readonly nodes: ReadonlyArray<{ readonly description: string | null, readonly name: string | null, readonly slug: { readonly current: string | null } | null }> }, readonly allSanityTag: { readonly nodes: ReadonlyArray<{ readonly name: string | null, readonly slug: { readonly current: string | null } | null }> }, readonly allSanityPost: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly description: string | null, readonly readMore: string | null, readonly slug: { readonly current: string | null } | null, readonly mainImage: { readonly asset: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }>, readonly pageInfo: { readonly hasNextPage: boolean, readonly hasPreviousPage: boolean, readonly currentPage: number } }, readonly site: { readonly siteMetadata: { readonly title: string | null, readonly description: string | null, readonly motto: string | null, readonly footer: string | null, readonly author: string | null, readonly siteUrl: string | null, readonly social: { readonly email: string | null, readonly github: string | null, readonly linkedin: string | null, readonly podcast: string | null, readonly rss: string | null, readonly youtube: string | null } | null } | null } | null };
 
 type GatsbyImageSharpFixedFragment = { readonly base64: string | null, readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
 

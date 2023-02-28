@@ -195,6 +195,8 @@ export const articlesQuery = graphql`
       siteMetadata {
         title
         description
+        motto
+        footer
         author
         siteUrl
         social {

@@ -1,7 +1,15 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import { AiFillTag } from "react-icons/ai"
+import {
+  AiFillTag,
+  AiFillYoutube,
+  AiFillGithub,
+  AiTwotoneMail,
+  AiFillLinkedin,
+} from "react-icons/ai"
 import { BiCategoryAlt } from "react-icons/bi"
+import { BsFillRssFill } from "react-icons/bs"
+import { SiApplepodcasts } from "react-icons/si"
 
 import { TCategories, TSiteMetadata, TTags } from "../utils/types"
 import Footer from "../components/Footer"
@@ -20,107 +28,105 @@ function RichHeaderLayout({
   return (
     <>
       {siteMetadata && (
-        <header className="my-1 lg:my-2 max-w-screen-2xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-5 mx-1 lg:mx-2 lg:my-1 items-stretch justify-center md:gap-y-2">
-            <p className="hidden md:block border border-stone-500 px-4 py-2 text-xs md:text-sm text-center font-light first-line:tracking-widest first-line:uppercase">
-              Subscribe to{" "}
-              <a
-                href={siteMetadata?.social?.rss || ""}
-                className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white"
-              >
-                rss feed
-              </a>
-              ,{" "}
-              <a
-                href={siteMetadata?.social?.youtube || ""}
-                className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white"
-              >
-                {" "}
-                youtube channel
-              </a>{" "}
-              and{" "}
-              <a
-                href={siteMetadata?.social?.podcast || ""}
-                className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white"
-              >
-                {" "}
-                apple podcasts
-              </a>
-              .
-            </p>
-            <div className="text-center md:col-span-3 flex items-center justify-center">
-              <Link
-                to="/"
-                className="hover:underline hover:decoration-8 hover:underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white inline-block"
-              >
-                {siteMetadata && (
-                  <h1 className="uppercase font-serif font-black text-lg sm:text-xl md:text-2xl lg:text-4xl 2xl:text-6xl">
+        <>
+          <header className="grid grid-cols-1 justify-center items-center mx-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-full lg:w-full">
+            {siteMetadata.title && (
+              <div className="order-1 md:order-2 text-center">
+                <Link
+                  to="/"
+                  className="hover:underline hover:decoration-8 hover:underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white inline-block"
+                >
+                  <h2 className="font-serif text-xl sm:text-2xl md:text-4xl lg:text-6xl xl:text-8xl uppercase font-bold py-1 sm:py-1.5 md:py-3 lg:py-3.5 xl:py-4 sm:tracking-wide md:tracking-wider lg:tracking-widest">
                     {siteMetadata.title}
-                  </h1>
-                )}
+                  </h2>
+                </Link>
+              </div>
+            )}
+            {siteMetadata.motto && (
+              <div className="order-2 md:order-1 text-center">
+                <h3 className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-1.5 sm:py-2 md:py-2.5 lg:py-3 xl:py-3.5">
+                  {siteMetadata.motto}
+                </h3>
+              </div>
+            )}
+          </header>
+          <menu className="grid grid-cols-4 md:grid-cols-6 items-center justify-between mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl border-[thin] border-black my-1 sm:my-2 md:my-4 lg:my-5 xl:my-6 text-lg md:text-xl font-thin sm:font-extralight md:font-light lg:font-normal text-center">
+            {categories &&
+              categories.map(category => (
+                <li className="h-full border-r-[thin] border-black col-span-1 flex items-center justify-center">
+                  <Link
+                    to={`/categories/${category?.slug?.current}`}
+                    className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white  p-1 sm:p-2 md:p-3 lg:p-4 xl:p-5 block h-full w-full"
+                    title={category.description || ""}
+                  >
+                    {category.name}
+                  </Link>
+                </li>
+              ))}
+            <li className="h-full md:border-r-[thin] md:border-black col-span-1 flex items-center justify-center">
+              <Link
+                to="/about"
+                className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white p-1 sm:p-2 md:p-3 lg:p-4 xl:p-5  block h-full w-full"
+              >
+                About me
               </Link>
-            </div>
+            </li>
             {siteMetadata && (
-              <p className="hidden md:block border border-stone-500 px-4 py-2 text-xs md:text-sm text-center font-light first-line:tracking-widest first-line:uppercase">
-                Discover my{" "}
-                <a
-                  href={siteMetadata?.social?.github || ""}
-                  className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white"
-                >
-                  Github
-                </a>{" "}
-                and explore my{" "}
-                <a
-                  href={siteMetadata?.social?.linkedin || ""}
-                  className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white"
-                >
-                  LinkedIn profile
-                </a>
-                .
-              </p>
-            )}
-          </div>
-          <hr className="md:hidden border-t-4 sm:border-t-2 border-double border-stone-500 mx-2 my-1 sm:my-2 md:my-3 lg:my-4" />
-          <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 mx-2 my-1 sm:my-2 md:my-3 lg:my-4 items-stretch lowercase text-xs border-y-2 border-double border-stone-500 px-2 md:px-3 lg:px-4 py-1 md:py-2 gap-1">
-            {tags && (
-              <div className="col-span-1 md:col-span-2 flex gap-1 items-center">
-                <AiFillTag />
-                <ul className="flex flex-wrap items-center gap-1">
-                  {tags.map(tag => (
-                    <li key={tag?.slug?.current}>
-                      <Link
-                        to={`/tags/${tag?.slug?.current}`}
-                        className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
-                      >
-                        {tag.name}
-                      </Link>
-                      /
-                    </li>
-                  ))}
+              <li className="col-span-4 md:col-span-2 border-t-[thin] border-black md:border-0">
+                <ul className="h-full grid grid-cols-6 md:grid-cols-3 items-center justify-center py-1 md:gap-x-2">
+                  <li>
+                    <a
+                      href={siteMetadata?.social?.youtube || ""}
+                      className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white p-1 flex justify-center"
+                    >
+                      <AiFillYoutube />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={siteMetadata?.social?.github || ""}
+                      className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white p-1 flex justify-center"
+                    >
+                      <AiFillGithub />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={siteMetadata?.social?.rss || ""}
+                      className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white p-1 flex justify-center"
+                    >
+                      <BsFillRssFill />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={siteMetadata?.social?.podcast || ""}
+                      className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white p-1 flex justify-center"
+                    >
+                      <SiApplepodcasts />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={siteMetadata?.social?.email || ""}
+                      className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white p-1 flex justify-center"
+                    >
+                      <AiTwotoneMail />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={siteMetadata?.social?.linkedin || ""}
+                      className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white p-1 flex justify-center"
+                    >
+                      <AiFillLinkedin />
+                    </a>
+                  </li>
                 </ul>
-              </div>
+              </li>
             )}
-            {categories && categories[0]?.slug?.current && (
-              <div className="col-span-1 md:col-span-3 flex gap-x-1 items-center uppercase">
-                <BiCategoryAlt />
-                <ul className="flex flex-wrap items-center gap-1">
-                  {categories.map(category => (
-                    <li key={category?.slug?.current}>
-                      <Link
-                        to={`/categories/${category?.slug?.current}`}
-                        className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white px-2 py-1"
-                        title={category.description || ""}
-                      >
-                        {category.name}
-                      </Link>
-                      /
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
-        </header>
+          </menu>
+        </>
       )}
       {children}
       <Footer siteMetadata={siteMetadata} />

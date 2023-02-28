@@ -13,7 +13,7 @@ function Seo({
   return (
     <>
       <html lang="en" />
-      <body className="text-stone-500 hyphens-auto transition-all" />
+      <body className="hyphens-auto transition-all" />
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta property="og:title" content={title} />
