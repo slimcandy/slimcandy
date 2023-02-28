@@ -18,7 +18,7 @@ function Footer({ siteMetadata }: { siteMetadata?: TSiteMetadata }) {
           <li>
             <a
               href={siteMetadata?.social?.youtube || ""}
-              className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+              className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
             >
               <AiFillYoutube /> youtube
             </a>
@@ -26,7 +26,7 @@ function Footer({ siteMetadata }: { siteMetadata?: TSiteMetadata }) {
           <li>
             <a
               href={siteMetadata?.social?.github || ""}
-              className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+              className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
             >
               <AiFillGithub /> github
             </a>
@@ -34,7 +34,7 @@ function Footer({ siteMetadata }: { siteMetadata?: TSiteMetadata }) {
           <li>
             <a
               href={siteMetadata?.social?.rss || ""}
-              className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+              className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
             >
               <BsFillRssFill /> rss
             </a>
@@ -42,7 +42,7 @@ function Footer({ siteMetadata }: { siteMetadata?: TSiteMetadata }) {
           <li>
             <a
               href={siteMetadata?.social?.podcast || ""}
-              className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+              className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
             >
               <SiApplepodcasts /> podcasts
             </a>
@@ -50,7 +50,7 @@ function Footer({ siteMetadata }: { siteMetadata?: TSiteMetadata }) {
           <li>
             <a
               href={siteMetadata?.social?.email || ""}
-              className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+              className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
             >
               <AiTwotoneMail /> email
             </a>
@@ -58,7 +58,7 @@ function Footer({ siteMetadata }: { siteMetadata?: TSiteMetadata }) {
           <li>
             <a
               href={siteMetadata?.social?.linkedin || ""}
-              className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+              className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
             >
               <AiFillLinkedin /> linkedin
             </a>

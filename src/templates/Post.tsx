@@ -10,6 +10,7 @@ import TinyLayout from "../layouts/TinyLayout"
 function SinglePostLayout({ data }: { data: Queries.SinglePostLayoutQuery }) {
   const siteMetadata = data?.site?.siteMetadata
   const post = data?.sanityPost
+  const categories = data.allSanityCategory.nodes
 
   if (!post) {
     return (
@@ -20,7 +21,7 @@ function SinglePostLayout({ data }: { data: Queries.SinglePostLayoutQuery }) {
   }
 
   return (
-    <TinyLayout siteMetadata={siteMetadata}>
+    <TinyLayout siteMetadata={siteMetadata} categories={categories}>
       <main className="font-serif text-stone-700 my-1 sm:my-2 md:my-3 lg:my-4 max-w-screen-2xl mx-auto">
         {post?.title && (
           <h1 className="font-medium sm:font-semibold md:font-bold lg:font-extrabold xl:font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl sm:p-1 md:p-2 text-center my-1 md:my-2 px-1 md:px-2 lg:px-4">
@@ -61,6 +62,15 @@ export function Head({ data }: HeadProps<Queries.SinglePostLayoutQuery>) {
 
 export const SinglePostLayoutQuery = graphql`
   query SinglePostLayout($slug: String!) {
+    allSanityCategory(limit: 3) {
+      nodes {
+        description
+        name
+        slug {
+          current
+        }
+      }
+    }
     sanityPost(slug: { current: { eq: $slug } }) {
       id
       youtubeUrl

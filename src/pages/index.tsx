@@ -49,7 +49,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
               <p>{posts[0].description}</p>
               <Link
                 to={`/posts/${posts[0].slug?.current}`}
-                className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-4 border-double border-stone-900 flex items-center gap-x-2 my-2 px-4 py-2 text-xl"
+                className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-4 border-double border-stone-900 flex items-center gap-x-2 my-2 px-4 py-2 text-xl"
               >
                 <GrFormNextLink />
                 {posts[0].readMore || "Read more…"}
@@ -76,7 +76,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
               <p>{posts[1].description}</p>
               <Link
                 to={`/posts/${posts[1].slug?.current}`}
-                className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-2 border-double border-stone-900 flex items-center gap-x-2 my-2 px-2 py-1"
+                className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-2 border-double border-stone-900 flex items-center gap-x-2 my-2 px-2 py-1"
               >
                 <GrFormNextLink />
                 {posts[1].readMore || "Read more…"}
@@ -103,7 +103,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
               <p>{posts[2].description}</p>
               <Link
                 to={`/posts/${posts[2].slug?.current}`}
-                className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-2 border-double border-stone-900 flex items-center gap-x-2 my-2 px-2 py-1"
+                className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-2 border-double border-stone-900 flex items-center gap-x-2 my-2 px-2 py-1"
               >
                 <GrFormNextLink />
                 {posts[2].readMore || "Read more…"}
@@ -120,7 +120,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
               <p>{post.description}</p>
               <Link
                 to={`/posts/${post.slug?.current}`}
-                className="underline decoration-slate-500 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-2 border-double border-stone-900 flex items-center gap-x-2 my-2 px-2 py-1"
+                className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-2 border-double border-stone-900 flex items-center gap-x-2 my-2 px-2 py-1"
               >
                 <GrFormNextLink />
                 {post.readMore || "Read more…"}
@@ -146,7 +146,7 @@ export function Head({ data }: HeadProps<Queries.ArticlesQuery>) {
 
 export const articlesQuery = graphql`
   query Articles {
-    allSanityCategory(limit: 6) {
+    allSanityCategory(limit: 3) {
       nodes {
         description
         name
