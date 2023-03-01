@@ -1,17 +1,9 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import {
-  AiFillHome,
-  AiFillGithub,
-  AiTwotoneMail,
-  AiFillLinkedin,
-  AiOutlineHome,
-} from "react-icons/ai"
-import { BsFillPersonLinesFill, BsFillRssFill } from "react-icons/bs"
-import { SiApplepodcasts } from "react-icons/si"
+import { AiFillHome } from "react-icons/ai"
+import { BsFillPersonLinesFill } from "react-icons/bs"
 
 import { TCategories, TSiteMetadata } from "../utils/types"
-import Footer from "../components/Footer"
 
 function TinyLayout({
   children,
@@ -23,7 +15,7 @@ function TinyLayout({
   categories?: TCategories
 }) {
   return (
-    <>
+    <div className="px-2 sm:px-4 md:px-2 lg:px-0">
       {siteMetadata && (
         <menu className="grid grid-cols-5 items-center justify-between mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl border-[thin] border-black my-1 sm:my-2 md:my-4 lg:my-5 xl:my-6 text-lg md:text-xl font-thin sm:font-extralight md:font-light lg:font-normal text-center capitalize">
           <li className="h-full border-r-[thin] border-black col-span-1 flex items-center justify-center">
@@ -59,8 +51,7 @@ function TinyLayout({
         </menu>
       )}
       {children}
-      <Footer siteMetadata={siteMetadata} />
-    </>
+    </div>
   )
 }
 

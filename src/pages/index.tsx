@@ -1,18 +1,24 @@
 import * as React from "react"
 import { graphql, HeadProps, Link, PageProps } from "gatsby"
-import { GrFormNextLink } from "react-icons/gr"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 import Seo from "../components/Seo"
 import TinyLayout from "../layouts/TinyLayout"
 import RichHeaderLayout from "../layouts/RichHeaderLayout"
+import {
+  AiFillGithub,
+  AiFillLinkedin,
+  AiFillYoutube,
+  AiTwotoneMail,
+} from "react-icons/ai"
+import { BsFillRssFill } from "react-icons/bs"
+import { SiApplepodcasts } from "react-icons/si"
 
 function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
   const siteMetadata = data.site?.siteMetadata
-  const tags = data.allSanityTag.nodes
   const categories = data.allSanityCategory.nodes
   const posts = data.allSanityPost.nodes
-  const postsWithoutFirstThree = posts.slice(3)
+  const notFirstPosts = posts.slice(1)
 
   if (posts.length === 0) {
     return (
@@ -23,8 +29,8 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
   }
   return (
     <RichHeaderLayout siteMetadata={siteMetadata} categories={categories}>
-      <main className="font-serif my-2 sm:my-3 md:my-4 lg:my-5 xl:my-6 max-w-screen-2xl mx-auto pt-4 sm:pt-2 md:pt-1 lg:pt-0">
-        <article className="mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl border-[thin] border-black px-4 sm:px-3 md:px-2 lg:px-1 xl:px-0 relative">
+      <main className="font-serif my-2 sm:my-3 md:my-4 lg:my-5 xl:my-6 max-w-screen-2xl mx-auto pt-4 sm:pt-2 md:pt-1 lg:pt-0 px-2 sm:px-4 md:px-2 lg:px-0">
+        <article className="mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl border-[thin] border-black relative">
           <div className="absolute -top-4 -left-1 bg-white border-[thin] border-black h-8 sm:h-10 md:h-12 lg:h-14 xl:h-16 z-10 px-1 sm:px-2 md:px-3 lg:px-4 flex items-center justify-center">
             <p className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin">
               Featured Article
@@ -37,7 +43,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
               className="block w-full max-h-16 sm:max-h-32 md:max-h-44 lg:max-h-52 object-cover mb-2"
             />
           )}
-          <div className="mx-auto sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl md:text-lg xl:text-xl pb-4 sm:pb-5 md:pb-6 lg:pb-7 xl:pb-8">
+          <div className="mx-auto sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl md:text-lg xl:text-xl pb-4 sm:pb-5 md:pb-6 lg:pb-7 xl:pb-8 px-4 sm:px-3 md:px-2 lg:px-1 xl:px-0 ">
             <small className="font-sans">{posts[0].publishedAt}</small>
             <Link
               to={`/posts/${posts[0].slug?.current}`}
@@ -50,78 +56,110 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
             <p>{posts[0].description}</p>
           </div>
         </article>
-        <div className="grid md:grid-cols-5 xl:grid-cols-4 gap-x-4 gap-y-2 items-stretch justify-center border-b-2 border-b-stone-900 border-double px-4 sm:px-3 md:px-2 lg:px-1 xl:px-0 text-justify">
-          <div className="md:order-1 md:px-4 md:border-r-2 md:border-r-stone-900 md:border-double flex justify-center">
-            <article className="font-light font-serif  leading-none max-w-xl md:font-normal text-sm md:text-base ">
-              <Link
-                to={`/posts/${posts[1].slug?.current}`}
-                className="hover:underline hover:decoration-4 hover:underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white inline-block"
-              >
-                <h3 className="font-semibold sm:font-bold md:font-extrabold lg:font-black xl:font-black text-lg md:text-xl lg:text-2xl xl:text-3xl my-1 md:mb-2 md:mt-3 py-1 sm:pb-1 sm:pt-2 md:pb-2 md:pt-3 lg:pb-3 lg:pt-4 xl:pb-4 xl:pt-5">
-                  {posts[1].title}
-                </h3>
-              </Link>
-              {posts[1].mainImage && posts[1].mainImage.asset && (
+        <div className="flex flex-wrap flex-col gap-1.5 sm:gap-2.5 md:gap-3 lg:gap-3.5 xl:gap-4 sm:mt-2.5 md:mt-3 lg:mt-3.5 xl:mt-4 mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl">
+          <p className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin">
+            News from Garden
+          </p>
+          {notFirstPosts.map(post => (
+            <article className="border-[thin] border-black relative grid grid-cols-1 md:grid-cols-5 gap-1 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-5">
+              {post.mainImage && post.mainImage.asset && (
                 <GatsbyImage
-                  image={posts[1].mainImage.asset.gatsbyImageData}
+                  image={post.mainImage.asset.gatsbyImageData}
                   alt="a funnel. laptops go from the top.  dollar banknotes go out of it in the bottom"
-                  className="block w-full max-h-48 object-cover mb-2 border-2 border-stone-600"
+                  className="md:col-span-2 block w-full max-h-16 sm:max-h-32 md:max-h-full md:h-full object-cover mb-2 md:mb-0"
                 />
               )}
-              <p>{posts[1].description}</p>
-              <Link
-                to={`/posts/${posts[1].slug?.current}`}
-                className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-2 border-double border-stone-900 flex items-center gap-x-2 my-2 px-2 py-1"
-              >
-                <GrFormNextLink />
-                {posts[1].readMore || "Read more…"}
-              </Link>
-            </article>
-          </div>
-          <div className="order-3 md:px-4 md:border-l-2 md:border-l-stone-900 md:border-double flex justify-center">
-            <article className="font-light font-serif  leading-none max-w-xl md:font-normal text-sm md:text-base ">
-              <Link
-                to={`/posts/${posts[2].slug?.current}`}
-                className="hover:underline hover:decoration-4 hover:underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white inline-block"
-              >
-                <h3 className="font-semibold sm:font-bold md:font-extrabold lg:font-black xl:font-black text-lg md:text-xl lg:text-2xl xl:text-3xl my-1 md:mb-2 md:mt-3 py-1 sm:pb-1 sm:pt-2 md:pb-2 md:pt-3 lg:pb-3 lg:pt-4 xl:pb-4 xl:pt-5">
-                  {posts[2].title}
-                </h3>
-              </Link>
-              {posts[2].mainImage && posts[2].mainImage.asset && (
-                <GatsbyImage
-                  image={posts[2].mainImage.asset.gatsbyImageData}
-                  alt="a funnel. laptops go from the top.  dollar banknotes go out of it in the bottom"
-                  className="block w-full max-h-48 object-cover mb-2 border-2 border-stone-600"
-                />
-              )}
-              <p>{posts[2].description}</p>
-              <Link
-                to={`/posts/${posts[2].slug?.current}`}
-                className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-2 border-double border-stone-900 flex items-center gap-x-2 my-2 px-2 py-1"
-              >
-                <GrFormNextLink />
-                {posts[2].readMore || "Read more…"}
-              </Link>
-            </article>
-          </div>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-2 md:gap-x-4 lg:gap-x-6 xl:gap-x-8 items-stretch justify-center mx-auto px-4 py-2">
-          {postsWithoutFirstThree.map(post => (
-            <article className=" font-light font-serif leading-none max-w-xl md:font-normal text-sm md:text-base text-justify   mt-1 pt-2">
-              <h3 className="font-semibold sm:font-bold md:font-extrabold lg:font-black xl:font-black text-lg md:text-xl lg:text-2xl xl:text-3xl my-1 md:mb-2 md:mt-3 py-1 sm:pb-1 sm:pt-2 md:pb-2 md:pt-3 lg:pb-3 lg:pt-4 xl:pb-4 xl:pt-5">
-                {post.title}
-              </h3>
-              <p>{post.description}</p>
-              <Link
-                to={`/posts/${post.slug?.current}`}
-                className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-2 border-double border-stone-900 flex items-center gap-x-2 my-2 px-2 py-1"
-              >
-                <GrFormNextLink />
-                {post.readMore || "Read more…"}
-              </Link>
+              <div className="md:col-span-3 mx-auto sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl md:text-lg xl:text-xl pb-4 sm:pb-5 md:pb-6 lg:pb-7 xl:pb-8 px-4 sm:px-3 md:px-2 lg:px-1 xl:px-0">
+                <small className="font-sans">{post.publishedAt}</small>
+                <Link
+                  to={`/posts/${post.slug?.current}`}
+                  className="underline decoration-black decoration-2 underline-offset-4 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+                >
+                  <h3 className="sm:font-medium md:font-semibold lg:font-bold xl:font-extrabold text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl sm:py-1 md:py-2 my-1 md:my-2">
+                    {post.title}
+                  </h3>
+                </Link>
+                <p>{post.description}</p>
+              </div>
             </article>
           ))}
+          <hr className="border-t-[thin] border-black my-1 sm:my-1.5 md:my-2 lg:my-2.5 xl:my-3" />
+          {siteMetadata?.description && (
+            <section>
+              <h4 className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin">
+                About me
+              </h4>
+              <p className="mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl">
+                {siteMetadata.description}
+                <br />
+                <br />
+                <Link
+                  to="/about"
+                  className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+                >
+                  Read more about my solutions and services →
+                </Link>
+              </p>
+            </section>
+          )}
+          <hr className="border-t-[thin] border-black my-1 sm:my-1.5 md:my-2 lg:my-2.5 xl:my-3" />
+          {siteMetadata?.social && (
+            <section>
+              <h4 className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin">
+                Follow me
+              </h4>
+              <menu className="flex flex-wrap items-center gap-6 sm:gap-7 md:gap-8 lg:gap-9 xl:gap-10 md:text-lg xl:text-xl">
+                <li>
+                  <a
+                    href={siteMetadata?.social?.youtube || ""}
+                    className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+                  >
+                    <AiFillYoutube /> youtube
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={siteMetadata?.social?.github || ""}
+                    className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+                  >
+                    <AiFillGithub /> github
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={siteMetadata?.social?.rss || ""}
+                    className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+                  >
+                    <BsFillRssFill /> rss
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={siteMetadata?.social?.podcast || ""}
+                    className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+                  >
+                    <SiApplepodcasts /> podcasts
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={siteMetadata?.social?.email || ""}
+                    className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+                  >
+                    <AiTwotoneMail /> email
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={siteMetadata?.social?.linkedin || ""}
+                    className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+                  >
+                    <AiFillLinkedin /> linkedin
+                  </a>
+                </li>
+              </menu>
+            </section>
+          )}
         </div>
       </main>
     </RichHeaderLayout>

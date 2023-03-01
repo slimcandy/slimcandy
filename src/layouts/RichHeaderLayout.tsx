@@ -1,16 +1,8 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import {
-  AiFillYoutube,
-  AiFillGithub,
-  AiTwotoneMail,
-  AiFillLinkedin,
-} from "react-icons/ai"
-import { BsFillPersonLinesFill, BsFillRssFill } from "react-icons/bs"
-import { SiApplepodcasts } from "react-icons/si"
+import { BsFillPersonLinesFill } from "react-icons/bs"
 
-import { TCategories, TSiteMetadata, TTags } from "../utils/types"
-import Footer from "../components/Footer"
+import { TCategories, TSiteMetadata } from "../utils/types"
 
 function RichHeaderLayout({
   children,
@@ -24,7 +16,7 @@ function RichHeaderLayout({
   return (
     <>
       {siteMetadata && (
-        <>
+        <div className="px-2 sm:px-4 md:px-2 lg:px-0">
           <header className="grid grid-cols-1 justify-center items-center mx-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-full lg:w-full">
             {siteMetadata.title && (
               <div className="order-1 md:order-2 text-center">
@@ -64,10 +56,9 @@ function RichHeaderLayout({
               </Link>
             </li>
           </menu>
-        </>
+        </div>
       )}
       {children}
-      <Footer siteMetadata={siteMetadata} />
     </>
   )
 }
