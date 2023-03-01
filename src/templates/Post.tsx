@@ -22,7 +22,7 @@ function SinglePostLayout({ data }: { data: Queries.SinglePostLayoutQuery }) {
 
   return (
     <TinyLayout siteMetadata={siteMetadata} categories={categories}>
-      <main className="font-serif text-stone-700 my-1 sm:my-2 md:my-3 lg:my-4 max-w-screen-2xl mx-auto">
+      <main className="font-serif my-1 sm:my-2 md:my-3 lg:my-4 max-w-screen-2xl mx-auto">
         {post?.title && (
           <h1 className="font-medium sm:font-semibold md:font-bold lg:font-extrabold xl:font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl sm:p-1 md:p-2 text-center my-1 md:my-2 px-1 md:px-2 lg:px-4">
             {post.title}
@@ -33,7 +33,7 @@ function SinglePostLayout({ data }: { data: Queries.SinglePostLayoutQuery }) {
             <GatsbyImage
               image={post.mainImage.asset.gatsbyImageData}
               alt={post.mainImage.asset.altText || ""}
-              className="block w-full max-h-40 sm:max-h-52 md:max-h-72 lg:max-h-80 object-cover mb-2 border-4 border-stone-900"
+              className="block w-full max-h-40 sm:max-h-52 md:max-h-72 lg:max-h-80 object-cover mb-2"
             />
           )}
           <article className="sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl md:text-lg xl:text-xl pb-4 sm:pb-5 md:pb-6 lg:pb-7 xl:pb-8">
