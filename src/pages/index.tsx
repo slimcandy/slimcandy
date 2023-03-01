@@ -39,8 +39,8 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
           {posts[0].mainImage && posts[0].mainImage.asset && (
             <GatsbyImage
               image={posts[0].mainImage.asset.gatsbyImageData}
-              alt="a funnel. laptops go from the top.  dollar banknotes go out of it in the bottom"
-              className="block w-full max-h-16 sm:max-h-32 md:max-h-44 lg:max-h-52 object-cover mb-2"
+              alt=""
+              className="block w-full max-h-32 sm:max-h-44 md:max-h-52 lg:max-h-60 object-cover mb-2"
             />
           )}
           <div className="mx-auto sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl md:text-lg xl:text-xl pb-4 sm:pb-5 md:pb-6 lg:pb-7 xl:pb-8 px-4 sm:px-3 md:px-2 lg:px-1 xl:px-0 ">
@@ -56,110 +56,115 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
             <p>{posts[0].description}</p>
           </div>
         </article>
-        <div className="flex flex-wrap flex-col gap-1.5 sm:gap-2.5 md:gap-3 lg:gap-3.5 xl:gap-4 sm:mt-2.5 md:mt-3 lg:mt-3.5 xl:mt-4 mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl">
-          <p className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin">
-            News from Garden
-          </p>
-          {notFirstPosts.map(post => (
-            <article className="border-[thin] border-black relative grid grid-cols-1 md:grid-cols-5 gap-1 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-5">
-              {post.mainImage && post.mainImage.asset && (
-                <GatsbyImage
-                  image={post.mainImage.asset.gatsbyImageData}
-                  alt="a funnel. laptops go from the top.  dollar banknotes go out of it in the bottom"
-                  className="md:col-span-2 block w-full max-h-16 sm:max-h-32 md:max-h-full md:h-full object-cover mb-2 md:mb-0"
-                />
-              )}
-              <div className="md:col-span-3 mx-auto sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl md:text-lg xl:text-xl pb-4 sm:pb-5 md:pb-6 lg:pb-7 xl:pb-8 px-4 sm:px-3 md:px-2 lg:px-1 xl:px-0">
-                <small className="font-sans">{post.publishedAt}</small>
-                <Link
-                  to={`/posts/${post.slug?.current}`}
-                  className="underline decoration-black decoration-2 underline-offset-4 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
-                >
-                  <h3 className="sm:font-medium md:font-semibold lg:font-bold xl:font-extrabold text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl sm:py-1 md:py-2 my-1 md:my-2">
-                    {post.title}
-                  </h3>
-                </Link>
-                <p>{post.description}</p>
-              </div>
-            </article>
-          ))}
-          <hr className="border-t-[thin] border-black my-1 sm:my-1.5 md:my-2 lg:my-2.5 xl:my-3" />
-          {siteMetadata?.description && (
-            <section>
-              <h4 className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin">
-                About me
-              </h4>
-              <p className="mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl">
-                {siteMetadata.description}
-                <br />
-                <br />
-                <Link
-                  to="/about"
-                  className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
-                >
-                  Read more about my solutions and services →
-                </Link>
-              </p>
-            </section>
-          )}
-          <hr className="border-t-[thin] border-black my-1 sm:my-1.5 md:my-2 lg:my-2.5 xl:my-3" />
-          {siteMetadata?.social && (
-            <section>
-              <h4 className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin">
-                Follow me
-              </h4>
-              <menu className="flex flex-wrap items-center gap-6 sm:gap-7 md:gap-8 lg:gap-9 xl:gap-10 md:text-lg xl:text-xl">
-                <li>
-                  <a
-                    href={siteMetadata?.social?.youtube || ""}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-y-2 sm:gap-y-3 md:gap-y-4 sm:mt-2.5 md:mt-3 lg:mt-3.5 xl:mt-4 mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl py-2 sm:py-3 md:py-4 lg:py-5 xl:py-6">
+          <div className="md:col-span-2 border-b-[thin] border-b-black md:border-b-0 md:pr-6 lg:pr-7 xl:pr-8">
+            <p className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin">
+              News from Garden
+            </p>
+            <div className="flex flex-col flex-wrap gap-1 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-5">
+              {notFirstPosts.map(post => (
+                <article className="border-[thin] border-black relative grid grid-cols-1 md:grid-cols-5 gap-1 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-5">
+                  {post.mainImage && post.mainImage.asset && (
+                    <GatsbyImage
+                      image={post.mainImage.asset.gatsbyImageData}
+                      alt=""
+                      className="md:col-span-2 block w-full max-h-32 sm:max-h-44 md:max-h-full md:h-full object-cover mb-2 md:mb-0"
+                    />
+                  )}
+                  <div className="md:col-span-3 mx-auto sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl md:text-lg xl:text-xl pb-4 sm:pb-5 md:pb-6 lg:pb-7 xl:pb-8 px-4 sm:px-3 md:px-2 lg:px-1 xl:px-0">
+                    <small className="font-sans">{post.publishedAt}</small>
+                    <Link
+                      to={`/posts/${post.slug?.current}`}
+                      className="underline decoration-black decoration-2 underline-offset-4 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+                    >
+                      <h3 className="sm:font-medium md:font-semibold lg:font-bold xl:font-extrabold text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl sm:py-1 md:py-2 my-1 md:my-2">
+                        {post.title}
+                      </h3>
+                    </Link>
+                    <p>{post.description}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+          <div className="md:border-l-[thin] md:border-l-black md:pl-6 lg:pl-7 xl:pl-8">
+            {siteMetadata?.description && (
+              <section>
+                <h4 className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin">
+                  About me
+                </h4>
+                <p className="mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl">
+                  {siteMetadata.description}
+                  <br />
+                  <br />
+                  <Link
+                    to="/about"
                     className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
                   >
-                    <AiFillYoutube /> youtube
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={siteMetadata?.social?.github || ""}
-                    className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
-                  >
-                    <AiFillGithub /> github
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={siteMetadata?.social?.rss || ""}
-                    className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
-                  >
-                    <BsFillRssFill /> rss
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={siteMetadata?.social?.podcast || ""}
-                    className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
-                  >
-                    <SiApplepodcasts /> podcasts
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={siteMetadata?.social?.email || ""}
-                    className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
-                  >
-                    <AiTwotoneMail /> email
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={siteMetadata?.social?.linkedin || ""}
-                    className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
-                  >
-                    <AiFillLinkedin /> linkedin
-                  </a>
-                </li>
-              </menu>
-            </section>
-          )}
+                    Read more about my solutions and services →
+                  </Link>
+                </p>
+              </section>
+            )}
+            <hr className="border-t-[thin] border-black my-1 sm:my-1.5 md:my-2 lg:my-2.5 xl:my-3" />
+            {siteMetadata?.social && (
+              <section>
+                <h4 className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin">
+                  Follow me
+                </h4>
+                <menu className="flex flex-wrap items-center gap-6 sm:gap-7 md:gap-8 lg:gap-9 xl:gap-10 md:text-lg xl:text-xl">
+                  <li>
+                    <a
+                      href={siteMetadata?.social?.youtube || ""}
+                      className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+                    >
+                      <AiFillYoutube /> youtube
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={siteMetadata?.social?.github || ""}
+                      className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+                    >
+                      <AiFillGithub /> github
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={siteMetadata?.social?.rss || ""}
+                      className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+                    >
+                      <BsFillRssFill /> rss
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={siteMetadata?.social?.podcast || ""}
+                      className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+                    >
+                      <SiApplepodcasts /> podcasts
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={siteMetadata?.social?.email || ""}
+                      className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+                    >
+                      <AiTwotoneMail /> email
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={siteMetadata?.social?.linkedin || ""}
+                      className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+                    >
+                      <AiFillLinkedin /> linkedin
+                    </a>
+                  </li>
+                </menu>
+              </section>
+            )}
+          </div>
         </div>
       </main>
     </RichHeaderLayout>
