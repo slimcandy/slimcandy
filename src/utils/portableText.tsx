@@ -4,26 +4,32 @@ import js from "refractor/lang/javascript"
 import typescript from "refractor/lang/typescript"
 import json from "refractor/lang/json"
 import yaml from "refractor/lang/yaml"
+import css from "refractor/lang/css"
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
-import { getGatsbyImageData } from "gatsby-source-sanity"
-import { PortableTextReactComponents } from "@portabletext/react"
+import { PortableTextComponents } from "@portabletext/react"
 
 Refractor.registerLanguage(js)
 Refractor.registerLanguage(typescript)
 Refractor.registerLanguage(json)
 Refractor.registerLanguage(yaml)
+Refractor.registerLanguage(css)
 
-const components: Partial<PortableTextReactComponents> = {
+const components: PortableTextComponents = {
   types: {
     image: function image(value: IGatsbyImageData) {
       return <GatsbyImage image={value} alt="" />
     },
-    code: function codeOutput({ value: { code, language, highlightedLines } }) {
+    code: function codeOutput(props) {
+      console.log("code props", props)
+      const {
+        value: { code, language, highlightedLines },
+      } = props
       return (
         <Refractor
           language={language}
           value={code}
           markers={highlightedLines}
+          className="not-prose font-mono text-xs sm:text-sm md:text-base lg:text-md xl:text-lg 2xl:text-xl"
         />
       )
     },
@@ -33,10 +39,9 @@ const components: Partial<PortableTextReactComponents> = {
       return (
         <iframe
           src={src}
-          frameborder="0"
           loading="lazy"
-          allowtransparency="true"
-          allowfullscreen="true"
+          allowTransparency={true}
+          allowFullScreen={true}
           name={text}
           title={text}
           style={{
@@ -56,7 +61,6 @@ const components: Partial<PortableTextReactComponents> = {
           id="embedPlayer"
           src={src}
           height="175px"
-          frameborder="0"
           sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
           allow="autoplay *; encrypted-media *; clipboard-write"
           style={{
@@ -73,36 +77,6 @@ const components: Partial<PortableTextReactComponents> = {
           Listen to
           <a href={src}>{text}</a>
         </iframe>
-      )
-    },
-  },
-  block: {
-    h2: function h2({ children }) {
-      return (
-        <h2 className="font-semibold sm:font-bold md:font-extrabold lg:font-black xl:font-black text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl my-1 sm:my-2 md:my-3 lg:my-4 xl:my-5 py-1 sm:py-2 md:py-3lg:py-4 xl:py-5">
-          {children}
-        </h2>
-      )
-    },
-    h3: function h3({ children }) {
-      return (
-        <h3 className="font-semibold sm:font-bold md:font-extrabold lg:font-black xl:font-black text-lg md:text-xl lg:text-2xl xl:text-3xl my-1 md:mb-2 md:mt-3 py-1 sm:pb-1 sm:pt-2 md:pb-2 md:pt-3 lg:pb-3 lg:pt-4 xl:pb-4 xl:pt-5">
-          {children}
-        </h3>
-      )
-    },
-    h4: function h4({ children }) {
-      return (
-        <h4 className="font-semibold sm:font-bold md:font-extrabold lg:font-black xl:font-black md:text-lg lg:text-xl xl:text-2xl my-1 md:mb-2 md:mt-3 py-1 sm:pb-1 sm:pt-2 md:pb-2 md:pt-3 lg:pb-3 lg:pt-4 xl:pb-4 xl:pt-5">
-          {children}
-        </h4>
-      )
-    },
-    normal: function p({ children }) {
-      return (
-        <p className="font-serif font-light md:font-normal xl:font-medium leading-snug md:leading-normal xl:leading-relaxed text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">
-          {children}
-        </p>
       )
     },
   },

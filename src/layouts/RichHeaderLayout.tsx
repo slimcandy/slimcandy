@@ -39,7 +39,7 @@ function RichHeaderLayout({
                 <li className="h-full border-r-[thin] border-black col-span-1 flex items-center justify-center">
                   <Link
                     to={`/categories/${category?.slug?.current}`}
-                    className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white  p-1 sm:p-2 md:p-3 lg:p-4 xl:p-5 block h-full w-full"
+                    className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white p-1 sm:p-2 md:p-3 lg:p-4 xl:p-5 block h-full w-full"
                     title={category.description || ""}
                   >
                     {category.name}

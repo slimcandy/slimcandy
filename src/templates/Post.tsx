@@ -10,25 +10,28 @@ import TinyLayout from "../layouts/TinyLayout"
 function SinglePostLayout({ data }: { data: Queries.SinglePostLayoutQuery }) {
   const siteMetadata = data?.site?.siteMetadata
   const post = data?.sanityPost
-  const categories = data.allSanityCategory.nodes
 
   if (!post) {
     return (
-      <TinyLayout>
-        <p>No blog post found.</p>
+      <TinyLayout siteMetadata={siteMetadata}>
+        <article
+          className="prose prose-neutral prose-sm sm:prose-base md:prose-lg lg:prose-xl xl:prose-2xl
+          prose-a:underline prose-a:decoration-black prose-a:decoration-2 prose-a:underline-offset-2 hover:prose-a:decoration-red-700 focus:prose-a:outline-none focus:prose-a:no-underline focus:prose-a:ring-4 focus:prose-a:ring-offset-2 focus:prose-a:ring-stone-900 focus:prose-a:bg-white"
+        >
+          <h1>No blog post found.</h1>
+        </article>
       </TinyLayout>
     )
   }
 
   return (
-    <TinyLayout siteMetadata={siteMetadata} categories={categories}>
-      <main className="font-serif my-1 sm:my-2 md:my-3 lg:my-4 max-w-screen-2xl mx-auto">
-        {post?.title && (
-          <h1 className="font-medium sm:font-semibold md:font-bold lg:font-extrabold xl:font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl sm:p-1 md:p-2 text-center my-1 md:my-2 px-1 md:px-2 lg:px-4">
-            {post.title}
-          </h1>
-        )}
-        <div className="px-4 sm:px-3 md:px-2 lg:px-1 xl:px-0 text-justify flex flex-col items-center">
+    <TinyLayout siteMetadata={siteMetadata}>
+      <main className="font-serif my-1 sm:my-2 md:my-3 lg:my-4 sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto">
+        <article
+          className="prose prose-neutral prose-sm sm:prose-base md:prose-lg lg:prose-xl xl:prose-2xl
+          prose-a:underline prose-a:decoration-black prose-a:decoration-2 prose-a:underline-offset-2 hover:prose-a:decoration-red-700 focus:prose-a:outline-none focus:prose-a:no-underline focus:prose-a:ring-4 focus:prose-a:ring-offset-2 focus:prose-a:ring-stone-900 focus:prose-a:bg-white"
+        >
+          {post?.title && <h1>{post.title}</h1>}
           {post.mainImage && post.mainImage.asset && (
             <GatsbyImage
               image={post.mainImage.asset.gatsbyImageData}
@@ -36,13 +39,12 @@ function SinglePostLayout({ data }: { data: Queries.SinglePostLayoutQuery }) {
               className="block w-full max-h-40 sm:max-h-52 md:max-h-72 lg:max-h-80 object-cover mb-2"
             />
           )}
-          <article className="sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl md:text-lg xl:text-xl pb-4 sm:pb-5 md:pb-6 lg:pb-7 xl:pb-8">
-            <PortableText
-              value={post.content}
-              components={portableTextComponents}
-            />
-          </article>
-        </div>
+
+          <PortableText
+            value={post._rawContent}
+            components={portableTextComponents}
+          />
+        </article>
       </main>
     </TinyLayout>
   )
@@ -119,23 +121,13 @@ export const SinglePostLayoutQuery = graphql`
         }
         description
       }
-      content {
-        _key
-        _type
-        list
-        style
-        children {
-          _key
-          _type
-          marks
-          text
-        }
-      }
+      _rawContent
     }
     site {
       siteMetadata {
         title
         description
+        motto
         author
         siteUrl
         social {
