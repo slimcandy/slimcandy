@@ -11,17 +11,17 @@ function TinyLayout({
   siteMetadata?: TSiteMetadata
 }) {
   return (
-    <div className="px-2 sm:px-3 md:pb-4 md:pt-4 lg:pb-5 xl:pb-6 sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto">
+    <div className="px-2 sm:px-3 md:pb-4 md:pt-4 lg:pb-5 xl:pb-6">
       {siteMetadata && (
-        <header className="flex flex-col justify-center">
+        <header className="flex flex-col justify-center items-center mb-1 sm:mb-2 md:mb-3 lg:mb-4">
           {siteMetadata.title && (
             <Link
               to="/"
-              className="underline decoration-black decoration-2 underline-offset-4 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-1.5 h-full w-full"
+              className="underline decoration-black decoration-2 underline-offset-4 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center justify-center gap-1.5 h-full w-full"
             >
-              <h1 className="font-serif sm:text-md md:text-lg lg:text-xl xl:text-2xl uppercase font-bold sm:tracking-wide md:tracking-wider lg:tracking-widest">
+              <h2 className="font-serif sm:text-md md:text-lg lg:text-xl xl:text-2xl uppercase font-bold sm:tracking-wide md:tracking-wider lg:tracking-widest">
                 {siteMetadata.title}
-              </h1>
+              </h2>
             </Link>
           )}
           {siteMetadata.motto && (

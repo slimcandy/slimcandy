@@ -6,22 +6,14 @@ import { PortableText } from "@portabletext/react"
 import Seo from "../components/Seo"
 import portableTextComponents from "../utils/portableText"
 import TinyLayout from "../layouts/TinyLayout"
+import NoPosts from "../components/NoPosts"
 
 function SinglePostLayout({ data }: { data: Queries.SinglePostLayoutQuery }) {
   const siteMetadata = data?.site?.siteMetadata
   const post = data?.sanityPost
 
   if (!post) {
-    return (
-      <TinyLayout siteMetadata={siteMetadata}>
-        <article
-          className="prose prose-neutral prose-sm sm:prose-base md:prose-lg lg:prose-xl xl:prose-2xl
-          prose-a:underline prose-a:decoration-black prose-a:decoration-2 prose-a:underline-offset-2 hover:prose-a:decoration-red-700 focus:prose-a:outline-none focus:prose-a:no-underline focus:prose-a:ring-4 focus:prose-a:ring-offset-2 focus:prose-a:ring-stone-900 focus:prose-a:bg-white"
-        >
-          <h1>No blog post found.</h1>
-        </article>
-      </TinyLayout>
-    )
+    return <NoPosts siteMetadata={siteMetadata} />
   }
 
   return (

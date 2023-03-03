@@ -5,6 +5,7 @@ import { graphql, HeadProps, Link } from "gatsby"
 import Seo from "../components/Seo"
 import TinyLayout from "../layouts/TinyLayout"
 import { SiteMetadata, TCategoryContext } from "../utils/types"
+import NoPosts from "../components/NoPosts"
 
 function PostsByTag({
   data,
@@ -16,11 +17,7 @@ function PostsByTag({
   const siteMetadata = SiteMetadata(data?.site?.siteMetadata)
 
   if (!posts || posts.length === 0) {
-    return (
-      <TinyLayout siteMetadata={siteMetadata}>
-        <p>No blog posts found.</p>
-      </TinyLayout>
-    )
+    return <NoPosts siteMetadata={siteMetadata} />
   }
 
   return (

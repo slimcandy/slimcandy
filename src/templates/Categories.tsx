@@ -1,10 +1,11 @@
 import * as React from "react"
-import { GrFormNextLink } from "react-icons/gr"
 import { graphql, HeadProps, Link } from "gatsby"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import Seo from "../components/Seo"
 import TinyLayout from "../layouts/TinyLayout"
-import { SiteMetadata, TCategoryContext } from "../utils/types"
+import { TCategoryContext } from "../utils/types"
+import NoPosts from "../components/NoPosts"
 
 function PostsByCategory({
   data,
@@ -13,39 +14,40 @@ function PostsByCategory({
   data: Queries.PostsByCategoryQuery
 }) {
   const posts = data?.allSanityPost?.nodes
-  const siteMetadata = SiteMetadata(data?.site?.siteMetadata)
+  const siteMetadata = data?.site?.siteMetadata
 
   if (!posts || posts.length === 0) {
-    return (
-      <TinyLayout siteMetadata={siteMetadata}>
-        <p>No blog posts found.</p>
-      </TinyLayout>
-    )
+    return <NoPosts siteMetadata={siteMetadata} />
   }
 
   return (
     <TinyLayout siteMetadata={siteMetadata}>
-      <main
-        className="font-serif text-sto
-      ne-700 my-1 sm:my-2 md:my-3 lg:my-4 max-w-screen-2xl mx-auto"
-      >
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-2 md:gap-x-4 lg:gap-x-6 xl:gap-x-8 items-stretch justify-center mx-auto px-4 py-2">
-          {posts.map(post => (
-            <article className=" font-light font-serif leading-none max-w-xl md:font-normal text-sm md:text-base text-justify   mt-1 pt-2">
-              <h3 className="font-semibold sm:font-bold md:font-extrabold lg:font-black xl:font-black text-lg md:text-xl lg:text-2xl xl:text-3xl my-1 md:mb-2 md:mt-3 py-1 sm:pb-1 sm:pt-2 md:pb-2 md:pt-3 lg:pb-3 lg:pt-4 xl:pb-4 xl:pt-5">
-                {post.title}
-              </h3>
-              <p>{post.description}</p>
-              <Link
-                to={`/posts/${post.slug?.current}`}
-                className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white border-2 border-double border-stone-900 flex items-center gap-x-2 my-2 px-2 py-1"
-              >
-                <GrFormNextLink />
-                {post.readMore || "Read more…"}
+      <main className="flex flex-col gap-1 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-5 max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl mx-auto">
+        {posts.map(post => (
+          <article
+            className="border-[thin] border-black w-full 
+            grid grid-cols-1 md:grid-cols-5"
+          >
+            {post.mainImage && post.mainImage.asset && (
+              <GatsbyImage
+                image={post.mainImage.asset.gatsbyImageData}
+                alt=""
+                className="md:col-span-2 object-cover"
+              />
+            )}
+            <div
+              className="md:col-span-3 p-2 sm:p-3 md:p-4 lg:p-5 xl:p-6 
+              font-serif prose prose-neutral prose-xs sm:prose-sm md:prose-md lg:prose-lg xl:prose-xl
+          prose-a:block prose-a:underline prose-a:decoration-black prose-a:decoration-2 prose-a:underline-offset-2 hover:prose-a:decoration-red-700 focus:prose-a:outline-none focus:prose-a:no-underline focus:prose-a:ring-4 focus:prose-a:ring-offset-2 focus:prose-a:ring-stone-900 focus:prose-a:bg-white"
+            >
+              <small className="font-sans">{post.publishedAt}</small>
+              <Link to={`/posts/${post.slug?.current}`}>
+                <h2>{post.title}</h2>
               </Link>
-            </article>
-          ))}
-        </div>
+              <p>{post.description}</p>
+            </div>
+          </article>
+        ))}
       </main>
     </TinyLayout>
   )
@@ -89,6 +91,7 @@ export const PostsByCategoryQuery = graphql`
             )
           }
         }
+        publishedAt(formatString: "MMMM DD, YYYY")
         readMore
       }
     }
@@ -96,6 +99,7 @@ export const PostsByCategoryQuery = graphql`
       siteMetadata {
         title
         description
+        motto
         author
         siteUrl
         social {
