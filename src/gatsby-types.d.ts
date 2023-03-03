@@ -4803,6 +4803,11 @@ type WebPOptions = {
   readonly quality: InputMaybe<Scalars['Int']>;
 };
 
+type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type AboutPageQuery = { readonly site: { readonly siteMetadata: { readonly title: string | null, readonly description: string | null, readonly motto: string | null } | null } | null };
+
 type ArticlesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
