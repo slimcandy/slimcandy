@@ -13,6 +13,7 @@ import {
 } from "react-icons/ai"
 import { BsFillRssFill } from "react-icons/bs"
 import { SiApplepodcasts } from "react-icons/si"
+import NoPosts from "../components/NoPosts"
 
 function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
   const siteMetadata = data.site?.siteMetadata
@@ -20,12 +21,8 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
   const posts = data.allSanityPost.nodes
   const notFirstPosts = posts.slice(1)
 
-  if (posts.length === 0) {
-    return (
-      <TinyLayout siteMetadata={siteMetadata}>
-        <p>No blog posts found.</p>
-      </TinyLayout>
-    )
+  if (!posts || posts.length === 0) {
+    return <NoPosts siteMetadata={siteMetadata} />
   }
   return (
     <RichHeaderLayout siteMetadata={siteMetadata} categories={categories}>
@@ -224,18 +221,12 @@ export const articlesQuery = graphql`
         readMore
         publishedAt(formatString: "MMMM DD, YYYY")
       }
-      pageInfo {
-        hasNextPage
-        hasPreviousPage
-        currentPage
-      }
     }
     site {
       siteMetadata {
         title
         description
         motto
-        footer
         author
         siteUrl
         social {

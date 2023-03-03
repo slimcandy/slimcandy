@@ -6,7 +6,6 @@ export type TSiteMetadata = {
   title?: string | null
   description?: string | null
   motto?: string | null
-  footer?: string | null
   author?: string | null
   siteUrl?: string | null
   social?: {
