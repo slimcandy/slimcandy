@@ -1,4 +1,4 @@
-import { graphql, HeadProps, PageProps } from "gatsby"
+import { graphql, HeadProps, Link, PageProps } from "gatsby"
 import * as React from "react"
 
 import Seo from "../components/Seo"
@@ -9,16 +9,18 @@ function Page404({ data }: PageProps<Queries.Page404Query>) {
 
   return (
     <TinyLayout siteMetadata={siteMetadata}>
-      <h1 className="text-xl sm:text-3xl md:text-5xl sm:p-1 md:p-2 text-center my-1 md:my-2 text-stone-900 px-1 md:px-2 lg:px-4">
-        Page not found
-      </h1>
-      <div className="grid md:grid-cols-5 xl:grid-cols-4 gap-x-4 gap-y-2 items-stretch justify-center border-b-2 border-b-stone-900 border-double px-4 sm:px-3 md:px-2 lg:px-1 xl:px-0 text-justify">
-        <div className="md:order-2 md:col-span-3 xl:col-span-2 flex flex-col items-center">
-          <article className="font-light font-serif leading-normal max-w-xl md:font-normal text-base md:text-lg text-stone-900">
-            <p>Sorry 😔, we couldn’t find what you were looking for.</p>
-          </article>
-        </div>
-      </div>
+      <main className="font-serif my-1 sm:my-2 md:my-3 lg:my-4 sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto">
+        <article
+          className="prose prose-neutral prose-sm sm:prose-base md:prose-lg lg:prose-xl xl:prose-2xl
+          prose-a:underline prose-a:decoration-black prose-a:decoration-2 prose-a:underline-offset-2 hover:prose-a:decoration-red-700 focus:prose-a:outline-none focus:prose-a:no-underline focus:prose-a:ring-4 focus:prose-a:ring-offset-2 focus:prose-a:ring-stone-900 focus:prose-a:bg-white"
+        >
+          <h1>Page not found</h1>
+          <p>Sorry 😔, we couldn’t find what you were looking for.</p>
+          <p>
+            Check <Link to="/">the home page</Link>
+          </p>
+        </article>
+      </main>
     </TinyLayout>
   )
 }
@@ -43,16 +45,7 @@ export const Page404Query = graphql`
       siteMetadata {
         title
         description
-        author
-        siteUrl
-        social {
-          email
-          github
-          linkedin
-          podcast
-          rss
-          youtube
-        }
+        motto
       }
     }
   }

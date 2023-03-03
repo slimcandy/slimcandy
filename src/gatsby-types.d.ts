@@ -4841,7 +4841,7 @@ type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: 
 type Page404QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type Page404Query = { readonly site: { readonly siteMetadata: { readonly title: string | null, readonly description: string | null, readonly author: string | null, readonly siteUrl: string | null, readonly social: { readonly email: string | null, readonly github: string | null, readonly linkedin: string | null, readonly podcast: string | null, readonly rss: string | null, readonly youtube: string | null } | null } | null } | null };
+type Page404Query = { readonly site: { readonly siteMetadata: { readonly title: string | null, readonly description: string | null, readonly motto: string | null } | null } | null };
 
 type PostsByCategoryQueryVariables = Exact<{
   slug: Scalars['String'];
