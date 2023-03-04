@@ -3,7 +3,6 @@ import { graphql, HeadProps, Link, PageProps } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 import Seo from "../components/Seo"
-import TinyLayout from "../layouts/TinyLayout"
 import RichHeaderLayout from "../layouts/RichHeaderLayout"
 import {
   AiFillGithub,
@@ -171,7 +170,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
 export default IndexPage
 
 export function Head({ data }: HeadProps<Queries.ArticlesQuery>) {
-  const siteTitle = data.site?.siteMetadata?.title
+  const siteTitle = data.site?.siteMetadata?.title || ``
   const siteDescription = data.site?.siteMetadata?.description || ``
 
   return (
@@ -184,14 +183,6 @@ export const articlesQuery = graphql`
     allSanityCategory(limit: 3) {
       nodes {
         description
-        name
-        slug {
-          current
-        }
-      }
-    }
-    allSanityTag(limit: 4) {
-      nodes {
         name
         slug {
           current
@@ -227,8 +218,6 @@ export const articlesQuery = graphql`
         title
         description
         motto
-        author
-        siteUrl
         social {
           email
           github

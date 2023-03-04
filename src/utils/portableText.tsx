@@ -5,8 +5,9 @@ import typescript from "refractor/lang/typescript"
 import json from "refractor/lang/json"
 import yaml from "refractor/lang/yaml"
 import css from "refractor/lang/css"
-import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { PortableTextComponents } from "@portabletext/react"
+import { getGatsbyImageData } from "gatsby-source-sanity"
 
 Refractor.registerLanguage(js)
 Refractor.registerLanguage(typescript)
@@ -16,8 +17,28 @@ Refractor.registerLanguage(css)
 
 const components: PortableTextComponents = {
   types: {
-    image: function image(value: IGatsbyImageData) {
-      return <GatsbyImage image={value} alt="" />
+    image: function imageOutput(props) {
+      const {
+        value: {
+          asset: { _ref },
+        },
+      } = props
+      const sanityConfig = {
+        projectId: "qtyf8bhl",
+        dataset: "production",
+      }
+
+      const imageData = getGatsbyImageData(
+        _ref,
+        {
+          height: 300,
+          placeholder: "dominantColor",
+          fit: "fillmax",
+        },
+        sanityConfig
+      )
+      if (imageData) return <GatsbyImage image={imageData} alt="" />
+      else return <i>Image not found</i>
     },
     code: function codeOutput(props) {
       console.log("code props", props)

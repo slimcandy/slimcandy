@@ -1,9 +1,8 @@
 import * as React from "react"
-import { graphql, useStaticQuery } from "gatsby"
 
 function Seo({
   description = "",
-  title,
+  title = "",
   children,
 }: {
   description?: string

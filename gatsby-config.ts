@@ -56,6 +56,7 @@ const config: GatsbyConfig = {
       __key: "pages",
     },
     "gatsby-plugin-postcss",
+    "gatsby-plugin-netlify",
   ],
 }
 

@@ -4,7 +4,7 @@ import { graphql, HeadProps, Link } from "gatsby"
 
 import Seo from "../components/Seo"
 import TinyLayout from "../layouts/TinyLayout"
-import { SiteMetadata, TCategoryContext } from "../utils/types"
+import { TCategoryContext } from "../utils/types"
 import NoPosts from "../components/NoPosts"
 
 function PostsByTag({
@@ -14,7 +14,7 @@ function PostsByTag({
   data: Queries.PostsByTagQuery
 }) {
   const posts = data?.allSanityPost?.nodes
-  const siteMetadata = SiteMetadata(data?.site?.siteMetadata)
+  const siteMetadata = data?.site?.siteMetadata
 
   if (!posts || posts.length === 0) {
     return <NoPosts siteMetadata={siteMetadata} />
@@ -54,7 +54,7 @@ export function Head({
   data,
   pageContext,
 }: HeadProps<Queries.PostsByTagQuery, TCategoryContext>) {
-  const siteTitle = data.site?.siteMetadata?.title
+  const siteTitle = data.site?.siteMetadata?.title || ""
   const category = pageContext.name || "Posts by Category"
 
   return <Seo title={`${category} | ${siteTitle}`} />
@@ -93,8 +93,7 @@ export const PostsByTagQuery = graphql`
       siteMetadata {
         title
         description
-        author
-        siteUrl
+        motto
         social {
           email
           github

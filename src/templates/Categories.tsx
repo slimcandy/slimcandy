@@ -59,7 +59,7 @@ export function Head({
   data,
   pageContext,
 }: HeadProps<Queries.PostsByCategoryQuery, TCategoryContext>) {
-  const siteTitle = data.site?.siteMetadata?.title
+  const siteTitle = data.site?.siteMetadata?.title || ""
   const category = pageContext.name || "Posts by Category"
 
   return <Seo title={`${category} | ${siteTitle}`} />
@@ -100,8 +100,6 @@ export const PostsByCategoryQuery = graphql`
         title
         description
         motto
-        author
-        siteUrl
         social {
           email
           github
