@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../fonts/PlayfairDisplay-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: "Sofia Sans Extra Condensed";
+  src: url("../fonts/SofiaSansExtraCondensed-VariableFont_wght.ttf");
+}
