@@ -28,3 +28,4 @@ In my spare time, I take courses on frontend development to keep up with the lat
 - [Evency – project for hiking teams ](https://github.com/slimcandy/todorism)
 - [You Might Not Need date-fns](https://github.com/cedmax/youmightnotneed/pull/193)
 - [Exploring hdr in css for apple 📱](https://github.com/kiding/wanna-see-a-whiter-white/pull/6)
+- [Tailwind plugin](https://github.com/slimcandy/tailwindcss-text-rendering)
