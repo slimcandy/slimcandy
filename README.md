@@ -22,3 +22,9 @@ In my spare time, I take courses on frontend development to keep up with the lat
 - 💬 Fell free to ask me about html semantics
 
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=slimcandy&exclude_repo=witcher-api&langs_count=8&layout=compact&hide=makefile&theme=react" alt="Most used languages" />
+
+## 👷 Contributions to Open Source
+
+- [Evency – project for hiking teams ](https://github.com/slimcandy/todorism)
+- [You Might Not Need date-fns](https://github.com/cedmax/youmightnotneed/pull/193)
+- [Exploring hdr in css for apple 📱](https://github.com/kiding/wanna-see-a-whiter-white/pull/6)
