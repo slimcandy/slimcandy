@@ -16,3 +16,9 @@
 ## 👨🏻‍💻 About Me :
 
 In my spare time, I take courses on frontend development to keep up with the latest technologies. I enjoy sharing my knowledge by contributing to open-source projects. I write technical articles and make videos about my pet projects.
+
+- 💳 Currently working at an online bank.
+- 🤔 Looking for help with JS native version of exiftool.
+- 💬 Fell free to ask me about html semantics
+
+<p align="center"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=slimcandy&exclude_repo=witcher-api&langs_count=8&layout=compact&hide=makefile&theme=react" alt="Most used languages" /></p>
