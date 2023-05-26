@@ -25,13 +25,6 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
               Featured Article
             </p>
           </div>
-          {posts[0].mainImage && posts[0].mainImage.asset && (
-            <GatsbyImage
-              image={posts[0].mainImage.asset.gatsbyImageData}
-              alt=""
-              className="block w-full max-h-32 sm:max-h-44 md:max-h-52 lg:max-h-60 object-cover mb-2"
-            />
-          )}
           <div className="mx-auto sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl md:text-lg xl:text-xl pb-4 sm:pb-5 md:pb-6 lg:pb-7 xl:pb-8 px-4 sm:px-3 md:px-2 lg:px-1 xl:px-0 ">
             <small className="font-sans">{posts[0].publishedAt}</small>
             <Link
@@ -52,15 +45,8 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
             </p>
             <div className="flex flex-col flex-wrap gap-1 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-5">
               {notFirstPosts.map(post => (
-                <article className="border-[thin] border-black relative grid grid-cols-1 md:grid-cols-5 gap-1 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-5 overflow-hidden">
-                  {post.mainImage && post.mainImage.asset && (
-                    <GatsbyImage
-                      image={post.mainImage.asset.gatsbyImageData}
-                      alt=""
-                      className="md:col-span-2 block w-full max-h-32 sm:max-h-44 md:max-h-full md:h-full object-cover mb-2 md:mb-0"
-                    />
-                  )}
-                  <div className="md:col-span-3 mx-auto sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl md:text-lg xl:text-xl pb-4 sm:pb-5 md:pb-6 lg:pb-7 xl:pb-8 px-4 sm:px-3 md:px-2 lg:px-1 xl:px-0">
+                <article className="border-[thin] border-black relative overflow-hidden">
+                  <div className="mx-auto sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl md:text-lg xl:text-xl pb-4 sm:pb-5 md:pb-6 lg:pb-7 xl:pb-8 px-4 sm:px-3 lg:px-4 xl:px-6">
                     <small className="font-sans">{post.publishedAt}</small>
                     <Link
                       to={`/posts/${post.slug?.current}`}
@@ -165,19 +151,6 @@ export const articlesQuery = graphql`
           current
         }
         description
-        mainImage {
-          asset {
-            gatsbyImageData(
-              aspectRatio: 16.9
-              height: 400
-              placeholder: DOMINANT_COLOR
-              layout: FULL_WIDTH
-              formats: [AUTO, WEBP, AVIF, JPG, PNG]
-              breakpoints: [750, 1080, 1366, 1920]
-              fit: FILL
-            )
-          }
-        }
         readMore
         publishedAt(formatString: "MMMM DD, YYYY")
       }

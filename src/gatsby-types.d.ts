@@ -1814,7 +1814,6 @@ type Query_sanityPostArgs = {
   _rev: InputMaybe<StringQueryOperatorInput>;
   _type: InputMaybe<StringQueryOperatorInput>;
   _updatedAt: InputMaybe<DateQueryOperatorInput>;
-  applePodcastUrl: InputMaybe<StringQueryOperatorInput>;
   author: InputMaybe<SanityAuthorFilterInput>;
   category: InputMaybe<SanityCategoryFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
@@ -3472,7 +3471,6 @@ type SanityPost = Node & SanityDocument & {
   readonly _rev: Maybe<Scalars['String']>;
   readonly _type: Maybe<Scalars['String']>;
   readonly _updatedAt: Maybe<Scalars['Date']>;
-  readonly applePodcastUrl: Maybe<Scalars['String']>;
   readonly author: Maybe<SanityAuthor>;
   readonly category: Maybe<SanityCategory>;
   readonly children: ReadonlyArray<Node>;
@@ -3602,7 +3600,6 @@ type SanityPostFieldSelector = {
   readonly _rev: InputMaybe<FieldSelectorEnum>;
   readonly _type: InputMaybe<FieldSelectorEnum>;
   readonly _updatedAt: InputMaybe<FieldSelectorEnum>;
-  readonly applePodcastUrl: InputMaybe<FieldSelectorEnum>;
   readonly author: InputMaybe<SanityAuthorFieldSelector>;
   readonly category: InputMaybe<SanityCategoryFieldSelector>;
   readonly children: InputMaybe<NodeFieldSelector>;
@@ -3633,7 +3630,6 @@ type SanityPostFilterInput = {
   readonly _rev: InputMaybe<StringQueryOperatorInput>;
   readonly _type: InputMaybe<StringQueryOperatorInput>;
   readonly _updatedAt: InputMaybe<DateQueryOperatorInput>;
-  readonly applePodcastUrl: InputMaybe<StringQueryOperatorInput>;
   readonly author: InputMaybe<SanityAuthorFilterInput>;
   readonly category: InputMaybe<SanityCategoryFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
@@ -3705,7 +3701,6 @@ type SanityPostSortInput = {
   readonly _rev: InputMaybe<SortOrderEnum>;
   readonly _type: InputMaybe<SortOrderEnum>;
   readonly _updatedAt: InputMaybe<SortOrderEnum>;
-  readonly applePodcastUrl: InputMaybe<SortOrderEnum>;
   readonly author: InputMaybe<SanityAuthorSortInput>;
   readonly category: InputMaybe<SanityCategorySortInput>;
   readonly children: InputMaybe<NodeSortInput>;
@@ -4799,7 +4794,7 @@ type AboutPageQuery = { readonly site: { readonly siteMetadata: { readonly title
 type ArticlesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type ArticlesQuery = { readonly allSanityCategory: { readonly nodes: ReadonlyArray<{ readonly description: string | null, readonly name: string | null, readonly slug: { readonly current: string | null } | null }> }, readonly allSanityPost: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly description: string | null, readonly readMore: string | null, readonly publishedAt: string | null, readonly slug: { readonly current: string | null } | null, readonly mainImage: { readonly asset: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }> }, readonly site: { readonly siteMetadata: { readonly title: string | null, readonly description: string | null, readonly motto: string | null, readonly social: { readonly github: string | null, readonly linkedin: string | null, readonly youtube: string | null } | null } | null } | null };
+type ArticlesQuery = { readonly allSanityCategory: { readonly nodes: ReadonlyArray<{ readonly description: string | null, readonly name: string | null, readonly slug: { readonly current: string | null } | null }> }, readonly allSanityPost: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly description: string | null, readonly readMore: string | null, readonly publishedAt: string | null, readonly slug: { readonly current: string | null } | null }> }, readonly site: { readonly siteMetadata: { readonly title: string | null, readonly description: string | null, readonly motto: string | null, readonly social: { readonly github: string | null, readonly linkedin: string | null, readonly youtube: string | null } | null } | null } | null };
 
 type GatsbyImageSharpFixedFragment = { readonly base64: string | null, readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
 
