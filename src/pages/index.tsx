@@ -4,14 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 
 import Seo from "../components/Seo"
 import RichHeaderLayout from "../layouts/RichHeaderLayout"
-import {
-  AiFillGithub,
-  AiFillLinkedin,
-  AiFillYoutube,
-  AiTwotoneMail,
-} from "react-icons/ai"
-import { BsFillRssFill } from "react-icons/bs"
-import { SiApplepodcasts } from "react-icons/si"
+import { AiFillGithub, AiFillLinkedin, AiFillYoutube } from "react-icons/ai"
 import NoPosts from "../components/NoPosts"
 
 function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
@@ -127,30 +120,6 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
                   </li>
                   <li>
                     <a
-                      href={siteMetadata?.social?.rss || ""}
-                      className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
-                    >
-                      <BsFillRssFill /> rss
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href={siteMetadata?.social?.podcast || ""}
-                      className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
-                    >
-                      <SiApplepodcasts /> podcasts
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href={siteMetadata?.social?.email || ""}
-                      className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
-                    >
-                      <AiTwotoneMail /> email
-                    </a>
-                  </li>
-                  <li>
-                    <a
                       href={siteMetadata?.social?.linkedin || ""}
                       className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
                     >
@@ -219,11 +188,8 @@ export const articlesQuery = graphql`
         description
         motto
         social {
-          email
           github
           linkedin
-          podcast
-          rss
           youtube
         }
       }
