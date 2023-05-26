@@ -47,7 +47,7 @@ const components: PortableTextComponents = {
       } = props
       return (
         <Refractor
-          language={language}
+          language={language || "javascript"}
           value={code}
           markers={highlightedLines}
           className="not-prose font-mono text-xs sm:text-sm md:text-base lg:text-md xl:text-lg 2xl:text-xl"
