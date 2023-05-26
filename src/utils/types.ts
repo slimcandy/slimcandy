@@ -29,13 +29,6 @@ export type TCategoryContext = {
   }
 }
 
-export interface TTagContext extends TCategoryContext {}
-
-export type TTags = ReadonlyArray<{
-  readonly name: string | null
-  readonly slug: { readonly current: string | null } | null
-}>
-
 export type TCategories = ReadonlyArray<{
   readonly description: string | null
   readonly name: string | null

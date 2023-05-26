@@ -1,5 +1,6 @@
 import { graphql, HeadProps, Link, PageProps } from "gatsby"
 import * as React from "react"
+import { StaticImage } from "gatsby-plugin-image"
 
 import Seo from "../components/Seo"
 import TinyLayout from "../layouts/TinyLayout"
@@ -16,6 +17,19 @@ function AboutPage({ data }: PageProps<Queries.AboutPageQuery>) {
           prose-a:underline prose-a:decoration-black prose-a:decoration-2 prose-a:underline-offset-2 hover:prose-a:decoration-red-700 focus:prose-a:outline-none focus:prose-a:no-underline focus:prose-a:ring-4 focus:prose-a:ring-offset-2 focus:prose-a:ring-stone-900 focus:prose-a:bg-white"
         >
           <h1>Hi, I&#39;m Alex!</h1>
+          <StaticImage
+            src="../images/photo.jpeg"
+            alt="Photo of me in Adidas tracksuit. I'm standing at the edge of a cliff – national park."
+            className="block
+            w-40 sm:w-52 md:w-60 lg:w-72
+            max-h-40 sm:max-h-52 md:max-h-60 lg:max-h-72
+            mr-2 mb-2
+            float-right"
+            placeholder="dominantColor"
+            formats={["auto", "webp", "avif", "jpg", "png"]}
+            breakpoints={[576, 768, 992, 1200]}
+            objectFit="contain"
+          />
           <p>
             Welcome to my blog, where I share tips and strategies on coding,
             Github projects, semantic HTML, JS performance, CSS tricks, and
