@@ -59,7 +59,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
             </p>
             <div className="flex flex-col flex-wrap gap-1 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-5">
               {notFirstPosts.map(post => (
-                <article className="border-[thin] border-black relative grid grid-cols-1 md:grid-cols-5 gap-1 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-5">
+                <article className="border-[thin] border-black relative grid grid-cols-1 md:grid-cols-5 gap-1 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-5 overflow-hidden">
                   {post.mainImage && post.mainImage.asset && (
                     <GatsbyImage
                       image={post.mainImage.asset.gatsbyImageData}
