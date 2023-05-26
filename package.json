@@ -2,10 +2,34 @@
   "name": "slimcandy",
   "version": "1.0.0",
   "private": true,
-  "description": "js.garden",
-  "author": "SlimCandy",
+  "description": "A technical blog sharing insights on how to make $10k a month through coding, Github pet projects, semantic HTML, JS performance, CSS tricks, and showcases. Aimed at web developers aspiring to stand out in the tech industry.", 
+  "author": "@slimcandy",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slimcandy/slimcandy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/slimcandy/slimcandy/issues"
+  },
+  "homepage": "https://js.garden",
   "keywords": [
-    "gatsby"
+    "Coding",
+    "Github",
+    "Semantic HTML",
+    "JavaScript Performance",
+    "CSS Tricks",
+    "Web Development",
+    "React",
+    "Frontend Development",
+    "Component-based Development",
+    "Responsive Design",
+    "Mobile-first",
+    "Web Accessibility",
+    "Collaboration and Communication",
+    "API Consumption",
+    "UX/UI Design",
+    "Git and GitHub"
   ],
   "scripts": {
     "develop": "gatsby develop",
