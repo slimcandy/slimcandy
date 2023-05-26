@@ -4794,7 +4794,7 @@ type WebPOptions = {
 type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type AboutPageQuery = { readonly site: { readonly siteMetadata: { readonly title: string | null, readonly description: string | null, readonly motto: string | null } | null } | null };
+type AboutPageQuery = { readonly site: { readonly siteMetadata: { readonly title: string | null, readonly description: string | null, readonly motto: string | null, readonly social: { readonly github: string | null, readonly linkedin: string | null, readonly youtube: string | null } | null } | null } | null };
 
 type ArticlesQueryVariables = Exact<{ [key: string]: never; }>;
 
