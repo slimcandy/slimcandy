@@ -12,8 +12,8 @@ const config: GatsbyConfig = {
     their mark in the tech industry.`,
     social: {
       github: `https://github.com/slimcandy`,
-      linkedin: `https://www.linkedin.com/in/2plus2is4/`,
-      youtube: `https://www.youtube.com/js.garden`,
+      linkedin: `https://www.linkedin.com/in/aleksei-volkov-react/`,
+      youtube: `http://youtube.com/@codeto10k`,
     },
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
