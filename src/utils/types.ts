@@ -9,11 +9,8 @@ export type TSiteMetadata = {
   author?: string | null
   siteUrl?: string | null
   social?: {
-    email?: string | null
     github?: string | null
     linkedin?: string | null
-    podcast?: string | null
-    rss?: string | null
     youtube?: string | null
   } | null
 } | null

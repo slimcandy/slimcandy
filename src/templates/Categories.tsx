@@ -101,11 +101,8 @@ export const PostsByCategoryQuery = graphql`
         description
         motto
         social {
-          email
           github
           linkedin
-          podcast
-          rss
           youtube
         }
       }

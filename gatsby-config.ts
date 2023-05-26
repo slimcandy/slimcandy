@@ -11,9 +11,6 @@ const config: GatsbyConfig = {
       github: `https://github.com/slimcandy`,
       linkedin: `https://www.linkedin.com/in/2plus2is4/`,
       youtube: `https://www.youtube.com/js.garden`,
-      rss: `https://js.garden/rss.xml`,
-      podcast: `https://podcasts.apple.com/ee/podcast/js-garden/id1666295776`,
-      email: `mailto:reactdeveloper@icloud.com`,
     },
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.

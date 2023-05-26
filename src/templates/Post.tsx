@@ -87,7 +87,6 @@ export const SinglePostLayoutQuery = graphql`
           altText
         }
       }
-      applePodcastUrl
       category {
         name
         slug {
@@ -103,11 +102,8 @@ export const SinglePostLayoutQuery = graphql`
         description
         motto
         social {
-          email
           github
           linkedin
-          podcast
-          rss
           youtube
         }
       }

@@ -4717,38 +4717,26 @@ type SiteSiteMetadataFilterInput = {
 };
 
 type SiteSiteMetadataSocial = {
-  readonly email: Maybe<Scalars['String']>;
   readonly github: Maybe<Scalars['String']>;
   readonly linkedin: Maybe<Scalars['String']>;
-  readonly podcast: Maybe<Scalars['String']>;
-  readonly rss: Maybe<Scalars['String']>;
   readonly youtube: Maybe<Scalars['String']>;
 };
 
 type SiteSiteMetadataSocialFieldSelector = {
-  readonly email: InputMaybe<FieldSelectorEnum>;
   readonly github: InputMaybe<FieldSelectorEnum>;
   readonly linkedin: InputMaybe<FieldSelectorEnum>;
-  readonly podcast: InputMaybe<FieldSelectorEnum>;
-  readonly rss: InputMaybe<FieldSelectorEnum>;
   readonly youtube: InputMaybe<FieldSelectorEnum>;
 };
 
 type SiteSiteMetadataSocialFilterInput = {
-  readonly email: InputMaybe<StringQueryOperatorInput>;
   readonly github: InputMaybe<StringQueryOperatorInput>;
   readonly linkedin: InputMaybe<StringQueryOperatorInput>;
-  readonly podcast: InputMaybe<StringQueryOperatorInput>;
-  readonly rss: InputMaybe<StringQueryOperatorInput>;
   readonly youtube: InputMaybe<StringQueryOperatorInput>;
 };
 
 type SiteSiteMetadataSocialSortInput = {
-  readonly email: InputMaybe<SortOrderEnum>;
   readonly github: InputMaybe<SortOrderEnum>;
   readonly linkedin: InputMaybe<SortOrderEnum>;
-  readonly podcast: InputMaybe<SortOrderEnum>;
-  readonly rss: InputMaybe<SortOrderEnum>;
   readonly youtube: InputMaybe<SortOrderEnum>;
 };
 
@@ -4849,21 +4837,21 @@ type PostsByCategoryQueryVariables = Exact<{
 }>;
 
 
-type PostsByCategoryQuery = { readonly allSanityPost: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly description: string | null, readonly publishedAt: string | null, readonly readMore: string | null, readonly slug: { readonly current: string | null } | null, readonly mainImage: { readonly asset: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }> }, readonly site: { readonly siteMetadata: { readonly title: string | null, readonly description: string | null, readonly motto: string | null, readonly social: { readonly email: string | null, readonly github: string | null, readonly linkedin: string | null, readonly podcast: string | null, readonly rss: string | null, readonly youtube: string | null } | null } | null } | null };
+type PostsByCategoryQuery = { readonly allSanityPost: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly description: string | null, readonly publishedAt: string | null, readonly readMore: string | null, readonly slug: { readonly current: string | null } | null, readonly mainImage: { readonly asset: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }> }, readonly site: { readonly siteMetadata: { readonly title: string | null, readonly description: string | null, readonly motto: string | null, readonly social: { readonly github: string | null, readonly linkedin: string | null, readonly youtube: string | null } | null } | null } | null };
 
 type PostsByTagQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
 
 
-type PostsByTagQuery = { readonly allSanityPost: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly description: string | null, readonly readMore: string | null, readonly slug: { readonly current: string | null } | null, readonly mainImage: { readonly asset: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }> }, readonly site: { readonly siteMetadata: { readonly title: string | null, readonly description: string | null, readonly motto: string | null, readonly social: { readonly email: string | null, readonly github: string | null, readonly linkedin: string | null, readonly podcast: string | null, readonly rss: string | null, readonly youtube: string | null } | null } | null } | null };
+type PostsByTagQuery = { readonly allSanityPost: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly description: string | null, readonly readMore: string | null, readonly slug: { readonly current: string | null } | null, readonly mainImage: { readonly asset: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }> }, readonly site: { readonly siteMetadata: { readonly title: string | null, readonly description: string | null, readonly motto: string | null, readonly social: { readonly github: string | null, readonly linkedin: string | null, readonly youtube: string | null } | null } | null } | null };
 
 type SinglePostLayoutQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
 
 
-type SinglePostLayoutQuery = { readonly allSanityCategory: { readonly nodes: ReadonlyArray<{ readonly description: string | null, readonly name: string | null, readonly slug: { readonly current: string | null } | null }> }, readonly sanityPost: { readonly id: string, readonly youtubeUrl: string | null, readonly title: string | null, readonly description: string | null, readonly applePodcastUrl: string | null, readonly _rawContent: Record<string, unknown> | null, readonly mainImage: { readonly asset: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData, readonly altText: string | null } | null } | null, readonly category: { readonly name: string | null, readonly description: string | null, readonly slug: { readonly current: string | null } | null } | null } | null, readonly site: { readonly siteMetadata: { readonly title: string | null, readonly description: string | null, readonly motto: string | null, readonly social: { readonly email: string | null, readonly github: string | null, readonly linkedin: string | null, readonly podcast: string | null, readonly rss: string | null, readonly youtube: string | null } | null } | null } | null };
+type SinglePostLayoutQuery = { readonly allSanityCategory: { readonly nodes: ReadonlyArray<{ readonly description: string | null, readonly name: string | null, readonly slug: { readonly current: string | null } | null }> }, readonly sanityPost: { readonly id: string, readonly youtubeUrl: string | null, readonly title: string | null, readonly description: string | null, readonly _rawContent: Record<string, unknown> | null, readonly mainImage: { readonly asset: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData, readonly altText: string | null } | null } | null, readonly category: { readonly name: string | null, readonly description: string | null, readonly slug: { readonly current: string | null } | null } | null } | null, readonly site: { readonly siteMetadata: { readonly title: string | null, readonly description: string | null, readonly motto: string | null, readonly social: { readonly github: string | null, readonly linkedin: string | null, readonly youtube: string | null } | null } | null } | null };
 
 type AllPostsQueryVariables = Exact<{ [key: string]: never; }>;
 

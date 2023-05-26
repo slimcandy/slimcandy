@@ -95,11 +95,8 @@ export const PostsByTagQuery = graphql`
         description
         motto
         social {
-          email
           github
           linkedin
-          podcast
-          rss
           youtube
         }
       }
