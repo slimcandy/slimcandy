@@ -28,15 +28,9 @@ function Page404({ data }: PageProps<Queries.Page404Query>) {
 export default Page404
 
 export function Head({ data }: HeadProps<Queries.Page404Query>) {
-  const siteTitle = data.site?.siteMetadata?.title
   const siteDescription = data.site?.siteMetadata?.description || ``
 
-  return (
-    <Seo
-      title={`Page not found | ${siteTitle}`}
-      description={siteDescription}
-    />
-  )
+  return <Seo title="Page not found" description={siteDescription} />
 }
 
 export const Page404Query = graphql`

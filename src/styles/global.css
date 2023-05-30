@@ -4,10 +4,16 @@
 
 @font-face {
   font-family: "Playfair Display";
-  src: url("../fonts/PlayfairDisplay-VariableFont_wght.ttf");
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/PlayfairDisplay-VariableFont_wght.ttf");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Sofia Sans Extra Condensed";
-  src: url("../fonts/SofiaSansExtraCondensed-VariableFont_wght.ttf");
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/SofiaSansExtraCondensed-VariableFont_wght.ttf");
+  font-display: swap;
 }
