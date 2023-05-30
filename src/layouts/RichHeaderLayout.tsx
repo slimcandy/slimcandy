@@ -33,7 +33,16 @@ function RichHeaderLayout({
               </div>
             )}
           </header>
-          <menu className="grid grid-cols-4 items-center justify-between mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl border-[thin] border-black my-1 sm:my-2 md:my-4 lg:my-5 xl:my-6 text-lg md:text-xl font-thin sm:font-extralight md:font-light lg:font-normal text-center capitalize">
+          <menu
+            className="
+          grid grid-cols-4 
+          items-center justify-between 
+          mx-auto 
+          my-1 sm:my-2 md:my-4 lg:my-5 xl:my-6 
+          max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl 
+          border-[thin] border-black 
+          text-lg md:text-xl font-thin text-center capitalize tracking-wider"
+          >
             {categories &&
               categories.map(function renderCategory(category) {
                 return (
