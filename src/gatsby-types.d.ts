@@ -2454,6 +2454,15 @@ type SanityCode = {
   readonly language: Maybe<Scalars['String']>;
 };
 
+type SanityCrossDatasetReference = {
+  readonly _dataset: Maybe<Scalars['String']>;
+  readonly _key: Maybe<Scalars['String']>;
+  readonly _projectId: Maybe<Scalars['String']>;
+  readonly _ref: Maybe<Scalars['String']>;
+  readonly _type: Maybe<Scalars['String']>;
+  readonly _weak: Maybe<Scalars['Boolean']>;
+};
+
 /** A Sanity document */
 type SanityDocument = {
   readonly _createdAt: Maybe<Scalars['Date']>;
