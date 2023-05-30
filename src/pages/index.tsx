@@ -75,7 +75,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
                 </h4>
                 <p className="mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl">
                   <StaticImage
-                    src="../images/photo.jpeg"
+                    src="../../static/images/photo.jpeg"
                     alt="Photo of me in Adidas tracksuit. I'm standing at the edge of a cliff – national park."
                     className="block
                     w-40 sm:w-52 md:w-60 lg:w-72

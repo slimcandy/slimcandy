@@ -6,7 +6,7 @@
   font-family: "Playfair Display";
   font-style: normal;
   font-weight: 400;
-  src: url("../fonts/PlayfairDisplay-VariableFont_wght.ttf");
+  src: url("/fonts/PlayfairDisplay-VariableFont_wght.ttf");
   font-display: swap;
 }
 
@@ -14,6 +14,6 @@
   font-family: "Sofia Sans Extra Condensed";
   font-style: normal;
   font-weight: 400;
-  src: url("../fonts/SofiaSansExtraCondensed-VariableFont_wght.ttf");
+  src: url("/fonts/SofiaSansExtraCondensed-VariableFont_wght.ttf");
   font-display: swap;
 }

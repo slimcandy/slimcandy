@@ -18,7 +18,7 @@ function AboutPage({ data }: PageProps<Queries.AboutPageQuery>) {
         >
           <h1>Hi, I&#39;m Alex!</h1>
           <StaticImage
-            src="../images/photo.jpeg"
+            src="../../static/images/photo.jpeg"
             alt="Photo of me in Adidas tracksuit. I'm standing at the edge of a cliff – national park."
             className="block
             w-40 sm:w-52 md:w-60 lg:w-72

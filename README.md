@@ -9,7 +9,7 @@
   </a>
 </div>
 
-<a href="https://www.linkedin.com/in/2plus2is4/"><img src="https://github.com/slimcandy/slimcandy/raw/main/src/images/alex-cv.png" height="240" alt="Aleksei Volkov CV screen shot" /></a>
+<a href="https://www.linkedin.com/in/2plus2is4/"><img src="https://github.com/slimcandy/slimcandy/raw/main/static/images/alex-cv.png" height="240" alt="Aleksei Volkov CV screen shot" /></a>
 
 ---
 
