@@ -27,6 +27,7 @@ function AboutPage({ data }: PageProps<Queries.AboutPageQuery>) {
             float-right"
             placeholder="dominantColor"
             formats={["auto", "webp", "avif", "jpg", "png"]}
+            width={288}
             breakpoints={[576, 768, 992, 1200]}
             objectFit="contain"
           />
@@ -104,15 +105,9 @@ function AboutPage({ data }: PageProps<Queries.AboutPageQuery>) {
 export default AboutPage
 
 export function Head({ data }: HeadProps<Queries.AboutPageQuery>) {
-  const siteTitle = data.site?.siteMetadata?.title
   const siteDescription = data.site?.siteMetadata?.description || ``
 
-  return (
-    <Seo
-      title={`Page not found | ${siteTitle}`}
-      description={siteDescription}
-    />
-  )
+  return <Seo title="Page not found" description={siteDescription} />
 }
 
 export const AboutPageQuery = graphql`

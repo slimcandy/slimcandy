@@ -4529,6 +4529,7 @@ type SitePluginSortInput = {
 type SiteSiteMetadata = {
   readonly author: Maybe<Scalars['String']>;
   readonly description: Maybe<Scalars['String']>;
+  readonly image: Maybe<Scalars['String']>;
   readonly motto: Maybe<Scalars['String']>;
   readonly siteUrl: Maybe<Scalars['String']>;
   readonly social: Maybe<SiteSiteMetadataSocial>;
@@ -4538,6 +4539,7 @@ type SiteSiteMetadata = {
 type SiteSiteMetadataFieldSelector = {
   readonly author: InputMaybe<FieldSelectorEnum>;
   readonly description: InputMaybe<FieldSelectorEnum>;
+  readonly image: InputMaybe<FieldSelectorEnum>;
   readonly motto: InputMaybe<FieldSelectorEnum>;
   readonly siteUrl: InputMaybe<FieldSelectorEnum>;
   readonly social: InputMaybe<SiteSiteMetadataSocialFieldSelector>;
@@ -4547,6 +4549,7 @@ type SiteSiteMetadataFieldSelector = {
 type SiteSiteMetadataFilterInput = {
   readonly author: InputMaybe<StringQueryOperatorInput>;
   readonly description: InputMaybe<StringQueryOperatorInput>;
+  readonly image: InputMaybe<StringQueryOperatorInput>;
   readonly motto: InputMaybe<StringQueryOperatorInput>;
   readonly siteUrl: InputMaybe<StringQueryOperatorInput>;
   readonly social: InputMaybe<SiteSiteMetadataSocialFilterInput>;
@@ -4580,6 +4583,7 @@ type SiteSiteMetadataSocialSortInput = {
 type SiteSiteMetadataSortInput = {
   readonly author: InputMaybe<SortOrderEnum>;
   readonly description: InputMaybe<SortOrderEnum>;
+  readonly image: InputMaybe<SortOrderEnum>;
   readonly motto: InputMaybe<SortOrderEnum>;
   readonly siteUrl: InputMaybe<SortOrderEnum>;
   readonly social: InputMaybe<SiteSiteMetadataSocialSortInput>;
@@ -4988,6 +4992,11 @@ type SinglePostLayoutQueryVariables = Exact<{
 
 
 type SinglePostLayoutQuery = { readonly allSanityCategory: { readonly nodes: ReadonlyArray<{ readonly description: string | null, readonly name: string | null, readonly slug: { readonly current: string | null } | null }> }, readonly sanityPost: { readonly id: string, readonly youtubeUrl: string | null, readonly title: string | null, readonly description: string | null, readonly _rawContent: Record<string, unknown> | null, readonly mainImage: { readonly asset: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData, readonly altText: string | null } | null } | null, readonly category: { readonly name: string | null, readonly description: string | null, readonly slug: { readonly current: string | null } | null } | null } | null, readonly site: { readonly siteMetadata: { readonly title: string | null, readonly description: string | null, readonly motto: string | null, readonly social: { readonly github: string | null, readonly linkedin: string | null, readonly youtube: string | null } | null } | null } | null };
+
+type SiteMetaDataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SiteMetaDataQuery = { readonly site: { readonly siteMetadata: { readonly title: string | null, readonly description: string | null, readonly motto: string | null, readonly image: string | null, readonly siteUrl: string | null } | null } | null };
 
 type AllPostsQueryVariables = Exact<{ [key: string]: never; }>;
 

@@ -48,13 +48,10 @@ function SinglePostLayout({ data }: { data: Queries.SinglePostLayoutQuery }) {
 export default SinglePostLayout
 
 export function Head({ data }: HeadProps<Queries.SinglePostLayoutQuery>) {
-  const siteTitle = data.site?.siteMetadata?.title || ""
   const postTitle = data.sanityPost?.title || ""
   const postDescription = data.sanityPost?.description || ""
 
-  return (
-    <Seo title={`${postTitle} | ${siteTitle}`} description={postDescription} />
-  )
+  return <Seo title={postTitle} description={postDescription} />
 }
 
 export const SinglePostLayoutQuery = graphql`

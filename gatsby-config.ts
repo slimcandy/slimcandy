@@ -10,6 +10,7 @@ const config: GatsbyConfig = {
     Github projects, semantic HTML, JS performance, CSS tricks, and
     more. This space is for aspiring web developers looking to make
     their mark in the tech industry.`,
+    image: `/website-image.png`,
     social: {
       github: `https://github.com/slimcandy`,
       linkedin: `https://www.linkedin.com/in/aleksei-volkov-react/`,

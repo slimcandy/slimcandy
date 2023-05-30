@@ -81,6 +81,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
                     w-40 sm:w-52 md:w-60 lg:w-72
                     max-h-40 sm:max-h-52 md:max-h-60 lg:max-h-72
                     mb-2"
+                    width={288}
                     placeholder="dominantColor"
                     formats={["auto", "webp", "avif", "jpg", "png"]}
                     breakpoints={[576, 768, 992, 1200]}
