@@ -29,8 +29,9 @@ function SinglePostLayout({ data }: { data: Queries.SinglePostLayoutQuery }) {
             post.mainImage.asset.gatsbyImageData && (
               <GatsbyImage
                 image={post.mainImage.asset.gatsbyImageData}
-                alt={post.mainImage.asset.altText || ""}
-                className="block w-full max-h-40 sm:max-h-52 md:max-h-72 lg:max-h-80 object-cover mb-2"
+                alt={post.mainImage.asset.altText || post.title || ""}
+                className="block w-full max-h-40 sm:max-h-52 md:max-h-72 lg:max-h-80 mb-2"
+                objectFit="contain"
               />
             )}
           {post._rawContent && (
@@ -73,8 +74,6 @@ export const SinglePostLayoutQuery = graphql`
       mainImage {
         asset {
           gatsbyImageData(
-            aspectRatio: 16.9
-            height: 400
             placeholder: DOMINANT_COLOR
             layout: FULL_WIDTH
             formats: [AUTO, WEBP, AVIF, JPG, PNG]
