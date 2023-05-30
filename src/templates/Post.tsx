@@ -24,15 +24,6 @@ function SinglePostLayout({ data }: { data: Queries.SinglePostLayoutQuery }) {
           prose-a:underline prose-a:decoration-black prose-a:decoration-2 prose-a:underline-offset-2 hover:prose-a:decoration-red-700 focus:prose-a:outline-none focus:prose-a:no-underline focus:prose-a:ring-4 focus:prose-a:ring-offset-2 focus:prose-a:ring-stone-900 focus:prose-a:bg-white"
         >
           {post?.title && <h1>{post.title}</h1>}
-          {post.mainImage &&
-            post.mainImage.asset &&
-            post.mainImage.asset.gatsbyImageData && (
-              <GatsbyImage
-                image={post.mainImage.asset.gatsbyImageData}
-                alt={post.mainImage.asset.altText || ""}
-                className="block w-full max-h-40 sm:max-h-52 md:max-h-72 lg:max-h-80 object-cover mb-2"
-              />
-            )}
           {post._rawContent && (
             <PortableText
               value={post._rawContent}
@@ -70,20 +61,6 @@ export const SinglePostLayoutQuery = graphql`
       youtubeUrl
       title
       description
-      mainImage {
-        asset {
-          gatsbyImageData(
-            aspectRatio: 16.9
-            height: 400
-            placeholder: DOMINANT_COLOR
-            layout: FULL_WIDTH
-            formats: [AUTO, WEBP, AVIF, JPG, PNG]
-            breakpoints: [750, 1080, 1366, 1920]
-            fit: FILL
-          )
-          altText
-        }
-      }
       category {
         name
         slug {

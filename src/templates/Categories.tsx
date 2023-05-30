@@ -31,8 +31,9 @@ function PostsByCategory({
             {post.mainImage && post.mainImage.asset && (
               <GatsbyImage
                 image={post.mainImage.asset.gatsbyImageData}
-                alt=""
-                className="md:col-span-2 object-cover"
+                alt={post.mainImage.asset.altText || post.title || ""}
+                className="md:col-span-2"
+                objectFit="contain"
               />
             )}
             <div
@@ -80,14 +81,12 @@ export const PostsByCategoryQuery = graphql`
         mainImage {
           asset {
             gatsbyImageData(
-              aspectRatio: 16.9
-              height: 400
               placeholder: DOMINANT_COLOR
-              layout: FULL_WIDTH
               formats: [AUTO, WEBP, AVIF, JPG, PNG]
               breakpoints: [750, 1080, 1366, 1920]
               fit: FILL
             )
+            altText
           }
         }
         publishedAt(formatString: "MMMM DD, YYYY")

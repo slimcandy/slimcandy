@@ -73,28 +73,35 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
                 <h4 className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin">
                   About me
                 </h4>
-                <p className="mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl">
+                <p
+                  className="mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl
+                overflow-hidden"
+                >
                   <StaticImage
                     src="../../static/images/photo.jpeg"
                     alt="Photo of me in Adidas tracksuit. I'm standing at the edge of a cliff – national park."
                     className="block
+                    float-right lg:float-none
                     w-40 sm:w-52 md:w-60 lg:w-72
+                    max-w-full
                     max-h-40 sm:max-h-52 md:max-h-60 lg:max-h-72
-                    mb-2"
+                    mb-2 sm:mb-4 md:mb-6 lg:mb-8 xl:mb-10
+                    border-[thin] border-black"
                     width={288}
                     placeholder="dominantColor"
                     formats={["auto", "webp", "avif", "jpg", "png"]}
                     breakpoints={[576, 768, 992, 1200]}
-                    objectFit="contain"
+                    objectFit="cover"
                   />
                   {siteMetadata.description}
                   <br />
                   <br />
                   <Link
                     to="/about"
-                    className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+                    className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2
+                    after:content-['→']"
                   >
-                    Read more about my solutions and services →
+                    Read more
                   </Link>
                 </p>
               </section>
