@@ -1,6 +1,6 @@
 import * as React from "react"
 import { graphql, HeadProps } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { getImage } from "gatsby-plugin-image"
 import { PortableText } from "@portabletext/react"
 
 import Seo from "../components/Seo"
@@ -38,11 +38,28 @@ function SinglePostLayout({ data }: { data: Queries.SinglePostLayoutQuery }) {
 
 export default SinglePostLayout
 
-export function Head({ data }: HeadProps<Queries.SinglePostLayoutQuery>) {
+export function Head({
+  data,
+  location,
+}: HeadProps<Queries.SinglePostLayoutQuery>) {
   const postTitle = data.sanityPost?.title || ""
   const postDescription = data.sanityPost?.description || ""
 
-  return <Seo title={postTitle} description={postDescription} />
+  const imageData = data.sanityPost?.mainImage?.asset?.gatsbyImageData
+  let ogImage = null
+  if (typeof imageData !== "undefined") {
+    ogImage = getImage(imageData)
+  }
+
+  return (
+    <Seo
+      title={postTitle}
+      description={postDescription}
+      pathname={location.pathname}
+      ogType="article"
+      ogImage={ogImage?.images.fallback?.src || ""}
+    />
+  )
 }
 
 export const SinglePostLayoutQuery = graphql`
@@ -61,6 +78,17 @@ export const SinglePostLayoutQuery = graphql`
       youtubeUrl
       title
       description
+      mainImage {
+        asset {
+          gatsbyImageData(
+            placeholder: DOMINANT_COLOR
+            formats: [AUTO, WEBP, AVIF, JPG, PNG]
+            breakpoints: [750, 1080, 1366, 1920]
+            fit: FILL
+          )
+          altText
+        }
+      }
       category {
         name
         slug {
