@@ -1,10 +1,9 @@
-export type TUnknownObject = {
-  [key: string]: unknown
-}
+export type TUnknownObject = Record<string, unknown>
 
 export type TSiteMetadata = {
   title?: string | null
   description?: string | null
+  image?: string | null
   motto?: string | null
   author?: string | null
   siteUrl?: string | null
@@ -15,14 +14,14 @@ export type TSiteMetadata = {
   } | null
 } | null
 
-export type TPostContext = {
+export interface TPostContext {
   title: string
   slug: {
     current: string
   }
 }
 
-export type TCategoryContext = {
+export interface TCategoryContext {
   name: string
   slug: {
     current: string

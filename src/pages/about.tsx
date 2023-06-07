@@ -1,4 +1,4 @@
-import { graphql, HeadProps, Link, PageProps } from "gatsby"
+import { graphql, type HeadProps, type PageProps } from "gatsby"
 import * as React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 
@@ -6,7 +6,7 @@ import Seo from "../components/Seo"
 import TinyLayout from "../layouts/TinyLayout"
 import { AiFillGithub, AiFillLinkedin, AiFillYoutube } from "react-icons/ai"
 
-function AboutPage({ data }: PageProps<Queries.AboutPageQuery>) {
+function AboutPage({ data }: PageProps<Queries.AboutPageQuery>): JSX.Element {
   const siteMetadata = data.site?.siteMetadata
 
   return (
@@ -34,38 +34,40 @@ function AboutPage({ data }: PageProps<Queries.AboutPageQuery>) {
 
           <p>
             Welcome to my coding zone, where I share my journey towards earning
-            $10k/month from coding. If you're into CSS, JS, or dreaming to code
-            your way to success, stick around!
+            $10k/month from coding. If you&apos;re into CSS, JS, or dreaming to
+            code your way to success, stick around!
           </p>
 
-          <h2>🚀 Ready to create awesome stuff together? Let's go!</h2>
+          <h2>🚀 Ready to create awesome stuff together? Let&apos;s go!</h2>
 
           <h2>👨‍💻 Me in a Nutshell</h2>
           <p>
-            I'm a seasoned React Developer with 4 years of frontend experience,
-            proud to have worked with big shots like Luxoft and Gazprombank.
+            I&apos;m a seasoned React Developer with 4 years of frontend
+            experience, proud to have worked with big shots like Luxoft and
+            Gazprombank.
           </p>
 
           <h2>🛠️ My Power Tools</h2>
           <p>
             I swing around JavaScript, React, Redux, GatsbyJS, TypeScript,
-            Webpack, HTML/CSS, APIs, and Git/GitHub. I'm a fan of designs that
-            are responsive, accessible, and mobile-first.
+            Webpack, HTML/CSS, APIs, and Git/GitHub. I&apos;m a fan of designs
+            that are responsive, accessible, and mobile-first.
           </p>
 
-          <h2>🤝 Let's Chat!</h2>
+          <h2>🤝 Let&apos;s Chat!</h2>
           <p>
-            I'm all about teamwork and clear communication. If you're into tech,
-            looking for a coder, or keen to create something awesome together,
-            reach out to me. Let's make coding history together! 🚀
+            I&apos;m all about teamwork and clear communication. If you&apos;re
+            into tech, looking for a coder, or keen to create something awesome
+            together, reach out to me. Let&apos;s make coding history together!
+            🚀
           </p>
         </article>
-        {siteMetadata?.social && (
+        {siteMetadata?.social != null && (
           <section className="mt-4">
             <menu className="flex flex-wrap items-center gap-6 sm:gap-7 md:gap-8 lg:gap-9 xl:gap-10 md:text-lg xl:text-xl">
               <li>
                 <a
-                  href={siteMetadata?.social?.youtube || ""}
+                  href={siteMetadata?.social?.youtube ?? ""}
                   className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
                 >
                   <AiFillYoutube /> youtube
@@ -73,7 +75,7 @@ function AboutPage({ data }: PageProps<Queries.AboutPageQuery>) {
               </li>
               <li>
                 <a
-                  href={siteMetadata?.social?.github || ""}
+                  href={siteMetadata?.social?.github ?? ""}
                   className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
                 >
                   <AiFillGithub /> github
@@ -81,7 +83,7 @@ function AboutPage({ data }: PageProps<Queries.AboutPageQuery>) {
               </li>
               <li>
                 <a
-                  href={siteMetadata?.social?.linkedin || ""}
+                  href={siteMetadata?.social?.linkedin ?? ""}
                   className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
                 >
                   <AiFillLinkedin /> linkedin
@@ -97,8 +99,11 @@ function AboutPage({ data }: PageProps<Queries.AboutPageQuery>) {
 
 export default AboutPage
 
-export function Head({ data, location }: HeadProps<Queries.AboutPageQuery>) {
-  const siteDescription = data.site?.siteMetadata?.description || ``
+export function Head({
+  data,
+  location,
+}: HeadProps<Queries.AboutPageQuery>): JSX.Element | null {
+  const siteDescription = data.site?.siteMetadata?.description ?? ``
 
   return (
     <Seo

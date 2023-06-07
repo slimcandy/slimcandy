@@ -27,7 +27,7 @@ async function turnPostsIntoPages({ graphql, actions }: CreatePagesArgs) {
     }
   `)
 
-  const posts = data?.allSanityPost?.nodes || []
+  const posts = data?.allSanityPost?.nodes ?? []
   // 3. Loop over each post and create a page for that post
   posts.forEach(post => {
     console.log("Creating page for Article:", post.title)
@@ -66,7 +66,7 @@ async function turnCategoriesIntoPages({ graphql, actions }: CreatePagesArgs) {
     }
   `)
 
-  const categories = data?.allSanityCategory?.nodes || []
+  const categories = data?.allSanityCategory?.nodes ?? []
   // 3. Loop over each category and create a page for that category
   categories.forEach(category => {
     console.log("Creating page for Category: ", category.name)

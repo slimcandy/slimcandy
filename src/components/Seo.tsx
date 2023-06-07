@@ -15,7 +15,7 @@ function Seo({
   pathname?: string
   ogType?: "website" | "article"
   ogImage?: string
-}) {
+}): JSX.Element {
   const {
     title: defaultTitle,
     description: defaultDescription,
@@ -24,10 +24,12 @@ function Seo({
   } = useSiteMetadata()
 
   const seo = {
-    title: title || defaultTitle,
-    description: description || defaultDescription,
-    image: ogImage.length > 0 ? ogImage : `${siteUrl}${image}`,
-    url: `${siteUrl}${pathname || ``}`,
+    title: typeof title === "string" ? title : defaultTitle,
+    description:
+      typeof description === "string" ? description : defaultDescription,
+    image:
+      ogImage.length > 0 ? ogImage : `${siteUrl as string}${image as string}`,
+    url: `${siteUrl as string}${typeof pathname === "string" ? pathname : ""}`,
   }
 
   return (

@@ -1,5 +1,5 @@
 import * as React from "react"
-import { graphql, HeadProps, Link, PageProps } from "gatsby"
+import { graphql, type HeadProps, Link, type PageProps } from "gatsby"
 
 import Seo from "../components/Seo"
 import RichHeaderLayout from "../layouts/RichHeaderLayout"
@@ -7,13 +7,13 @@ import { AiFillGithub, AiFillLinkedin, AiFillYoutube } from "react-icons/ai"
 import NoPosts from "../components/NoPosts"
 import { StaticImage } from "gatsby-plugin-image"
 
-function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
+function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
   const siteMetadata = data.site?.siteMetadata
   const categories = data.allSanityCategory.nodes
   const posts = data.allSanityPost.nodes
   const notFirstPosts = posts.slice(1)
 
-  if (!posts || posts.length === 0) {
+  if (posts === null || posts.length === 0) {
     return <NoPosts siteMetadata={siteMetadata} />
   }
   return (
@@ -28,7 +28,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
           <div className="mx-auto sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl md:text-lg xl:text-xl pb-4 sm:pb-5 md:pb-6 lg:pb-7 xl:pb-8 px-4 sm:px-3 md:px-2 lg:px-1 xl:px-0 ">
             <small className="font-sans">{posts[0].publishedAt}</small>
             <Link
-              to={`/posts/${posts[0].slug?.current}`}
+              to={`/posts/${posts[0].slug?.current as string}`}
               className="underline decoration-black decoration-4 underline-offset-4 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
             >
               <h2 className="font-medium sm:font-semibold md:font-bold lg:font-extrabold xl:font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl sm:py-1 md:py-2 my-1 md:my-2">
@@ -53,7 +53,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
                     <div className="mx-auto sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl md:text-lg xl:text-xl pb-4 sm:pb-5 md:pb-6 lg:pb-7 xl:pb-8 px-4 sm:px-3 lg:px-4 xl:px-6">
                       <small className="font-sans">{post.publishedAt}</small>
                       <Link
-                        to={`/posts/${post.slug?.current}`}
+                        to={`/posts/${post.slug?.current as string}`}
                         className="underline decoration-black decoration-2 underline-offset-4 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
                       >
                         <h3 className="sm:font-medium md:font-semibold lg:font-bold xl:font-extrabold text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl sm:py-1 md:py-2 my-1 md:my-2">
@@ -68,7 +68,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
             </div>
           </div>
           <div className="md:border-l-[thin] md:border-l-black md:pl-6 lg:pl-7 xl:pl-8">
-            {siteMetadata?.description && (
+            {typeof siteMetadata?.description === "string" && (
               <section>
                 <h4 className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin">
                   About me
@@ -107,7 +107,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
               </section>
             )}
             <hr className="border-t-[thin] border-black my-1 sm:my-1.5 md:my-2 lg:my-2.5 xl:my-3" />
-            {siteMetadata?.social && (
+            {siteMetadata?.social != null && (
               <section>
                 <h4 className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin">
                   Follow me
@@ -115,7 +115,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
                 <menu className="flex flex-wrap items-center gap-6 sm:gap-7 md:gap-8 lg:gap-9 xl:gap-10 md:text-lg xl:text-xl">
                   <li>
                     <a
-                      href={siteMetadata?.social?.youtube || ""}
+                      href={siteMetadata?.social?.youtube ?? ""}
                       className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
                     >
                       <AiFillYoutube /> youtube
@@ -123,7 +123,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
                   </li>
                   <li>
                     <a
-                      href={siteMetadata?.social?.github || ""}
+                      href={siteMetadata?.social?.github ?? ""}
                       className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
                     >
                       <AiFillGithub /> github
@@ -131,7 +131,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
                   </li>
                   <li>
                     <a
-                      href={siteMetadata?.social?.linkedin || ""}
+                      href={siteMetadata?.social?.linkedin ?? ""}
                       className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
                     >
                       <AiFillLinkedin /> linkedin
@@ -149,9 +149,12 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
 
 export default IndexPage
 
-export function Head({ data, location }: HeadProps<Queries.ArticlesQuery>) {
-  const siteTitle = data.site?.siteMetadata?.title || ``
-  const siteDescription = data.site?.siteMetadata?.description || ``
+export function Head({
+  data,
+  location,
+}: HeadProps<Queries.ArticlesQuery>): JSX.Element {
+  const siteTitle = data.site?.siteMetadata?.title ?? ``
+  const siteDescription = data.site?.siteMetadata?.description ?? ``
 
   return (
     <Seo

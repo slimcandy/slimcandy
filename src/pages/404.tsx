@@ -1,10 +1,10 @@
-import { graphql, HeadProps, Link, PageProps } from "gatsby"
+import { graphql, type HeadProps, Link, type PageProps } from "gatsby"
 import * as React from "react"
 
 import Seo from "../components/Seo"
 import TinyLayout from "../layouts/TinyLayout"
 
-function Page404({ data }: PageProps<Queries.Page404Query>) {
+function Page404({ data }: PageProps<Queries.Page404Query>): JSX.Element {
   const siteMetadata = data.site?.siteMetadata
 
   return (
@@ -27,8 +27,11 @@ function Page404({ data }: PageProps<Queries.Page404Query>) {
 
 export default Page404
 
-export function Head({ data, location }: HeadProps<Queries.Page404Query>) {
-  const siteDescription = data.site?.siteMetadata?.description || ``
+export function Head({
+  data,
+  location,
+}: HeadProps<Queries.Page404Query>): JSX.Element {
+  const siteDescription = data.site?.siteMetadata?.description ?? ``
 
   return (
     <Seo

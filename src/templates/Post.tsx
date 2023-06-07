@@ -1,5 +1,5 @@
 import * as React from "react"
-import { graphql, HeadProps } from "gatsby"
+import { graphql, type HeadProps } from "gatsby"
 import { getImage } from "gatsby-plugin-image"
 import { PortableText } from "@portabletext/react"
 
@@ -8,11 +8,15 @@ import portableTextComponents from "../utils/portableText"
 import TinyLayout from "../layouts/TinyLayout"
 import NoPosts from "../components/NoPosts"
 
-function SinglePostLayout({ data }: { data: Queries.SinglePostLayoutQuery }) {
+function SinglePostLayout({
+  data,
+}: {
+  data: Queries.SinglePostLayoutQuery
+}): JSX.Element {
   const siteMetadata = data?.site?.siteMetadata
   const post = data?.sanityPost
 
-  if (!post) {
+  if (post == null) {
     return <NoPosts siteMetadata={siteMetadata} />
   }
 
@@ -25,8 +29,10 @@ function SinglePostLayout({ data }: { data: Queries.SinglePostLayoutQuery }) {
           className="prose prose-neutral prose-sm sm:prose-base md:prose-lg lg:prose-xl xl:prose-2xl
           prose-a:underline prose-a:decoration-black prose-a:decoration-2 prose-a:underline-offset-2 hover:prose-a:decoration-red-700 focus:prose-a:outline-none focus:prose-a:no-underline focus:prose-a:ring-4 focus:prose-a:ring-offset-2 focus:prose-a:ring-stone-900 focus:prose-a:bg-white"
         >
-          {post?.title && <h1 itemProp="headline">{post.title}</h1>}
-          {post._rawContent && (
+          {typeof post?.title === "string" && (
+            <h1 itemProp="headline">{post.title}</h1>
+          )}
+          {post._rawContent != null && (
             <section itemProp="articleBody">
               <PortableText
                 value={post._rawContent}
@@ -45,9 +51,9 @@ export default SinglePostLayout
 export function Head({
   data,
   location,
-}: HeadProps<Queries.SinglePostLayoutQuery>) {
-  const postTitle = data.sanityPost?.title || ""
-  const postDescription = data.sanityPost?.description || ""
+}: HeadProps<Queries.SinglePostLayoutQuery>): JSX.Element | null {
+  const postTitle = data.sanityPost?.title ?? ""
+  const postDescription = data.sanityPost?.description ?? ""
 
   const imageData = data.sanityPost?.mainImage?.asset?.gatsbyImageData
   let ogImage = null
@@ -61,7 +67,7 @@ export function Head({
       description={postDescription}
       pathname={location.pathname}
       ogType="article"
-      ogImage={ogImage?.images.fallback?.src || ""}
+      ogImage={ogImage?.images.fallback?.src ?? ""}
     />
   )
 }
