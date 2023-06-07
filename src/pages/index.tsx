@@ -149,12 +149,16 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
 
 export default IndexPage
 
-export function Head({ data }: HeadProps<Queries.ArticlesQuery>) {
+export function Head({ data, location }: HeadProps<Queries.ArticlesQuery>) {
   const siteTitle = data.site?.siteMetadata?.title || ``
   const siteDescription = data.site?.siteMetadata?.description || ``
 
   return (
-    <Seo title={`Home Page | ${siteTitle}`} description={siteDescription} />
+    <Seo
+      title={`Home Page | ${siteTitle}`}
+      description={siteDescription}
+      pathname={location.pathname}
+    />
   )
 }
 

@@ -5,10 +5,12 @@ function Seo({
   description = "",
   title = "",
   children,
+  pathname = "",
 }: {
   description?: string
   title: string
   children?: React.ReactNode
+  pathname?: string
 }) {
   const {
     title: defaultTitle,
@@ -21,6 +23,7 @@ function Seo({
     title: title || defaultTitle,
     description: description || defaultDescription,
     image: `${siteUrl}${image}`,
+    url: `${siteUrl}${pathname || ``}`,
   }
 
   return (
@@ -29,6 +32,8 @@ function Seo({
       <title>{seo.title}</title>
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
+
+      <meta property="og:url" content={seo.url} />
       <meta property="og:title" content={seo.title} />
       <meta property="og:description" content={seo.description} />
       <meta property="og:type" content="website" />

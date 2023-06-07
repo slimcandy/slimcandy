@@ -97,11 +97,15 @@ function AboutPage({ data }: PageProps<Queries.AboutPageQuery>) {
 
 export default AboutPage
 
-export function Head({ data }: HeadProps<Queries.AboutPageQuery>) {
+export function Head({ data, location }: HeadProps<Queries.AboutPageQuery>) {
   const siteDescription = data.site?.siteMetadata?.description || ``
 
   return (
-    <Seo title="Let's Move Code Mountains!" description={siteDescription} />
+    <Seo
+      title="Let's Move Code Mountains!"
+      description={siteDescription}
+      pathname={location.pathname}
+    />
   )
 }
 

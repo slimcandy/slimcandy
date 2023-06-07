@@ -38,11 +38,20 @@ function SinglePostLayout({ data }: { data: Queries.SinglePostLayoutQuery }) {
 
 export default SinglePostLayout
 
-export function Head({ data }: HeadProps<Queries.SinglePostLayoutQuery>) {
+export function Head({
+  data,
+  location,
+}: HeadProps<Queries.SinglePostLayoutQuery>) {
   const postTitle = data.sanityPost?.title || ""
   const postDescription = data.sanityPost?.description || ""
 
-  return <Seo title={postTitle} description={postDescription} />
+  return (
+    <Seo
+      title={postTitle}
+      description={postDescription}
+      pathname={location.pathname}
+    />
+  )
 }
 
 export const SinglePostLayoutQuery = graphql`

@@ -59,10 +59,11 @@ export default PostsByCategory
 export function Head({
   data,
   pageContext,
+  location,
 }: HeadProps<Queries.PostsByCategoryQuery, TCategoryContext>) {
   const category = pageContext.name || "Posts by Category"
 
-  return <Seo title={category} />
+  return <Seo title={category} pathname={location.pathname} />
 }
 
 export const PostsByCategoryQuery = graphql`
