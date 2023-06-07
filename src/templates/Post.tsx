@@ -50,6 +50,7 @@ export function Head({
       title={postTitle}
       description={postDescription}
       pathname={location.pathname}
+      ogType="article"
     />
   )
 }

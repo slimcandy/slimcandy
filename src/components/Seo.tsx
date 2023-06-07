@@ -6,11 +6,13 @@ function Seo({
   title = "",
   children,
   pathname = "",
+  ogType = "website",
 }: {
   description?: string
   title: string
   children?: React.ReactNode
   pathname?: string
+  ogType?: "website" | "article"
 }) {
   const {
     title: defaultTitle,
@@ -36,7 +38,7 @@ function Seo({
       <meta property="og:url" content={seo.url} />
       <meta property="og:title" content={seo.title} />
       <meta property="og:description" content={seo.description} />
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content={ogType} />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:title" content={seo.title} />
       <meta name="twitter:description" content={seo.description} />
