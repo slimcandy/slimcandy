@@ -1,10 +1,10 @@
 import * as React from "react"
-import { graphql, HeadProps, Link } from "gatsby"
+import { graphql, type HeadProps, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 import Seo from "../components/Seo"
 import TinyLayout from "../layouts/TinyLayout"
-import { TCategoryContext } from "../utils/types"
+import { type TCategoryContext } from "../utils/types"
 import NoPosts from "../components/NoPosts"
 
 function PostsByCategory({
@@ -12,11 +12,11 @@ function PostsByCategory({
 }: {
   children: React.ReactNode
   data: Queries.PostsByCategoryQuery
-}) {
+}): JSX.Element {
   const posts = data?.allSanityPost?.nodes
   const siteMetadata = data?.site?.siteMetadata
 
-  if (!posts || posts.length === 0) {
+  if (posts === null || posts.length === 0) {
     return <NoPosts siteMetadata={siteMetadata} />
   }
 
@@ -25,13 +25,14 @@ function PostsByCategory({
       <main className="flex flex-col gap-1 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-5 max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl mx-auto">
         {posts.map(post => (
           <article
+            key={post.slug?.current ?? ""}
             className="border-[thin] border-black w-full 
             grid grid-cols-1 md:grid-cols-5"
           >
-            {post.mainImage && post.mainImage.asset && (
+            {post.mainImage?.asset != null && (
               <GatsbyImage
                 image={post.mainImage.asset.gatsbyImageData}
-                alt={post.mainImage.asset.altText || post.title || ""}
+                alt={post.mainImage.asset.altText ?? post.title ?? ""}
                 className="md:col-span-2"
                 objectFit="contain"
               />
@@ -42,7 +43,7 @@ function PostsByCategory({
           prose-a:block prose-a:underline prose-a:decoration-black prose-a:decoration-2 prose-a:underline-offset-2 hover:prose-a:decoration-red-700 focus:prose-a:outline-none focus:prose-a:no-underline focus:prose-a:ring-4 focus:prose-a:ring-offset-2 focus:prose-a:ring-stone-900 focus:prose-a:bg-white"
             >
               <small className="font-sans">{post.publishedAt}</small>
-              <Link to={`/posts/${post.slug?.current}`}>
+              <Link to={`/posts/${post.slug?.current as string}`}>
                 <h2>{post.title}</h2>
               </Link>
               <p>{post.description}</p>
@@ -60,8 +61,8 @@ export function Head({
   data,
   pageContext,
   location,
-}: HeadProps<Queries.PostsByCategoryQuery, TCategoryContext>) {
-  const category = pageContext.name || "Posts by Category"
+}: HeadProps<Queries.PostsByCategoryQuery, TCategoryContext>): JSX.Element {
+  const category = pageContext.name ?? "Posts by Category"
 
   return <Seo title={category} pathname={location.pathname} />
 }

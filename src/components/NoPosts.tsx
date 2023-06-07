@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import React from "react"
 import TinyLayout from "../layouts/TinyLayout"
-import { TSiteMetadata } from "../utils/types"
+import { type TSiteMetadata } from "../utils/types"
 
 function NoPosts({
   children,
@@ -9,7 +9,7 @@ function NoPosts({
 }: {
   children?: React.ReactNode
   siteMetadata?: TSiteMetadata
-}) {
+}): JSX.Element {
   return (
     <TinyLayout siteMetadata={siteMetadata}>
       <main className="font-serif my-1 sm:my-2 md:my-3 lg:my-4 sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto">

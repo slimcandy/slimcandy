@@ -6,7 +6,7 @@ import json from "refractor/lang/json"
 import yaml from "refractor/lang/yaml"
 import css from "refractor/lang/css"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { PortableTextComponents } from "@portabletext/react"
+import { type PortableTextComponents } from "@portabletext/react"
 import { getGatsbyImageData } from "gatsby-source-sanity"
 
 Refractor.registerLanguage(js)
@@ -37,17 +37,16 @@ const components: PortableTextComponents = {
         },
         sanityConfig
       )
-      if (imageData) return <GatsbyImage image={imageData} alt="" />
+      if (imageData != null) return <GatsbyImage image={imageData} alt="" />
       else return <i>Image not found</i>
     },
     code: function codeOutput(props) {
-      console.log("code props", props)
       const {
         value: { code, language, highlightedLines },
       } = props
       return (
         <Refractor
-          language={language || "javascript"}
+          language={language ?? "javascript"}
           value={code}
           markers={highlightedLines}
           className="not-prose font-mono text-xs sm:text-sm md:text-base lg:text-md xl:text-lg 2xl:text-xl"
@@ -61,7 +60,6 @@ const components: PortableTextComponents = {
         <iframe
           src={src}
           loading="lazy"
-          allowTransparency={true}
           allowFullScreen={true}
           name={text}
           title={text}
