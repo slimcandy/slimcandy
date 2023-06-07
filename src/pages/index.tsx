@@ -101,7 +101,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>) {
                     className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2
                     after:content-['→']"
                   >
-                    Read more
+                    Read my story
                   </Link>
                 </p>
               </section>
