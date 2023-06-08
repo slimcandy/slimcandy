@@ -47,7 +47,7 @@ function ContactForm({ className = "" }: { className?: string }): JSX.Element {
       py-8
       "
       >
-        Reach Out! Share Your Thoughts and Ideas
+        Drop Me a Line, Let Me Know What You Think
       </h3>
       <form
         name="contact"
@@ -62,7 +62,7 @@ function ContactForm({ className = "" }: { className?: string }): JSX.Element {
         <input type="hidden" name="form-name" value="contact" />
 
         <label htmlFor="message" className="flex flex-col space-y-1">
-          <span className="font-light py-4">Message:</span>
+          <span className="font-light py-4">Write message:</span>
           <textarea
             name="message"
             id="message"

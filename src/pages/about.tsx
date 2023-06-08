@@ -61,37 +61,89 @@ function AboutPage({ data }: PageProps<Queries.AboutPageQuery>): JSX.Element {
             together, reach out to me. Let&apos;s make coding history together!
             🚀
           </p>
+          {siteMetadata?.social != null && (
+            <section className="mt-4">
+              <menu className="flex flex-wrap items-center gap-6 sm:gap-7 md:gap-8 lg:gap-9 xl:gap-10 md:text-lg xl:text-xl">
+                <li>
+                  <a
+                    href={siteMetadata?.social?.youtube ?? ""}
+                    className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+                  >
+                    <AiFillYoutube /> youtube
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={siteMetadata?.social?.github ?? ""}
+                    className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+                  >
+                    <AiFillGithub /> github
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={siteMetadata?.social?.linkedin ?? ""}
+                    className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+                  >
+                    <AiFillLinkedin /> linkedin
+                  </a>
+                </li>
+              </menu>
+            </section>
+          )}
+          <hr />
+          <h2>💼 GitHub Projects</h2>
+          <p>
+            Explore my diverse portfolio of open-source projects on GitHub, each
+            bringing unique solutions to a range of domains:
+            <ul>
+              <li>
+                Dive into 🗒️
+                <a href="https://github.com/slimcandy/openNotes">openNotes</a>,
+                your digital note-keeping ally
+              </li>
+              <li>
+                Get a taste of Augmented Reality applications with 🕶️
+                <a href="https://github.com/slimcandy/WhatARQuickLookCanDoToday">
+                  WhatARQuickLookCanDoToday
+                </a>
+                &nbsp;and&nbsp;
+                <a href="https://github.com/slimcandy/randomARt">randomARt</a>
+              </li>
+              <li>
+                🔒
+                <a href="https://github.com/slimcandy/MetaCleaner">
+                  MetaCleaner
+                </a>
+                &nbsp;safeguards your privacy by quickly stripping EXIF data
+                from your photos
+              </li>
+              <li>
+                🏞️
+                <a href="https://github.com/slimcandy/todorism">evency.space</a>
+                &nbsp;is a user-friendly web app that helps hiking teams
+                streamline spending and gear organization
+              </li>
+              <li>
+                For budding bloggers, 📚
+                <a href="https://github.com/slimcandy/typescript-gatsby-boilerplate">
+                  typescript-gatsby-boilerplate
+                </a>
+                &nbsp;is an educational repository on setting up a personal blog
+                with Gatsby and Sanity.io
+              </li>
+              <li>
+                <a href="https://github.com/slimcandy/isit-hdr-ready">
+                  isit-hdr-ready
+                </a>
+                &nbsp;is a handy NPM package, crafted in pure JavaScript, that
+                checks for HDR support in your CSS
+              </li>
+            </ul>
+            Get ready to immerse yourself in this playground of creativity and
+            technical skill.
+          </p>
         </article>
-        {siteMetadata?.social != null && (
-          <section className="mt-4">
-            <menu className="flex flex-wrap items-center gap-6 sm:gap-7 md:gap-8 lg:gap-9 xl:gap-10 md:text-lg xl:text-xl">
-              <li>
-                <a
-                  href={siteMetadata?.social?.youtube ?? ""}
-                  className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
-                >
-                  <AiFillYoutube /> youtube
-                </a>
-              </li>
-              <li>
-                <a
-                  href={siteMetadata?.social?.github ?? ""}
-                  className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
-                >
-                  <AiFillGithub /> github
-                </a>
-              </li>
-              <li>
-                <a
-                  href={siteMetadata?.social?.linkedin ?? ""}
-                  className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
-                >
-                  <AiFillLinkedin /> linkedin
-                </a>
-              </li>
-            </menu>
-          </section>
-        )}
       </main>
     </TinyLayout>
   )
