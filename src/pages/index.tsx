@@ -20,16 +20,21 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
     <RichHeaderLayout siteMetadata={siteMetadata} categories={categories}>
       <main
         className="font-serif my-2 sm:my-3 md:my-4 lg:my-5 xl:my-6 max-w-screen-2xl mx-auto pt-4 sm:pt-2 md:pt-1 lg:pt-0 px-2 sm:px-4 md:px-2 lg:px-0
-      border-b-[thin] border-black"
+      border-b-[thin] border-slate-400"
       >
-        <article className="mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl border-[thin] border-black relative">
-          <div className="absolute -top-4 -left-1 bg-white border-[thin] border-black h-8 sm:h-10 md:h-12 lg:h-14 xl:h-16 z-10 px-1 sm:px-2 md:px-3 lg:px-4 flex items-center justify-center">
-            <p className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin">
+        <article className="mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl border-[thin] border-slate-400 relative">
+          <div className="absolute -top-4 -left-1 bg-white border-[thin] border-slate-400 h-8 sm:h-10 md:h-12 lg:h-14 xl:h-16 z-10 px-1 sm:px-2 md:px-3 lg:px-4 flex items-center justify-center">
+            <p
+              className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin
+            text-slate-600"
+            >
               New
             </p>
           </div>
           <div className="mx-auto sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl md:text-lg xl:text-xl pb-4 sm:pb-5 md:pb-6 lg:pb-7 xl:pb-8 px-4 sm:px-3 md:px-2 lg:px-1 xl:px-0 ">
-            <small className="font-sans">{posts[0].publishedAt}</small>
+            <small className="font-sans text-slate-600">
+              {posts[0].publishedAt}
+            </small>
             <Link
               to={`/posts/${posts[0].slug?.current as string}`}
               className="underline decoration-black decoration-4 underline-offset-4 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
@@ -42,19 +47,24 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
           </div>
         </article>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-y-2 sm:gap-y-3 md:gap-y-4 sm:mt-2.5 md:mt-3 lg:mt-3.5 xl:mt-4 mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl py-2 sm:py-3 md:py-4 lg:py-5 xl:py-6">
-          <div className="md:col-span-2 border-b-[thin] border-b-black md:border-b-0 md:pr-6 lg:pr-7 xl:pr-8">
-            <p className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin">
+          <div className="md:col-span-2 border-b-[thin] border-b-slate-400 md:border-b-0 md:pr-6 lg:pr-7 xl:pr-8">
+            <p
+              className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin
+            text-slate-600"
+            >
               Fresh Harvest
             </p>
             <div className="flex flex-col flex-wrap gap-1 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-5">
               {notFirstPosts.map(function showPost(post) {
                 return (
                   <article
-                    className="border-[thin] border-black relative overflow-hidden"
+                    className="border-[thin] border-slate-400 relative overflow-hidden"
                     key={post.title}
                   >
                     <div className="mx-auto sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl md:text-lg xl:text-xl pb-4 sm:pb-5 md:pb-6 lg:pb-7 xl:pb-8 px-4 sm:px-3 lg:px-4 xl:px-6">
-                      <small className="font-sans">{post.publishedAt}</small>
+                      <small className="font-sans text-slate-600">
+                        {post.publishedAt}
+                      </small>
                       <Link
                         to={`/posts/${post.slug?.current as string}`}
                         className="underline decoration-black decoration-2 underline-offset-4 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
@@ -70,10 +80,13 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
               })}
             </div>
           </div>
-          <div className="md:border-l-[thin] md:border-l-black md:pl-6 lg:pl-7 xl:pl-8">
+          <div className="md:border-l-[thin] md:border-l-text-slate-600 md:pl-6 lg:pl-7 xl:pl-8">
             {typeof siteMetadata?.description === "string" && (
               <section>
-                <h4 className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin">
+                <h4
+                  className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin
+                text-slate-600"
+                >
                   Gardener
                 </h4>
                 <p
@@ -104,15 +117,18 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
                     className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2
                     after:content-['→']"
                   >
-                    Read my story
+                    Check my projects
                   </Link>
                 </p>
               </section>
             )}
-            <hr className="border-t-[thin] border-black my-1 sm:my-1.5 md:my-2 lg:my-2.5 xl:my-3" />
+            <hr className="border-t-[thin] border-text-slate-600 my-1 sm:my-1.5 md:my-2 lg:my-2.5 xl:my-3" />
             {siteMetadata?.social != null && (
               <section>
-                <h4 className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin">
+                <h4
+                  className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin
+                text-slate-600"
+                >
                   Follow me
                 </h4>
                 <menu className="flex flex-wrap items-center gap-4 sm:gap-5 md:gap-6 lg:gap-7">
@@ -121,8 +137,8 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
                       <li>
                         <a
                           href={siteMetadata.social.youtube}
-                          className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white
-                      flex flex-col items-center gap-x-2"
+                          className="underline decoration-slate-600 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white
+                      flex flex-col items-center gap-x-2 text-slate-600"
                         >
                           <AiFillYoutube
                             className="w-8 sm:w-10 md:w-12 lg:w-16 xl:w-20
@@ -135,8 +151,8 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
                   <li>
                     <a
                       href={siteMetadata?.social?.github ?? ""}
-                      className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white
-                      flex flex-col items-center gap-x-2"
+                      className="underline decoration-slate-600 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white
+                      flex flex-col items-center gap-x-2 text-slate-600"
                     >
                       <AiFillGithub
                         className="w-8 sm:w-10 md:w-12 lg:w-16 xl:w-20
@@ -148,8 +164,9 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
                   <li>
                     <a
                       href={siteMetadata?.social?.linkedin ?? ""}
-                      className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white
-                      flex flex-col items-center gap-x-2"
+                      className="underline decoration-slate-600 decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white
+                      flex flex-col items-center gap-x-2
+                      text-slate-600"
                     >
                       <AiFillLinkedin
                         className="w-8 sm:w-10 md:w-12 lg:w-16 xl:w-20
