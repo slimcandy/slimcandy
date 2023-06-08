@@ -62,7 +62,7 @@ function ContactForm({ className = "" }: { className?: string }): JSX.Element {
         <input type="hidden" name="form-name" value="contact" />
 
         <label htmlFor="message" className="flex flex-col space-y-1">
-          <span className="font-light py-4">Message:</span>
+          <span className="font-light py-4">Write message:</span>
           <textarea
             name="message"
             id="message"
