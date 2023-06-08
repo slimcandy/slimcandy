@@ -22,7 +22,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
         <article className="mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl border-[thin] border-black relative">
           <div className="absolute -top-4 -left-1 bg-white border-[thin] border-black h-8 sm:h-10 md:h-12 lg:h-14 xl:h-16 z-10 px-1 sm:px-2 md:px-3 lg:px-4 flex items-center justify-center">
             <p className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin">
-              Featured Article
+              New
             </p>
           </div>
           <div className="mx-auto sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl md:text-lg xl:text-xl pb-4 sm:pb-5 md:pb-6 lg:pb-7 xl:pb-8 px-4 sm:px-3 md:px-2 lg:px-1 xl:px-0 ">
@@ -41,7 +41,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-y-2 sm:gap-y-3 md:gap-y-4 sm:mt-2.5 md:mt-3 lg:mt-3.5 xl:mt-4 mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl py-2 sm:py-3 md:py-4 lg:py-5 xl:py-6">
           <div className="md:col-span-2 border-b-[thin] border-b-black md:border-b-0 md:pr-6 lg:pr-7 xl:pr-8">
             <p className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin">
-              News from Garden
+              Fresh Harvest
             </p>
             <div className="flex flex-col flex-wrap gap-1 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-5">
               {notFirstPosts.map(function showPost(post) {
@@ -71,7 +71,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
             {typeof siteMetadata?.description === "string" && (
               <section>
                 <h4 className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin">
-                  About me
+                  Gardener
                 </h4>
                 <p
                   className="mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl

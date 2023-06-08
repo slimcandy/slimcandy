@@ -6,10 +6,7 @@ const config: GatsbyConfig = {
     siteUrl: `https://js.garden`,
     author: `Aleksei Volkov`,
     motto: `My Journey to $10k/mo. before my 30s`,
-    description: `Welcome to my blog, where I share tips and strategies on coding,
-    Github projects, semantic HTML, JS performance, CSS tricks, and
-    more. This space is for aspiring web developers looking to make
-    their mark in the tech industry.`,
+    description: `Join me in the garden of JavaScript, where we cultivate coding knowledge! Here, I unravel secrets of coding, Github adventures, HTML semantics, JS performance boosters, CSS magic tricks, and more.`,
     image: `/website-image.png`,
     social: {
       github: `https://github.com/slimcandy`,
