@@ -6,6 +6,7 @@ import RichHeaderLayout from "../layouts/RichHeaderLayout"
 import { AiFillGithub, AiFillLinkedin, AiFillYoutube } from "react-icons/ai"
 import NoPosts from "../components/NoPosts"
 import { StaticImage } from "gatsby-plugin-image"
+import ContactForm from "../components/ContactForm"
 
 function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
   const siteMetadata = data.site?.siteMetadata
@@ -18,7 +19,10 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
   }
   return (
     <RichHeaderLayout siteMetadata={siteMetadata} categories={categories}>
-      <main className="font-serif my-2 sm:my-3 md:my-4 lg:my-5 xl:my-6 max-w-screen-2xl mx-auto pt-4 sm:pt-2 md:pt-1 lg:pt-0 px-2 sm:px-4 md:px-2 lg:px-0">
+      <main
+        className="font-serif my-2 sm:my-3 md:my-4 lg:my-5 xl:my-6 max-w-screen-2xl mx-auto pt-4 sm:pt-2 md:pt-1 lg:pt-0 px-2 sm:px-4 md:px-2 lg:px-0
+      border-b-[thin] border-black"
+      >
         <article className="mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl border-[thin] border-black relative">
           <div className="absolute -top-4 -left-1 bg-white border-[thin] border-black h-8 sm:h-10 md:h-12 lg:h-14 xl:h-16 z-10 px-1 sm:px-2 md:px-3 lg:px-4 flex items-center justify-center">
             <p className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin">
@@ -143,6 +147,10 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
           </div>
         </div>
       </main>
+      <ContactForm
+        className="mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl
+        my-4 sm:my-8 md:my-12 lg:my-16"
+      />
     </RichHeaderLayout>
   )
 }
