@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import { BsFillPersonLinesFill } from "react-icons/bs"
 
 import { type TCategories, type TSiteMetadata } from "../utils/types"
+import ContactForm from "../components/ContactForm"
 
 function RichHeaderLayout({
   children,
@@ -72,6 +73,10 @@ function RichHeaderLayout({
         </div>
       )}
       {children}
+      <ContactForm
+        className="mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl
+        my-4 sm:my-8 md:my-12 lg:my-16"
+      />
     </>
   )
 }

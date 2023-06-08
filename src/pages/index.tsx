@@ -6,7 +6,6 @@ import RichHeaderLayout from "../layouts/RichHeaderLayout"
 import { AiFillGithub, AiFillLinkedin, AiFillYoutube } from "react-icons/ai"
 import NoPosts from "../components/NoPosts"
 import { StaticImage } from "gatsby-plugin-image"
-import ContactForm from "../components/ContactForm"
 
 function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
   const siteMetadata = data.site?.siteMetadata
@@ -116,29 +115,47 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
                 <h4 className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin">
                   Follow me
                 </h4>
-                <menu className="flex flex-wrap items-center gap-6 sm:gap-7 md:gap-8 lg:gap-9 xl:gap-10 md:text-lg xl:text-xl">
-                  <li>
-                    <a
-                      href={siteMetadata?.social?.youtube ?? ""}
-                      className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
-                    >
-                      <AiFillYoutube /> youtube
-                    </a>
-                  </li>
+                <menu className="flex flex-wrap items-center gap-4 sm:gap-5 md:gap-6 lg:gap-7">
+                  {typeof siteMetadata?.social?.youtube === "string" &&
+                    siteMetadata.social.youtube.length > 0 && (
+                      <li>
+                        <a
+                          href={siteMetadata.social.youtube}
+                          className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white
+                      flex flex-col items-center gap-x-2"
+                        >
+                          <AiFillYoutube
+                            className="w-8 sm:w-10 md:w-12 lg:w-16 xl:w-20
+                      h-8sm:h-10 md:h-12 lg:h-16 xl:h-20"
+                          />
+                          YouTube
+                        </a>
+                      </li>
+                    )}
                   <li>
                     <a
                       href={siteMetadata?.social?.github ?? ""}
-                      className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+                      className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white
+                      flex flex-col items-center gap-x-2"
                     >
-                      <AiFillGithub /> github
+                      <AiFillGithub
+                        className="w-8 sm:w-10 md:w-12 lg:w-16 xl:w-20
+                      h-8sm:h-10 md:h-12 lg:h-16 xl:h-20"
+                      />
+                      GitHub
                     </a>
                   </li>
                   <li>
                     <a
                       href={siteMetadata?.social?.linkedin ?? ""}
-                      className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center gap-x-2"
+                      className="underline decoration-black decoration-2 underline-offset-2 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white
+                      flex flex-col items-center gap-x-2"
                     >
-                      <AiFillLinkedin /> linkedin
+                      <AiFillLinkedin
+                        className="w-8 sm:w-10 md:w-12 lg:w-16 xl:w-20
+                      h-8sm:h-10 md:h-12 lg:h-16 xl:h-20"
+                      />
+                      LinkedIn
                     </a>
                   </li>
                 </menu>
@@ -147,10 +164,6 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
           </div>
         </div>
       </main>
-      <ContactForm
-        className="mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl
-        my-4 sm:my-8 md:my-12 lg:my-16"
-      />
     </RichHeaderLayout>
   )
 }
