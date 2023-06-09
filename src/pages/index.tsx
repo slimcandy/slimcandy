@@ -6,6 +6,7 @@ import RichHeaderLayout from "../layouts/RichHeaderLayout"
 import { AiFillGithub, AiFillLinkedin, AiFillYoutube } from "react-icons/ai"
 import NoPosts from "../components/NoPosts"
 import { StaticImage } from "gatsby-plugin-image"
+import SignUpForm from "../components/SignUpForm"
 
 function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
   const siteMetadata = data.site?.siteMetadata
@@ -46,6 +47,9 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
             <p>{posts[0].description}</p>
           </div>
         </article>
+
+        <SignUpForm />
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-y-2 sm:gap-y-3 md:gap-y-4 sm:mt-2.5 md:mt-3 lg:mt-3.5 xl:mt-4 mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl py-2 sm:py-3 md:py-4 lg:py-5 xl:py-6">
           <div className="md:col-span-2 border-b-[thin] border-b-slate-400 md:border-b-0 md:pr-6 lg:pr-7 xl:pr-8">
             <p
@@ -80,7 +84,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
               })}
             </div>
           </div>
-          <div className="md:border-l-[thin] md:border-l-text-slate-600 md:pl-6 lg:pl-7 xl:pl-8">
+          <div className="md:border-l-[thin] md:border-l-slate-600 md:pl-6 lg:pl-7 xl:pl-8">
             {typeof siteMetadata?.description === "string" && (
               <section>
                 <h4
@@ -122,7 +126,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
                 </p>
               </section>
             )}
-            <hr className="border-t-[thin] border-text-slate-600 my-1 sm:my-1.5 md:my-2 lg:my-2.5 xl:my-3" />
+            <hr className="border-t-[thin] border-slate-400 my-1 sm:my-1.5 md:my-2 lg:my-2.5 xl:my-3" />
             {siteMetadata?.social != null && (
               <section>
                 <h4
