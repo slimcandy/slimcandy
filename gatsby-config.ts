@@ -55,6 +55,14 @@ const config: GatsbyConfig = {
     },
     "gatsby-plugin-postcss",
     "gatsby-plugin-netlify",
+    {
+      resolve: "gatsby-plugin-mailchimp",
+      options: {
+        endpoint:
+          "https://garden.us21.list-manage.com/subscribe/post?u=b07bceb74d3a87f2508eb80d9&amp;id=21faca19f6&amp;f_id=00845ae1f0", // string; add your MC list endpoint here; see instructions below
+        timeout: 3500, // number; the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
+      },
+    },
   ],
 }
 
