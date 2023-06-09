@@ -1,7 +1,10 @@
 import React from "react"
 import addToMailchimp from "gatsby-plugin-mailchimp"
 
-interface TResult { msg: string; result: string }
+interface TResult {
+  msg: string
+  result: string
+}
 
 function SignUpForm(): JSX.Element {
   const [email, setEmail] = React.useState("")
