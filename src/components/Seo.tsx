@@ -51,7 +51,7 @@ function Seo({
         rel="icon"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🤑</text></svg>"
       />
-      <body className="hyphens-auto transition-all" />
+      <body className="hyphens-auto transition-all dark:bg-zinc-800 dark:text-zinc-300" />
 
       {children}
     </>
