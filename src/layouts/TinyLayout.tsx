@@ -46,8 +46,10 @@ function TinyLayout({
       </div>
       <hr className="border-t-[thin] border-slate-600 my-1 sm:my-1.5 md:my-2 lg:my-2.5 xl:my-3" />
       <ContactForm
-        className="mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl
-      my-4 sm:my-8 md:my-12 lg:my-16"
+        className="mx-auto 
+        max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl 
+        px-2 sm:px-4 md:px-2 lg:px-0
+        my-4 sm:my-8 md:my-12 lg:my-16"
       />
     </>
   )

@@ -87,7 +87,9 @@ function RichHeaderLayout({
       )}
       {children}
       <ContactForm
-        className="mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl
+        className="mx-auto 
+        max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl 
+        px-2 sm:px-4 md:px-2 lg:px-0
         my-4 sm:my-8 md:my-12 lg:my-16"
       />
     </>
