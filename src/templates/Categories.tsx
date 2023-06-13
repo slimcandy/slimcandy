@@ -39,8 +39,11 @@ function PostsByCategory({
             )}
             <div
               className="md:col-span-3 p-2 sm:p-3 md:p-4 lg:p-5 xl:p-6 
-              font-serif prose prose-neutral prose-xs sm:prose-sm md:prose-md lg:prose-lg xl:prose-xl
-          prose-a:block prose-a:underline prose-a:decoration-black prose-a:decoration-2 prose-a:underline-offset-2 hover:prose-a:decoration-red-700 focus:prose-a:outline-none focus:prose-a:no-underline focus:prose-a:ring-4 focus:prose-a:ring-offset-2 focus:prose-a:ring-stone-900 focus:prose-a:bg-white"
+              font-serif 
+              prose prose-neutral dark:prose-invert prose-sm sm:prose-base md:prose-lg lg:prose-xl xl:prose-2xl
+          prose-a:underline 
+          prose-a:decoration-black dark:prose-a:decoration-zinc-500
+          prose-a:decoration-2 prose-a:underline-offset-2 hover:prose-a:decoration-red-700 focus:prose-a:outline-none focus:prose-a:no-underline focus:prose-a:ring-4 focus:prose-a:ring-offset-2 focus:prose-a:ring-stone-900 dark:focus:prose-a:ring-zinc-500 focus:prose-a:bg-white dark:focus:prose-a:bg-zinc-800"
             >
               <small className="font-sans">{post.publishedAt}</small>
               <Link to={`/posts/${post.slug?.current as string}`}>

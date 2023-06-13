@@ -19,11 +19,13 @@ function TinyLayout({
             {typeof siteMetadata.title === "string" && (
               <Link
                 to="/"
-                className="underline decoration-slate-600 decoration-2 underline-offset-4 hover:decoration-red-700 focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white flex items-center justify-center gap-1.5 h-full w-full"
+                className="underline decoration-slate-600 dark:decoration-zinc-500 decoration-2 underline-offset-2 hover:decoration-red-700 
+                focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 dark:focus:ring-zinc-500 focus:bg-white dark:focus:bg-zinc-800 dark:focus:text-zinc-300
+                flex items-center justify-center gap-1.5 h-full w-full"
               >
                 <h2
                   className="font-serif sm:text-md md:text-lg lg:text-xl xl:text-2xl uppercase font-bold sm:tracking-wide md:tracking-wider lg:tracking-widest
-                text-slate-600"
+                text-slate-600 dark:text-zinc-500"
                 >
                   {siteMetadata.title}
                 </h2>
@@ -33,7 +35,7 @@ function TinyLayout({
               <h3
                 className="uppercase text-xs sm:text-sm md:text-md 
               xl:text-lg tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 md:py-1 lg:py-1.5 xl:py-2
-              text-slate-600"
+              text-slate-600 dark:text-zinc-500"
               >
                 {siteMetadata.motto}
               </h3>

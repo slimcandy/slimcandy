@@ -17,7 +17,7 @@ function ContactForm({ className = "" }: { className?: string }): JSX.Element {
         onClick={scrollToTop}
         title="Go to top"
         className="mx-auto block text-center
-        focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-white
+        focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-transparent dark:focus:ring-zinc-500
         px-8 py-4"
       >
         <span className="sr-only">Go to top</span>
@@ -32,7 +32,8 @@ function ContactForm({ className = "" }: { className?: string }): JSX.Element {
           role="img"
           aria-labelledby={backToTopId}
           className="w-2 sm:w-4 md:w-6 h-12 sm:h-14 md:h-16 lg:h-20
-           fill-current text-gray-700 hover:text-black transition-colors duration-200"
+           fill-current text-gray-700 hover:text-black transition-colors duration-200
+           dark:text-zinc-500 dark:hover:text-zinc-300"
         >
           <title id={backToTopId}>Back to top</title>
           <g>
@@ -68,14 +69,18 @@ function ContactForm({ className = "" }: { className?: string }): JSX.Element {
             id="message"
             rows={4}
             placeholder="Hi, I'd like to talk about..."
-            className="block w-full px-0.5 border-0 border-b-2 border-black hover:border-red-700 focus:border-red-700 focus:border-b-8 outline-none
-           font-light"
+            className="block w-full px-0.5 border-0 border-b-2 
+            border-black dark:border-zinc-500 hover:border-red-700 focus:border-red-700 
+            focus:border-b-8 outline-none
+           font-light
+           bg-transparent"
           />
         </label>
         <button
           type="submit"
           className="my-8 px-8 py-6
-          bg-black text-white font-semibold
+          bg-black dark:bg-zinc-500 text-white dark:text-zinc-300
+           font-semibold
           hover:bg-red-700 focus:bg-red-700 focus:outline-none"
         >
           Send
