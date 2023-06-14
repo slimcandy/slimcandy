@@ -53,7 +53,7 @@ function SignUpForm(): JSX.Element {
               htmlFor="email"
               className="font-light py-4 text-slate-400 dark:text-zinc-500"
             >
-              Write an email:
+              Leave an email:
             </label>
             <input
               type="email"
