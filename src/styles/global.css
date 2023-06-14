@@ -26,7 +26,7 @@
   .prose-primary {
     @apply font-serif
     text-primaryText dark:text-primaryTextDark
-    prose prose-neutral dark:prose-invert prose-sm sm:prose-base md:prose-lg lg:prose-xl xl:prose-2xl
+    prose prose-neutral dark:prose-invert prose-lg md:prose-xl lg:prose-2xl
     subpixel-antialiased
     
     prose-a:inline-block
