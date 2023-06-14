@@ -17,21 +17,14 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
   return (
     <RichHeaderLayout siteMetadata={siteMetadata}>
       <main>
-        <article
-          className="mx-auto sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl
-         relative
-         prose-primary"
-        >
+        <article className="width-80 prose-primary">
           <Link to={`/posts/${posts[0].slug?.current as string}`}>
             <h2>{posts[0].title}</h2>
           </Link>
           <p>{posts[0].description}</p>
         </article>
 
-        <div
-          className="sm:mt-2.5 md:mt-3 lg:mt-3.5 xl:mt-4 
-        mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl py-2 sm:py-3 md:py-4 lg:py-5 xl:py-6"
-        >
+        <div className="width-100">
           <span
             className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin
             text-secondaryText dark:text-secondaryTextDark"
@@ -41,7 +34,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
           <div
             className="flex flex-col flex-wrap
             gap-1 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-5 
-            mx-auto sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl"
+            width-80"
           >
             {notFirstPosts.map(function showPost(post) {
               return (

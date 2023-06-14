@@ -16,21 +16,18 @@ function RichHeaderLayout({
   return (
     <>
       {siteMetadata != null && (
-        <header
-          className="mx-auto 
-                sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl
-                px-2 sm:px-4 md:px-2 lg:px-0"
-        >
+        <header className="width-80">
           {typeof siteMetadata.title === "string" && (
-            <Link to="/" className="link-secondary">
-              <h2
-                className="font-serif sm:text-md md:text-lg lg:text-xl xl:text-2xl uppercase font-bold sm:tracking-wide md:tracking-wider lg:tracking-widest
-                py-1 sm:py-2
-                text-center"
-              >
-                {siteMetadata.title}
-              </h2>
-            </Link>
+            <div className="text-center">
+              <Link to="/" className="link-secondary">
+                <h2
+                  className="font-serif sm:text-md md:text-lg lg:text-xl xl:text-2xl uppercase font-bold sm:tracking-wide md:tracking-wider lg:tracking-widest
+                py-1 sm:py-2"
+                >
+                  {siteMetadata.title}
+                </h2>
+              </Link>
+            </div>
           )}
           {typeof siteMetadata?.description === "string" && (
             <section className="pb-1 sm:pb-1.5 md:pb-2 lg:pb-2.5 xl:pb-3">
@@ -85,10 +82,7 @@ function RichHeaderLayout({
         </header>
       )}
       {children}
-      <ContactForm
-        className="mx-auto 
-        sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl"
-      />
+      <ContactForm />
     </>
   )
 }

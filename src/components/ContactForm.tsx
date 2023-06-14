@@ -9,10 +9,10 @@ function scrollToTop(): void {
   }
 }
 
-function ContactForm({ className = "" }: { className?: string }): JSX.Element {
+function ContactForm(): JSX.Element {
   const backToTopId = useId()
   return (
-    <section className={className}>
+    <section className="width-80 prose-secondary">
       <button
         onClick={scrollToTop}
         title="Go to top"
@@ -42,22 +42,13 @@ function ContactForm({ className = "" }: { className?: string }): JSX.Element {
         </svg>
       </button>
 
-      <h3
-        className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl
-        font-serif font-semibold text-center
-      py-8
-      "
-      >
-        Drop Me a Line, Let Me Know What You Think
-      </h3>
+      <h3>Drop Me a Line, Let Me Know What You Think</h3>
       <form
         name="contact"
         method="POST"
         data-netlify="true"
         action="/success"
-        className="mx-auto sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl
-        flex flex-col space-y-4
-        text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl
+        className="flex flex-col space-y-4
         my-8"
       >
         <input type="hidden" name="form-name" value="contact" />
@@ -69,19 +60,20 @@ function ContactForm({ className = "" }: { className?: string }): JSX.Element {
             id="message"
             rows={4}
             placeholder="Hi, I'd like to talk about..."
-            className="block w-full px-0.5 border-0 border-b-2 
-            border-black dark:border-zinc-500 hover:border-red-700 focus:border-red-700 
-            focus:border-b-8 outline-none
-           font-light
-           bg-transparent"
+            className="block w-full px-0.5 border-0 border-b-2
+            border-secondaryText dark:border-secondaryTextDark hover:border-red-700 focus:border-red-700
+            bg-secondaryBackground dark:bg-secondaryBackgroundDark
+            text-secondaryText dark:text-secondaryTextDark
+            focus:border-b-8 outline-none"
           />
         </label>
         <button
           type="submit"
           className="my-8 px-8 py-6
-          bg-black dark:bg-zinc-500 text-white dark:text-zinc-300
-           font-semibold
-          hover:bg-red-700 focus:bg-red-700 focus:outline-none"
+          font-semibold
+          hover:bg-red-700 focus:bg-red-700 focus:outline-none
+          bg-secondaryBackground dark:bg-secondaryBackgroundDark
+              text-secondaryText dark:text-secondaryTextDark"
         >
           Send
         </button>

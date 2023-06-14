@@ -22,7 +22,7 @@ function SinglePostLayout({
 
   return (
     <TinyLayout siteMetadata={siteMetadata}>
-      <main className="font-serif my-1 sm:my-2 md:my-3 lg:my-4 sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto">
+      <main className="width-80">
         <article
           itemScope
           itemType="http://schema.org/Article"
