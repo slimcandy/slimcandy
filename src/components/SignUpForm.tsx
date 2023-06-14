@@ -1,10 +1,10 @@
 import React from "react"
 import addToMailchimp from "gatsby-plugin-mailchimp"
 
-interface TResult {
+type TResult = {
   msg: string
   result: string
-}
+} | null
 
 function SignUpForm(): JSX.Element {
   const [email, setEmail] = React.useState("")
@@ -25,7 +25,7 @@ function SignUpForm(): JSX.Element {
   }
 
   return (
-    <>
+    <aside className="font-serif">
       <hr className="border-t-[thin] border-slate-400 dark:border-zinc-500 my-4 sm:my-5.5 md:my-6 lg:my-7 xl:my-8" />
 
       {result !== null && (
@@ -80,7 +80,7 @@ function SignUpForm(): JSX.Element {
       </div>
 
       <hr className="border-t-[thin] border-slate-400 dark:border-zinc-500 my-4 sm:my-5.5 md:my-6 lg:my-7 xl:my-8" />
-    </>
+    </aside>
   )
 }
 export default SignUpForm

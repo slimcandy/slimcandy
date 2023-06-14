@@ -16,10 +16,7 @@ function RichHeaderLayout({
   return (
     <>
       {siteMetadata != null && (
-        <div
-          className="px-2 sm:px-4 md:px-2 lg:px-0
-        border-b-[thin] border-slate-400 dark:border-zinc-500"
-        >
+        <div className="px-2 sm:px-4 md:px-2 lg:px-0">
           <header
             className="mx-auto 
                 sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl"

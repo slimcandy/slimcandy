@@ -76,15 +76,6 @@ export function Head({
 
 export const SinglePostLayoutQuery = graphql`
   query SinglePostLayout($slug: String!) {
-    allSanityCategory(limit: 3) {
-      nodes {
-        description
-        name
-        slug {
-          current
-        }
-      }
-    }
     sanityPost(slug: { current: { eq: $slug } }) {
       id
       youtubeUrl
@@ -100,13 +91,6 @@ export const SinglePostLayoutQuery = graphql`
           )
           altText
         }
-      }
-      category {
-        name
-        slug {
-          current
-        }
-        description
       }
       _rawContent
     }
