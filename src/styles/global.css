@@ -8,8 +8,8 @@
     underline underline-offset-4
     decoration-primaryText dark:decoration-primaryTextDark decoration-2 
     hover:decoration-red-700 
-    focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-4 focus:ring-primaryText dark:focus:ring-primaryTextDark
-    focus:bg-primaryBackground dark:focus:bg-primaryBackgroundDark
+    focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-4 focus:ring-secondaryText dark:focus:ring-secondaryTextDark
+    focus:bg-secondaryBackground dark:focus:bg-secondaryBackgroundDark
    text-primaryText dark:text-primaryTextDark;
   }
 
@@ -27,13 +27,14 @@
     @apply font-serif
     text-primaryText dark:text-primaryTextDark
     prose prose-neutral dark:prose-invert prose-sm sm:prose-base md:prose-lg lg:prose-xl xl:prose-2xl
+    subpixel-antialiased
     
     prose-a:inline-block
     prose-a:underline prose-a:underline-offset-4
     prose-a:decoration-primaryText dark:prose-a:decoration-primaryTextDark prose-a:decoration-2 
     hover:prose-a:decoration-red-700 
-    focus:prose-a:outline-none focus:prose-a:no-underline focus:prose-a:ring-4 focus:prose-a:ring-primaryText dark:focus:prose-a:prose-a:ring-primaryTextDark
-    focus:prose-a:bg-primaryBackground dark:focus:prose-a:bg-primaryBackgroundDark
+    focus:prose-a:outline-none focus:prose-a:no-underline focus:prose-a:ring-4 focus:prose-a:ring-secondaryText dark:focus:prose-a:prose-a:ring-secondaryTextDark
+    focus:prose-a:bg-secondaryBackground dark:focus:prose-a:bg-secondaryBackgroundDark
 
     prose-a:text-primaryText prose-a:dark:text-primaryTextDark;
   }
@@ -42,6 +43,7 @@
     @apply font-serif
     text-secondaryText dark:text-secondaryTextDark
     prose prose-neutral dark:prose-invert prose-sm sm:prose-base md:prose-lg lg:prose-xl xl:prose-2xl
+    subpixel-antialiased
     
     prose-a:inline-block
     prose-a:underline prose-a:underline-offset-4
