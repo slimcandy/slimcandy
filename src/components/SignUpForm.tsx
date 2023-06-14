@@ -25,35 +25,26 @@ function SignUpForm(): JSX.Element {
   }
 
   return (
-    <aside className="font-serif">
-      <hr className="border-t-[thin] border-slate-400 dark:border-zinc-500 my-4 sm:my-5.5 md:my-6 lg:my-7 xl:my-8" />
+    <aside className="width-100 prose-secondary">
+      <hr className="border-t-[thin] border-secondaryText dark:secondaryTextDark my-4 sm:my-5.5 md:my-6 lg:my-7 xl:my-8" />
 
       {result !== null && (
         <div className="flex flex-col items-center justify-center space-y-2">
-          <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-slate-400 dark:text-zinc-500">
-            {result.msg}
-          </h3>
-          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light text-slate-400 dark:text-zinc-500">
-            {result.result}
-          </p>
+          <h3>{result.msg}</h3>
+          <p>{result.result}</p>
         </div>
       )}
 
       <div className="flex items-end justify-center space-x-4 sm:space-x-5 md:space-x-6 lg:space-x-8 xl:space-x-10">
-        <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-slate-400 dark:text-zinc-500">
-          Monthly Newsletter
-        </h3>
+        <h3>Monthly Newsletter</h3>
         <form
           className="flex items-end justify-center space-x-4 sm:space-x-6 md:space-x-8 lg:space-x-12 xl:space-x-32"
           onSubmit={handleSubmit}
           method="POST"
         >
           <div className="flex flex-col space-y-2">
-            <label
-              htmlFor="email"
-              className="font-light py-4 text-slate-400 dark:text-zinc-500"
-            >
-              Leave an email:
+            <label htmlFor="email" className="py-4">
+              Write an email:
             </label>
             <input
               type="email"
@@ -61,25 +52,27 @@ function SignUpForm(): JSX.Element {
               id="email"
               placeholder="john@company.org"
               className="block w-full px-0.5 border-0 border-b-2
-              border-slate-400 dark:border-zinc-500 hover:border-red-700 focus:border-red-700
-              bg-transparent
-              focus:border-b-8 outline-none
-            font-light"
+              border-secondaryText dark:border-secondaryTextDark hover:border-red-700 focus:border-red-700
+              bg-secondaryBackground dark:bg-secondaryBackgroundDark
+              text-secondaryText dark:text-secondaryTextDark
+              focus:border-b-8 outline-none"
               onChange={handleEmailChange}
             />
           </div>
           <button
             type="submit"
             className="px-8 py-6
-          bg-slate-400 dark:bg-zinc-500 text-white dark:text-zinc-300 font-semibold
-          hover:bg-red-700 focus:bg-red-700 focus:outline-none"
+          font-semibold
+          hover:bg-red-700 focus:bg-red-700 focus:outline-none
+          bg-secondaryBackground dark:bg-secondaryBackgroundDark
+              text-secondaryText dark:text-secondaryTextDark"
           >
             Sign Up
           </button>
         </form>
       </div>
 
-      <hr className="border-t-[thin] border-slate-400 dark:border-zinc-500 my-4 sm:my-5.5 md:my-6 lg:my-7 xl:my-8" />
+      <hr className="border-t-[thin] border-secondaryText dark:secondaryTextDark my-4 sm:my-5.5 md:my-6 lg:my-7 xl:my-8" />
     </aside>
   )
 }

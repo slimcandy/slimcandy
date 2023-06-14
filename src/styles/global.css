@@ -2,6 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .link {
+    @apply inline-block
+    underline underline-offset-4
+    decoration-primaryText dark:decoration-primaryTextDark decoration-2 
+    hover:decoration-red-700 
+    focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-4 focus:ring-secondaryText dark:focus:ring-secondaryTextDark
+    focus:bg-secondaryBackground dark:focus:bg-secondaryBackgroundDark
+   text-primaryText dark:text-primaryTextDark;
+  }
+
+  .link-secondary {
+    @apply inline-block
+    underline underline-offset-4
+    decoration-secondaryText dark:decoration-secondaryTextDark decoration-2 
+    hover:decoration-red-700 
+    focus:outline-none focus:no-underline focus:ring-4 focus:ring-secondaryText dark:focus:ring-secondaryTextDark
+    focus:bg-secondaryBackground dark:focus:bg-secondaryBackgroundDark
+   text-secondaryText dark:text-secondaryTextDark;
+  }
+
+  .prose-primary {
+    @apply font-serif
+    text-primaryText dark:text-primaryTextDark
+    prose prose-neutral dark:prose-invert prose-sm sm:prose-base md:prose-lg lg:prose-xl xl:prose-2xl
+    subpixel-antialiased
+    
+    prose-a:inline-block
+    prose-a:underline prose-a:underline-offset-4
+    prose-a:decoration-primaryText dark:prose-a:decoration-primaryTextDark prose-a:decoration-2 
+    hover:prose-a:decoration-red-700 
+    focus:prose-a:outline-none focus:prose-a:no-underline focus:prose-a:ring-4 focus:prose-a:ring-secondaryText dark:focus:prose-a:prose-a:ring-secondaryTextDark
+    focus:prose-a:bg-secondaryBackground dark:focus:prose-a:bg-secondaryBackgroundDark
+
+    prose-a:text-primaryText prose-a:dark:text-primaryTextDark;
+  }
+
+  .prose-secondary {
+    @apply font-serif
+    text-secondaryText dark:text-secondaryTextDark
+    prose prose-neutral dark:prose-invert prose-sm sm:prose-base md:prose-lg lg:prose-xl xl:prose-2xl
+    subpixel-antialiased
+    
+    prose-a:inline-block
+    prose-a:underline prose-a:underline-offset-4
+    prose-a:decoration-secondaryText dark:prose-a:decoration-secondaryTextDark prose-a:decoration-2 
+    hover:prose-a:decoration-red-700 
+    focus:prose-a:outline-none focus:prose-a:no-underline focus:prose-a:ring-4 focus:prose-a:ring-secondaryText dark:focus:prose-a:prose-a:ring-secondaryTextDark
+    focus:prose-a:bg-secondaryBackground dark:focus:prose-a:bg-secondaryBackgroundDark
+
+    prose-a:text-secondaryText prose-a:dark:text-secondaryTextDark;
+  }
+
+  .width-80 {
+    @apply mx-auto 
+   sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl
+   px-2 sm:px-4 md:px-2 lg:px-0;
+  }
+  .width-100 {
+    @apply mx-auto 
+    max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl
+    sm:mt-2.5 md:mt-3 lg:mt-3.5 xl:mt-4 
+    py-2 sm:py-3 md:py-4 lg:py-5 xl:py-6;
+  }
+}
+
 @font-face {
   font-family: "Playfair Display";
   font-style: normal;

@@ -17,46 +17,28 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
   return (
     <RichHeaderLayout siteMetadata={siteMetadata}>
       <main>
-        <article
-          className="mx-auto sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl
-         relative
-         font-serif
-         prose prose-neutral dark:prose-invert prose-sm sm:prose-base md:prose-lg lg:prose-xl xl:prose-2xl
-         prose-a:underline prose-a:block
-         prose-a:decoration-black dark:prose-a:decoration-zinc-500
-         prose-a:decoration-2 prose-a:underline-offset-2 hover:prose-a:decoration-red-700 focus:prose-a:outline-none focus:prose-a:no-underline focus:prose-a:ring-4 focus:prose-a:ring-offset-2 focus:prose-a:ring-stone-900 dark:focus:prose-a:ring-zinc-500 focus:prose-a:bg-white dark:focus:prose-a:bg-zinc-800"
-        >
+        <article className="width-80 prose-primary">
           <Link to={`/posts/${posts[0].slug?.current as string}`}>
             <h2>{posts[0].title}</h2>
           </Link>
           <p>{posts[0].description}</p>
         </article>
 
-        <div
-          className="sm:mt-2.5 md:mt-3 lg:mt-3.5 xl:mt-4 
-        mx-auto max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl py-2 sm:py-3 md:py-4 lg:py-5 xl:py-6"
-        >
+        <div className="width-100">
           <span
             className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin
-            text-slate-600 dark:text-zinc-500"
+            text-secondaryText dark:text-secondaryTextDark"
           >
             Fresh Harvest
           </span>
           <div
             className="flex flex-col flex-wrap
             gap-1 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-5 
-            mx-auto sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl"
+            width-80"
           >
             {notFirstPosts.map(function showPost(post) {
               return (
-                <article
-                  className="font-serif
-                    prose prose-neutral dark:prose-invert prose-sm sm:prose-base md:prose-lg lg:prose-xl xl:prose-2xl
-                    prose-a:underline prose-a:block
-                    prose-a:decoration-black dark:prose-a:decoration-zinc-500
-                    prose-a:decoration-2 prose-a:underline-offset-2 hover:prose-a:decoration-red-700 focus:prose-a:outline-none focus:prose-a:no-underline focus:prose-a:ring-4 focus:prose-a:ring-offset-2 focus:prose-a:ring-stone-900 dark:focus:prose-a:ring-zinc-500 focus:prose-a:bg-white dark:focus:prose-a:bg-zinc-800"
-                  key={post.title}
-                >
+                <article className="prose-primary" key={post.title}>
                   <Link to={`/posts/${post.slug?.current as string}`}>
                     <h3>{post.title}</h3>
                   </Link>
