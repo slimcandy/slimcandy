@@ -4946,7 +4946,7 @@ type AboutPageQuery = { readonly site: { readonly siteMetadata: { readonly title
 type ArticlesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type ArticlesQuery = { readonly allSanityCategory: { readonly nodes: ReadonlyArray<{ readonly description: string | null, readonly name: string | null, readonly slug: { readonly current: string | null } | null }> }, readonly allSanityPost: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly description: string | null, readonly readMore: string | null, readonly publishedAt: string | null, readonly slug: { readonly current: string | null } | null }> }, readonly site: { readonly siteMetadata: { readonly title: string | null, readonly description: string | null, readonly motto: string | null, readonly social: { readonly github: string | null, readonly linkedin: string | null, readonly youtube: string | null } | null } | null } | null };
+type ArticlesQuery = { readonly allSanityPost: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly description: string | null, readonly readMore: string | null, readonly publishedAt: string | null, readonly slug: { readonly current: string | null } | null }> }, readonly site: { readonly siteMetadata: { readonly title: string | null, readonly description: string | null, readonly motto: string | null, readonly social: { readonly github: string | null, readonly linkedin: string | null, readonly youtube: string | null } | null } | null } | null };
 
 type GatsbyImageSharpFixedFragment = { readonly base64: string | null, readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
 
@@ -4991,7 +4991,7 @@ type SinglePostLayoutQueryVariables = Exact<{
 }>;
 
 
-type SinglePostLayoutQuery = { readonly allSanityCategory: { readonly nodes: ReadonlyArray<{ readonly description: string | null, readonly name: string | null, readonly slug: { readonly current: string | null } | null }> }, readonly sanityPost: { readonly id: string, readonly youtubeUrl: string | null, readonly title: string | null, readonly description: string | null, readonly _rawContent: Record<string, unknown> | null, readonly mainImage: { readonly asset: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData, readonly altText: string | null } | null } | null, readonly category: { readonly name: string | null, readonly description: string | null, readonly slug: { readonly current: string | null } | null } | null } | null, readonly site: { readonly siteMetadata: { readonly title: string | null, readonly description: string | null, readonly motto: string | null, readonly social: { readonly github: string | null, readonly linkedin: string | null, readonly youtube: string | null } | null } | null } | null };
+type SinglePostLayoutQuery = { readonly sanityPost: { readonly id: string, readonly youtubeUrl: string | null, readonly title: string | null, readonly description: string | null, readonly _rawContent: Record<string, unknown> | null, readonly mainImage: { readonly asset: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData, readonly altText: string | null } | null } | null } | null, readonly site: { readonly siteMetadata: { readonly title: string | null, readonly description: string | null, readonly motto: string | null, readonly social: { readonly github: string | null, readonly linkedin: string | null, readonly youtube: string | null } | null } | null } | null };
 
 type SiteMetaDataQueryVariables = Exact<{ [key: string]: never; }>;
 
