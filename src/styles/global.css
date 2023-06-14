@@ -2,6 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .link {
+    @apply underline underline-offset-4
+    decoration-primaryText dark:decoration-primaryTextDark decoration-2 
+    hover:decoration-red-700 
+    focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-4 focus:ring-primaryText dark:focus:ring-primaryTextDark
+    focus:bg-primaryBackground dark:focus:bg-primaryBackgroundDark
+   text-primaryText dark:text-primaryTextDark;
+  }
+
+  .link-secondary {
+    @apply underline underline-offset-4
+    decoration-secondaryText dark:decoration-secondaryTextDark decoration-2 
+    hover:decoration-red-700 
+    focus:outline-none focus:no-underline focus:ring-4 focus:ring-secondaryText dark:focus:ring-secondaryTextDark
+    focus:bg-secondaryBackground dark:focus:bg-secondaryBackgroundDark
+   text-secondaryText dark:text-secondaryTextDark;
+  }
+
+  .prose-secondary {
+    @apply font-serif
+    text-secondaryText dark:text-secondaryTextDark
+    prose prose-neutral dark:prose-invert prose-sm sm:prose-base md:prose-lg lg:prose-xl xl:prose-2xl
+    
+    prose-a:underline prose-a:underline-offset-4
+    prose-a:decoration-secondaryText dark:prose-a:decoration-secondaryTextDark prose-a:decoration-2 
+    hover:prose-a:decoration-red-700 
+    focus:prose-a:outline-none focus:prose-a:no-underline focus:prose-a:ring-4 focus:prose-a:ring-secondaryText dark:focus:prose-a:prose-a:ring-secondaryTextDark
+    focus:prose-a:bg-secondaryBackground dark:focus:prose-a:bg-secondaryBackgroundDark
+
+    prose-a:text-secondaryText prose-a:dark:text-secondaryTextDark;
+  }
+}
+
 @font-face {
   font-family: "Playfair Display";
   font-style: normal;
