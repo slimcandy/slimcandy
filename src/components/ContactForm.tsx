@@ -63,8 +63,9 @@ function ContactForm(): JSX.Element {
             className="block w-full px-0.5 border-0 border-b-2
             border-secondaryText dark:border-secondaryTextDark hover:border-red-700 focus:border-red-700
             bg-secondaryBackground dark:bg-secondaryBackgroundDark
-            text-secondaryText dark:text-secondaryTextDark
-            focus:border-b-8 outline-none"
+            text-primaryText dark:text-primaryTextDark
+            focus:border-b-8 outline-none
+            p-0.5 sm:p-1 md:p-1.5 lg:p-2 xl:p-2.5"
           />
         </label>
         <button
@@ -73,7 +74,7 @@ function ContactForm(): JSX.Element {
           font-semibold
           hover:bg-red-700 focus:bg-red-700 focus:outline-none
           bg-secondaryBackground dark:bg-secondaryBackgroundDark
-              text-secondaryText dark:text-secondaryTextDark"
+          text-primaryText dark:text-primaryTextDark"
         >
           Send
         </button>
