@@ -26,7 +26,7 @@ function SignUpForm(): JSX.Element {
 
   return (
     <aside className="width-80 md:width-100 prose-secondary">
-      <hr className="border-t-[thin] border-secondaryText dark:secondaryTextDark my-4 sm:my-5.5 md:my-6 lg:my-7 xl:my-8" />
+      <hr className="hr" />
 
       {result !== null && (
         <div className="flex flex-col items-center justify-center space-y-2">
@@ -73,7 +73,7 @@ function SignUpForm(): JSX.Element {
         </form>
       </div>
 
-      <hr className="border-t-[thin] border-secondaryText dark:secondaryTextDark my-4 sm:my-5.5 md:my-6 lg:my-7 xl:my-8" />
+      <hr className="hr" />
     </aside>
   )
 }

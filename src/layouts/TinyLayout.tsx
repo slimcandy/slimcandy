@@ -38,7 +38,7 @@ function TinyLayout({
         )}
         {children}
       </div>
-      <hr className="border-t-[thin] border-slate-600 my-1 sm:my-1.5 md:my-2 lg:my-2.5 xl:my-3" />
+      <hr className="hr" />
       <ContactForm />
     </>
   )
