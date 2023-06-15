@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @layer utilities {
+  .first-letter {
+    @apply first-letter:text-2xl sm:first-letter:text-4xl md:first-letter:text-6xl lg:first-letter:text-7xl xl:first-letter:text-9xl
+    first-letter:font-bold
+    first-letter:mr-0.5 sm:first-letter:mr-1.5 md:first-letter:mr-3 lg:first-letter:mr-3 xl:first-letter:mr-4
+    first-letter:float-left;
+  }
   .link {
     @apply inline-block
     underline underline-offset-4
@@ -74,6 +80,34 @@
 
   .tracking-text {
     @apply sm:text-base md:text-lg lg:text-xl xl:text-2xl uppercase font-bold sm:tracking-wide md:tracking-wider lg:tracking-widest;
+  }
+
+  .input-field {
+    @apply block
+    p-0.5 sm:p-1 md:p-1.5 lg:p-2 xl:p-2.5
+    border-b-2 
+    border-secondaryText dark:border-secondaryTextDark hover:border-b-red-700 focus:border-b-red-700
+
+    bg-secondaryBackground dark:bg-secondaryBackgroundDark
+    text-primaryText dark:text-primaryTextDark
+    placeholder:text-secondaryText dark:placeholder:text-secondaryTextDark
+    
+    focus:outline-none
+    focus:ring-4 focus:ring-red-700 focus:ring-opacity-50;
+  }
+  .submit-button {
+    @apply font-semibold block
+    p-0.5 sm:p-1 md:p-1.5 lg:p-2 xl:p-2.5
+    border-b-2 
+  border-secondaryText dark:border-secondaryTextDark hover:border-b-red-700 focus:border-b-red-700
+
+  bg-secondaryBackground dark:bg-secondaryBackgroundDark
+  text-primaryText dark:text-primaryTextDark
+
+    focus:outline-none
+  focus:bg-red-700
+  focus:text-primaryTextDark
+    focus:ring-4 focus:ring-red-700 focus:ring-opacity-50;
   }
 }
 
