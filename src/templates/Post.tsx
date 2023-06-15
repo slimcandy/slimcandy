@@ -43,8 +43,11 @@ function SinglePostLayout({
           )}
         </article>
       </main>
-      <hr className="hr" />
-      <aside className="prose-secondary w-100 mx-auto">
+      <hr className="hr print:hidden" />
+      <aside
+        className="prose-secondary w-100 mx-auto
+      print:hidden"
+      >
         <nav className="flex justify-between items-center">
           {prevPost != null && (
             <Link

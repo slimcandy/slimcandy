@@ -17,7 +17,8 @@ function TinyLayout({
         {siteMetadata != null && (
           <header
             className="flex flex-col justify-center items-center mb-1 sm:mb-2 md:mb-3 lg:mb-4
-          text-secondaryText dark:text-secondaryTextDark"
+          text-secondaryText dark:text-secondaryTextDark
+          print:hidden"
           >
             {typeof siteMetadata.title === "string" && (
               <Link to="/" className="link-secondary">
@@ -38,7 +39,7 @@ function TinyLayout({
         )}
         {children}
       </div>
-      <hr className="hr" />
+      <hr className="hr print:hidden" />
       <ContactForm />
     </>
   )

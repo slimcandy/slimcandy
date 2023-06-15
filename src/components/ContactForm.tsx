@@ -12,7 +12,7 @@ function scrollToTop(): void {
 function ContactForm(): JSX.Element {
   const backToTopId = useId()
   return (
-    <section className="width-80 prose-secondary">
+    <section className="width-80 prose-secondary print:hidden">
       <button
         onClick={scrollToTop}
         title="Go to top"

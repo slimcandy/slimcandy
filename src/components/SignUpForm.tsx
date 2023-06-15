@@ -25,7 +25,7 @@ function SignUpForm(): JSX.Element {
   }
 
   return (
-    <aside className="width-80 md:width-100 prose-secondary">
+    <aside className="width-80 md:width-100 prose-secondary print:hidden">
       <hr className="hr" />
 
       {result !== null && (
@@ -73,7 +73,7 @@ function SignUpForm(): JSX.Element {
         </form>
       </div>
 
-      <hr className="hr" />
+      <hr className="hr print:hidden" />
     </aside>
   )
 }
