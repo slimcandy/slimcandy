@@ -75,6 +75,35 @@
   .tracking-text {
     @apply sm:text-base md:text-lg lg:text-xl xl:text-2xl uppercase font-bold sm:tracking-wide md:tracking-wider lg:tracking-widest;
   }
+
+  .input-field {
+    @apply block
+    p-0.5 sm:p-1 md:p-1.5 lg:p-2 xl:p-2.5
+    border-b-2 
+    border-secondaryText dark:border-secondaryTextDark hover:border-b-red-700 focus:border-b-red-700
+
+    bg-secondaryBackground dark:bg-secondaryBackgroundDark
+    text-primaryText dark:text-primaryTextDark
+    placeholder:text-secondaryText dark:placeholder:text-secondaryTextDark
+    
+    focus:outline-none
+    focus:ring-4 focus:ring-red-700 focus:ring-opacity-50;
+  }
+  .submit-button {
+    @apply font-semibold block
+    p-0.5 sm:p-1 md:p-1.5 lg:p-2 xl:p-2.5
+    border-b-2 
+  border-secondaryText dark:border-secondaryTextDark hover:border-b-red-700 focus:border-b-red-700
+
+   
+    bg-secondaryBackground dark:bg-secondaryBackgroundDark
+    text-primaryText dark:text-primaryTextDark
+    
+    focus:outline-none
+    focus:bg-red-700
+    focus:text-primaryTextDark
+    focus:ring-4 focus:ring-red-700 focus:ring-opacity-50;
+  }
 }
 
 @font-face {
