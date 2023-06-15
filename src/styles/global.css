@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @layer utilities {
+  .first-letter {
+    @apply first-letter:text-2xl sm:first-letter:text-4xl md:first-letter:text-6xl lg:first-letter:text-7xl xl:first-letter:text-9xl
+    first-letter:font-bold
+    first-letter:mr-0.5 sm:first-letter:mr-1.5 md:first-letter:mr-3 lg:first-letter:mr-3 xl:first-letter:mr-4
+    first-letter:float-left;
+  }
   .link {
     @apply inline-block
     underline underline-offset-4

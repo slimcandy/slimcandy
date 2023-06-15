@@ -21,7 +21,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
           <Link to={`/posts/${posts[0].slug?.current as string}`}>
             <h2>{posts[0].title}</h2>
           </Link>
-          <p>{posts[0].description}</p>
+          <p className="first-letter">{posts[0].description}</p>
         </article>
 
         <div className="width-100">
@@ -42,7 +42,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
                   <Link to={`/posts/${post.slug?.current as string}`}>
                     <h3>{post.title}</h3>
                   </Link>
-                  <p>{post.description}</p>
+                  <p className="first-letter">{post.description}</p>
                 </article>
               )
             })}
