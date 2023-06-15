@@ -54,7 +54,10 @@ function Seo({
       <body
         className="hyphens-auto transition-all 
       bg-primaryBackground dark:bg-primaryBackgroundDark
-      text-primaryText dark:text-primaryTextDark"
+      text-primaryText dark:text-primaryTextDark
+
+      selection:text-primaryText selection:bg-secondaryBackground
+      dark:selection:text-primaryTextDark dark:selection:bg-secondaryBackgroundDark"
       />
       {children}
     </>

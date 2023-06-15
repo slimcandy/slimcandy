@@ -95,13 +95,12 @@
     border-b-2 
   border-secondaryText dark:border-secondaryTextDark hover:border-b-red-700 focus:border-b-red-700
 
-   
-    bg-secondaryBackground dark:bg-secondaryBackgroundDark
-    text-primaryText dark:text-primaryTextDark
-    
+  bg-secondaryBackground dark:bg-secondaryBackgroundDark
+  text-primaryText dark:text-primaryTextDark
+
     focus:outline-none
-    focus:bg-red-700
-    focus:text-primaryTextDark
+  focus:bg-red-700
+  focus:text-primaryTextDark
     focus:ring-4 focus:ring-red-700 focus:ring-opacity-50;
   }
 }
