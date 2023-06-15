@@ -1,5 +1,5 @@
 import * as React from "react"
-import { graphql, type HeadProps } from "gatsby"
+import { graphql, Link, type HeadProps } from "gatsby"
 import { getImage } from "gatsby-plugin-image"
 import { PortableText } from "@portabletext/react"
 
@@ -15,6 +15,8 @@ function SinglePostLayout({
 }): JSX.Element {
   const siteMetadata = data?.site?.siteMetadata
   const post = data?.sanityPost
+  const prevPost = data?.prevPost
+  const nextPost = data?.nextPost
 
   if (post == null) {
     return <NoPosts siteMetadata={siteMetadata} />
@@ -41,6 +43,29 @@ function SinglePostLayout({
           )}
         </article>
       </main>
+      <hr className="hr" />
+      <aside className="prose-secondary w-100 mx-auto">
+        <nav className="flex justify-between items-center">
+          {prevPost != null && (
+            <Link
+              to={`/posts/${prevPost.slug?.current as string}`}
+              className="link-secondary before:content-['←'] before:mr-1"
+              title={prevPost.description ?? "Previous post"}
+            >
+              {prevPost.title}
+            </Link>
+          )}
+          {nextPost != null && (
+            <Link
+              to={`/posts/${nextPost.slug?.current as string}`}
+              className="link-secondary after:content-['→'] after:ml-1"
+              title={nextPost.description ?? "Next post"}
+            >
+              {nextPost.title}
+            </Link>
+          )}
+        </nav>
+      </aside>
     </TinyLayout>
   )
 }
@@ -72,7 +97,7 @@ export function Head({
 }
 
 export const SinglePostLayoutQuery = graphql`
-  query SinglePostLayout($slug: String!) {
+  query SinglePostLayout($slug: String!, $prevSlug: String, $nextSlug: String) {
     sanityPost(slug: { current: { eq: $slug } }) {
       id
       youtubeUrl
@@ -90,6 +115,20 @@ export const SinglePostLayoutQuery = graphql`
         }
       }
       _rawContent
+    }
+    prevPost: sanityPost(slug: { current: { eq: $prevSlug } }) {
+      slug {
+        current
+      }
+      title
+      description
+    }
+    nextPost: sanityPost(slug: { current: { eq: $nextSlug } }) {
+      slug {
+        current
+      }
+      title
+      description
     }
     site {
       siteMetadata {

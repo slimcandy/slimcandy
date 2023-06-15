@@ -67,6 +67,14 @@
     sm:mt-2.5 md:mt-3 lg:mt-3.5 xl:mt-4 
     py-2 sm:py-3 md:py-4 lg:py-5 xl:py-6;
   }
+
+  .hr {
+    @apply border-t-[thin] border-secondaryText dark:border-secondaryTextDark my-4 sm:my-5 md:my-6 lg:my-7 xl:my-8;
+  }
+
+  .tracking-text {
+    @apply sm:text-base md:text-lg lg:text-xl xl:text-2xl uppercase font-bold sm:tracking-wide md:tracking-wider lg:tracking-widest;
+  }
 }
 
 @font-face {
