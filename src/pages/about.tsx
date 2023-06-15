@@ -27,6 +27,8 @@ function AboutPage({ data }: PageProps<Queries.AboutPageQuery>): JSX.Element {
             width={288}
             breakpoints={[576, 768, 992, 1200]}
             objectFit="contain"
+            as="figure"
+            loading="lazy"
           />
 
           <p>

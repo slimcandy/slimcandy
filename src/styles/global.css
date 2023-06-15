@@ -15,6 +15,7 @@
 
   .link-secondary {
     @apply inline-block
+    px-2 py-1
     underline underline-offset-4
     decoration-secondaryText dark:decoration-secondaryTextDark decoration-2 
     hover:decoration-red-700 
@@ -26,7 +27,7 @@
   .prose-primary {
     @apply font-serif
     text-primaryText dark:text-primaryTextDark
-    prose prose-neutral dark:prose-invert prose-lg md:prose-xl lg:prose-2xl
+    prose prose-neutral dark:prose-invert prose-xl lg:prose-2xl
     subpixel-antialiased
     
     prose-a:inline-block
@@ -72,14 +73,14 @@
   font-family: "Playfair Display";
   font-style: normal;
   font-weight: 400;
-  src: url("/fonts/PlayfairDisplay-VariableFont_wght.ttf");
+  src: url("/fonts/PlayfairDisplay-VariableFont_wght.woff2");
   font-display: swap;
 }
 
 @font-face {
   font-family: "Sofia Sans Extra Condensed";
   font-style: normal;
-  font-weight: 400;
-  src: url("/fonts/SofiaSansExtraCondensed-VariableFont_wght.ttf");
+  font-weight: 100;
+  src: url("/fonts/SofiaSansExtraCondensed-VariableFont_wght.woff2");
   font-display: swap;
 }

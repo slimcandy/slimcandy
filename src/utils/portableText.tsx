@@ -37,7 +37,16 @@ const components: PortableTextComponents = {
         },
         sanityConfig
       )
-      if (imageData != null) return <GatsbyImage image={imageData} alt="" />
+      if (imageData != null)
+        return (
+          <GatsbyImage
+            image={imageData}
+            alt=""
+            objectFit="contain"
+            as="figure"
+            loading="lazy"
+          />
+        )
       else return <i>Image not found</i>
     },
     code: function codeOutput(props) {

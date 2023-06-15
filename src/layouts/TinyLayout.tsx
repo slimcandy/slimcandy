@@ -21,7 +21,7 @@ function TinyLayout({
           >
             {typeof siteMetadata.title === "string" && (
               <Link to="/" className="link-secondary">
-                <h2 className="font-serif sm:text-md md:text-lg lg:text-xl xl:text-2xl uppercase font-bold sm:tracking-wide md:tracking-wider lg:tracking-widest">
+                <h2 className="sm:text-md md:text-lg lg:text-xl xl:text-2xl uppercase font-bold sm:tracking-wide md:tracking-wider lg:tracking-widest">
                   {siteMetadata.title}
                 </h2>
               </Link>
