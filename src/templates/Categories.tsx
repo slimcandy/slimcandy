@@ -34,7 +34,9 @@ function PostsByCategory({
                 image={post.mainImage.asset.gatsbyImageData}
                 alt={post.mainImage.asset.altText ?? post.title ?? ""}
                 className="md:col-span-2"
-                objectFit="contain"
+                objectFit="cover"
+                as="figure"
+                loading="lazy"
               />
             )}
             <div

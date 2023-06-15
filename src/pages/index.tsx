@@ -16,7 +16,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
   }
   return (
     <RichHeaderLayout siteMetadata={siteMetadata}>
-      <main>
+      <main className="clear-both">
         <article className="width-80 prose-primary">
           <Link to={`/posts/${posts[0].slug?.current as string}`}>
             <h2>{posts[0].title}</h2>
