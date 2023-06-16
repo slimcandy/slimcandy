@@ -20,21 +20,11 @@ function TinyLayout({
           text-secondaryText dark:text-secondaryTextDark
           print:hidden"
           >
-            {typeof siteMetadata.title === "string" && (
-              <Link to="/" className="link-secondary">
-                <h2 className="sm:text-md md:text-lg lg:text-xl xl:text-2xl uppercase font-bold sm:tracking-wide md:tracking-wider lg:tracking-widest">
-                  {siteMetadata.title}
-                </h2>
-              </Link>
-            )}
-            {typeof siteMetadata.motto === "string" && (
-              <h3
-                className="uppercase text-xs sm:text-sm md:text-md 
-              xl:text-lg tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 md:py-1 lg:py-1.5 xl:py-2"
-              >
-                {siteMetadata.motto}
-              </h3>
-            )}
+            <Link to="/" className="link-secondary">
+              <h2 className="tracking-text" title="js.garden">
+                Home Page
+              </h2>
+            </Link>
           </header>
         )}
         {children}

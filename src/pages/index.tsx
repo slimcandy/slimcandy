@@ -26,8 +26,10 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
 
         <div className="width-100">
           <span
-            className="uppercase text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider sm:tracking-widest md:tracking-[0.2em] lg:tracking-[0.3em] xl:tracking-[0.4em] py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5 font-sans font-thin
-            text-secondaryText dark:text-secondaryTextDark"
+            className="tracking-text
+            py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5
+            text-secondaryText dark:text-secondaryTextDark
+        after:content-['⚘'] after:ml-0.5 after:opacity-50"
           >
             Fresh Harvest
           </span>

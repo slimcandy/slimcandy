@@ -17,18 +17,13 @@ function RichHeaderLayout({
     <>
       {siteMetadata != null && (
         <header className="width-80">
-          {typeof siteMetadata.title === "string" && (
-            <div className="text-center">
-              <Link to="/" className="link-secondary">
-                <h2
-                  className="sm:text-md md:text-lg lg:text-xl xl:text-2xl uppercase font-bold sm:tracking-wide md:tracking-wider lg:tracking-widest
-                py-1 sm:py-2"
-                >
-                  {siteMetadata.title}
-                </h2>
-              </Link>
-            </div>
-          )}
+          <div className="text-center">
+            <Link to="/" className="link-secondary">
+              <h2 className="tracking-text" title="js.garden">
+                Home Page
+              </h2>
+            </Link>
+          </div>
           {typeof siteMetadata?.description === "string" && (
             <section className="pb-1 sm:pb-1.5 md:pb-2 lg:pb-2.5 xl:pb-3">
               <StaticImage
@@ -53,7 +48,7 @@ function RichHeaderLayout({
               />
               <p className="prose-secondary">
                 {siteMetadata.description} &nbsp;
-                <Link to="/about">My projects.</Link>
+                <Link to="/about">My projects</Link>.
               </p>
               {siteMetadata?.social != null && (
                 <ul
@@ -66,7 +61,7 @@ function RichHeaderLayout({
                       <li>
                         <a
                           href={siteMetadata.social.youtube}
-                          className="link-secondary"
+                          className="link-secondary after:content-['_↗']"
                         >
                           YouTube
                         </a>
@@ -75,7 +70,7 @@ function RichHeaderLayout({
                   <li>
                     <a
                       href={siteMetadata?.social?.github ?? ""}
-                      className="link-secondary"
+                      className="link-secondary after:content-['_↗']"
                     >
                       GitHub
                     </a>
@@ -83,7 +78,7 @@ function RichHeaderLayout({
                   <li>
                     <a
                       href={siteMetadata?.social?.linkedin ?? ""}
-                      className="link-secondary"
+                      className="link-secondary after:content-['_↗']"
                     >
                       LinkedIn
                     </a>
