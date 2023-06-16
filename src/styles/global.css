@@ -9,25 +9,35 @@
     first-letter:mr-0.5 sm:first-letter:mr-1.5 md:first-letter:mr-3 lg:first-letter:mr-3 xl:first-letter:mr-4
     first-letter:float-left;
   }
+
   .link {
     @apply inline-block
-    underline underline-offset-4
-    decoration-primaryText dark:decoration-primaryTextDark decoration-2 
+    underline underline-offset-4 decoration-8
+    decoration-primaryText dark:decoration-primaryTextDark  
     hover:decoration-red-700 
-    focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-4 focus:ring-secondaryText dark:focus:ring-secondaryTextDark
-    focus:bg-secondaryBackground dark:focus:bg-secondaryBackgroundDark
-   text-primaryText dark:text-primaryTextDark;
+     
+   text-primaryText dark:text-primaryTextDark
+   
+    focus:outline-none
+    focus:decoration-red-700 
+    focus:ring-4 focus:ring-red-700 focus:ring-opacity-50
+    focus:bg-primaryBackground focus:text-primaryText
+    dark:focus:bg-primaryBackgroundDark dark:focus:text-primaryTextDark;
   }
 
   .link-secondary {
-    @apply inline-block
-    px-2 py-1
-    underline underline-offset-4
-    decoration-secondaryText dark:decoration-secondaryTextDark decoration-2 
+    @apply inline-block px-2 py-1
+   text-secondaryText dark:text-secondaryTextDark
+
+    underline underline-offset-4 decoration-2
+    decoration-secondaryText dark:decoration-secondaryTextDark 
     hover:decoration-red-700 
-    focus:outline-none focus:no-underline focus:ring-4 focus:ring-secondaryText dark:focus:ring-secondaryTextDark
-    focus:bg-secondaryBackground dark:focus:bg-secondaryBackgroundDark
-   text-secondaryText dark:text-secondaryTextDark;
+    
+    focus:outline-none
+    focus:decoration-red-700 
+    focus:ring-4 focus:ring-red-700 focus:ring-opacity-50
+    focus:bg-primaryBackground focus:text-primaryText
+    dark:focus:bg-primaryBackgroundDark dark:focus:text-primaryTextDark;
   }
 
   .prose-primary {
@@ -37,13 +47,17 @@
     subpixel-antialiased
     
     prose-a:inline-block
+    prose-a:text-primaryText prose-a:dark:text-primaryTextDark
+
     prose-a:underline prose-a:underline-offset-4
     prose-a:decoration-primaryText dark:prose-a:decoration-primaryTextDark prose-a:decoration-2 
     hover:prose-a:decoration-red-700 
-    focus:prose-a:outline-none focus:prose-a:no-underline focus:prose-a:ring-4 focus:prose-a:ring-secondaryText dark:focus:prose-a:prose-a:ring-secondaryTextDark
-    focus:prose-a:bg-secondaryBackground dark:focus:prose-a:bg-secondaryBackgroundDark
 
-    prose-a:text-primaryText prose-a:dark:text-primaryTextDark;
+    focus:prose-a:outline-none
+    focus:prose-a:decoration-red-700 
+    focus:prose-a:ring-4 focus:prose-a:ring-red-700 focus:prose-a:ring-opacity-50
+    focus:prose-a:bg-primaryBackground focus:prose-a:text-primaryText
+    dark:focus:prose-a:bg-primaryBackgroundDark dark:focus:prose-a:text-primaryTextDark;
   }
 
   .prose-secondary {
@@ -53,13 +67,17 @@
     subpixel-antialiased
     
     prose-a:inline-block
+    prose-a:text-secondaryText prose-a:dark:text-secondaryTextDark
+
     prose-a:underline prose-a:underline-offset-4
     prose-a:decoration-secondaryText dark:prose-a:decoration-secondaryTextDark prose-a:decoration-2 
-    hover:prose-a:decoration-red-700 
-    focus:prose-a:outline-none focus:prose-a:no-underline focus:prose-a:ring-4 focus:prose-a:ring-secondaryText dark:focus:prose-a:prose-a:ring-secondaryTextDark
-    focus:prose-a:bg-secondaryBackground dark:focus:prose-a:bg-secondaryBackgroundDark
+    hover:prose-a:decoration-red-700
 
-    prose-a:text-secondaryText prose-a:dark:text-secondaryTextDark;
+    focus:prose-a:outline-none
+    focus:prose-a:decoration-red-700 
+    focus:prose-a:ring-4 focus:prose-a:ring-red-700 focus:prose-a:ring-opacity-50
+    focus:prose-a:bg-primaryBackground focus:prose-a:text-primaryText
+    dark:focus:prose-a:bg-primaryBackgroundDark dark:focus:prose-a:text-primaryTextDark;
   }
 
   .width-80 {
@@ -79,7 +97,9 @@
   }
 
   .tracking-text {
-    @apply sm:text-base md:text-lg lg:text-xl xl:text-2xl uppercase font-bold sm:tracking-wide md:tracking-wider lg:tracking-widest;
+    @apply font-thin uppercase
+    sm:text-base md:text-lg lg:text-xl xl:text-2xl
+    tracking-wide sm:tracking-wider md:tracking-widest lg:tracking-[0.2em] xl:tracking-[0.4em];
   }
 
   .input-field {

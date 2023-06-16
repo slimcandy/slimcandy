@@ -12,13 +12,11 @@ function scrollToTop(): void {
 function ContactForm(): JSX.Element {
   const backToTopId = useId()
   return (
-    <section className="width-80 prose-secondary print:hidden">
+    <section className="width-80 prose-secondary text-center print:hidden">
       <button
         onClick={scrollToTop}
         title="Go to top"
-        className="mx-auto block text-center
-        focus:outline-none focus:no-underline focus:ring-4 focus:ring-offset-2 focus:ring-stone-900 focus:bg-transparent dark:focus:ring-zinc-500
-        px-8 py-4"
+        className="link px-8 py-4"
       >
         <span className="sr-only">Go to top</span>
         <svg
@@ -49,7 +47,8 @@ function ContactForm(): JSX.Element {
         data-netlify="true"
         action="/success"
         className="flex flex-col space-y-4
-        my-8"
+        my-8
+        text-start"
       >
         <input type="hidden" name="form-name" value="contact" />
 
@@ -63,7 +62,10 @@ function ContactForm(): JSX.Element {
             className="input-field "
           />
         </label>
-        <button type="submit" className="submit-button">
+        <button
+          type="submit"
+          className="submit-button after:content-['✉'] after:ml-0.5"
+        >
           Send
         </button>
       </form>
