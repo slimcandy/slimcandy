@@ -34,7 +34,7 @@ function Seo({
 
   return (
     <>
-      <html lang="en" />
+      <html lang="en" className="bg-palette5-blue-100" />
       <title>{seo.title}</title>
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
@@ -53,7 +53,10 @@ function Seo({
       />
       <body
         className="hyphens-auto transition-all 
-      bg-primaryBackground dark:bg-primaryBackgroundDark
+        bg-gradient-to-b from-white to-palette5-blue-100
+        border-t-4 border-palette5-blue-100
+        
+        dark:bg-primaryBackgroundDark
       text-primaryText dark:text-primaryTextDark
 
       selection:text-primaryText selection:bg-secondaryBackground

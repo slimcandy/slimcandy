@@ -1,6 +1,150 @@
+@charset "UTF-8";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    hanging-punctuation: first force-end last;
+  }
+}
+
+@layer components {
+  .tufte-container {
+    @apply px-2 sm:px-6 md:ps-[12%] md:pe-8 lg:pe-12 xl:pe-16
+    max-w-7xl mx-auto;
+  }
+  .tufte-article {
+    font-kerning: normal;
+    @apply max-w-2xl
+    prose prose-palette5 dark:prose-invert
+    prose-base md:prose-lg xl:prose-xl 2xl:prose-2xl
+    text-palette5-blue-900 dark:text-primaryTextDark
+    font-serif hyphens-auto
+    subpixel-antialiased;
+
+    /**
+    * Tufte Width
+    */
+    & > * {
+      @apply w-full md:w-8/12
+      max-w-lg;
+    }
+
+    & > aside,
+    & > figcaption {
+      @apply w-full md:w-4/12 
+      md:float-right md:clear-right
+      md:ml-8 md:mb-4
+      prose-sm
+      align-baseline;
+    }
+    /**
+    * Link
+    */
+    & a {
+      @apply inline-block
+      underline
+      decoration-4
+      decoration-palette5-blue-300
+      hover:decoration-palette5-red-300
+      focus:decoration-palette5-red-700
+  
+      focus:outline-none focus:no-underline
+      focus:ring-4 focus:ring-palette5-red-700;
+    }
+
+    /**
+    * Quote
+    */
+    & blockquote {
+      @apply border-none relative text-end;
+
+      & footer {
+        @apply not-italic prose-sm;
+
+        & cite {
+          @apply italic;
+        }
+      }
+    }
+    & blockquote::before {
+      @apply content-[open-quote]
+      md:-top-8 md:-left-6;
+    }
+    & blockquote::after {
+      @apply content-[close-quote]
+      md:-bottom-14 md:-right-11;
+    }
+    & blockquote::before,
+    & blockquote::after {
+      @apply hidden md:block absolute
+      md:text-6xl text-palette5-blue-300 opacity-80;
+    }
+
+    /**
+    * Code
+    */
+    & code,
+    & pre {
+      @apply select-all;
+    }
+
+    /**
+    * Paragraph
+    */
+    & p {
+      hyphenate-limit-chars: 10 4;
+      text-justify: inter-character;
+      @apply text-justify;
+
+      & p,
+      & + p {
+        @apply indent-2 sm:indent-3 md:indent-4 lg:indent-5 xl:indent-6;
+      }
+    }
+    & p:first-of-type {
+      @apply first-letter:text-2xl;
+    }
+
+    /**
+    * Lists
+    */
+    & ul,
+    & ol {
+      @apply list-outside list-disc ps-0
+      marker:text-palette5-blue-300;
+    }
+    & li {
+      @apply ps-0;
+    }
+
+    /**
+    * Miscellaneous
+    */
+
+    & abbr,
+    & acronym {
+      font-variant-caps: all-small-caps;
+      font-variant-numeric: oldstyle-nums;
+      @apply tracking-widest
+      decoration-4
+      decoration-palette5-blue-300;
+    }
+    & hr {
+      @apply border-t-[thin] border-palette5-blue-300 my-4 sm:my-5 md:my-6 lg:my-7 xl:my-8;
+    }
+    & figure {
+      @apply border-double border-8 border-palette5-blue-300;
+    }
+    & h1 {
+      @apply w-full max-w-none;
+    }
+    & dd {
+      @apply indent-2 sm:indent-3 md:indent-4 lg:indent-5 xl:indent-6;
+    }
+  }
+}
 
 @layer utilities {
   .first-letter {
@@ -42,22 +186,22 @@
 
   .prose-primary {
     @apply font-serif
-    text-primaryText dark:text-primaryTextDark
-    prose prose-neutral dark:prose-invert prose-xl lg:prose-2xl
+    text-palette5-blue-900 dark:text-primaryTextDark
+    prose prose-palette5 dark:prose-invert prose-xl lg:prose-2xl
     subpixel-antialiased
     
+    
     prose-a:inline-block
-    prose-a:text-primaryText prose-a:dark:text-primaryTextDark
+    prose-a:underline
+    prose-a:decoration-4
+    prose-a:decoration-palette5-blue-300
+    focus:prose-a:decoration-palette5-red-700
 
-    prose-a:underline prose-a:underline-offset-4
-    prose-a:decoration-primaryText dark:prose-a:decoration-primaryTextDark prose-a:decoration-2 
-    hover:prose-a:decoration-red-700 
-
-    focus:prose-a:outline-none
-    focus:prose-a:decoration-red-700 
-    focus:prose-a:ring-4 focus:prose-a:ring-red-700 focus:prose-a:ring-opacity-50
-    focus:prose-a:bg-primaryBackground focus:prose-a:text-primaryText
-    dark:focus:prose-a:bg-primaryBackgroundDark dark:focus:prose-a:text-primaryTextDark;
+    focus:prose-a:outline-none focus:prose-a:no-underline
+    focus:prose-a:ring-4 focus:prose-a:ring-palette5-red-700;
+  }
+  .prose-primary prose-a:hover {
+    @apply prose-a:decoration-palette5-red-700;
   }
 
   .prose-secondary {
@@ -144,5 +288,21 @@
   font-style: normal;
   font-weight: 100;
   src: url("/fonts/SofiaSansExtraCondensed-VariableFont_wght.woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Genos";
+  font-style: normal;
+  font-weight: 100;
+  src: url("/fonts/Genos-VariableFont_wght.woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Serif";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/NotoSerif-VariableFont_wdth,wght.woff2");
   font-display: swap;
 }
