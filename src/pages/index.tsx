@@ -4,7 +4,6 @@ import { graphql, type HeadProps, Link, type PageProps } from "gatsby"
 import Seo from "../components/Seo"
 import RichHeaderLayout from "../layouts/RichHeaderLayout"
 import NoPosts from "../components/NoPosts"
-import SignUpForm from "../components/SignUpForm"
 
 function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
   const siteMetadata = data.site?.siteMetadata
@@ -51,7 +50,6 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
           </div>
         </div>
       </main>
-      <SignUpForm />
     </RichHeaderLayout>
   )
 }
@@ -89,6 +87,7 @@ export const articlesQuery = graphql`
     }
     site {
       siteMetadata {
+        author
         title
         description
         motto

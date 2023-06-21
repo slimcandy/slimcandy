@@ -52,10 +52,13 @@ function Seo({
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🤑</text></svg>"
       />
       <body
-        className="hyphens-auto transition-all 
-        bg-gradient-to-b from-white to-palette5-blue-50
+        className="bg-gradient-to-b from-white to-palette5-blue-50
         border-t-4 border-palette5-blue-100
       text-palette5-blue-900
+
+        transition-all duration-500 ease-in-out
+        hyphens-auto
+        subpixel-antialiased
 
       selection:text-primaryText selection:bg-secondaryBackground
       dark:selection:text-primaryTextDark dark:selection:bg-secondaryBackgroundDark"

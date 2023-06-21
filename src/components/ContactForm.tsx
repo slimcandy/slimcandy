@@ -31,7 +31,7 @@ function ContactForm(): JSX.Element {
         mt-4"
           >
             <span
-              className=" col-start-1 col-end-2
+              className="col-start-1 col-end-2
               font-light"
             >
               Message
