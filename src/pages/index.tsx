@@ -8,46 +8,59 @@ import NoPosts from "../components/NoPosts"
 function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
   const siteMetadata = data.site?.siteMetadata
   const posts = data.allSanityPost.nodes
-  const notFirstPosts = posts.slice(1)
 
   if (posts === null || posts.length === 0) {
     return <NoPosts siteMetadata={siteMetadata} />
   }
   return (
     <RichHeaderLayout siteMetadata={siteMetadata}>
-      <main className="clear-both">
-        <article className="width-80 prose-primary">
-          <Link to={`/posts/${posts[0].slug?.current as string}`}>
-            <h2>{posts[0].title}</h2>
-          </Link>
-          <p className="first-letter">{posts[0].description}</p>
-        </article>
-
-        <div className="width-100">
-          <span
-            className="tracking-text
+      <main className="py-2 sm:py-3 md:py-4 lg:py-5 xl:py-6">
+        <h3
+          className="tracking-text text-center text-palette5-blue-400
             py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5
-            text-secondaryText dark:text-secondaryTextDark
-        after:content-['⚘'] after:ml-0.5 after:opacity-50"
-          >
-            Fresh Harvest
-          </span>
-          <div
-            className="flex flex-col flex-wrap
+
+            after:content-['~'] after:text-8xl after:text-palette5-blue-100 after:block after:w-full after:text-center after:leading-3"
+        >
+          Article Index
+        </h3>
+        <div
+          className="flex flex-col flex-wrap
             gap-1 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-5 
             width-80"
+        >
+          <ol
+            className="list-outside list-decimal
+              flex flex-col flex-wrap
+              font-serif
+              marker:text-palette5-blue-200"
+            reversed
           >
-            {notFirstPosts.map(function showPost(post) {
+            {posts.map(function showPost(post) {
               return (
-                <article className="prose-primary" key={post.title}>
-                  <Link to={`/posts/${post.slug?.current as string}`}>
-                    <h3>{post.title}</h3>
-                  </Link>
-                  <p className="first-letter">{post.description}</p>
-                </article>
+                <li key={post.title}>
+                  <article
+                    className="grid grid-cols-5 items-baseline gap-x-4
+                      font-black prose prose-palette5 dark:prose-invert
+                      prose-base md:prose-lg xl:prose-xl 2xl:prose-2xl
+                      
+                      "
+                  >
+                    <Link
+                      to={`/posts/${post.slug?.current as string}`}
+                      className="col-start-1 col-end-3
+                        text-end
+                        link"
+                    >
+                      <h3>{post.title}</h3>
+                    </Link>
+                    <p className="col-start-3 col-end-6 font-medium">
+                      {post.description}
+                    </p>
+                  </article>
+                </li>
               )
             })}
-          </div>
+          </ol>
         </div>
       </main>
     </RichHeaderLayout>

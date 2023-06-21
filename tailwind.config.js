@@ -10,27 +10,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        sans: [
-          "Genos",
-          "et-book",
-          "Palatino",
-          "Palatino Linotype",
-          "Palatino LT STD",
-          "Book Antiqua",
-          ...defaultTheme.fontFamily.sans,
-        ],
-        serif: ["Noto Serif", ...defaultTheme.fontFamily.serif],
-        mono: [
-          "JetBrains Mono",
-          "Fira Code",
-          "Consolas",
-          "Liberation Mono",
-          "Menlo",
-          "Courier",
-          ...defaultTheme.fontFamily.mono,
-        ],
-      },
       colors: {
         primaryText: "#171717",
         primaryBackground: "#fafafa",
