@@ -6,7 +6,7 @@ type TResult = {
   result: string
 } | null
 
-function SignUpForm(): JSX.Element {
+function NewsletterForm(): JSX.Element {
   const [email, setEmail] = React.useState("")
   const [result, setResult] = React.useState<TResult>(null)
 
@@ -53,7 +53,7 @@ function SignUpForm(): JSX.Element {
               name="email"
               id="email"
               placeholder="john@company.org"
-              className="input w-3/4"
+              className="input w-2/4"
               onChange={handleEmailChange}
             />
           </label>
@@ -65,4 +65,4 @@ function SignUpForm(): JSX.Element {
     </aside>
   )
 }
-export default SignUpForm
+export default NewsletterForm

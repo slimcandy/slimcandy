@@ -20,10 +20,7 @@ function RichHeaderLayout({
         border-b-2 border-palette5-blue-100
         print:hidden"
       >
-        <div
-          className="width-80 min-padding-x
-        flex flex-col"
-        >
+        <div className="width-100 min-padding-x flex flex-col">
           <div
             className="font-serif prose prose-palette5 dark:prose-invert
             prose-base md:prose-lg xl:prose-xl 2xl:prose-2xl
@@ -40,19 +37,19 @@ function RichHeaderLayout({
                 prose-base md:prose-lg xl:prose-xl 2xl:prose-2xl"
               >
                 {typeof siteMetadata?.description === "string" && (
-                  <p>{siteMetadata?.description}</p>
+                  <p className="max-reading-w">{siteMetadata?.description}</p>
                 )}
               </div>
               <menu
-                className="flex flex-col md:flex-row items-baseline 
-                gap-2
+                className="flex flex-wrap flex-col md:flex-row items-baseline 
+                gap-y-2 gap-x-1 md:gap-x-2
                 label-text-size
                 mt-4"
               >
                 <li>
                   <Link
                     to="/contacts"
-                    className="button w-fit flex items-center gap-x-2"
+                    className="button w-fit flex items-center gap-x-2 whitespace-nowrap"
                   >
                     <AiOutlineMessage className="mr-1 text-palette5-blue-50" />
                     Contact me
@@ -61,7 +58,7 @@ function RichHeaderLayout({
                 <li>
                   <Link
                     to="/solutions"
-                    className="button-secondary w-fit flex items-center gap-x-2"
+                    className="button-secondary w-fit flex items-center gap-x-2 whitespace-nowrap"
                   >
                     <AiOutlineBulb className="mr-1 text-palette5-blue-400" />
                     Solutions for you

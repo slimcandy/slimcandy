@@ -23,16 +23,42 @@ function SinglePostLayout({
   }
 
   return (
-    <TinyLayout siteMetadata={siteMetadata}>
-      <main className="width-80">
+    <TinyLayout>
+      <main className="tufte-container font-serif my-1 sm:my-2 md:my-3 lg:my-4">
         <article
           itemScope
           itemType="http://schema.org/Article"
-          className="prose-primary"
+          className="tufte-article"
         >
           {typeof post?.title === "string" && (
             <h1 itemProp="headline">{post.title}</h1>
           )}
+          <aside className="print:hidden">
+            <menu className="hidden md:flex flex-col items-end">
+              {prevPost != null && (
+                <li>
+                  <Link
+                    to={`/posts/${prevPost.slug?.current as string}`}
+                    className="link after:content-['←'] after:ml-1"
+                    title={prevPost.description ?? "Previous post"}
+                  >
+                    {prevPost.title}
+                  </Link>
+                </li>
+              )}
+              {nextPost != null && (
+                <li>
+                  <Link
+                    to={`/posts/${nextPost.slug?.current as string}`}
+                    className="link after:content-['→'] after:ml-1"
+                    title={nextPost.description ?? "Next post"}
+                  >
+                    {nextPost.title}
+                  </Link>
+                </li>
+              )}
+            </menu>
+          </aside>
           {post._rawContent != null && (
             <section itemProp="articleBody">
               <PortableText
@@ -43,32 +69,6 @@ function SinglePostLayout({
           )}
         </article>
       </main>
-      <hr className="hr print:hidden" />
-      <aside
-        className="prose-secondary w-100 mx-auto
-      print:hidden"
-      >
-        <nav className="flex justify-between items-center">
-          {prevPost != null && (
-            <Link
-              to={`/posts/${prevPost.slug?.current as string}`}
-              className="link-secondary before:content-['←'] before:mr-1"
-              title={prevPost.description ?? "Previous post"}
-            >
-              {prevPost.title}
-            </Link>
-          )}
-          {nextPost != null && (
-            <Link
-              to={`/posts/${nextPost.slug?.current as string}`}
-              className="link-secondary after:content-['→'] after:ml-1"
-              title={nextPost.description ?? "Next post"}
-            >
-              {nextPost.title}
-            </Link>
-          )}
-        </nav>
-      </aside>
     </TinyLayout>
   )
 }

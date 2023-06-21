@@ -31,7 +31,7 @@
 
     & > aside,
     & > figcaption {
-      @apply w-full md:w-4/12 
+      @apply w-full md:w-3/12 
       md:float-right md:clear-right
       md:ml-8 md:mb-4
       prose-sm
@@ -199,70 +199,11 @@
 }
 
 @layer utilities {
-  .first-letter {
-    @apply first-letter:text-2xl sm:first-letter:text-4xl md:first-letter:text-6xl lg:first-letter:text-7xl xl:first-letter:text-9xl
-    first-letter:font-bold
-    first-letter:mr-0.5 sm:first-letter:mr-1.5 md:first-letter:mr-3 lg:first-letter:mr-3 xl:first-letter:mr-4
-    first-letter:float-left;
-  }
-
-  .link-secondary {
-    @apply inline-block px-2 py-1
-   text-secondaryText dark:text-secondaryTextDark
-
-    underline underline-offset-4 decoration-2
-    decoration-secondaryText dark:decoration-secondaryTextDark 
-    hover:decoration-red-700 
-    
-    focus:outline-none
-    focus:decoration-red-700 
-    focus:ring-4 focus:ring-red-700 focus:ring-opacity-50
-    focus:bg-primaryBackground focus:text-primaryText
-    dark:focus:bg-primaryBackgroundDark dark:focus:text-primaryTextDark;
-  }
-
-  .prose-primary {
-    @apply font-serif
-    text-palette5-blue-900 dark:text-primaryTextDark
-    prose prose-palette5 dark:prose-invert prose-xl lg:prose-2xl
-    subpixel-antialiased
-    
-    
-    prose-a:inline-block
-    prose-a:underline
-    prose-a:decoration-4
-    prose-a:decoration-palette5-blue-300
-    focus:prose-a:decoration-palette5-red-700
-
-    focus:prose-a:outline-none focus:prose-a:no-underline
-    focus:prose-a:ring-4 focus:prose-a:ring-palette5-red-700;
-  }
-  .prose-primary prose-a:hover {
-    @apply prose-a:decoration-palette5-red-700;
-  }
-
-  .prose-secondary {
-    @apply font-serif
-    text-secondaryText dark:text-secondaryTextDark
-    prose prose-neutral dark:prose-invert prose-sm sm:prose-base md:prose-lg lg:prose-xl xl:prose-2xl
-    subpixel-antialiased
-    
-    prose-a:inline-block
-    prose-a:text-secondaryText prose-a:dark:text-secondaryTextDark
-
-    prose-a:underline prose-a:underline-offset-4
-    prose-a:decoration-secondaryText dark:prose-a:decoration-secondaryTextDark prose-a:decoration-2 
-    hover:prose-a:decoration-red-700
-
-    focus:prose-a:outline-none
-    focus:prose-a:decoration-red-700 
-    focus:prose-a:ring-4 focus:prose-a:ring-red-700 focus:prose-a:ring-opacity-50
-    focus:prose-a:bg-primaryBackground focus:prose-a:text-primaryText
-    dark:focus:prose-a:bg-primaryBackgroundDark dark:focus:prose-a:text-primaryTextDark;
-  }
-
   .min-padding-x {
     @apply px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12;
+  }
+  .max-reading-w {
+    @apply max-w-lg;
   }
   .width-80 {
     @apply mx-auto 
@@ -270,41 +211,16 @@
   }
   .width-100 {
     @apply mx-auto 
-    max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl
-    py-2 sm:py-3 md:py-4 lg:py-5 xl:py-6;
+    max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl;
   }
-
   .tracking-text {
     @apply font-thin uppercase
     tracking-wide sm:tracking-wider md:tracking-widest lg:tracking-[0.2em] xl:tracking-[0.4em];
   }
-
-  .input-field {
-    @apply block
-    p-0.5 sm:p-1 md:p-1.5 lg:p-2 xl:p-2.5
-    border-b-2 
-    border-secondaryText dark:border-secondaryTextDark hover:border-b-red-700 focus:border-b-red-700
-
-    bg-secondaryBackground dark:bg-secondaryBackgroundDark
-    text-primaryText dark:text-primaryTextDark
-    placeholder:text-secondaryText dark:placeholder:text-secondaryTextDark
-    
-    focus:outline-none
-    focus:ring-4 focus:ring-red-700 focus:ring-opacity-50;
-  }
-  .submit-button {
-    @apply font-semibold block
-    p-0.5 sm:p-1 md:p-1.5 lg:p-2 xl:p-2.5
-    border-b-2 
-  border-secondaryText dark:border-secondaryTextDark hover:border-b-red-700 focus:border-b-red-700
-
-  bg-secondaryBackground dark:bg-secondaryBackgroundDark
-  text-primaryText dark:text-primaryTextDark
-
-    focus:outline-none
-  focus:bg-red-700
-  focus:text-primaryTextDark
-    focus:ring-4 focus:ring-red-700 focus:ring-opacity-50;
+  .prose-set {
+    @apply prose 
+    prose-palette5 dark:prose-invert
+    prose-base md:prose-lg xl:prose-xl 2xl:prose-2xl;
   }
 }
 

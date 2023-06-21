@@ -26,7 +26,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
         <div
           className="flex flex-col flex-wrap
             gap-1 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-5 
-            width-80 px-4 md:px-0"
+            width-100 px-4 md:px-0"
         >
           <ol
             className="list-outside list-none md:list-decimal
@@ -38,24 +38,24 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
             {posts.map(function showPost(post) {
               return (
                 <li key={post.title}>
-                  <article
-                    className="grid grid-cols-5 items-baseline gap-x-4
-                      font-black prose prose-palette5 dark:prose-invert
-                      prose-base md:prose-lg xl:prose-xl 2xl:prose-2xl
-                      
-                      "
-                  >
-                    <Link
-                      to={`/posts/${post.slug?.current as string}`}
+                  <article className="grid grid-cols-5 items-baseline gap-x-4">
+                    <div
                       className="col-start-1 col-end-3
-                        text-end
-                        link"
+                      font-black text-end
+                      sm:text-lg md:text-xl lg:text-2xl xl:text-3xl"
                     >
-                      <h3>{post.title}</h3>
-                    </Link>
-                    <p className="col-start-3 col-end-6 font-medium">
-                      {post.description}
-                    </p>
+                      <Link
+                        to={`/posts/${post.slug?.current as string}`}
+                        className="link"
+                      >
+                        {post.title}
+                      </Link>
+                    </div>
+                    <div className="col-start-3 col-end-6">
+                      <div className="prose-set">
+                        <p className="max-reading-w">{post.description}</p>
+                      </div>
+                    </div>
                   </article>
                 </li>
               )

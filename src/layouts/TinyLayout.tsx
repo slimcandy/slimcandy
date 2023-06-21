@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import { AiOutlineBulb, AiOutlineMessage } from "react-icons/ai"
 import { BsBriefcase } from "react-icons/bs"
 
-import SignUpForm from "../components/SignUpForm"
+import NewsletterForm from "../components/NewsletterForm"
 
 function TinyLayout({ children }: { children: React.ReactNode }): JSX.Element {
   return (
@@ -59,7 +59,7 @@ function TinyLayout({ children }: { children: React.ReactNode }): JSX.Element {
         </header>
         {children}
       </div>
-      <SignUpForm />
+      <NewsletterForm />
     </>
   )
 }
