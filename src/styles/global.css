@@ -180,7 +180,7 @@
   * Miscellaneous
   */
   .hr {
-    @apply border-t-2 border-palette5-blue-300;
+    @apply border-t-2 border-palette5-blue-100;
   }
   .link {
     @apply inline-block leading-8
