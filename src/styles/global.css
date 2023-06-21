@@ -24,11 +24,10 @@
     /**
     * Tufte Width
     */
-    & > * {
+    & > *:not(aside, figcaption, pre, code) {
       @apply w-full md:w-8/12
       max-w-lg;
     }
-
     & > aside,
     & > figcaption {
       @apply w-full md:w-3/12 
@@ -36,6 +35,10 @@
       md:ml-8 md:mb-4
       prose-sm
       align-baseline;
+    }
+    & > pre,
+    & > code {
+      @apply w-full;
     }
     /**
     * Link
@@ -95,11 +98,6 @@
       hyphenate-limit-chars: 10 4;
       text-justify: inter-character;
       @apply text-justify;
-
-      & p,
-      & + p {
-        @apply indent-2 sm:indent-3 md:indent-4 lg:indent-5 xl:indent-6;
-      }
     }
     & > p:first-of-type {
       @apply first-letter:text-xl sm:first-letter:text-2xl md:first-letter:text-4xl lg:first-letter:text-6xl xl:first-letter:text-9xl

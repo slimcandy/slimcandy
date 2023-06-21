@@ -21,21 +21,14 @@ function RichHeaderLayout({
         print:hidden"
       >
         <div className="width-100 min-padding-x flex flex-col">
-          <div
-            className="font-serif prose prose-palette5 dark:prose-invert
-            prose-base md:prose-lg xl:prose-xl 2xl:prose-2xl
-            mt-0 mb-4 sm:mb-6 md:mb-8"
-          >
+          <div className="font-serif prose-set">
             {typeof siteMetadata?.author === "string" && (
               <h1>{siteMetadata.author}</h1>
             )}
           </div>
           <div className="grid grid-cols-4 gap-x-2 md:gap-x-4">
             <div className="col-start-1 col-end-5">
-              <div
-                className="font-serif prose prose-palette5 dark:prose-invert
-                prose-base md:prose-lg xl:prose-xl 2xl:prose-2xl"
-              >
+              <div className="font-serif prose-set">
                 {typeof siteMetadata?.description === "string" && (
                   <p className="max-reading-w">{siteMetadata?.description}</p>
                 )}
