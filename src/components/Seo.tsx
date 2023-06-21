@@ -55,9 +55,7 @@ function Seo({
         className="hyphens-auto transition-all 
         bg-gradient-to-b from-white to-palette5-blue-100
         border-t-4 border-palette5-blue-100
-        
-        dark:bg-primaryBackgroundDark
-      text-primaryText dark:text-primaryTextDark
+      text-palette5-blue-900
 
       selection:text-primaryText selection:bg-secondaryBackground
       dark:selection:text-primaryTextDark dark:selection:bg-secondaryBackgroundDark"

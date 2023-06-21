@@ -94,10 +94,10 @@ function AboutPage({ data }: PageProps<Queries.AboutPageQuery>): JSX.Element {
             Lorem <sup>superscript</sup> dolor <sub>subscript</sub> amet,
             consectetuer adipiscing elit. Nullam dignissim convallis est.
             Quisque aliquam. <cite>cite</cite>. Donec sed tellus eget sapien
-            fringilla nonummy.{" "}
+            fringilla nonummy.
             <acronym title="National Basketball Association">NBA</acronym>
             Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae,
-            feugiat in, nunc. Morbi imperdiet augue quis tellus.{" "}
+            feugiat in, nunc. Morbi imperdiet augue quis tellus.
             <abbr title="Avenue">AVE</abbr>
           </p>
           <pre>
@@ -107,7 +107,7 @@ function AboutPage({ data }: PageProps<Queries.AboutPageQuery>): JSX.Element {
             imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent
             mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu
             volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed
-            tellus eget sapien fringilla nonummy.{" "}
+            tellus eget sapien fringilla nonummy.
             <acronym title="National Basketball Association">NBA</acronym>
             Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae,
             feugiat in, nunc. Morbi imperdiet augue quis tellus.
@@ -130,7 +130,7 @@ function AboutPage({ data }: PageProps<Queries.AboutPageQuery>): JSX.Element {
                 public relations, for Nature cannot be fooled.
               </p>
               <footer>
-                Richard P. Feynman,{" "}
+                Richard P. Feynman,
                 <cite>“What Do You Care What Other People Think?”</cite>
               </footer>
             </blockquote>
@@ -138,13 +138,78 @@ function AboutPage({ data }: PageProps<Queries.AboutPageQuery>): JSX.Element {
               I do not paint things, I paint only the differences between
               things.
               <footer>
-                Henri Matisse,{" "}
+                Henri Matisse,
                 <cite>Henri Matisse Dessins: thèmes et variations</cite> (Paris,
                 1943), 37
               </footer>
             </blockquote>
           </div>
           <p>I said! My -- reason. I&apos;m h-ere;</p>
+          <h2>Links</h2>
+          <ol>
+            <li>
+              <a href="https://jsbin.com/muqomobeyu">Live demo ⚡️</a>
+            </li>
+            <li>
+              <a href="https://www.w3.org/WAI/tutorials/page-structure/content/">
+                Content Structure
+              </a>
+            </li>
+            <li>
+              <a href="https://webdesign.tutsplus.com/articles/start-using-quotation-marks-the-correct-way--webdesign-16905">
+                Start Using Quotation Marks the “Correct” Way
+              </a>
+            </li>
+            <li>
+              <a href="https://www.artlebedev.ru/kovodstvo/sections/104/">
+                § 104. Кавычки
+              </a>
+            </li>
+            <li>
+              <a href="https://www.artlebedev.ru/kovodstvo/sections/62/">
+                § 62. Экранная типографика
+              </a>
+            </li>
+            <li>
+              <a href="https://en.wikipedia.org/wiki/Quotation_mark#Unicode_code_point_table">
+                Unicode code point table
+              </a>
+              @ wiki
+            </li>
+            <li>
+              <a href="https://www.artlebedev.ru/kovodstvo/sections/120/">
+                § 120. Висячая пунктуация
+              </a>
+            </li>
+            <li>
+              <a href="https://css-tricks.com/almanac/properties/h/hanging-punctuation/">
+                hanging-punctuation
+              </a>
+              @ css-tricks
+            </li>
+            <li>
+              <a href="https://practice.typekit.com/lesson/">
+                Typekit Practice Lessons
+              </a>
+            </li>
+            <li>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/hyphens">
+                hyphens
+              </a>
+              @ MDN
+            </li>
+            <li>
+              <a href="https://rwt.io/typography-tips/">Jason Pamental blog</a>
+            </li>
+            <li>
+              <a href="http://webtypography.net/toc/">
+                The Elements of Typographic Style Applied to the Web
+              </a>
+            </li>
+            <li>
+              <a href="https://edwardtufte.github.io/tufte-css/">tufte-css</a>
+            </li>
+          </ol>
         </article>
       </main>
     </TinyLayout>

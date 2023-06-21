@@ -13,7 +13,16 @@ function TinyLayout({
 }): JSX.Element {
   return (
     <>
-      <div>
+      <div
+        className="
+      after:content-['❦'] 
+      after:block 
+      after:w-full 
+      after:text-center 
+      after:text-6xl 
+      after:text-palette5-blue-300 
+      after:opacity-80"
+      >
         {siteMetadata != null && (
           <header
             className="flex flex-col justify-center items-center mb-1 sm:mb-2 md:mb-3 lg:mb-4
@@ -29,7 +38,6 @@ function TinyLayout({
         )}
         {children}
       </div>
-      <hr className="hr print:hidden" />
       <ContactForm />
     </>
   )

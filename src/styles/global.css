@@ -20,7 +20,7 @@
     prose prose-palette5 dark:prose-invert
     prose-base md:prose-lg xl:prose-xl 2xl:prose-2xl
     text-palette5-blue-900 dark:text-primaryTextDark
-    font-serif hyphens-auto
+    hyphens-auto
     subpixel-antialiased;
 
     /**
@@ -45,7 +45,7 @@
     & a {
       @apply inline-block
       underline
-      decoration-4
+      decoration-4 underline-offset-8
       decoration-palette5-blue-300
       hover:decoration-palette5-red-300
       focus:decoration-palette5-red-700
@@ -103,8 +103,13 @@
         @apply indent-2 sm:indent-3 md:indent-4 lg:indent-5 xl:indent-6;
       }
     }
-    & p:first-of-type {
-      @apply first-letter:text-2xl;
+    & > p:first-of-type {
+      @apply first-letter:text-xl sm:first-letter:text-2xl md:first-letter:text-4xl lg:first-letter:text-6xl xl:first-letter:text-9xl
+      first-letter:font-bold
+      first-letter:mr-0.5 sm:first-letter:mr-1.5 md:first-letter:mr-3 lg:first-letter:mr-3 xl:first-letter:mr-4
+      first-letter:float-left
+      
+      first-line:font-black;
     }
 
     /**
@@ -226,8 +231,7 @@
 
   .width-80 {
     @apply mx-auto 
-   sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl
-   px-2 sm:px-4 md:px-2 lg:px-0;
+   sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl;
   }
   .width-100 {
     @apply mx-auto 
@@ -237,7 +241,7 @@
   }
 
   .hr {
-    @apply border-t-[thin] border-secondaryText dark:border-secondaryTextDark my-4 sm:my-5 md:my-6 lg:my-7 xl:my-8;
+    @apply border-t-[thin] border-palette5-blue-300;
   }
 
   .tracking-text {

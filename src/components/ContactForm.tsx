@@ -1,74 +1,72 @@
-import React, { useId } from "react"
-
-function scrollToTop(): void {
-  if (typeof window !== "undefined") {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    })
-  }
-}
+import React from "react"
 
 function ContactForm(): JSX.Element {
-  const backToTopId = useId()
   return (
-    <section className="width-80 prose-secondary text-center print:hidden">
-      <button
-        onClick={scrollToTop}
-        title="Go to top"
-        className="link px-8 py-4"
+    <section
+      className="width-full mt-4 sm:mt-6 md:mt-8 lg:mt-10
+      bg-white
+      border-t-4 border-palette5-blue-300
+      py-4 sm:py-6 md:py-8 lg:py-10
+      text-2xl
+      print:hidden"
+    >
+      <div
+        className="width-80 bg-palette5-blue-50
+      px-12 py-8"
       >
-        <span className="sr-only">Go to top</span>
-        <svg
-          preserveAspectRatio="none"
-          data-bbox="72.5 20 55 160"
-          viewBox="72.5 20 55 160"
-          height="200"
-          width="200"
-          xmlns="http://www.w3.org/2000/svg"
-          data-type="shape"
-          role="img"
-          aria-labelledby={backToTopId}
-          className="w-2 sm:w-4 md:w-6 h-12 sm:h-14 md:h-16 lg:h-20
-           fill-current text-gray-700 hover:text-black transition-colors duration-200
-           dark:text-zinc-500 dark:hover:text-zinc-300"
+        <h3 className="font-black py-0 my-0 text-4xl">Drop Me a Line</h3>
+        <hr className="hr my-1 sm:my-2 md:my-4" />
+        <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          action="/success"
+          className="flex flex-col"
         >
-          <title id={backToTopId}>Back to top</title>
-          <g>
-            <path d="M127.5 49.186L100 20 72.5 49.186l2.957 2.808 22.116-23.476V180h4.854V28.518l22.116 23.476 2.957-2.808z"></path>
-          </g>
-        </svg>
-      </button>
+          <input type="hidden" name="form-name" value="contact" />
 
-      <h3>Drop Me a Line, Let Me Know What You Think</h3>
-      <form
-        name="contact"
-        method="POST"
-        data-netlify="true"
-        action="/success"
-        className="flex flex-col space-y-4
-        my-8
-        text-start"
-      >
-        <input type="hidden" name="form-name" value="contact" />
-
-        <label htmlFor="message" className="flex flex-col space-y-1">
-          <span className="font-light py-4">Write message:</span>
-          <textarea
-            name="message"
-            id="message"
-            rows={4}
-            placeholder="Hi, I'd like to talk about..."
-            className="input-field "
-          />
-        </label>
-        <button
-          type="submit"
-          className="submit-button after:content-['✉'] after:ml-0.5"
-        >
-          Send
-        </button>
-      </form>
+          <label
+            htmlFor="message"
+            className="grid grid-cols-4 items-baseline
+        mt-4"
+          >
+            <span
+              className=" col-start-1 col-end-2
+              font-light"
+            >
+              Message
+            </span>
+            <textarea
+              name="message"
+              id="message"
+              rows={3}
+              placeholder="Hi, I'd like to talk about..."
+              className="col-start-2 col-end-5
+              px-4 py-2
+              border-2 border-palette5-blue-300
+              hover:border-palette5-blue-400
+              focus:outline-none focus:ring-2 focus:ring-palette5-blue-400
+              focus:ring-offset-2 focus:ring-offset-palette5-blue-50"
+            />
+          </label>
+          <div className="grid grid-cols-4 items-baseline">
+            <button
+              type="submit"
+              className="col-start-2 col-end-3
+            px-4 py-2
+            mt-4
+            bg-palette5-blue-300
+            hover:bg-palette5-blue-400
+            focus:outline-none focus:ring-2 focus:ring-palette5-blue-400
+            focus:ring-offset-2 focus:ring-offset-palette5-blue-50
+            font-bold
+            text-palette5-blue-50"
+            >
+              Send
+            </button>
+          </div>
+        </form>
+      </div>
     </section>
   )
 }
