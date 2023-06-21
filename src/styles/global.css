@@ -51,7 +51,7 @@
       focus:decoration-palette5-red-700
   
       focus:outline-none focus:no-underline
-      focus:ring-4 focus:ring-palette5-red-700;
+      focus:ring-4 focus:ring-palette5-red-700 focus:ring-opacity-50;
     }
 
     /**
@@ -149,6 +149,44 @@
       @apply indent-2 sm:indent-3 md:indent-4 lg:indent-5 xl:indent-6;
     }
   }
+
+  /**
+  * Form Elements
+  */
+  .button {
+    @apply px-4 py-2
+    bg-palette5-blue-300
+    hover:bg-palette5-blue-400
+    focus:outline-none focus:ring-2 focus:ring-palette5-blue-400
+    focus:ring-offset-2 focus:ring-offset-palette5-blue-50
+    font-bold
+    text-palette5-blue-50;
+  }
+  .input {
+    @apply px-4 py-2
+    border-2 border-palette5-blue-300
+    hover:border-palette5-blue-400
+    focus:outline-none focus:ring-2 focus:ring-palette5-blue-400
+    focus:ring-offset-2 focus:ring-offset-palette5-blue-50;
+  }
+
+  /**
+  * Miscellaneous
+  */
+  .hr {
+    @apply border-t-2 border-palette5-blue-300;
+  }
+  .link {
+    @apply inline-block
+    underline
+    decoration-4 underline-offset-8
+    decoration-palette5-blue-300
+    hover:decoration-palette5-red-300
+    focus:decoration-palette5-red-700
+
+    focus:outline-none focus:no-underline
+    focus:ring-4 focus:ring-palette5-red-700 focus:ring-opacity-50;
+  }
 }
 
 @layer utilities {
@@ -157,21 +195,6 @@
     first-letter:font-bold
     first-letter:mr-0.5 sm:first-letter:mr-1.5 md:first-letter:mr-3 lg:first-letter:mr-3 xl:first-letter:mr-4
     first-letter:float-left;
-  }
-
-  .link {
-    @apply inline-block
-    underline underline-offset-4 decoration-8
-    decoration-primaryText dark:decoration-primaryTextDark  
-    hover:decoration-red-700 
-     
-   text-primaryText dark:text-primaryTextDark
-   
-    focus:outline-none
-    focus:decoration-red-700 
-    focus:ring-4 focus:ring-red-700 focus:ring-opacity-50
-    focus:bg-primaryBackground focus:text-primaryText
-    dark:focus:bg-primaryBackgroundDark dark:focus:text-primaryTextDark;
   }
 
   .link-secondary {
@@ -238,10 +261,6 @@
     max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl
     sm:mt-2.5 md:mt-3 lg:mt-3.5 xl:mt-4 
     py-2 sm:py-3 md:py-4 lg:py-5 xl:py-6;
-  }
-
-  .hr {
-    @apply border-t-[thin] border-palette5-blue-300;
   }
 
   .tracking-text {

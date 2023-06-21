@@ -41,26 +41,14 @@ function ContactForm(): JSX.Element {
               id="message"
               rows={3}
               placeholder="Hi, I'd like to talk about..."
-              className="col-start-2 col-end-5
-              px-4 py-2
-              border-2 border-palette5-blue-300
-              hover:border-palette5-blue-400
-              focus:outline-none focus:ring-2 focus:ring-palette5-blue-400
-              focus:ring-offset-2 focus:ring-offset-palette5-blue-50"
+              className="input col-start-2 col-end-5"
             />
           </label>
           <div className="grid grid-cols-4 items-baseline">
             <button
               type="submit"
-              className="col-start-2 col-end-3
-            px-4 py-2
-            mt-4
-            bg-palette5-blue-300
-            hover:bg-palette5-blue-400
-            focus:outline-none focus:ring-2 focus:ring-palette5-blue-400
-            focus:ring-offset-2 focus:ring-offset-palette5-blue-50
-            font-bold
-            text-palette5-blue-50"
+              className="button 
+              col-start-2 col-end-3 mt-4"
             >
               Send
             </button>

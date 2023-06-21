@@ -53,7 +53,7 @@ function Seo({
       />
       <body
         className="hyphens-auto transition-all 
-        bg-gradient-to-b from-white to-palette5-blue-100
+        bg-gradient-to-b from-white to-palette5-blue-50
         border-t-4 border-palette5-blue-100
       text-palette5-blue-900
 

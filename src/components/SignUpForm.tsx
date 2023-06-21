@@ -25,40 +25,54 @@ function SignUpForm(): JSX.Element {
   }
 
   return (
-    <aside className="width-80 md:width-100 prose-secondary print:hidden">
-      <hr className="hr" />
-
-      {result !== null && (
-        <div className="flex flex-col items-center justify-center space-y-2">
-          <h3>{result.msg}</h3>
-          <p>{result.result}</p>
-        </div>
-      )}
-      <form
-        className="flex flex-col md:flex-row md:items-end justify-center space-y-4 sm:space-y-5 md:space-x-6 lg:space-x-8 xl:space-x-10"
-        onSubmit={handleSubmit}
-        method="POST"
+    <aside
+      className="width-full mt-4 sm:mt-6 md:mt-8 lg:mt-10
+    bg-white
+    border-t-4 border-palette5-blue-300
+    py-4 sm:py-6 md:py-8 lg:py-10
+    text-2xl
+    print:hidden"
+    >
+      <div
+        className="width-80 bg-palette5-blue-50
+      px-12 py-8"
       >
-        <h3>Monthly Newsletter</h3>
-        <div className="flex flex-col space-y-2">
-          <label htmlFor="email" className="py-4">
-            Write an email:
+        {result !== null && (
+          <div className="flex flex-col items-center justify-center space-y-2">
+            <h3>{result.msg}</h3>
+            <p>{result.result}</p>
+          </div>
+        )}
+        <h3 className="font-black py-0 my-0 text-4xl">Monthly Newsletter</h3>
+        <hr className="hr my-1 sm:my-2 md:my-4" />
+        <form className="flex flex-col" onSubmit={handleSubmit} method="POST">
+          <label
+            htmlFor="email"
+            className="grid grid-cols-4 items-baseline
+        mt-4"
+          >
+            <span
+              className=" col-start-1 col-end-2
+              font-light"
+            >
+              Write an email:
+            </span>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="john@company.org"
+              className="input col-start-2 col-end-5"
+              onChange={handleEmailChange}
+            />
           </label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="john@company.org"
-            className="input-field"
-            onChange={handleEmailChange}
-          />
-        </div>
-        <button type="submit" className="submit-button">
-          Sign Up
-        </button>
-      </form>
-
-      <hr className="hr print:hidden" />
+          <div className="grid grid-cols-4 items-baseline">
+            <button type="submit" className="button col-start-2 col-end-3 mt-4">
+              Sign Up
+            </button>
+          </div>
+        </form>
+      </div>
     </aside>
   )
 }
