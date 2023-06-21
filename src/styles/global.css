@@ -153,30 +153,20 @@
   */
   .button {
     @apply px-4 py-2
-    bg-palette5-blue-300
-    hover:bg-palette5-blue-400
-    focus:outline-none focus:ring-2 focus:ring-palette5-blue-400
-    focus:ring-offset-2 focus:ring-offset-palette5-blue-50
     font-bold
-    text-palette5-blue-50;
+    text-white
+    bg-palette5-blue-600
+    hover:bg-palette5-blue-800
+    focus:outline-none focus:ring-2 focus:ring-palette5-blue-400
+    focus:ring-offset-2 focus:ring-offset-palette5-blue-50;
   }
   .button-secondary {
     @apply px-4 py-2
-    bg-palette5-red-300
-    hover:bg-palette5-red-400
-    focus:outline-none focus:ring-2 focus:ring-palette5-red-400
-    focus:ring-offset-2 focus:ring-offset-palette5-red-50
-    font-bold
-    text-palette5-red-50;
-  }
-  .button-tertiary {
-    @apply px-4 py-2
+    text-palette5-blue-500
     bg-palette5-blue-50
-    hover:bg-palette5-blue-100
+    hover:text-palette5-blue-600 hover:bg-palette5-blue-100
     focus:outline-none focus:ring-2 focus:ring-palette5-blue-400
-    focus:ring-offset-2 focus:ring-offset-palette5-blue-50
-    font-bold
-    text-palette5-blue-900;
+    focus:ring-offset-2 focus:ring-offset-palette5-blue-50;
   }
   .input {
     @apply px-4 py-2
@@ -202,6 +192,9 @@
 
     focus:outline-none focus:no-underline
     focus:ring-4 focus:ring-palette5-red-700 focus:ring-opacity-50;
+  }
+  .label-text-size {
+    @apply text-base md:text-lg lg:text-xl;
   }
 }
 
@@ -268,6 +261,9 @@
     dark:focus:prose-a:bg-primaryBackgroundDark dark:focus:prose-a:text-primaryTextDark;
   }
 
+  .min-padding-x {
+    @apply px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12;
+  }
   .width-80 {
     @apply mx-auto 
    sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl;

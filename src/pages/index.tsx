@@ -26,10 +26,10 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
         <div
           className="flex flex-col flex-wrap
             gap-1 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-5 
-            width-80"
+            width-80 px-4 md:px-0"
         >
           <ol
-            className="list-outside list-decimal
+            className="list-outside list-none md:list-decimal
               flex flex-col flex-wrap
               font-serif
               marker:text-palette5-blue-200"
