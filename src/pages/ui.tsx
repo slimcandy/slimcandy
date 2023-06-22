@@ -5,7 +5,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import Seo from "../components/Seo"
 import TinyLayout from "../layouts/TinyLayout"
 
-function AboutPage(): JSX.Element {
+function UIPage(): JSX.Element {
   return (
     <TinyLayout>
       <main className="tufte-container font-serif min-padding-y">
@@ -187,12 +187,12 @@ function AboutPage(): JSX.Element {
   )
 }
 
-export default AboutPage
+export default UIPage
 
 export function Head({
   data,
   location,
-}: HeadProps<Queries.AboutPageQuery>): JSX.Element | null {
+}: HeadProps<Queries.UIPageQuery>): JSX.Element | null {
   const siteDescription = data.site?.siteMetadata?.description ?? ``
 
   return (
