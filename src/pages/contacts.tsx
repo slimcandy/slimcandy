@@ -1,11 +1,11 @@
-import { graphql, type HeadProps, type PageProps } from "gatsby"
+import { type HeadProps } from "gatsby"
 import * as React from "react"
 
 import Seo from "../components/Seo"
 import TinyLayout from "../layouts/TinyLayout"
 import ContactForm from "../components/ContactForm"
 
-function AboutPage({ data }: PageProps<Queries.AboutPageQuery>): JSX.Element {
+function ContactsPage(): JSX.Element {
   return (
     <TinyLayout>
       <main className="my-1 sm:my-2 md:my-3 lg:my-4">
@@ -15,36 +15,8 @@ function AboutPage({ data }: PageProps<Queries.AboutPageQuery>): JSX.Element {
   )
 }
 
-export default AboutPage
+export default ContactsPage
 
-export function Head({
-  data,
-  location,
-}: HeadProps<Queries.AboutPageQuery>): JSX.Element | null {
-  const siteDescription = data.site?.siteMetadata?.description ?? ``
-
-  return (
-    <Seo
-      title="Let's Move Code Mountains!"
-      description={siteDescription}
-      pathname={location.pathname}
-    />
-  )
+export function Head({ location }: HeadProps): JSX.Element {
+  return <Seo title="Contact Me" pathname={location.pathname} />
 }
-
-export const AboutPageQuery = graphql`
-  query AboutPage {
-    site {
-      siteMetadata {
-        title
-        description
-        motto
-        social {
-          github
-          linkedin
-          youtube
-        }
-      }
-    }
-  }
-`

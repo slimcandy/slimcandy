@@ -51,7 +51,7 @@ function RichHeaderLayout({
                 <li>
                   <Link
                     to="/solutions"
-                    className="button-secondary w-fit flex items-center gap-x-2 whitespace-nowrap"
+                    className="button button-secondary w-fit flex items-center gap-x-2 whitespace-nowrap"
                   >
                     <AiOutlineBulb className="mr-1 text-palette5-blue-400" />
                     Solutions for you

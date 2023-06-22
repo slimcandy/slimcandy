@@ -151,7 +151,6 @@
   */
   .button {
     @apply px-4 py-2
-    font-bold
     text-white
     bg-palette5-blue-600
     hover:bg-palette5-blue-800
@@ -159,12 +158,19 @@
     focus:ring-offset-2 focus:ring-offset-palette5-blue-50;
   }
   .button-secondary {
-    @apply px-4 py-2
-    text-palette5-blue-500
+    @apply text-palette5-blue-500
     bg-palette5-blue-50
     hover:text-palette5-blue-600 hover:bg-palette5-blue-100
-    focus:outline-none focus:ring-2 focus:ring-palette5-blue-400
-    focus:ring-offset-2 focus:ring-offset-palette5-blue-50;
+    focus:ring-palette5-blue-400
+    focus:ring-offset-palette5-blue-50
+    
+    border border-palette5-blue-100;
+  }
+  .button-teal {
+    @apply bg-palette5-teal-600
+    hover:bg-palette5-teal-800
+    focus:outline-none focus:ring-2 focus:ring-palette5-teal-400
+    focus:ring-offset-2 focus:ring-offset-palette5-teal-50;
   }
   .input {
     @apply px-4 py-2
@@ -193,6 +199,17 @@
   }
   .label-text-size {
     @apply text-base md:text-lg lg:text-xl;
+  }
+  .badge {
+    @apply px-4 py-2
+    block w-fit
+    font-bold text-center
+    text-white 
+    bg-palette5-blue-600
+    rounded-full;
+  }
+  .badge-teal {
+    @apply bg-palette5-teal-600;
   }
 }
 

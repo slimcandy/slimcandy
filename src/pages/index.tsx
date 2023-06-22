@@ -19,7 +19,9 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
           className="tracking-text text-center text-palette5-blue-400
             py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5
 
-            after:content-['~'] after:text-8xl after:text-palette5-blue-100 after:block after:w-full after:text-center after:leading-3"
+            after:content-['~'] after:text-palette5-blue-100
+            after:text-4xl
+            after:block after:w-full after:text-center after:leading-3"
         >
           Article Index
         </h3>

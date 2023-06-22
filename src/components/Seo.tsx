@@ -59,6 +59,7 @@ function Seo({
         transition-all duration-500 ease-in-out
         hyphens-auto
         subpixel-antialiased
+        min-h-screen
 
       selection:text-primaryText selection:bg-secondaryBackground
       dark:selection:text-primaryTextDark dark:selection:bg-secondaryBackgroundDark"

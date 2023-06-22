@@ -1,14 +1,15 @@
 import React from "react"
 
-function ContactForm(): JSX.Element {
+function ContactForm(props: React.HTMLAttributes<HTMLElement>): JSX.Element {
   return (
     <section
       className="width-full mt-4 sm:mt-6 md:mt-8 lg:mt-10
       py-4 sm:py-6 md:py-8 lg:py-10
       print:hidden"
+      {...props}
     >
       <div
-        className="bg-palette5-blue-50
+        className="bg-palette5-blue-50 border-2 border-palette5-blue-100
         width-80 min-padding-x
         py-4 sm:py-6 md:py-8 lg:py-10"
       >
