@@ -2,6 +2,7 @@ import * as React from "react"
 import { graphql, Link, type HeadProps } from "gatsby"
 import { getImage } from "gatsby-plugin-image"
 import { PortableText } from "@portabletext/react"
+import type { PortableTextBlock } from "@portabletext/types"
 
 import Seo from "../components/Seo"
 import portableTextComponents from "../utils/portableText"
@@ -26,7 +27,8 @@ function SinglePostLayout({
   return (
     <TinyLayout>
       <main
-        className="tufte-container font-serif min-padding-y
+        className="tufte-container font-serif
+
         after:content-['❦'] 
         after:block 
         after:w-full 
@@ -45,7 +47,7 @@ function SinglePostLayout({
             <menu className="hidden md:grid grid-cols-4 items-baseline gap-y-4">
               {prevPost != null && (
                 <>
-                  <span className="col-start-1 col-end-2 text-center">←</span>
+                  <span className="col-start-1 col-end-2 text-center">→</span>
                   <li className="col-start-2 col-end-5">
                     <Link
                       to={`/posts/${prevPost.slug?.current as string}`}
@@ -59,7 +61,7 @@ function SinglePostLayout({
               )}
               {nextPost != null && (
                 <>
-                  <span className="col-start-1 col-end-2 text-center">→</span>
+                  <span className="col-start-1 col-end-2 text-center">←</span>
                   <li className="col-start-2 col-end-5">
                     <Link
                       to={`/posts/${nextPost.slug?.current as string}`}
@@ -75,7 +77,7 @@ function SinglePostLayout({
           </aside>
           {post._rawContent != null && (
             <PortableText
-              value={post._rawContent}
+              value={post._rawContent as unknown as PortableTextBlock[]}
               components={portableTextComponents}
             />
           )}

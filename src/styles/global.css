@@ -11,14 +11,14 @@
 
 @layer components {
   .tufte-container {
-    @apply px-2 sm:px-6 md:ps-[12%] md:pe-8 lg:pe-12 xl:pe-16
+    @apply px-6 sm:px-12 md:ps-[12%] md:pe-8 lg:pe-12 xl:pe-16
     max-w-7xl mx-auto;
   }
   .tufte-article {
     font-kerning: normal;
     @apply max-w-2xl
     prose prose-palette5 dark:prose-invert
-    prose-base md:prose-lg xl:prose-xl 2xl:prose-2xl
+    prose-lg xl:prose-xl 2xl:prose-2xl
     text-palette5-blue-900 dark:text-palette5-blue-100;
 
     /**
@@ -31,10 +31,14 @@
     & > aside,
     & > figcaption {
       @apply w-full md:w-3/12 
+      ps-8 md:ps-0
       md:float-right md:clear-right
       md:ml-8 md:mb-4
-      prose-sm
-      align-baseline;
+      prose-sm;
+
+      & > ul {
+        @apply p-0 m-0;
+      }
     }
     & > pre,
     & > code {
@@ -44,7 +48,7 @@
     * Link
     */
     & a {
-      @apply inline-block leading-8
+      @apply leading-8
       underline
       decoration-4 underline-offset-8
       decoration-palette5-blue-300
@@ -101,7 +105,7 @@
     /**
     * Paragraph
     */
-    & p {
+    & > p {
       hyphenate-limit-chars: 10 4;
       text-justify: inter-character;
       @apply text-justify;
@@ -109,22 +113,10 @@
     & > p:first-of-type {
       @apply first-letter:text-xl sm:first-letter:text-2xl md:first-letter:text-4xl lg:first-letter:text-6xl xl:first-letter:text-9xl
       first-letter:font-bold
-      first-letter:mr-0.5 sm:first-letter:mr-1.5 md:first-letter:mr-3 lg:first-letter:mr-3 xl:first-letter:mr-4
+      sm:first-letter:mr-1 md:first-letter:mr-3 lg:first-letter:mr-3 xl:first-letter:mr-4
       first-letter:float-left
       
       first-line:font-black;
-    }
-
-    /**
-    * Lists
-    */
-    & ul,
-    & ol {
-      @apply list-outside list-disc ps-0
-      marker:text-palette5-blue-300 dark:marker:text-palette5-blue-600;
-    }
-    & li {
-      @apply ps-0;
     }
 
     /**

@@ -8,9 +8,10 @@ function TinyLayout({ children }: { children: React.ReactNode }): JSX.Element {
     <>
       <header
         className="flex flex-wrap items-center justify-between
-            py-4 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12
-            mb-4 sm:mb-6 md:mb-8 lg:mb-10 xl:mb-12
-            print:hidden"
+        max-w-7xl mx-auto
+        py-4 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12
+        mb-4 sm:mb-6 md:mb-8 lg:mb-10 xl:mb-12
+        print:hidden"
       >
         <Link to="/" className="link">
           Home Page
