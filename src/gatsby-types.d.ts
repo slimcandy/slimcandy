@@ -4981,13 +4981,6 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = { readonly tracedSVG: st
 
 type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: number, readonly maxWidth: number };
 
-type PostsByCategoryQueryVariables = Exact<{
-  slug: Scalars['String'];
-}>;
-
-
-type PostsByCategoryQuery = { readonly allSanityPost: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly description: string | null, readonly publishedAt: string | null, readonly readMore: string | null, readonly slug: { readonly current: string | null } | null, readonly mainImage: { readonly asset: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData, readonly altText: string | null } | null } | null }> }, readonly site: { readonly siteMetadata: { readonly title: string | null, readonly description: string | null, readonly motto: string | null, readonly social: { readonly github: string | null, readonly linkedin: string | null, readonly youtube: string | null } | null } | null } | null };
-
 type SinglePostLayoutQueryVariables = Exact<{
   slug: Scalars['String'];
   prevSlug: InputMaybe<Scalars['String']>;
@@ -5006,11 +4999,6 @@ type AllPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type AllPostsQuery = { readonly allSanityPost: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly slug: { readonly current: string | null } | null }> } };
-
-type AllCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type AllCategoriesQuery = { readonly allSanityCategory: { readonly nodes: ReadonlyArray<{ readonly name: string | null, readonly slug: { readonly current: string | null } | null }> } };
 
 
 }

@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { AiOutlineBulb, AiOutlineMessage } from "react-icons/ai"
 
-import { type TCategories, type TSiteMetadata } from "../utils/types"
+import { type TSiteMetadata } from "../utils/types"
 
 function RichHeaderLayout({
   children,
@@ -11,7 +11,6 @@ function RichHeaderLayout({
 }: {
   children: React.ReactNode
   siteMetadata?: TSiteMetadata
-  categories?: TCategories
 }): JSX.Element {
   return (
     <>

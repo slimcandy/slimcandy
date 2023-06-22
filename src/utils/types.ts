@@ -20,16 +20,3 @@ export interface TPostContext {
     current: string
   }
 }
-
-export interface TCategoryContext {
-  name: string
-  slug: {
-    current: string
-  }
-}
-
-export type TCategories = ReadonlyArray<{
-  readonly description: string | null
-  readonly name: string | null
-  readonly slug: { readonly current: string | null } | null
-}>

@@ -1,6 +1,6 @@
 import { type CreatePagesArgs, type GatsbyNode } from "gatsby"
 import path from "path"
-import { type TCategoryContext, type TPostContext } from "./src/utils/types"
+import { type TPostContext } from "./src/utils/types"
 
 async function turnPostsIntoPages({
   graphql,
@@ -49,52 +49,9 @@ async function turnPostsIntoPages({
   })
 }
 
-async function turnCategoriesIntoPages({
-  graphql,
-  actions,
-}: CreatePagesArgs): Promise<void> {
-  // 1. Get a template for this page
-  const categoryTemplate = path.resolve("./src/templates/Categories.tsx")
-  // 2. Query all categories
-  const {
-    data,
-  }: {
-    data?: {
-      allSanityCategory: {
-        nodes: TCategoryContext[]
-      }
-    }
-  } = await graphql(`
-    query AllCategories {
-      allSanityCategory(sort: { _createdAt: DESC }, limit: 100) {
-        nodes {
-          name
-          slug {
-            current
-          }
-        }
-      }
-    }
-  `)
-
-  const categories = data?.allSanityCategory?.nodes ?? []
-  // 3. Loop over each category and create a page for that category
-  categories.forEach(category => {
-    console.log("🏷️ Creating page for Category: ", category.name)
-    actions.createPage({
-      path: `categories/${category.slug.current}`,
-      component: categoryTemplate,
-      context: {
-        slug: category.slug.current,
-        name: category.name,
-      },
-    })
-  })
-}
-
 export const createPages: GatsbyNode["createPages"] =
   async function createPages(params) {
-    Promise.all([turnPostsIntoPages(params), turnCategoriesIntoPages(params)])
+    Promise.all([turnPostsIntoPages(params)])
       .then(function logSuccess() {
         console.log("✅ Finished creating pages.")
       })

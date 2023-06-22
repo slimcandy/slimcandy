@@ -15,13 +15,12 @@ function SinglePostLayout({
 }: {
   data: Queries.SinglePostLayoutQuery
 }): JSX.Element {
-  const siteMetadata = data?.site?.siteMetadata
   const post = data?.sanityPost
   const prevPost = data?.prevPost
   const nextPost = data?.nextPost
 
   if (post == null) {
-    return <NoPosts siteMetadata={siteMetadata} />
+    return <NoPosts />
   }
 
   return (

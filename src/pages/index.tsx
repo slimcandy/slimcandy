@@ -9,9 +9,6 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
   const siteMetadata = data.site?.siteMetadata
   const posts = data.allSanityPost.nodes
 
-  if (posts === null || posts.length === 0) {
-    return <NoPosts siteMetadata={siteMetadata} />
-  }
   return (
     <RichHeaderLayout siteMetadata={siteMetadata}>
       <main className="py-2 sm:py-3 md:py-4 lg:py-5 xl:py-6">
@@ -37,6 +34,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
               marker:text-palette5-blue-200"
             reversed
           >
+            {(posts === null || posts.length === 0) && <NoPosts />}
             {posts.map(function showPost(post) {
               return (
                 <li key={post.title}>
