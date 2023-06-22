@@ -6,7 +6,7 @@ import json from "refractor/lang/json"
 import yaml from "refractor/lang/yaml"
 import css from "refractor/lang/css"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { type PortableTextComponents } from "@portabletext/react"
+import { type PortableTextComponents, PortableText } from "@portabletext/react"
 import { getGatsbyImageData } from "gatsby-source-sanity"
 
 Refractor.registerLanguage(js)
@@ -15,7 +15,7 @@ Refractor.registerLanguage(json)
 Refractor.registerLanguage(yaml)
 Refractor.registerLanguage(css)
 
-const components: PortableTextComponents = {
+export const components: PortableTextComponents = {
   types: {
     image: function imageOutput(props) {
       const {
@@ -62,6 +62,22 @@ const components: PortableTextComponents = {
         />
       )
     },
+    aside: function annotationOutput({ value }) {
+      return (
+        <aside>
+          <PortableText value={value.content} />
+        </aside>
+      )
+    },
+  },
+  block: {
+    // aside: function annotationOutput({ value, children }) {
+    //   return (
+    //     <aside>
+    //       block <br /> {toPlainText(value)}:{children}
+    //     </aside>
+    //   )
+    // },
   },
   marks: {
     "custom-iframe": function iframe({ value: { src }, text }) {

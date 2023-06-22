@@ -1,9 +1,9 @@
 import * as React from "react"
 import { Link } from "gatsby"
-
-import { type TCategories, type TSiteMetadata } from "../utils/types"
-import ContactForm from "../components/ContactForm"
 import { StaticImage } from "gatsby-plugin-image"
+import { AiOutlineBulb, AiOutlineMessage } from "react-icons/ai"
+
+import { type TSiteMetadata } from "../utils/types"
 
 function RichHeaderLayout({
   children,
@@ -11,86 +11,77 @@ function RichHeaderLayout({
 }: {
   children: React.ReactNode
   siteMetadata?: TSiteMetadata
-  categories?: TCategories
 }): JSX.Element {
   return (
     <>
-      {siteMetadata != null && (
-        <header className="width-80">
-          <div className="text-center">
-            <Link to="/" className="link-secondary">
-              <h2 className="tracking-text" title="js.garden">
-                Home Page
-              </h2>
-            </Link>
-          </div>
-          {typeof siteMetadata?.description === "string" && (
-            <section className="pb-1 sm:pb-1.5 md:pb-2 lg:pb-2.5 xl:pb-3">
-              <StaticImage
-                src="../../static/images/photo.jpeg"
-                alt="Photo of me in Adidas tracksuit. I'm standing at the edge of a cliff – national park."
-                className="block
-                    float-left
-                    rounded-full
-                    w-16 sm:w-20 md:w-26 lg:w-32
-                    h-16 sm:h-20 md:h-26 lg:h-32
-                    max-w-full
-                    m-0 p-0
-                    mr-2 sm:mr-4 md:mr-6 lg:mr-8 xl:mr-10
-                    border-[thin] border-secondaryText dark:border-secondaryTextDark"
-                width={126}
-                height={126}
-                placeholder="dominantColor"
-                formats={["auto", "webp", "avif", "jpg", "png"]}
-                objectFit="cover"
-                as="figure"
-                loading="lazy"
-              />
-              <p className="prose-secondary">
-                {siteMetadata.description} &nbsp;
-                <Link to="/about">My projects</Link>.
-              </p>
-              {siteMetadata?.social != null && (
-                <ul
-                  className="
-                  flex flex-wrap items-center 
-                    gap-2 sm:gap-2.5 md:gap-3 lg:gap-4"
-                >
-                  {typeof siteMetadata?.social?.youtube === "string" &&
-                    siteMetadata.social.youtube.length > 0 && (
-                      <li>
-                        <a
-                          href={siteMetadata.social.youtube}
-                          className="link-secondary after:content-['_↗']"
-                        >
-                          YouTube
-                        </a>
-                      </li>
-                    )}
-                  <li>
-                    <a
-                      href={siteMetadata?.social?.github ?? ""}
-                      className="link-secondary after:content-['_↗']"
-                    >
-                      GitHub
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href={siteMetadata?.social?.linkedin ?? ""}
-                      className="link-secondary after:content-['_↗']"
-                    >
-                      LinkedIn
-                    </a>
-                  </li>
-                </ul>
-              )}
-            </section>
+      <header
+        className="py-4 sm:py-6 md:py-8 lg:py-10 xl:py-12
+        bg-white dark:bg-palette5-blue-900
+        border-b-2 border-palette5-blue-100 dark:border-palette5-blue-800
+        print:hidden"
+      >
+        <div className="width-100 min-padding-x flex flex-col">
+          {typeof siteMetadata?.author === "string" && (
+            <h1 className="tracking-text text-xl sm:text-2xl md:text-4xl lg:text-6xl">
+              {siteMetadata.author}
+            </h1>
           )}
-        </header>
-      )}
+          <div className="grid grid-cols-4 gap-x-2 md:gap-x-4">
+            <div className="col-start-1 col-end-5">
+              <div className="font-serif prose-set">
+                {typeof siteMetadata?.description === "string" && (
+                  <p className="max-reading-w">{siteMetadata?.description}</p>
+                )}
+              </div>
+              <menu
+                className="flex flex-wrap flex-col md:flex-row items-baseline 
+                gap-y-2 gap-x-1 md:gap-x-2
+                label-text-size
+                mt-4"
+              >
+                <li>
+                  <Link
+                    to="/contacts"
+                    className="button w-fit flex items-center gap-x-2 whitespace-nowrap"
+                  >
+                    <AiOutlineMessage
+                      className="mr-1 
+                    text-palette5-blue-50 dark:text-palette5-blue-800"
+                    />
+                    Contact me
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/solutions"
+                    className="button button-secondary w-fit flex items-center gap-x-2 whitespace-nowrap"
+                  >
+                    <AiOutlineBulb className="mr-1 text-palette5-blue-400 dark:text-palette5-blue-500" />
+                    Solutions for you
+                  </Link>
+                </li>
+              </menu>
+            </div>
+            <StaticImage
+              src="../../static/images/photo.jpeg"
+              alt="Photo of me in Adidas tracksuit. I'm standing at the edge of a cliff – national park."
+              className="col-start-5 col-end-6
+                    w-32 sm:w-44 
+                    h-fit
+                    m-0 p-0
+                    border-2 border-palette5-blue-100 dark:border-palette5-blue-800"
+              width={256}
+              height={256}
+              placeholder="dominantColor"
+              formats={["auto", "webp", "avif", "jpg", "png"]}
+              objectFit="cover"
+              as="figure"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </header>
       {children}
-      <ContactForm />
     </>
   )
 }

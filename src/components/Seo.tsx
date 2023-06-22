@@ -34,7 +34,10 @@ function Seo({
 
   return (
     <>
-      <html lang="en" />
+      <html
+        lang="en"
+        className="bg-palette5-blue-100 dark:bg-palette5-blue-800"
+      />
       <title>{seo.title}</title>
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
@@ -52,12 +55,20 @@ function Seo({
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🤑</text></svg>"
       />
       <body
-        className="hyphens-auto transition-all 
-      bg-primaryBackground dark:bg-primaryBackgroundDark
-      text-primaryText dark:text-primaryTextDark
-
-      selection:text-primaryText selection:bg-secondaryBackground
-      dark:selection:text-primaryTextDark dark:selection:bg-secondaryBackgroundDark"
+        className="bg-gradient-to-b from-white to-palette5-blue-100
+        border-t-4 border-palette5-blue-100 
+      text-palette5-blue-900 
+      selection:text-palette5-blue-50 selection:bg-palette5-blue-900
+      
+      dark:from-palette5-blue-900 dark:to-palette5-blue-800
+      dark:border-palette5-blue-800
+      dark:text-palette5-blue-100
+      dark:selection:text-palette5-blue-100 dark:selection:bg-palette5-blue-900
+        
+        transition-all duration-500 ease-in-out
+        hyphens-auto
+        subpixel-antialiased
+        min-h-screen"
       />
       {children}
     </>

@@ -2044,6 +2044,20 @@ type RemoteFileResizeSortInput = {
   readonly width: InputMaybe<SortOrderEnum>;
 };
 
+type SanityAside = {
+  readonly _key: Maybe<Scalars['String']>;
+  readonly _rawContent: Maybe<Scalars['JSON']>;
+  readonly _type: Maybe<Scalars['String']>;
+  readonly content: Maybe<ReadonlyArray<Maybe<SanityBlock>>>;
+};
+
+
+type SanityAside__rawContentArgs = {
+  resolveReferences: InputMaybe<SanityResolveReferencesConfiguration>;
+};
+
+type SanityAsideOrBlockOrCodeOrImage = SanityAside | SanityBlock | SanityCode | SanityImage;
+
 type SanityAssetSourceData = {
   readonly _key: Maybe<Scalars['String']>;
   readonly _type: Maybe<Scalars['String']>;
@@ -2308,8 +2322,6 @@ type SanityBlockFilterInput = {
 type SanityBlockFilterListInput = {
   readonly elemMatch: InputMaybe<SanityBlockFilterInput>;
 };
-
-type SanityBlockOrCodeOrImage = SanityBlock | SanityCode | SanityImage;
 
 type SanityBlockSortInput = {
   readonly _key: InputMaybe<SortOrderEnum>;
@@ -4938,15 +4950,10 @@ type WebPOptions = {
   readonly quality: InputMaybe<Scalars['Int']>;
 };
 
-type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type AboutPageQuery = { readonly site: { readonly siteMetadata: { readonly title: string | null, readonly description: string | null, readonly motto: string | null, readonly social: { readonly github: string | null, readonly linkedin: string | null, readonly youtube: string | null } | null } | null } | null };
-
 type ArticlesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type ArticlesQuery = { readonly allSanityPost: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly description: string | null, readonly readMore: string | null, readonly publishedAt: string | null, readonly slug: { readonly current: string | null } | null }> }, readonly site: { readonly siteMetadata: { readonly title: string | null, readonly description: string | null, readonly motto: string | null, readonly social: { readonly github: string | null, readonly linkedin: string | null, readonly youtube: string | null } | null } | null } | null };
+type ArticlesQuery = { readonly allSanityPost: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly description: string | null, readonly readMore: string | null, readonly publishedAt: string | null, readonly slug: { readonly current: string | null } | null }> }, readonly site: { readonly siteMetadata: { readonly author: string | null, readonly title: string | null, readonly description: string | null, readonly motto: string | null, readonly social: { readonly github: string | null, readonly linkedin: string | null, readonly youtube: string | null } | null } | null } | null };
 
 type GatsbyImageSharpFixedFragment = { readonly base64: string | null, readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
 
@@ -4974,18 +4981,6 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = { readonly tracedSVG: st
 
 type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: number, readonly maxWidth: number };
 
-type Page404QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type Page404Query = { readonly site: { readonly siteMetadata: { readonly title: string | null, readonly description: string | null, readonly motto: string | null } | null } | null };
-
-type PostsByCategoryQueryVariables = Exact<{
-  slug: Scalars['String'];
-}>;
-
-
-type PostsByCategoryQuery = { readonly allSanityPost: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly description: string | null, readonly publishedAt: string | null, readonly readMore: string | null, readonly slug: { readonly current: string | null } | null, readonly mainImage: { readonly asset: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData, readonly altText: string | null } | null } | null }> }, readonly site: { readonly siteMetadata: { readonly title: string | null, readonly description: string | null, readonly motto: string | null, readonly social: { readonly github: string | null, readonly linkedin: string | null, readonly youtube: string | null } | null } | null } | null };
-
 type SinglePostLayoutQueryVariables = Exact<{
   slug: Scalars['String'];
   prevSlug: InputMaybe<Scalars['String']>;
@@ -5004,11 +4999,6 @@ type AllPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type AllPostsQuery = { readonly allSanityPost: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly slug: { readonly current: string | null } | null }> } };
-
-type AllCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type AllCategoriesQuery = { readonly allSanityCategory: { readonly nodes: ReadonlyArray<{ readonly name: string | null, readonly slug: { readonly current: string | null } | null }> } };
 
 
 }

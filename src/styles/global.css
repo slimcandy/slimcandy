@@ -1,148 +1,276 @@
+@charset "UTF-8";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  .first-letter {
-    @apply first-letter:text-2xl sm:first-letter:text-4xl md:first-letter:text-6xl lg:first-letter:text-7xl xl:first-letter:text-9xl
-    first-letter:font-bold
-    first-letter:mr-0.5 sm:first-letter:mr-1.5 md:first-letter:mr-3 lg:first-letter:mr-3 xl:first-letter:mr-4
-    first-letter:float-left;
+@layer base {
+  body {
+    hanging-punctuation: first force-end last;
+  }
+}
+
+@layer components {
+  .tufte-container {
+    @apply px-6 sm:px-12 md:ps-[12%] md:pe-8 lg:pe-12 xl:pe-16
+    max-w-7xl mx-auto;
+  }
+  .tufte-article {
+    font-kerning: normal;
+    @apply max-w-2xl
+    prose prose-palette5 dark:prose-invert
+    prose-lg xl:prose-xl 2xl:prose-2xl
+    text-palette5-blue-900 dark:text-palette5-blue-100;
+
+    /**
+    * Tufte Width
+    */
+    & > *:not(aside, figcaption, pre, code) {
+      @apply w-full md:w-8/12
+      max-w-lg;
+    }
+    & > aside,
+    & > figcaption {
+      @apply w-full md:w-3/12 
+      ps-8 md:ps-0
+      md:float-right md:clear-right
+      md:ml-8 md:mb-4
+      prose-sm;
+
+      & > ul {
+        @apply p-0 m-0;
+      }
+    }
+    & > pre,
+    & > code {
+      @apply w-full;
+    }
+    /**
+    * Link
+    */
+    & a {
+      @apply leading-8
+      underline
+      decoration-4 underline-offset-8
+      decoration-palette5-blue-300
+      hover:decoration-palette5-red-300
+      focus:decoration-palette5-red-700
+  
+      dark:decoration-palette5-blue-400
+      dark:hover:decoration-palette5-red-400
+      dark:focus:decoration-palette5-red-800
+  
+      focus:outline-none focus:no-underline
+      focus:ring-4  focus:ring-opacity-50
+      focus:ring-palette5-red-700
+      dark:focus:ring-palette5-red-800;
+    }
+
+    /**
+    * Quote
+    */
+    & blockquote {
+      @apply border-none relative text-end;
+
+      & footer {
+        @apply not-italic prose-sm;
+
+        & cite {
+          @apply italic;
+        }
+      }
+    }
+    & blockquote::before {
+      @apply content-[open-quote]
+      md:-top-8 md:-left-6;
+    }
+    & blockquote::after {
+      @apply content-[close-quote]
+      md:-bottom-14 md:-right-11;
+    }
+    & blockquote::before,
+    & blockquote::after {
+      @apply hidden md:block absolute
+      md:text-6xl text-palette5-blue-300 opacity-80
+      dark:text-palette5-blue-600;
+    }
+
+    /**
+    * Code
+    */
+    & code,
+    & pre {
+      @apply select-all;
+    }
+
+    /**
+    * Paragraph
+    */
+    & > p {
+      hyphenate-limit-chars: 10 4;
+      text-justify: inter-character;
+      @apply text-justify;
+    }
+    & > p:first-of-type {
+      @apply first-letter:text-xl sm:first-letter:text-2xl md:first-letter:text-4xl lg:first-letter:text-6xl xl:first-letter:text-9xl
+      first-letter:font-bold
+      sm:first-letter:mr-1 md:first-letter:mr-3 lg:first-letter:mr-3 xl:first-letter:mr-4
+      first-letter:float-left
+      
+      first-line:font-black;
+    }
+
+    /**
+    * Miscellaneous
+    */
+
+    & abbr,
+    & acronym {
+      font-variant-caps: all-small-caps;
+      font-variant-numeric: oldstyle-nums;
+      @apply tracking-widest
+      decoration-4
+      decoration-palette5-blue-300 dark:decoration-palette5-blue-700;
+    }
+    & hr {
+      @apply border-t-[thin] border-palette5-blue-100 dark:border-palette5-blue-800
+      my-4 sm:my-5 md:my-6 lg:my-7 xl:my-8;
+    }
+    & figure {
+      @apply border-double border-8 border-palette5-blue-100 dark:border-palette5-blue-800;
+    }
+    & h1 {
+      @apply w-full max-w-none;
+    }
+    & dd {
+      @apply indent-2 sm:indent-3 md:indent-4 lg:indent-5 xl:indent-6;
+    }
   }
 
+  /**
+  * Form Elements
+  */
+  .button {
+    @apply px-4 py-2
+    text-white
+    bg-palette5-blue-600
+    hover:bg-palette5-blue-800
+    focus:outline-none focus:ring-2 focus:ring-palette5-blue-400
+    focus:ring-offset-2 focus:ring-offset-palette5-blue-50
+    
+    dark:text-palette5-blue-900
+    dark:bg-palette5-blue-300
+    dark:hover:bg-palette5-blue-400
+    dark:focus:ring-palette5-blue-800
+    dark:focus:ring-offset-palette5-blue-900;
+  }
+  .button-secondary {
+    @apply text-palette5-blue-600
+    bg-palette5-blue-50
+    hover:text-palette5-blue-800 hover:bg-palette5-blue-100
+    focus:ring-palette5-blue-400
+    focus:ring-offset-palette5-blue-50
+    
+    border border-palette5-blue-100
+    
+    dark:text-palette5-blue-500
+    dark:bg-palette5-blue-800
+    dark:hover:text-palette5-blue-200 dark:hover:bg-palette5-blue-700
+    dark:focus:ring-palette5-blue-800
+    dark:focus:ring-offset-palette5-blue-900
+    dark:border-palette5-blue-700;
+  }
+  .button-teal {
+    @apply bg-palette5-teal-600
+    hover:bg-palette5-teal-800
+    focus:ring-palette5-teal-400
+    focus:ring-offset-palette5-teal-50
+    
+    dark:text-palette5-teal-900
+    dark:bg-palette5-teal-300
+    dark:hover:bg-palette5-teal-400
+    dark:focus:ring-palette5-teal-800
+    dark:focus:ring-offset-palette5-teal-900;
+  }
+  .input {
+    @apply px-4 py-2
+    bg-white
+    border-2 border-palette5-blue-300
+    hover:border-palette5-blue-400
+    focus:outline-none focus:ring-2 focus:ring-palette5-blue-400
+    focus:ring-offset-2 focus:ring-offset-palette5-blue-50
+    
+    dark:bg-palette5-blue-800
+    dark:border-palette5-blue-700
+    dark:hover:border-palette5-blue-600
+    dark:focus:ring-palette5-blue-800
+    dark:focus:ring-offset-palette5-blue-900;
+  }
+
+  /**
+  * Miscellaneous
+  */
+  .hr {
+    @apply border-t-2 border-palette5-blue-100 dark:border-palette5-blue-800;
+  }
   .link {
-    @apply inline-block
-    underline underline-offset-4 decoration-8
-    decoration-primaryText dark:decoration-primaryTextDark  
-    hover:decoration-red-700 
-     
-   text-primaryText dark:text-primaryTextDark
-   
-    focus:outline-none
-    focus:decoration-red-700 
-    focus:ring-4 focus:ring-red-700 focus:ring-opacity-50
-    focus:bg-primaryBackground focus:text-primaryText
-    dark:focus:bg-primaryBackgroundDark dark:focus:text-primaryTextDark;
+    @apply inline-block leading-8
+    underline
+    decoration-4 underline-offset-8
+    decoration-palette5-blue-300
+    hover:decoration-palette5-red-300
+    focus:decoration-palette5-red-700
+
+    dark:decoration-palette5-blue-400
+    dark:hover:decoration-palette5-red-400
+    dark:focus:decoration-palette5-red-800
+
+    focus:outline-none focus:no-underline
+    focus:ring-4  focus:ring-opacity-50
+    focus:ring-palette5-red-700
+    dark:focus:ring-palette5-red-800;
   }
-
-  .link-secondary {
-    @apply inline-block px-2 py-1
-   text-secondaryText dark:text-secondaryTextDark
-
-    underline underline-offset-4 decoration-2
-    decoration-secondaryText dark:decoration-secondaryTextDark 
-    hover:decoration-red-700 
-    
-    focus:outline-none
-    focus:decoration-red-700 
-    focus:ring-4 focus:ring-red-700 focus:ring-opacity-50
-    focus:bg-primaryBackground focus:text-primaryText
-    dark:focus:bg-primaryBackgroundDark dark:focus:text-primaryTextDark;
+  .label-text-size {
+    @apply text-base md:text-lg lg:text-xl;
   }
-
-  .prose-primary {
-    @apply font-serif
-    text-primaryText dark:text-primaryTextDark
-    prose prose-neutral dark:prose-invert prose-xl lg:prose-2xl
-    subpixel-antialiased
-    
-    prose-a:inline-block
-    prose-a:text-primaryText prose-a:dark:text-primaryTextDark
-
-    prose-a:underline prose-a:underline-offset-4
-    prose-a:decoration-primaryText dark:prose-a:decoration-primaryTextDark prose-a:decoration-2 
-    hover:prose-a:decoration-red-700 
-
-    focus:prose-a:outline-none
-    focus:prose-a:decoration-red-700 
-    focus:prose-a:ring-4 focus:prose-a:ring-red-700 focus:prose-a:ring-opacity-50
-    focus:prose-a:bg-primaryBackground focus:prose-a:text-primaryText
-    dark:focus:prose-a:bg-primaryBackgroundDark dark:focus:prose-a:text-primaryTextDark;
+  .badge {
+    @apply px-4 py-2
+    block w-fit
+    font-bold text-center
+    text-white dark:text-palette5-blue-900
+    bg-palette5-blue-600 dark:bg-palette5-blue-400
+    rounded-full;
   }
-
-  .prose-secondary {
-    @apply font-serif
-    text-secondaryText dark:text-secondaryTextDark
-    prose prose-neutral dark:prose-invert prose-sm sm:prose-base md:prose-lg lg:prose-xl xl:prose-2xl
-    subpixel-antialiased
-    
-    prose-a:inline-block
-    prose-a:text-secondaryText prose-a:dark:text-secondaryTextDark
-
-    prose-a:underline prose-a:underline-offset-4
-    prose-a:decoration-secondaryText dark:prose-a:decoration-secondaryTextDark prose-a:decoration-2 
-    hover:prose-a:decoration-red-700
-
-    focus:prose-a:outline-none
-    focus:prose-a:decoration-red-700 
-    focus:prose-a:ring-4 focus:prose-a:ring-red-700 focus:prose-a:ring-opacity-50
-    focus:prose-a:bg-primaryBackground focus:prose-a:text-primaryText
-    dark:focus:prose-a:bg-primaryBackgroundDark dark:focus:prose-a:text-primaryTextDark;
+  .badge-teal {
+    @apply bg-palette5-teal-600 
+    dark:text-palette5-teal-900 dark:bg-palette5-teal-300;
   }
+}
 
+@layer utilities {
+  .min-padding-x {
+    @apply px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12;
+  }
+  .min-padding-y {
+    @apply py-1 sm:py-2 md:py-3 lg:py-4 xl:py-6;
+  }
+  .max-reading-w {
+    @apply max-w-lg;
+  }
   .width-80 {
     @apply mx-auto 
-   sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl
-   px-2 sm:px-4 md:px-2 lg:px-0;
+   sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl;
   }
   .width-100 {
     @apply mx-auto 
-    max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl
-    sm:mt-2.5 md:mt-3 lg:mt-3.5 xl:mt-4 
-    py-2 sm:py-3 md:py-4 lg:py-5 xl:py-6;
+    max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl;
   }
-
-  .hr {
-    @apply border-t-[thin] border-secondaryText dark:border-secondaryTextDark my-4 sm:my-5 md:my-6 lg:my-7 xl:my-8;
-  }
-
   .tracking-text {
     @apply font-thin uppercase
-    sm:text-base md:text-lg lg:text-xl xl:text-2xl
     tracking-wide sm:tracking-wider md:tracking-widest lg:tracking-[0.2em] xl:tracking-[0.4em];
   }
-
-  .input-field {
-    @apply block
-    p-0.5 sm:p-1 md:p-1.5 lg:p-2 xl:p-2.5
-    border-b-2 
-    border-secondaryText dark:border-secondaryTextDark hover:border-b-red-700 focus:border-b-red-700
-
-    bg-secondaryBackground dark:bg-secondaryBackgroundDark
-    text-primaryText dark:text-primaryTextDark
-    placeholder:text-secondaryText dark:placeholder:text-secondaryTextDark
-    
-    focus:outline-none
-    focus:ring-4 focus:ring-red-700 focus:ring-opacity-50;
+  .prose-set {
+    @apply prose 
+    prose-palette5 dark:prose-invert
+    prose-base md:prose-lg xl:prose-xl 2xl:prose-2xl;
   }
-  .submit-button {
-    @apply font-semibold block
-    p-0.5 sm:p-1 md:p-1.5 lg:p-2 xl:p-2.5
-    border-b-2 
-  border-secondaryText dark:border-secondaryTextDark hover:border-b-red-700 focus:border-b-red-700
-
-  bg-secondaryBackground dark:bg-secondaryBackgroundDark
-  text-primaryText dark:text-primaryTextDark
-
-    focus:outline-none
-  focus:bg-red-700
-  focus:text-primaryTextDark
-    focus:ring-4 focus:ring-red-700 focus:ring-opacity-50;
-  }
-}
-
-@font-face {
-  font-family: "Playfair Display";
-  font-style: normal;
-  font-weight: 400;
-  src: url("/fonts/PlayfairDisplay-VariableFont_wght.woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Sofia Sans Extra Condensed";
-  font-style: normal;
-  font-weight: 100;
-  src: url("/fonts/SofiaSansExtraCondensed-VariableFont_wght.woff2");
-  font-display: swap;
 }
