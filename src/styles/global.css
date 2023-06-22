@@ -158,9 +158,9 @@
     focus:ring-offset-2 focus:ring-offset-palette5-blue-50;
   }
   .button-secondary {
-    @apply text-palette5-blue-500
+    @apply text-palette5-blue-600
     bg-palette5-blue-50
-    hover:text-palette5-blue-600 hover:bg-palette5-blue-100
+    hover:text-palette5-blue-800 hover:bg-palette5-blue-100
     focus:ring-palette5-blue-400
     focus:ring-offset-palette5-blue-50
     

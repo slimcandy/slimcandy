@@ -1,11 +1,15 @@
 import React from "react"
 
-function ContactForm(props: React.HTMLAttributes<HTMLElement>): JSX.Element {
+function ContactForm({
+  // eslint-disable-next-line react/prop-types
+  className = "",
+  ...props
+}: React.HTMLAttributes<HTMLElement>): JSX.Element {
   return (
     <section
-      className="width-full mt-4 sm:mt-6 md:mt-8 lg:mt-10
+      className={`width-full mt-4 sm:mt-6 md:mt-8 lg:mt-10
       py-4 sm:py-6 md:py-8 lg:py-10
-      print:hidden"
+      print:hidden ${className}`}
       {...props}
     >
       <div
@@ -13,7 +17,7 @@ function ContactForm(props: React.HTMLAttributes<HTMLElement>): JSX.Element {
         width-80 min-padding-x
         py-4 sm:py-6 md:py-8 lg:py-10"
       >
-        <h3 className="font-black">Drop Me a Line</h3>
+        <h3 className="font-bold">Drop Me a Line</h3>
         <hr className="hr mb-4" />
         <form
           name="contact"

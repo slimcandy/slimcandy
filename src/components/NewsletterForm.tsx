@@ -39,7 +39,7 @@ function NewsletterForm(): JSX.Element {
             <p>{result.result}</p>
           </div>
         )}
-        <h3 className="font-black">Monthly Newsletter</h3>
+        <h3 className="font-bold">Monthly Newsletter</h3>
         <hr className="hr mb-4" />
         <form
           className="flex flex-col gap-y-4"
@@ -53,7 +53,7 @@ function NewsletterForm(): JSX.Element {
               name="email"
               id="email"
               placeholder="john@company.org"
-              className="input w-2/4"
+              className="input w-3/4 md:w-2/4"
               onChange={handleEmailChange}
             />
           </label>

@@ -12,7 +12,7 @@ function TinyLayout({ children }: { children: React.ReactNode }): JSX.Element {
             mb-4 sm:mb-6 md:mb-8 lg:mb-10 xl:mb-12
             print:hidden"
       >
-        <Link to="/" className="link font-bold ">
+        <Link to="/" className="link">
           Home Page
         </Link>
         <menu className="flex flex-wrap items-center justify-between gap-x-2 md:gap-x-4 lg:gap-x-6">

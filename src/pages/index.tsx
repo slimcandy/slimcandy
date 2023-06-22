@@ -15,8 +15,8 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
   return (
     <RichHeaderLayout siteMetadata={siteMetadata}>
       <main className="py-2 sm:py-3 md:py-4 lg:py-5 xl:py-6">
-        <h3
-          className="tracking-text text-center text-palette5-blue-400
+        <small
+          className="block tracking-text text-center text-palette5-blue-400
             py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5
 
             after:content-['~'] after:text-palette5-blue-100
@@ -24,7 +24,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
             after:block after:w-full after:text-center after:leading-3"
         >
           Article Index
-        </h3>
+        </small>
         <div
           className="flex flex-col flex-wrap
             gap-1 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-5 

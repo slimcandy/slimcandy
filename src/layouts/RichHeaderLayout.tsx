@@ -21,11 +21,11 @@ function RichHeaderLayout({
         print:hidden"
       >
         <div className="width-100 min-padding-x flex flex-col">
-          <div className="font-serif prose-set">
-            {typeof siteMetadata?.author === "string" && (
-              <h1>{siteMetadata.author}</h1>
-            )}
-          </div>
+          {typeof siteMetadata?.author === "string" && (
+            <h1 className="tracking-text text-xl sm:text-2xl md:text-4xl lg:text-6xl">
+              {siteMetadata.author}
+            </h1>
+          )}
           <div className="grid grid-cols-4 gap-x-2 md:gap-x-4">
             <div className="col-start-1 col-end-5">
               <div className="font-serif prose-set">

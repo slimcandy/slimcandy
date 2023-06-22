@@ -127,7 +127,7 @@ function SolutionsPage(): JSX.Element {
             </div>
           </section>
         </article>
-        <ContactForm id="contact" />
+        <ContactForm id="contact" className="mt-[60vh]" />
       </main>
     </TinyLayout>
   )
