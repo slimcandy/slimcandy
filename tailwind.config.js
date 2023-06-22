@@ -1,5 +1,3 @@
-const defaultTheme = require("tailwindcss/defaultTheme")
-
 module.exports = {
   content: [
     "./src/pages/**/*.{js,jsx,ts,tsx}",
@@ -11,16 +9,6 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primaryText: "#171717",
-        primaryBackground: "#fafafa",
-        secondaryText: "#525252",
-        secondaryBackground: "#d4d4d4",
-
-        primaryTextDark: "#e5e5e5",
-        primaryBackgroundDark: "#171717",
-        secondaryTextDark: "#737373",
-        secondaryBackgroundDark: "#404040",
-
         "palette5-blue": {
           50: "#F0F4F8",
           100: "#D9E2EC",

@@ -15,13 +15,11 @@ function ContactsPage(): JSX.Element {
       <main className="min-padding-y width-100 min-padding-x">
         <div
           className="prose-set
-          mb-2 sm:mb-3 md:mb-4 lg:mb-5 xl:mb-6
-          after:content-['~'] after:text-palette5-blue-100
-          after:text-4xl
-          after:block after:w-full after:text-center after:leading-3"
+          mb-2 sm:mb-3 md:mb-4 lg:mb-5 xl:mb-6"
         >
           <h1 className="flex items-center gap-x-4">
-            <BsGithub className="text-palette5-blue-200" /> GitHub Projects
+            <BsGithub className="text-palette5-blue-200 dark:text-palette5-blue-600" />
+            GitHub Projects
           </h1>
           <p className="max-reading-w">
             Explore my diverse portfolio of open-source projects on GitHub, each
@@ -29,7 +27,11 @@ function ContactsPage(): JSX.Element {
           </p>
         </div>
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-6">
-          <li>
+          <li
+            className="min-padding-x min-padding-y 
+          bg-white border border-palette5-blue-100
+          dark:bg-palette5-blue-900 dark:border-palette5-blue-800"
+          >
             <a
               href="https://github.com/slimcandy/openNotes"
               className="link flex items-center gap-x-4
@@ -45,7 +47,10 @@ function ContactsPage(): JSX.Element {
               </p>
             </div>
           </li>
-          <li>
+          <li
+            className="min-padding-x min-padding-y bg-white border border-palette5-blue-100
+          dark:bg-palette5-blue-900 dark:border-palette5-blue-800"
+          >
             <a
               href="https://github.com/slimcandy/WhatARQuickLookCanDoToday"
               className="link flex items-center gap-x-4
@@ -58,7 +63,10 @@ function ContactsPage(): JSX.Element {
               <p className="max-reading-w">AR Application Examples</p>
             </div>
           </li>
-          <li>
+          <li
+            className="min-padding-x min-padding-y bg-white border border-palette5-blue-100
+          dark:bg-palette5-blue-900 dark:border-palette5-blue-800"
+          >
             <a
               href="https://github.com/slimcandy/randomARt"
               className="link flex items-center gap-x-4
@@ -70,7 +78,10 @@ function ContactsPage(): JSX.Element {
               <p className="max-reading-w">Surf the ocean of AR objects</p>
             </div>
           </li>
-          <li>
+          <li
+            className="min-padding-x min-padding-y bg-white border border-palette5-blue-100
+          dark:bg-palette5-blue-900 dark:border-palette5-blue-800"
+          >
             <a
               href="https://github.com/slimcandy/MetaCleaner"
               className="link flex items-center gap-x-4
@@ -86,7 +97,10 @@ function ContactsPage(): JSX.Element {
               </p>
             </div>
           </li>
-          <li>
+          <li
+            className="min-padding-x min-padding-y bg-white border border-palette5-blue-100
+          dark:bg-palette5-blue-900 dark:border-palette5-blue-800"
+          >
             <a
               href="https://github.com/slimcandy/todorism"
               className="link flex items-center gap-x-4
@@ -102,7 +116,10 @@ function ContactsPage(): JSX.Element {
               </p>
             </div>
           </li>
-          <li>
+          <li
+            className="min-padding-x min-padding-y bg-white border border-palette5-blue-100
+          dark:bg-palette5-blue-900 dark:border-palette5-blue-800"
+          >
             <a
               href="https://github.com/slimcandy/typescript-gatsby-boilerplate"
               className="link flex items-center gap-x-4
@@ -118,7 +135,10 @@ function ContactsPage(): JSX.Element {
               </p>
             </div>
           </li>
-          <li>
+          <li
+            className="min-padding-x min-padding-y bg-white border border-palette5-blue-100
+          dark:bg-palette5-blue-900 dark:border-palette5-blue-800"
+          >
             <a
               href="https://github.com/slimcandy/isit-hdr-ready"
               className="link flex items-center gap-x-4

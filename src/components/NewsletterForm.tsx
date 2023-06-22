@@ -30,6 +30,8 @@ function NewsletterForm(): JSX.Element {
     bg-white
     border-t-4 border-palette5-blue-100
     py-4 sm:py-6 md:py-8 lg:py-10
+
+    dark:bg-palette5-blue-900 dark:border-palette5-blue-800
     print:hidden"
     >
       <div className="width-80 min-padding-x">

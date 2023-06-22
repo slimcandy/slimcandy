@@ -17,14 +17,15 @@ function SolutionsPage(): JSX.Element {
         >
           <section
             className="order-2 md:order-1 md:flex-initial
-            border border-palette5-blue-100
+          bg-white dark:bg-palette5-blue-900
+            border border-palette5-blue-100 dark:border-palette5-blue-800
             pt-4 lg:pt-6
             pb-6 lg:pb-8
             w-full md:w-1/3"
           >
             <div className="min-padding-x flex flex-col md:items-center md:justify-center">
               <small className="badge text-xs md:text-sm">
-                <BsRocketTakeoff className="text-palette5-blue-50" />
+                <BsRocketTakeoff className="text-palette5-blue-50 dark:text-palette5-blue-900" />
               </small>
               <h2
                 className="md:text-xl lg:text-2xl md:text-center
@@ -50,8 +51,9 @@ function SolutionsPage(): JSX.Element {
           </section>
           <section
             className="order-1 
-            border border-palette5-blue-100
-            shadow-md
+            bg-white dark:bg-palette5-blue-900
+            border border-palette5-blue-100 dark:border-palette5-teal-800
+            shadow-md dark:shadow-lg dark:shadow-palette5-teal-900
 
             md:order-2 md:flex-grow
             md:-mt-4 lg:-mt-6
@@ -92,7 +94,8 @@ function SolutionsPage(): JSX.Element {
           </section>
           <section
             className="order-3 md:flex-initial
-            border border-palette5-blue-100
+            bg-white dark:bg-palette5-blue-900
+            border border-palette5-blue-100 dark:border-palette5-blue-800
             pt-4 lg:pt-6
             pb-6 lg:pb-8
             
@@ -100,7 +103,7 @@ function SolutionsPage(): JSX.Element {
           >
             <div className="min-padding-x flex flex-col md:items-center md:justify-center">
               <small className="badge text-xs md:text-sm">
-                <BsFillBriefcaseFill className="text-palette5-blue-50" />
+                <BsFillBriefcaseFill className="text-palette5-blue-50 dark:text-palette5-blue-900" />
               </small>
               <h2
                 className="md:text-xl lg:text-2xl md:text-center

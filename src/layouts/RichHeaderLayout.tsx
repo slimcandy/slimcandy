@@ -17,7 +17,8 @@ function RichHeaderLayout({
     <>
       <header
         className="py-4 sm:py-6 md:py-8 lg:py-10 xl:py-12
-        border-b-2 border-palette5-blue-100
+        bg-white dark:bg-palette5-blue-900
+        border-b-2 border-palette5-blue-100 dark:border-palette5-blue-800
         print:hidden"
       >
         <div className="width-100 min-padding-x flex flex-col">
@@ -44,7 +45,10 @@ function RichHeaderLayout({
                     to="/contacts"
                     className="button w-fit flex items-center gap-x-2 whitespace-nowrap"
                   >
-                    <AiOutlineMessage className="mr-1 text-palette5-blue-50" />
+                    <AiOutlineMessage
+                      className="mr-1 
+                    text-palette5-blue-50 dark:text-palette5-blue-800"
+                    />
                     Contact me
                   </Link>
                 </li>
@@ -53,7 +57,7 @@ function RichHeaderLayout({
                     to="/solutions"
                     className="button button-secondary w-fit flex items-center gap-x-2 whitespace-nowrap"
                   >
-                    <AiOutlineBulb className="mr-1 text-palette5-blue-400" />
+                    <AiOutlineBulb className="mr-1 text-palette5-blue-400 dark:text-palette5-blue-500" />
                     Solutions for you
                   </Link>
                 </li>
@@ -66,7 +70,7 @@ function RichHeaderLayout({
                     w-32 sm:w-44 
                     h-fit
                     m-0 p-0
-                    border-2 border-palette5-blue-100"
+                    border-2 border-palette5-blue-100 dark:border-palette5-blue-800"
               width={256}
               height={256}
               placeholder="dominantColor"
@@ -78,9 +82,7 @@ function RichHeaderLayout({
           </div>
         </div>
       </header>
-      <div className="bg-gradient-to-b from-palette5-blue-50 to-palette5-blue-100">
-        {children}
-      </div>
+      {children}
     </>
   )
 }

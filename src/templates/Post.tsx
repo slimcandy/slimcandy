@@ -32,7 +32,7 @@ function SinglePostLayout({
         after:w-full 
         after:text-center 
         sm:after:text-2xl md:after:text-4xl lg:after:text-6xl
-        after:text-palette5-blue-300 
+        after:text-palette5-blue-300 dark:after:text-palette5-blue-600
         after:opacity-80"
         itemScope
         itemType="http://schema.org/Article"

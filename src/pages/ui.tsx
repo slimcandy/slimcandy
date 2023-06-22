@@ -1,18 +1,16 @@
-import { graphql, type HeadProps, type PageProps } from "gatsby"
+import { type HeadProps } from "gatsby"
 import * as React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 
 import Seo from "../components/Seo"
 import TinyLayout from "../layouts/TinyLayout"
 
-function AboutPage({ data }: PageProps<Queries.AboutPageQuery>): JSX.Element {
-  const siteMetadata = data.site?.siteMetadata
-
+function AboutPage(): JSX.Element {
   return (
-    <TinyLayout siteMetadata={siteMetadata}>
+    <TinyLayout>
       <main className="tufte-container font-serif min-padding-y">
         <article className="tufte-article">
-          <h1 className="wp-block-post-title">Lorem ipsum dolor sit amet</h1>
+          <h1>Lorem ipsum dolor sit amet</h1>
           <aside>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -47,15 +45,15 @@ function AboutPage({ data }: PageProps<Queries.AboutPageQuery>): JSX.Element {
             convallis est. Quisque aliquam.
           </p>
 
-          <hr />
+          <hr className="hr" />
           <h1>Heading 1</h1>
           <h2>Heading 2</h2>
           <h3>Heading 3</h3>
           <h4>Heading 4</h4>
-          <h5>HEADING 5</h5>
-          <h6>HEADING 6</h6>
+          <h5>Heading 5</h5>
+          <h6>Heading 6</h6>
 
-          <hr />
+          <hr className="hr" />
           <StaticImage
             src="../../static/images/photo.jpeg"
             alt="Photo of me in Adidas tracksuit. I'm standing at the edge of a cliff – national park."
@@ -66,13 +64,8 @@ function AboutPage({ data }: PageProps<Queries.AboutPageQuery>): JSX.Element {
             loading="lazy"
           />
 
-          <hr />
-          <h2 id="list_types">List Types</h2>
-          <h3>Definition List</h3>
-          <dl>
-            <dt>Definition List Title</dt>
-            <dd>This is a definition list division.</dd>
-          </dl>
+          <hr className="hr" />
+
           <h3>Ordered List</h3>
           <ol>
             <li>List Item 1</li>
@@ -86,65 +79,8 @@ function AboutPage({ data }: PageProps<Queries.AboutPageQuery>): JSX.Element {
             <li>List Item 3</li>
           </ul>
 
-          <hr />
-          <h2 id="misc">
-            Misc Stuff &ndash; abbr, acronym, pre, code, sub, sup, etc.
-          </h2>
-          <p>
-            Lorem <sup>superscript</sup> dolor <sub>subscript</sub> amet,
-            consectetuer adipiscing elit. Nullam dignissim convallis est.
-            Quisque aliquam. <cite>cite</cite>. Donec sed tellus eget sapien
-            fringilla nonummy.
-            <acronym title="National Basketball Association">NBA</acronym>
-            Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae,
-            feugiat in, nunc. Morbi imperdiet augue quis tellus.
-            <abbr title="Avenue">AVE</abbr>
-          </p>
-          <pre>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam
-            dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc
-            iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi,
-            imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent
-            mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu
-            volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed
-            tellus eget sapien fringilla nonummy.
-            <acronym title="National Basketball Association">NBA</acronym>
-            Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae,
-            feugiat in, nunc. Morbi imperdiet augue quis tellus.
-            <abbr title="Avenue">AVE</abbr>
-          </pre>
-          <div className="epigraph">
-            <blockquote>
-              <p>
-                The English language . . . becomes ugly and inaccurate because
-                our thoughts are foolish, but the slovenliness of our language
-                makes it easier for us to have foolish thoughts.
-              </p>
-              <footer>
-                George Orwell, “Politics and the English Language”
-              </footer>
-            </blockquote>
-            <blockquote>
-              <p>
-                For a successful technology, reality must take precedence over
-                public relations, for Nature cannot be fooled.
-              </p>
-              <footer>
-                Richard P. Feynman,
-                <cite>“What Do You Care What Other People Think?”</cite>
-              </footer>
-            </blockquote>
-            <blockquote>
-              I do not paint things, I paint only the differences between
-              things.
-              <footer>
-                Henri Matisse,
-                <cite>Henri Matisse Dessins: thèmes et variations</cite> (Paris,
-                1943), 37
-              </footer>
-            </blockquote>
-          </div>
-          <p>I said! My -- reason. I&apos;m h-ere;</p>
+          <hr className="hr" />
+
           <h2>Links</h2>
           <ol>
             <li>
@@ -211,6 +147,41 @@ function AboutPage({ data }: PageProps<Queries.AboutPageQuery>): JSX.Element {
             </li>
           </ol>
         </article>
+
+        <ul>
+          <li>
+            <button className="button" type="button">
+              Button
+            </button>
+          </li>
+          <li>
+            <button className="button button-secondary" type="button">
+              Button Secondary
+            </button>
+          </li>
+          <li>
+            <button className="button button-teal" type="button">
+              Button Teal
+            </button>
+          </li>
+          <li>
+            <input type="text" className="input" />
+          </li>
+          <li>
+            <a href="#" className="Link">
+              Link
+            </a>
+          </li>
+          <li>
+            <h1 className="label-text-size">label-text-size</h1>
+          </li>
+          <li>
+            <span className="badge">badge</span>
+          </li>
+          <li>
+            <span className="badge badge-teal">badge</span>
+          </li>
+        </ul>
       </main>
     </TinyLayout>
   )
@@ -226,26 +197,9 @@ export function Head({
 
   return (
     <Seo
-      title="Let's Move Code Mountains!"
+      title="Website UI Kit"
       description={siteDescription}
       pathname={location.pathname}
     />
   )
 }
-
-export const AboutPageQuery = graphql`
-  query AboutPage {
-    site {
-      siteMetadata {
-        title
-        description
-        motto
-        social {
-          github
-          linkedin
-          youtube
-        }
-      }
-    }
-  }
-`

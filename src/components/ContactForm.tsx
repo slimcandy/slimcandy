@@ -14,6 +14,7 @@ function ContactForm({
     >
       <div
         className="bg-palette5-blue-50 border-2 border-palette5-blue-100
+        dark:bg-palette5-blue-900 dark:border-palette5-blue-800
         width-80 min-padding-x
         py-4 sm:py-6 md:py-8 lg:py-10"
       >
