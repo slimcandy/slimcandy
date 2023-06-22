@@ -9,7 +9,7 @@ import ContactForm from "../components/ContactForm"
 function SolutionsPage(): JSX.Element {
   return (
     <TinyLayout>
-      <main className="my-1 sm:my-2 md:my-3 lg:my-4">
+      <main className="min-padding-y">
         <article
           className="flex flex-col md:flex-row
         gap-x-4 gap-y-4
@@ -17,7 +17,7 @@ function SolutionsPage(): JSX.Element {
         >
           <section
             className="order-2 md:order-1 md:flex-initial
-            border border-palette5-blue-300
+            border border-palette5-blue-100
             pt-4 lg:pt-6
             pb-6 lg:pb-8
             w-full md:w-1/3"
@@ -50,7 +50,7 @@ function SolutionsPage(): JSX.Element {
           </section>
           <section
             className="order-1 
-            border border-palette5-blue-300
+            border border-palette5-blue-100
             shadow-md
 
             md:order-2 md:flex-grow
@@ -92,7 +92,7 @@ function SolutionsPage(): JSX.Element {
           </section>
           <section
             className="order-3 md:flex-initial
-            border border-palette5-blue-300
+            border border-palette5-blue-100
             pt-4 lg:pt-6
             pb-6 lg:pb-8
             

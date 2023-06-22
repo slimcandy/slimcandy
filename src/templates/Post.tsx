@@ -26,7 +26,7 @@ function SinglePostLayout({
   return (
     <TinyLayout>
       <main
-        className="tufte-container font-serif my-1 sm:my-2 md:my-3 lg:my-4
+        className="tufte-container font-serif min-padding-y
         after:content-['❦'] 
         after:block 
         after:w-full 

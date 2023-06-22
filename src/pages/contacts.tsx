@@ -8,7 +8,7 @@ import ContactForm from "../components/ContactForm"
 function ContactsPage(): JSX.Element {
   return (
     <TinyLayout>
-      <main className="my-1 sm:my-2 md:my-3 lg:my-4">
+      <main className="min-padding-y">
         <ContactForm />
       </main>
     </TinyLayout>

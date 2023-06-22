@@ -11,7 +11,7 @@ function AboutPage({ data }: PageProps<Queries.AboutPageQuery>): JSX.Element {
 
   return (
     <TinyLayout siteMetadata={siteMetadata}>
-      <main className="font-serif my-1 sm:my-2 md:my-3 lg:my-4 sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto">
+      <main className="font-serif min-padding-y sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto">
         <article className="prose-primary">
           <h1>👋 Hello, tech enthusiasts and future collaborators!</h1>
           <StaticImage

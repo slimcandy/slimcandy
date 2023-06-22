@@ -10,7 +10,7 @@ function AboutPage({ data }: PageProps<Queries.AboutPageQuery>): JSX.Element {
 
   return (
     <TinyLayout siteMetadata={siteMetadata}>
-      <main className="tufte-container font-serif my-1 sm:my-2 md:my-3 lg:my-4">
+      <main className="tufte-container font-serif min-padding-y">
         <article className="tufte-article">
           <h1 className="wp-block-post-title">Lorem ipsum dolor sit amet</h1>
           <aside>
