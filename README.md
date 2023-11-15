@@ -9,17 +9,15 @@
   </a>
 </div>
 
-<a href="https://www.linkedin.com/in/2plus2is4/"><img src="https://github.com/slimcandy/slimcandy/raw/main/static/images/alex-cv.png" height="240" alt="Aleksei Volkov CV screen shot" /></a>
-
 ---
 
-## 👨🏻‍💻 About Me :
+## 👨🏻‍💻 About Me
 
-In my spare time, I take courses on frontend development to keep up with the latest technologies. I enjoy sharing my knowledge by contributing to open-source projects. I write technical articles and make videos about my pet projects.
+👋 With over 9 years in IT and a strong focus on React Development. My specialty is in creating cost-effective, developer-focused blogs with book-like readability and integrated payment and newsletter features.
 
-- 💳 Currently working at an online bank.
-- 🤔 Looking for help with JS native version of exiftool.
-- 💬 Fell free to ask me about html semantics
+🚀 My proficiency in JavaScript, React, Redux, and GatsbyJS has been honed during my tenures at Luxoft and Gazprombank.
+
+😊 Open to networking and new opportunities. Feel free to reach out!
 
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=slimcandy&exclude_repo=witcher-api&langs_count=8&layout=compact&hide=makefile&theme=react" alt="Most used languages" />
 
