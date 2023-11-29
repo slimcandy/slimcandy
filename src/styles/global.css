@@ -280,7 +280,6 @@
   }
   .prose-set {
     @apply prose 
-    prose-palette5 dark:prose-invert
-    prose-base md:prose-lg xl:prose-xl 2xl:prose-2xl;
+    prose-palette5 dark:prose-invert;
   }
 }
