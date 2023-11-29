@@ -27,9 +27,8 @@
   }
   .tufte-article {
     font-kerning: normal;
-    @apply max-w-2xl
+    @apply max-w-full
     prose prose-palette5 dark:prose-invert
-    prose-lg xl:prose-xl 2xl:prose-2xl
     text-palette5-blue-900 dark:text-palette5-blue-100;
 
     /**
@@ -37,7 +36,7 @@
     */
     & > *:not(aside, figcaption, pre, code) {
       @apply w-full md:w-8/12
-      max-w-lg;
+      max-w-full;
     }
     & > aside,
     & > figcaption {
