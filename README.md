@@ -13,11 +13,11 @@
 
 ## 👨🏻‍💻 About Me
 
-👋 With over 9 years in IT and a strong focus on React Development. My specialty is in creating cost-effective, developer-focused blogs with book-like readability and integrated payment and newsletter features.
+🚀 I've led projects impacting 2.5M+ users, enhancing user interfaces for global banks and investment firms. My focus on semantic development and pure JavaScript has driven efficiency in mobile-first design and landing pages creation. 
 
-🚀 My proficiency in JavaScript, React, Redux, and GatsbyJS has been honed during my tenures at Luxoft and Gazprombank.
+🛠️ Skilled in React, Redux, GatsbyJS, and NextJS, I excel in cross-functional teamwork, managing tasks from inception to completion, ensuring seamless integration and user satisfaction. 
 
-😊 Open to networking and new opportunities. Feel free to reach out!
+😊 Open to exciting new challenges!
 
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=slimcandy&exclude_repo=witcher-api&langs_count=8&layout=compact&hide=makefile&theme=react" alt="Most used languages" />
 
