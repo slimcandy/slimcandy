@@ -26,8 +26,7 @@ function SinglePostLayout({
   return (
     <TinyLayout>
       <main
-        className="tufte-container font-serif
-
+        className="new-tufte
         after:content-['❦'] 
         after:block 
         after:w-full 
@@ -39,6 +38,9 @@ function SinglePostLayout({
         itemType="http://schema.org/Article"
       >
         <article className="tufte-article" itemProp="articleBody">
+          <span className="text-gray-300 text-sm">
+            {post.category?.name} / {post.publishedAt} / {post.author?.name}
+          </span>
           {typeof post?.title === "string" && (
             <h1 itemProp="headline">{post.title}</h1>
           )}
@@ -49,7 +51,7 @@ function SinglePostLayout({
                   <span className="col-start-1 col-end-2 text-center">→</span>
                   <li className="col-start-2 col-end-5">
                     <Link
-                      to={`/posts/${prevPost.slug?.current as string}`}
+                      to={`/posts/${prevPost.slug?.current!}`}
                       className="link"
                       title={prevPost.description ?? "Previous post"}
                     >
@@ -63,7 +65,7 @@ function SinglePostLayout({
                   <span className="col-start-1 col-end-2 text-center">←</span>
                   <li className="col-start-2 col-end-5">
                     <Link
-                      to={`/posts/${nextPost.slug?.current as string}`}
+                      to={`/posts/${nextPost.slug?.current!}`}
                       className="link"
                       title={nextPost.description ?? "Next post"}
                     >
@@ -131,6 +133,13 @@ export const SinglePostLayoutQuery = graphql`
           )
           altText
         }
+      }
+      publishedAt(formatString: "DD.MM.YYYY")
+      category {
+        name
+      }
+      author {
+        name
       }
       _rawContent
     }

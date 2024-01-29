@@ -57,12 +57,10 @@ function Seo({
       <body
         className="bg-gradient-to-b from-white to-palette5-blue-100
         border-t-4 border-palette5-blue-100 
-      text-palette5-blue-900 
       selection:text-palette5-blue-50 selection:bg-palette5-blue-900
       
       dark:from-palette5-blue-900 dark:to-palette5-blue-800
       dark:border-palette5-blue-800
-      dark:text-palette5-blue-100
       dark:selection:text-palette5-blue-100 dark:selection:bg-palette5-blue-900
         
         transition-all duration-500 ease-in-out

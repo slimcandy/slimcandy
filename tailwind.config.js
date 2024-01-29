@@ -9,6 +9,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        "js-garden": {
+          black: "#1E2328",
+          green: "#87BEC3",
+        },
         "palette5-blue": {
           50: "#F0F4F8",
           100: "#D9E2EC",
@@ -75,7 +79,7 @@ module.exports = {
             "--tw-prose-invert-hr": theme("colors.palette5-blue.700"),
             "--tw-prose-invert-quotes": theme("colors.palette5-blue.100"),
             "--tw-prose-invert-quote-borders": theme(
-              "colors.palette5-blue.700"
+              "colors.palette5-blue.700",
             ),
             "--tw-prose-invert-captions": theme("colors.palette5-blue.400"),
             "--tw-prose-invert-code": theme("colors.white"),
