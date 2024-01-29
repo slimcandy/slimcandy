@@ -51,7 +51,7 @@ function SinglePostLayout({
                   <span className="col-start-1 col-end-2 text-center">→</span>
                   <li className="col-start-2 col-end-5">
                     <Link
-                      to={`/posts/${prevPost.slug?.current!}`}
+                      to={`/posts/${prevPost.slug?.current}`}
                       className="link"
                       title={prevPost.description ?? "Previous post"}
                     >
@@ -65,7 +65,7 @@ function SinglePostLayout({
                   <span className="col-start-1 col-end-2 text-center">←</span>
                   <li className="col-start-2 col-end-5">
                     <Link
-                      to={`/posts/${nextPost.slug?.current!}`}
+                      to={`/posts/${nextPost.slug?.current}`}
                       className="link"
                       title={nextPost.description ?? "Next post"}
                     >

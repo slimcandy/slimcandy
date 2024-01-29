@@ -45,7 +45,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
                       sm:text-lg md:text-xl lg:text-2xl xl:text-3xl"
                     >
                       <Link
-                        to={`/posts/${post.slug?.current as string}`}
+                        to={`/posts/${post.slug?.current}`}
                         className="link"
                       >
                         {post.title}

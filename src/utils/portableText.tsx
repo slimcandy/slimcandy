@@ -8,6 +8,7 @@ import css from "refractor/lang/css"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { type PortableTextComponents, PortableText } from "@portabletext/react"
 import { getGatsbyImageData } from "gatsby-source-sanity"
+import type { ImageNode } from "gatsby-source-sanity/lib-es5/images/getGatsbyImageProps"
 
 Refractor.registerLanguage(js)
 Refractor.registerLanguage(typescript)
@@ -29,13 +30,13 @@ export const components: PortableTextComponents = {
       }
 
       const imageData = getGatsbyImageData(
-        _ref,
+        _ref as ImageNode,
         {
           height: 300,
           placeholder: "dominantColor",
           fit: "fillmax",
         },
-        sanityConfig
+        sanityConfig,
       )
       if (imageData != null)
         return (
