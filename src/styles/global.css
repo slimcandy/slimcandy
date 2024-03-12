@@ -9,7 +9,7 @@
   font-display: swap;
   font-style: normal;
   font-named-instance: "Regular";
-  src: url(/fonts/zantroke/Zantroke.otf) format("opentype");
+  src: url("/fonts/zantroke/Zantroke.otf") format("opentype");
 }
 
 @layer base {
@@ -34,7 +34,6 @@
     h1 {
       font-family: Zantroke, "Gill Sans", "Gill Sans MT", Calibri,
         "Trebuchet MS", sans-serif;
-      @apply text-js-garden-black;
     }
   }
 

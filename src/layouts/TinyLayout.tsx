@@ -1,7 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import { AiOutlineBulb, AiOutlineMessage } from "react-icons/ai"
-import { BsBriefcase } from "react-icons/bs"
+import { AiOutlineMessage } from "react-icons/ai"
 
 function TinyLayout({ children }: { children: React.ReactNode }): JSX.Element {
   return (
@@ -24,24 +23,6 @@ function TinyLayout({ children }: { children: React.ReactNode }): JSX.Element {
             >
               <AiOutlineMessage className="text-palette5-blue-300 hidden md:inline" />
               Contact me
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/solutions"
-              className="link flex flex-wrap items-center justify-between gap-x-1"
-            >
-              <AiOutlineBulb className="text-palette5-blue-300 hidden md:inline" />
-              Solutions
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/projects"
-              className="link flex flex-wrap items-center justify-between gap-x-1"
-            >
-              <BsBriefcase className="text-palette5-blue-300 hidden md:inline" />
-              Projects
             </Link>
           </li>
         </menu>

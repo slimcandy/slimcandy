@@ -1,5 +1,5 @@
 import * as React from "react"
-import { graphql, Link, type HeadProps } from "gatsby"
+import { graphql, type HeadProps } from "gatsby"
 import { getImage } from "gatsby-plugin-image"
 import { PortableText } from "@portabletext/react"
 import type { PortableTextBlock } from "@portabletext/types"
@@ -16,8 +16,6 @@ function SinglePostLayout({
   data: Queries.SinglePostLayoutQuery
 }): JSX.Element {
   const post = data?.sanityPost
-  const prevPost = data?.prevPost
-  const nextPost = data?.nextPost
 
   if (post == null) {
     return <NoPosts />
@@ -26,14 +24,7 @@ function SinglePostLayout({
   return (
     <TinyLayout>
       <main
-        className="new-tufte
-        after:content-['❦'] 
-        after:block 
-        after:w-full 
-        after:text-center 
-        sm:after:text-2xl md:after:text-4xl lg:after:text-6xl
-        after:text-palette5-blue-300 dark:after:text-palette5-blue-600
-        after:opacity-80"
+        className="tufte-container font-serif min-padding-y"
         itemScope
         itemType="http://schema.org/Article"
       >
@@ -44,38 +35,6 @@ function SinglePostLayout({
           {typeof post?.title === "string" && (
             <h1 itemProp="headline">{post.title}</h1>
           )}
-          <aside className="print:hidden">
-            <menu className="hidden md:grid grid-cols-4 items-baseline gap-y-4">
-              {prevPost != null && (
-                <>
-                  <span className="col-start-1 col-end-2 text-center">→</span>
-                  <li className="col-start-2 col-end-5">
-                    <Link
-                      to={`/posts/${prevPost.slug?.current}`}
-                      className="link"
-                      title={prevPost.description ?? "Previous post"}
-                    >
-                      {prevPost.title}
-                    </Link>
-                  </li>
-                </>
-              )}
-              {nextPost != null && (
-                <>
-                  <span className="col-start-1 col-end-2 text-center">←</span>
-                  <li className="col-start-2 col-end-5">
-                    <Link
-                      to={`/posts/${nextPost.slug?.current}`}
-                      className="link"
-                      title={nextPost.description ?? "Next post"}
-                    >
-                      {nextPost.title}
-                    </Link>
-                  </li>
-                </>
-              )}
-            </menu>
-          </aside>
           {post._rawContent != null && (
             <PortableText
               value={post._rawContent as unknown as PortableTextBlock[]}

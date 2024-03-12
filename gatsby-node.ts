@@ -38,7 +38,7 @@ async function turnPostsIntoPages({
 
     console.log("📄 Creating page for Article:", post.title)
     actions.createPage({
-      path: `posts/${post.slug.current}`,
+      path: post.slug.current,
       component: postTemplate,
       context: {
         slug: post.slug.current,
