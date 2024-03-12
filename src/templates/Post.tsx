@@ -8,7 +8,6 @@ import Seo from "../components/Seo"
 import portableTextComponents from "../utils/portableText"
 import TinyLayout from "../layouts/TinyLayout"
 import NoPosts from "../components/NoPosts"
-import NewsletterForm from "../components/NewsletterForm"
 
 function SinglePostLayout({
   data,
@@ -23,12 +22,11 @@ function SinglePostLayout({
 
   return (
     <TinyLayout>
-      <main
-        className="tufte-container font-serif min-padding-y"
-        itemScope
-        itemType="http://schema.org/Article"
-      >
-        <article className="tufte-article" itemProp="articleBody">
+      <main itemScope itemType="http://schema.org/Article">
+        <article
+          className="bookish tufte xs:prose-base prose prose-sm mx-auto text-justify text-inherit sm:prose-base md:prose-lg lg:prose-xl xl:prose-2xl"
+          itemProp="articleBody"
+        >
           <span className="text-gray-300 text-sm">
             {post.category?.name} / {post.publishedAt} / {post.author?.name}
           </span>
@@ -43,8 +41,6 @@ function SinglePostLayout({
           )}
         </article>
       </main>
-
-      <NewsletterForm />
     </TinyLayout>
   )
 }

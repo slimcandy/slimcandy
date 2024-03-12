@@ -1,7 +1,7 @@
 import * as React from "react"
 
 import "prismjs/themes/prism-tomorrow.css"
-import "./src/styles/global.css"
+import "./src/styles/global.scss"
 
 interface OnRenderBodyArgs {
   setHeadComponents: (args: Array<React.ReactElement<any>>) => void

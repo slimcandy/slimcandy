@@ -1,31 +1,29 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import { AiOutlineMessage } from "react-icons/ai"
 
 function TinyLayout({ children }: { children: React.ReactNode }): JSX.Element {
   return (
     <>
-      <header
-        className="flex flex-wrap items-center justify-between
-        max-w-7xl mx-auto
-        py-4 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12
-        mb-4 sm:mb-6 md:mb-8 lg:mb-10 xl:mb-12
-        print:hidden"
-      >
-        <Link to="/" className="link">
-          Home Page
-        </Link>
-        <menu className="flex flex-wrap items-center justify-between gap-x-2 md:gap-x-4 lg:gap-x-6">
-          <li>
+      <header className="bg-white border border-b">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between gap-x-6 p-6 lg:px-8">
+          <div className="flex items-center gap-x-6">
             <Link
-              to="/contacts"
-              className="link flex flex-wrap items-center justify-between gap-x-1"
+              to="/"
+              className="text-sm font-semibold leading-6 text-gray-900"
             >
-              <AiOutlineMessage className="text-palette5-blue-300 hidden md:inline" />
-              Contact me
+              Home Page
             </Link>
-          </li>
-        </menu>
+          </div>
+
+          <div className="flex flex-1 items-center justify-end gap-x-6">
+            <a
+              href="http://linkedin.com/in/aleksei-volkov-react/"
+              className="ml-auto rounded-md bg-slate-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-slate-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-600"
+            >
+              Contact me
+            </a>
+          </div>
+        </nav>
       </header>
       {children}
     </>

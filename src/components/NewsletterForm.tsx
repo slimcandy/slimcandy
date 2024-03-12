@@ -25,46 +25,59 @@ function NewsletterForm(): JSX.Element {
   }
 
   return (
-    <aside
-      className="width-full mt-4 sm:mt-6 md:mt-8 lg:mt-10
-    bg-white
-    border-t-4 border-palette5-blue-100
-    py-4 sm:py-6 md:py-8 lg:py-10
-
-    dark:bg-palette5-blue-900 dark:border-palette5-blue-800
-    print:hidden"
-    >
-      <div className="width-80 min-padding-x">
-        {result !== null && (
-          <div className="flex flex-col items-center justify-center space-y-2">
-            <h3>{result.msg}</h3>
-            <p>{result.result}</p>
+    <>
+      {result !== null && (
+        <div className="rounded-md bg-green-50 p-4">
+          <div className="flex">
+            <div className="ml-3">
+              <h3 className="text-sm font-medium text-green-800">
+                {result.msg}
+              </h3>
+              <div className="mt-2 text-sm text-green-700">
+                <p>{result.result}</p>
+              </div>
+            </div>
           </div>
-        )}
-        <h3 className="font-bold">Monthly Newsletter</h3>
-        <hr className="hr mb-4" />
-        <form
-          className="flex flex-col gap-y-4"
-          onSubmit={handleSubmit}
-          method="POST"
-        >
-          <label htmlFor="email">
-            <span className="sr-only">Write an email:</span>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="john@company.org"
-              className="input w-3/4 md:w-2/4"
-              onChange={handleEmailChange}
-            />
-          </label>
-          <button type="submit" className="button w-fit">
-            Sign Up
-          </button>
-        </form>
-      </div>
-    </aside>
+        </div>
+      )}
+
+      <aside className="bg-white py-16 sm:py-24 lg:py-32">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 lg:grid-cols-12 lg:gap-8 lg:px-8">
+          <div className="max-w-xl text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:col-span-7">
+            <h2 className="inline sm:block lg:inline xl:block">
+              This material could have been in your mailbox.
+            </h2>
+          </div>
+          <form
+            className="w-full max-w-md lg:col-span-5 lg:pt-2"
+            onSubmit={handleSubmit}
+            method="POST"
+          >
+            <div className="flex gap-x-4">
+              <label htmlFor="email-address" className="sr-only">
+                Email address
+              </label>
+              <input
+                id="email-address"
+                name="email"
+                type="email"
+                autoComplete="email"
+                required
+                className="min-w-0 flex-auto rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                placeholder="Enter your email"
+                onChange={handleEmailChange}
+              />
+              <button
+                type="submit"
+                className="flex-none rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >
+                Subscribe
+              </button>
+            </div>
+          </form>
+        </div>
+      </aside>
+    </>
   )
 }
 export default NewsletterForm

@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Zantroke";
+  src: url("/fonts/zantroke/Zantroke.otf") format("opentype");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "EB Garamond";
+  src: url("/fonts/EBGaramond/EBGaramond-VariableFont_wght.ttf") format("truetype");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "EB Garamond";
+  src: url("/fonts/EBGaramond/EBGaramond-Italic-VariableFont_wght.ttf") format("truetype");
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "EB Garamond Initials";
+  src:
+    url("/fonts/EBGaramond/EBGaramond-Initials.eot") format("embedded-opentype"),
+    url("/fonts/EBGaramond/EBGaramond-Initials.ttf") format("truetype"),
+    url("/fonts/EBGaramond/EBGaramond-Initials.woff") format("woff");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono[wght].ttf") format("truetype");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-Italic[wght].ttf") format("truetype");
+  font-style: italic;
+  font-display: swap;
+}
+
+.tufte {
+  @apply max-w-screen-xl mx-auto box-content w-11/12 pl-1/12;
+
+  // MIXINS
+  @mixin sidenote {
+    @apply w-11/12 md:float-right clear-right md:mb-8 md:w-3/12 md:mr-1/12 text-9/10;
+  }
+  @mixin full-width {
+    @apply w-11/12;
+  }
+
+  & > p,
+  & > blockquote {
+    @apply w-11/12 md:w-7/12;
+  }
+
+  blockquote {
+    @apply text-end font-normal;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply italic font-thin;
+  }
+
+  // SIDE NOTES
+  aside {
+    @include sidenote;
+
+    // remove top margin
+    & > p:first-of-type {
+      @apply md:mt-0;
+    }
+    & > img:first-of-type,
+    & > figure:first-of-type > img {
+      @apply md:mt-0;
+    }
+  }
+
+  a:link {
+    @apply text-inherit font-normal underline-offset-2 focus:ring-2 focus:ring-offset-2 focus:outline-none rounded;
+  }
+
+  // FIGURES
+  figure {
+    &:only-child {
+      @apply clear-right;
+      @include full-width;
+    }
+
+    &:has(figcaption) {
+      @apply flex flex-col-reverse md:inline-block;
+      img {
+        @apply w-11/12 md:w-7/12;
+      }
+
+      figcaption {
+        @apply md:mt-0 text-inherit;
+        @include sidenote;
+
+        // remove top margin
+        & > p:first-of-type {
+          @apply md:mt-0;
+        }
+      }
+    }
+  }
+
+  // DIVs
+  div,
+  iframe {
+    @include full-width;
+  }
+
+  // TABLES
+  table {
+    @include full-width;
+  }
+
+  // CODE
+  pre {
+    @include full-width;
+  }
+}
+
+@layer base {
+  article {
+    // LINKS
+    a:link,
+    a:link:visited {
+      @apply text-half-baked-300 decoration-half-baked-300 hover:decoration-half-baked-600  focus:ring-half-baked-600;
+    }
+
+    & > p:first-of-type > p:first-of-type::first-letter {
+      @apply text-half-baked-300;
+    }
+  }
+}

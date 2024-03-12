@@ -8,54 +8,22 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
   const posts = data.allSanityPost.nodes
 
   return (
-    <main className="py-2 sm:py-3 md:py-4 lg:py-5 xl:py-6">
-      <small
-        className="block tracking-text text-center text-palette5-blue-400
-            py-0.5 sm:py-1 md:py-2 lg:py-3 xl:py-3.5
-
-            after:content-['~'] after:text-palette5-blue-100
-            after:text-4xl
-            after:block after:w-full after:text-center after:leading-3"
+    <main className="mx-auto max-w-6xl px-4">
+      <ol
+        className="grid sm:grid-cols-2 sm:gap-x-4 md:grid-cols-3 md:gap-x-8"
+        reversed
       >
-        Article Index
-      </small>
-      <div
-        className="flex flex-col flex-wrap
-            gap-1 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-5 
-            width-100 px-4 md:px-0"
-      >
-        <ol
-          className="list-outside list-none md:list-decimal
-              flex flex-col flex-wrap
-              font-serif
-              marker:text-palette5-blue-200"
-          reversed
-        >
-          {(posts === null || posts.length === 0) && <NoPosts />}
-          {posts.map(function showPost(post) {
-            return (
-              <li key={post.title}>
-                <article className="grid grid-cols-5 items-baseline gap-x-4">
-                  <div
-                    className="col-start-1 col-end-3
-                      font-black text-end
-                      sm:text-lg md:text-xl lg:text-2xl xl:text-3xl"
-                  >
-                    <Link to={`/${post.slug?.current}`} className="link">
-                      {post.title}
-                    </Link>
-                  </div>
-                  <div className="col-start-3 col-end-6">
-                    <div className="prose-set">
-                      <p className="max-reading-w">{post.description}</p>
-                    </div>
-                  </div>
-                </article>
-              </li>
-            )
-          })}
-        </ol>
-      </div>
+        {(posts === null || posts.length === 0) && <NoPosts />}
+        {posts.map(function showPost(post) {
+          return (
+            <li key={post.title}>
+              <Link to={`/${post.slug?.current}`} className="link">
+                <ArticlePreview article={post} />
+              </Link>
+            </li>
+          )
+        })}
+      </ol>
     </main>
   )
 }
@@ -106,3 +74,18 @@ export const articlesQuery = graphql`
     }
   }
 `
+
+function ArticlePreview({ article }: { article: any }) {
+  return (
+    <article className="group w-full md:max-w-xl lg:max-w-4xl xl:max-w-6xl">
+      <div className="py-4 mx-auto mb-4 max-w-48 rounded-2xl object-cover group-hover:ring-2 group-hover:ring-half-baked-300 group-hover:ring-offset-2">
+        <h2 className="pb-4 font-display group-hover:text-half-baked-300">
+          {article.title}
+        </h2>
+        <p className="bookish line-clamp-6 group-hover:text-gray-400">
+          {article.description}
+        </p>
+      </div>
+    </article>
+  )
+}

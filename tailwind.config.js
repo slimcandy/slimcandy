@@ -1,4 +1,13 @@
-module.exports = {
+import tailwindcssDebugScreens from "tailwindcss-debug-screens"
+import defaultTheme from "tailwindcss/defaultTheme"
+import typography from "@tailwindcss/typography"
+// import plugin from "tailwindcss/plugin";
+import initialLetter from "tailwind-initial-letter"
+import hangingPunctuation from "tailwind-hanging-punctuation"
+import fontVariantCaps from "tailwind-font-variant-caps"
+import bookish from "tailwind-bookish"
+
+export default {
   content: [
     "./src/pages/**/*.{js,jsx,ts,tsx}",
     "./src/components/**/*.{js,jsx,ts,tsx}",
@@ -9,20 +18,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "garden-primary": {
-          50: "#f4f6f7",
-          100: "#e2e8eb",
-          200: "#c9d4d8",
-          300: "#a3b4bd",
-          400: "#768e9a",
-          500: "#5a7280",
-          600: "#4e606c",
-          700: "#43515b",
-          800: "#3c464e",
-          900: "#363d43",
-          950: "#1e2328",
-        },
-        "garden-secondary": {
+        "half-baked": {
           50: "#f2f9f9",
           100: "#deefef",
           200: "#c1dee0",
@@ -35,84 +31,72 @@ module.exports = {
           900: "#2f444a",
           950: "#1b2c31",
         },
-        "palette5-blue": {
-          50: "#F0F4F8",
-          100: "#D9E2EC",
-          200: "#BCCCDC",
-          300: "#9FB3C8",
-          400: "#829AB1",
-          500: "#627D98",
-          600: "#486581",
-          700: "#334E68",
-          800: "#243B53",
-          900: "#102A43",
+        shark: {
+          50: "#f4f6f7",
+          100: "#e2e8eb",
+          200: "#c9d4d8",
+          300: "#a3b4bd",
+          400: "#768e9a",
+          500: "#5a7280",
+          600: "#4e606c",
+          700: "#43515b",
+          800: "#3c464e",
+          900: "#363d43",
+          950: "#1e2328",
         },
-        "palette5-red": {
-          50: "#FFE3E3",
-          100: "#FFBDBD",
-          200: "#FF9B9B",
-          300: "#F86A6A",
-          400: "#EF4E4E",
-          500: "#E12D39",
-          600: "#CF1124",
-          700: "#AB091E",
-          800: "#8A041A",
-          900: "#610316",
-        },
-        "palette5-teal": {
-          50: "#EFFCF6",
-          100: "#C6F7E2",
-          200: "#8EEDC7",
-          300: "#65D6AD",
-          400: "#3EBD93",
-          500: "#27AB83",
-          600: "#199473",
-          700: "#147D64",
-          800: "#0C6B58",
-          900: "#014D40",
+        gray: {
+          50: "#f6f6f6",
+          100: "#e7e7e7",
+          200: "#d1d1d1",
+          300: "#b0b0b0",
+          400: "#7f7f7f",
+          500: "#6d6d6d",
+          600: "#5d5d5d",
+          700: "#4f4f4f",
+          800: "#454545",
+          900: "#3d3d3d",
+          950: "#262626",
         },
       },
-      typography: ({ theme }) => ({
-        palette5: {
-          css: {
-            "--tw-prose-body": theme("colors.palette5-blue.900"),
-            "--tw-prose-headings": theme("colors.palette5-blue.900"),
-            "--tw-prose-lead": theme("colors.palette5-blue.700"),
-            "--tw-prose-links": theme("colors.palette5-blue.900"),
-            "--tw-prose-bold": theme("colors.palette5-blue.900"),
-            "--tw-prose-counters": theme("colors.palette5-blue.600"),
-            "--tw-prose-bullets": theme("colors.palette5-blue.400"),
-            "--tw-prose-hr": theme("colors.palette5-blue.300"),
-            "--tw-prose-quotes": theme("colors.palette5-blue.900"),
-            "--tw-prose-quote-borders": theme("colors.palette5-blue.300"),
-            "--tw-prose-captions": theme("colors.palette5-blue.700"),
-            "--tw-prose-code": theme("colors.palette5-blue.900"),
-            "--tw-prose-pre-code": theme("colors.palette5-blue.100"),
-            "--tw-prose-pre-bg": theme("colors.palette5-blue.900"),
-            "--tw-prose-th-borders": theme("colors.palette5-blue.300"),
-            "--tw-prose-td-borders": theme("colors.palette5-blue.200"),
-            "--tw-prose-invert-body": theme("colors.palette5-blue.200"),
-            "--tw-prose-invert-headings": theme("colors.white"),
-            "--tw-prose-invert-lead": theme("colors.palette5-blue.300"),
-            "--tw-prose-invert-links": theme("colors.white"),
-            "--tw-prose-invert-bold": theme("colors.white"),
-            "--tw-prose-invert-counters": theme("colors.palette5-blue.400"),
-            "--tw-prose-invert-bullets": theme("colors.palette5-blue.600"),
-            "--tw-prose-invert-hr": theme("colors.palette5-blue.700"),
-            "--tw-prose-invert-quotes": theme("colors.palette5-blue.100"),
-            "--tw-prose-invert-quote-borders": theme(
-              "colors.palette5-blue.700",
-            ),
-            "--tw-prose-invert-captions": theme("colors.palette5-blue.400"),
-            "--tw-prose-invert-code": theme("colors.white"),
-            "--tw-prose-invert-pre-code": theme("colors.palette5-blue.300"),
-            "--tw-prose-invert-pre-bg": "rgb(0 0 0 / 50%)",
-            "--tw-prose-invert-th-borders": theme("colors.palette5-blue.600"),
-            "--tw-prose-invert-td-borders": theme("colors.palette5-blue.700"),
+      fontFamily: {
+        bookishSerif: [
+          `"EB Garamond"`,
+          {
+            fontFeatureSettings: '"swsh", "ss05", "dlig", "hlig"',
           },
-        },
-      }),
+          ...defaultTheme.fontFamily.serif,
+        ],
+        bookishInitials: [
+          "EB Garamond Initials",
+          "EB Garamond",
+          ...defaultTheme.fontFamily.serif,
+        ],
+        display: ["Zantroke", ...defaultTheme.fontFamily.serif],
+        serif: ["EB Garamond", ...defaultTheme.fontFamily.serif],
+        mono: ["JetBrains Mono", ...defaultTheme.fontFamily.mono],
+        initials: [
+          "EB Garamond Initials",
+          "EB Garamond",
+          ...defaultTheme.fontFamily.serif,
+        ],
+      },
+      fontSize: {
+        "9/10": "90%",
+      },
+      margin: {
+        "1/12": "calc(1 / 12 * 100%)",
+      },
+      padding: {
+        "1/12": "calc(1 / 12 * 100%)",
+      },
     },
   },
-  plugins: [require("tailwindcss-hyphens"), require("@tailwindcss/typography")],
+  plugins: [
+    tailwindcssDebugScreens,
+    typography,
+    initialLetter,
+    hangingPunctuation,
+    fontVariantCaps,
+    bookish,
+  ],
 }
