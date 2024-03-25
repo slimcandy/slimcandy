@@ -8,7 +8,7 @@ function IndexPage({ data }: PageProps<Queries.ArticlesQuery>): JSX.Element {
   const posts = data.allSanityPost.nodes
 
   return (
-    <main className="mx-auto max-w-6xl px-4">
+    <main className="mx-auto max-w-6xl p-4">
       <ol
         className="grid sm:grid-cols-2 sm:gap-x-4 md:grid-cols-3 md:gap-x-8"
         reversed
@@ -75,10 +75,10 @@ export const articlesQuery = graphql`
   }
 `
 
-function ArticlePreview({ article }: { article: any }) {
+function ArticlePreview({ article }: { article: any }): JSX.Element {
   return (
     <article className="group w-full md:max-w-xl lg:max-w-4xl xl:max-w-6xl">
-      <div className="py-4 mx-auto mb-4 max-w-48 rounded-2xl object-cover group-hover:ring-2 group-hover:ring-half-baked-300 group-hover:ring-offset-2">
+      <div className="py-4 mx-auto mb-4 w-72 rounded-2xl object-cover group-hover:ring-2 group-hover:ring-half-baked-300 group-hover:ring-offset-8">
         <h2 className="pb-4 font-display group-hover:text-half-baked-300">
           {article.title}
         </h2>
