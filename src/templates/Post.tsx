@@ -24,7 +24,7 @@ function SinglePostLayout({
     <TinyLayout>
       <main itemScope itemType="http://schema.org/Article">
         <article
-          className="bookish tufte xs:prose-base prose prose-sm mx-auto text-justify text-inherit sm:prose-base md:prose-lg lg:prose-xl xl:prose-2xl"
+          className="bookish tufte prose lg:prose-xl mx-auto text-justify text-inherit"
           itemProp="articleBody"
         >
           <span className="text-gray-300 text-sm">
