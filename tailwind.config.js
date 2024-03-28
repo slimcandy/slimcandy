@@ -67,15 +67,14 @@ export default {
           ...defaultTheme.fontFamily.serif,
         ],
         bookishInitials: [
-          "EB Garamond Initials",
+          "Goudy Initials",
           "EB Garamond",
           ...defaultTheme.fontFamily.serif,
         ],
-        display: ["Zantroke", ...defaultTheme.fontFamily.serif],
         serif: ["EB Garamond", ...defaultTheme.fontFamily.serif],
         mono: ["JetBrains Mono", ...defaultTheme.fontFamily.mono],
         initials: [
-          "EB Garamond Initials",
+          "Goudy Initials",
           "EB Garamond",
           ...defaultTheme.fontFamily.serif,
         ],

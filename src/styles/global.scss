@@ -3,32 +3,26 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Zantroke";
-  src: url("/fonts/zantroke/Zantroke.otf") format("opentype");
+  font-family: "EB Garamond";
+  src:
+    url("/fonts/EBGaramond/EBGaramond.ttf") format("truetype"),
+    url("/fonts/EBGaramond/EBGaramond.woff2") format("woff2");
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: "EB Garamond";
-  src: url("/fonts/EBGaramond/EBGaramond-VariableFont_wght.ttf") format("truetype");
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "EB Garamond";
-  src: url("/fonts/EBGaramond/EBGaramond-Italic-VariableFont_wght.ttf") format("truetype");
+  src:
+    url("/fonts/EBGaramond/EBGaramond-Italic.ttf") format("truetype"),
+    url("/fonts/EBGaramond/EBGaramond-Itali.woff2") format("woff2");
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "EB Garamond Initials";
-  src:
-    url("/fonts/EBGaramond/EBGaramond-Initials.eot") format("embedded-opentype"),
-    url("/fonts/EBGaramond/EBGaramond-Initials.ttf") format("truetype"),
-    url("/fonts/EBGaramond/EBGaramond-Initials.woff") format("woff");
+  font-family: "Goudy Initials";
+  src: url("/fonts/GoudyIni/GoudyIni.ttf") format("truetype");
   font-style: normal;
   font-display: swap;
 }

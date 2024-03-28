@@ -79,7 +79,7 @@ function ArticlePreview({ article }: { article: any }): JSX.Element {
   return (
     <article className="group w-full md:max-w-xl lg:max-w-4xl xl:max-w-6xl">
       <div className="py-4 mx-auto mb-4 w-72 rounded-2xl object-cover group-hover:ring-2 group-hover:ring-half-baked-300 group-hover:ring-offset-8">
-        <h2 className="pb-4 font-display group-hover:text-half-baked-300">
+        <h2 className="pb-4 font-sans group-hover:text-half-baked-300">
           {article.title}
         </h2>
         <p className="bookish line-clamp-6 group-hover:text-gray-400">
