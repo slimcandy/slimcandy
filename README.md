@@ -88,8 +88,6 @@ I build large-scale React and TypeScript applications for financial trading plat
 
 [![GitHub Streak](https://streak-stats.demolab.com?user=slimcandy&theme=radical&hide_border=true)](https://github.com/slimcandy)
 
-[![Most Used Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=slimcandy&exclude_repo=witcher-api&langs_count=8&layout=compact&hide=makefile&theme=radical&hide_border=true)](https://github.com/slimcandy)
-
 </div>
 
 ---
