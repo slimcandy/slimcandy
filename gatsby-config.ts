@@ -3,7 +3,6 @@ import type { GatsbyConfig } from "gatsby"
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `JS.Garden`,
-    siteUrl: `https://js.garden`,
     author: `Aleksei Volkov`,
     motto: `My Journey to $10k/mo. before my 30s`,
     description: `👋 Hi, join my coding journey towards $10K/month! I'm a seasoned React dev sharing tips and tutorials. Dive into CSS, JavaScript, React, and more with me!`,
