@@ -1,0 +1,128 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import image1 from './1e954375.webp'
+
+export const article = {
+  "author": "Aleksei Volkov",
+  "date": "2023-05-29",
+  "title": "TypeScript",
+  "description": "From Structural vs Nominal typing to the nuances of Utility Types and Discriminated Unions. It's a must-read for anyone looking to level up their TypeScript game!"
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default ({ children }) => (
+  <ArticleLayout article={article}>{children}</ArticleLayout>
+)
+
+<Image src={image1} alt="" />
+
+> Prefer video? [Watch this on YouTube](https://www.youtube.com/watch?v=W0M-G4BmFMI).
+
+## Typing
+
+- TypeScript is **structural** typing.
+- Java and C++ are **nominal** typing.
+
+```typescript
+type Foo = {};
+type Bar = {};
+
+let foo: Foo = {};
+let bar: Bar = {};
+
+// This is perfectly valid in TypeScript
+bar = foo;
+```
+
+## Type vs. Interface
+
+```typescript
+// Literals
+type car = 'Volvo' | 'BMW'
+// Unions
+type car = { brand: 'volvo' } | { brand: 'bmw'; year: 1994 };
+// Tupels
+type Point = [number, number];
+// Mapped
+type Readonly<T> = {
+  readonly [P in keyof T]: T[P];
+};
+```
+
+## literals vs. enum
+
+```typescript
+type Direction = "North" | "South"
+// —> compiles to nothing
+enum Direction {
+    North,
+    South,
+}
+// —> compiles to
+{
+    1: «North»,
+    2: «South»
+}
+```
+
+## How to limit generics?
+
+```typescript
+function getProperty<T, K extends keyof T>(obj: T, key: K) {
+  return obj[key];
+}
+let x = { a: 1, b: 2, c: 3, d: 4 };
+getProperty(x, 'a'); // okay
+getProperty(x, 'm'); // error: Argument of type 'm' isn't assignable to 'a' | 'b' | 'c' | 'd'.
+```
+
+## Mapped Types
+
+```typescript
+type CustomReadonly<T> = {
+  readonly [K in keyof T]: T[K];
+};
+```
+
+## Utility Types
+
+- **`Partial`**`<T>` – optional
+- **`Required`**`<T>` – required
+- **`Pick`**`<T, K extends keyof T>` – take one
+- **`Omit`**`<T, K extends keyof T>` – remove one
+- **`Record`**`<Keys extends keyof any, Values>` – create object
+
+And rest…
+
+```typescript
+type CustomPartial<T> = {
+  [K in keyof T]?: T[K];
+};
+```
+
+## unknown vs. any vs. never
+
+- **`unknown`** asks for checking before usage
+- **`any`** don’t
+- example of **`never`** is throwing an error
+
+## keyof, typeof, and instanceof
+
+- **`keyof`** return keys of type
+- **`typeof`** return type of variable
+- **`instanceof`** checks prototype chain if same constructor appear
+
+## Discriminated Unions
+
+One type is set of other types.
+
+Each type has a unique **discriminant** property.
+
+```typescript
+type TextMessage = { kind: 'text'; content: string };
+type ImageMessage = { kind: 'image'; src: string };
+type Message = TextMessage | ImageMessage;
+```

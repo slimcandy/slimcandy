@@ -1,0 +1,97 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import image1 from './c669042e.webp'
+
+export const article = {
+  "author": "Aleksei Volkov",
+  "date": "2023-06-05",
+  "title": "PWA",
+  "description": "Ever wondered how to transform your website into a PWA? TypeScript, React, Tailwind, and Vite. Learn how to create a web manifest, design icons, add safe area padding, work with service workers, and use Workbox tools to manage your PWA."
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default ({ children }) => (
+  <ArticleLayout article={article}>{children}</ArticleLayout>
+)
+
+<Image src={image1} alt="" />
+
+Picture this: [a nifty note-taking app](https://write.as/new) that, unfortunately, can only operate online. The beauty of a PWA is that it bridges this gap, bringing online functionality to [offline use](https://note.js.garden).
+
+> - [Demo](https://note.js.garden) 
+> - [Code](https://github.com/slimcandy/openNotes)
+
+And how do we achieve this? The secret lies in the Workbox toolset, and I’m about to show you how to unlock its potential.
+
+## The Manifest File
+
+> To link the manifest to all your app pages, use `<link rel="manifest" href="/manifest.json">`.
+
+Think of the manifest file as the PWA's DNA, outlining all the critical details about your app. This JSON file contains data about the app's appearance once installed, including **name**, **description**, **start\_url**, **display**, and **icons**.
+
+```json
+{
+  "name": "OpenNote",
+  "short_name": "OpenNote",
+  "description": "An open-source, offline-capable note-taking application, designed to capture and share your ideas freely and efficiently, anytime, anywhere.",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": []
+}
+```
+
+## Icons
+
+Who doesn't appreciate a visually appealing app? A well-designed icon can make your app stand out, and tools like [Canva](https://www.canva.com) can help you create eye-catching visuals. Once you have your design, use [online tools to generate a bundle with the appropriate sizes](https://realfavicongenerator.net).
+
+## Ensuring Responsiveness
+
+For your app to display correctly on notched devices, add
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+```
+
+to your **index.html** file. And to ensure your content remains visible and unobstructed by notches or home indicators, add safe area padding using a Tailwind plugin.
+
+## Service Workers
+
+> `navigator.serviceWorker.register(«/serviceworker.js")`
+
+Service workers sit at the heart of any PWA, enabling offline functionality and enhancing the user experience. As a browser API, you can register service workers as follows. 
+
+They operate in their own thread and work with the browser Cache API. The key takeaway here is that service workers can make your application work offline.
+
+```
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open('my-cache').then((cache) => {
+      return cache.addAll([
+        '/',
+        '/index.html',
+        '/styles.css',
+        '/script.js',
+        '/image.png',
+      ]);
+    })
+  );
+});
+
+```
+
+However, real-world applications use bundlers that hash and concatenate file names. This could lead to additional work of setting up a backend system for post-bundling. But there's an easier way.
+
+## Workbox
+
+> In my [demo project](https://note.js.garden), I'll take a detailed look at how to configure Workbox in the [**vite.config.js**](https://github.com/slimcandy/openNotes/blob/master/vite.config.ts) file.
+
+[Workbox](https://developer.chrome.com/docs/workbox/) is a Swiss Army knife for service workers. This set of tools from Google allows you to precache files with 'workbox-precaching', cache at runtime with 'StaleWhileRevalidate', and integrate with bundlers.
+
+## Reaping the Rewards
+
+There you have it – your website is now a fully functioning PWA! With the right toolkit and these techniques at your fingertips, you can create seamless digital experiences for your users.
+
+Remember, mastery is a journey, not a destination. Keep practicing, keep improving, and keep pushing the boundaries of what you can do with coding. Let's chase that 10k a month together.

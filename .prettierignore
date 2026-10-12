@@ -3,3 +3,4 @@ out
 package-lock.json
 PLAN.md
 README.md
+src/app/articles/**/*.mdx

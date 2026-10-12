@@ -1,0 +1,47 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import image1 from './f49e18fd.webp'
+import image2 from './7d2e44f2.webp'
+
+export const article = {
+  "author": "Aleksei Volkov",
+  "date": "2023-01-04",
+  "title": "HDR in CSS",
+  "description": "Step into the vibrant world of HDR and CSS. Learn how to utilize wider color gamuts like Display P3 and Rec. 2020 to enhance your frontend development projects. Discover the power of 50% more colors on HDR-supported displays."
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default ({ children }) => (
+  <ArticleLayout article={article}>{children}</ArticleLayout>
+)
+
+<Image src={image1} alt="" />
+
+High Dynamic Range (HDR) allows for a wider range of colours and brightness levels. This technology works on displays that support HDR format. Nowadays web advantage of display gamuts such as Display P3 and Rec. 2020, which can display a much larger color space than traditional sRGB displays. It is [50% more colours](https://twitter.com/svgeesus/status/1220029106248716288).
+
+> > Today I added a gamut volume comparison to CSS Color 4. Display P3 is 50% larger than sRGB!
+>
+> by [Chris Lilley](https://twitter.com/svgeesus)
+
+CSS is ready to fix it (at least for Apple users). Find colour gamuts comparison, code examples and device support overview below.
+
+### What is HDR?
+
+> Colour coverage for sRGB and Rec. 2020 gamuts.
+
+<Image src={image2} alt="CIE chromaticity diagrams comparing the small sRGB gamut with the much wider Rec. 2020 gamut" />
+
+The color gamut is a numerical value that specifies the visible range of colours on a certain device. The CIE (International Commission on Illumination) 1931 color space is a widely used color model that defines a color space based on human perception of colors. Since 1996 sRGB or _safe‑web_colours interpret colours for browser and monitors. Nowadays displays are able to show 50% more colours from sRGB.
+
+> - [CSS4 Color Presentation](https://2021-hd-color-at-css-camp.netlify.app/#high-risk)
+> - [Berlin Bike Theft](https://biketheft.gustav.uber.space)
+> - [HDR check library](https://hdr.js.garden)
+
+You can see live examples of HDR in CSS by visiting websites optimised for HDR displays from notes. These websites shows more vivid colours, brighter highlights, and deeper blacks. Find more examples on [GitHub](https://github.com/search?l=CSS&q=display-p3&type=Code) by searching `display-p3`.
+
+HDR images are often used for photography. They capture more detail than traditional photos do. Meanwhile `dynamic-range` in CSS checks display settings!
+
+### [Continue on habr.com...](https://habr.com/ru/post/715084/)

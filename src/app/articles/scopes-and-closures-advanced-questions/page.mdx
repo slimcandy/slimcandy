@@ -1,0 +1,154 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import image1 from './01460baa.webp'
+
+export const article = {
+  "author": "Aleksei Volkov",
+  "date": "2023-05-24",
+  "title": "Scopes & Closures",
+  "description": "I dive deep into the concepts of scoping and closures, breaking them down in a way that's easy to understand and remember."
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default ({ children }) => (
+  <ArticleLayout article={article}>{children}</ArticleLayout>
+)
+
+<Image src={image1} alt="" />
+
+> Prefer video? [Watch this on YouTube](https://www.youtube.com/watch?v=RV7IjpHCB7A&t=248s).
+
+## 1. What is the difference between global scope, function scope, and block scope in JavaScript?
+
+> [Guide to execution contexts, hoisting, scopes, and closures](https://ui.dev/c/advanced-javascript/ultimate-guide-to-execution-contexts-hoisting-scopes-and-closures-in-javascript).
+
+1. There are **variables**.
+    1. Don't think much about scopes.
+1. Functions limit visibility of **any** variables.
+1. Blocks limit visibility of variables created with `let` and `const` keywords.
+1. Variables created **anywhere** without keywords can be accessed via `window`.
+
+```
+function lesson() {
+  teacher = 'Suzy';
+}
+lesson();
+window.teacher; // Suzy
+```
+
+## 2. Hoisting
+
+> [JavaScript Visualizer](https://ui.dev/javascript-visualizer).
+
+```
+teacher = 'Suzy';
+name = teacher;
+name;
+// works without keywords at all
+```
+
+Some websites tell hoisting is when you have an access to the variable before its initialisation. The code above shows confusing example.
+
+There is no word "hoisting" in [specification](https://262.ecma-international.org/13.0/)!
+
+[Kyle Simpson says](https://frontendmasters.com/courses/deep-javascript-v3/) JavaScript has at least two phases (creation, execution) of compilation. JS makes tree of variables before code execution.
+
+```
+{
+  console.log('start');
+  console.log(variableName);
+  console.log(
+    'this text will not be printed, though `variableName` can be anything'
+  );
+  let variableName = 42;
+}
+```
+
+Hoisting is when js knows about variables before execution.
+
+Variables created with `var` keywords have `undefined` as a default value.
+
+```
+var a = 1;
+function test() {
+  var b = 2;
+}
+{
+  var c = 3;
+}
+if (true) {
+  var d = 4;
+}
+a; // 1
+c; // 3
+d; // 4
+b; // ReferenceError: b is not defined
+```
+
+## 3. Closures
+
+Problem:
+
+```
+function sayI() {
+  // by the time of access `i` is already `3`
+  console.log(i);
+}
+for (var i = 0; i < 3; i++) {
+  setTimeout(sayI); // saves pointer to function
+}
+```
+
+Solution:
+
+```
+function wrapper(i) {
+  // var i = $$i
+  function sayI() {
+    console.log(i); // local`i` is linked to the function
+  }
+  setTimeout(sayI);
+}
+for (var i = 0; i < 3; i++) {
+  wrapper(i);
+}
+```
+
+Don’t forget how loops work!
+
+```
+for (var i = 0; i < 3; i++) {}
+// works like:
+for (var $$i = 0; $$i < 3; $$i++) {
+  var i = $$i;
+}
+
+// and let
+for (let i = 0; i < 3; i++) {}
+// works like:
+for (let $$i = 0; $$i < 3; $$i++) {
+  let i = $$i;
+}
+```
+
+## 4. IIFE
+
+- Write functions without actual storing
+- Old way to pass object and data. Container like library.
+
+## 5. Shadowing
+
+It’s just a name of variable names confusion.
+
+```
+var name = 'Alex';
+function showName(name) {
+  var name = 'Suzy';
+  console.log(name);
+}
+showName(name);
+console.log(name);
+```

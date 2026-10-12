@@ -1,0 +1,219 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import image1 from './25b2e957.webp'
+
+export const article = {
+  "author": "Aleksei Volkov",
+  "date": "2023-01-31",
+  "title": "MacBook Setup",
+  "description": "Join me on my journey as I set up my new MacBook Pro M2 Max. From installing essential tools like Git and GitHub to setting up my preferred JavaScript and React development environment, I'll share my process and tips for a smooth transition"
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default ({ children }) => (
+  <ArticleLayout article={article}>{children}</ArticleLayout>
+)
+
+<Image src={image1} alt="" />
+
+> Prefer video? [Watch this on YouTube](https://www.youtube.com/watch?v=xcvWYOqlfiA).
+
+## Introduction
+
+I have been using a MacBook Pro for about 3 years now. It has served me well and it's still working fine. I'm currently looking for a new laptop. Here are all goes into setting up my own setup for a new MacBook Pro M2 Max.
+
+Inspired by [michaeluloth.com](https://michaeluloth.com/how-to-set-up-a-mac-for-web-development).   
+
+## Laptop
+
+Is there a one command to escape problems with development on macs? 
+
+> `xcode-select --install`
+
+Yes, it's [Command Line Tools for Xcode](https://developer.apple.com/download/all/?q=command%20line). 
+
+## Package Manager
+
+How to update and uninstall apps outside of App Store? Homebrew is the answer. It's a package manager for OSX that allows you to install software with the command line.
+
+> `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+
+Install it by [https://brew.sh](https://brew.sh/).
+
+## Node & NPM
+
+There are many ways to install Node.js. How to escape confusion? I use [n](https://github.com/tj/n). 
+
+> - Latest npm version with `npm install npm@latest -g`. 
+> - Specific one with `npm install npm@6.14.14 -g`.
+
+brew install n. Otherwise versions conflict and confuse you. Use sudo n to choose node version.
+
+## Text Editor
+
+Environment is set up, let's dive into the specifics. For example, which text editor do you use?
+
+> - `brew install --cask vscodium`
+> - `brew install --cask visual-studio-code`
+
+I used [VS Codium](https://vscodium.com) for a while. It is an open source editor, no microsoft trackers. Now I like [Github Copilot](https://github.com/features/copilot/), so I came back to [VSCode](https://code.visualstudio.com).
+
+### Settings
+
+```json
+{
+  // Best resources:
+  // https://frontendmasters.com/courses/customize-vs-code/
+  // https://www.youtube.com/watch?v=QeUp3CahkQw
+
+  // Theme
+  "workbench.sideBar.location": "right",
+  "workbench.statusBar.visible": false,
+  "editor.minimap.enabled": false,
+  "explorer.openEditors.visible": 0,
+  "debug.internalConsoleOptions": "neverOpen",
+
+  "workbench.colorTheme": "Default Light Modern", // default theme
+  "window.autoDetectColorScheme": true, // change to dark after OS
+  "workbench.preferredDarkColorTheme": "One Dark Pro", // default dark theme
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.fontLigatures": true,
+  "editor.fontFamily": "JetBrains Mono", // @url https://www.jetbrains.com/lp/mono/#how-to-install
+  "editor.fontSize": 14,
+  "editor.gotoLocation.multipleReferences": "goto", // Disable "Peek" preview
+  "editor.gotoLocation.multipleDefinitions": "goto", // @url https://stackoverflow.com/questions/50993353/disable-preview-when-go-to-definition-in-vscode
+  "editor.gotoLocation.multipleDeclarations": "goto",
+  "editor.gotoLocation.multipleImplementations": "goto",
+  "editor.gotoLocation.multipleTypeDefinitions": "goto",
+  "editor.snippetSuggestions": "bottom",
+  "editor.suggestSelection": "recentlyUsed",
+
+  // App
+  "files.autoSave": "afterDelay",
+  "telemetry.telemetryLevel": "off",
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "explorer.confirmDragAndDrop": false,
+  "update.showReleaseNotes": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "editor.inlineSuggest.enabled": true,
+  "vsintellicode.modify.editor.suggestSelection": "disabled",
+
+  // Extensions
+  "emmet.triggerExpansionOnTab": true,
+
+  // Lint
+  "editor.tabSize": 2,
+  "editor.renderWhitespace": "all",
+  "editor.wordWrap": "on",
+  "editor.linkedEditing": true,
+  "editor.codeActionsOnSave": ["source.fixAll.format", "source.fixAll.eslint"],
+  "editor.formatOnSave": true,
+
+  // Prettier
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+
+  // Git
+  "git.autofetch": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "gitlens.hovers.currentLine.over": "annotation",
+  "diffEditor.renderSideBySide": false,
+
+  // Terminal
+  "terminal.integrated.fontFamily": "'FiraCode Nerd Font Mono', monospace",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontWeight": "100",
+  "terminal.integrated.cursorBlinking": true,
+  "window.zoomLevel": 1,
+  "editor.stickyScroll.enabled": true
+}
+
+```
+
+### Extensions
+
+> Check typeface for developers – [JetBrains Mono](https://www.jetbrains.com/lp/mono/).
+
+- Auto Rename Tag Clone
+- Babel JavaScript
+- Better TOML
+- Code Spell Checker
+- EditorConfig for VS Code
+- ES7+ React/Redux/React Native snippets
+- ESLint
+- GitHub Copilot
+- GitLens
+- Import Cost
+- IntelliCode
+- JavaScript (ES6) code snippets
+- Material Icon Theme
+- MDX
+- One Dark Pro
+- Path Intellisense
+- Prettier
+- Code formatter
+- Prettier ESLint
+- SCSS Formatter
+- TODO Highlight.
+
+## Code versioning
+
+How to connect local git with a remote repo? Setup a key pair for a new project with ssh-keygen.
+
+- [HOWTO: Set up an SSH key](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/)
+- [Troubleshoot SSH issues](https://support.atlassian.com/bitbucket-cloud/docs/troubleshoot-ssh-issues/)
+
+## Command Line Interface
+
+> [Check out an update](https://js.garden/posts/macbook-terminal/) with Starship.rs.
+
+Want to have a colourful terminal? Oh My Zsh is a shell framework for shell, which is the default user interface for zsh. 
+
+Install [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh). Choose [themes](https://travis.media/top-12-oh-my-zsh-themes-for-productive-developers/) and [plugins](https://travis.media/top-10-oh-my-zsh-plugins-for-productive-developers/).
+
+## Browser & Extensions
+
+### Chrome
+
+- [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
+- [JSON Viewer](https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh)
+- [WhatFont](https://chrome.google.com/webstore/detail/whatfont/jabopobgcpjmedljpbcaablpmlmfcogm?hl=en)
+- [Octotree](https://chrome.google.com/webstore/detail/octotree-github-code-tree/bkhaagjahfmjljalopjnoealnfndnagc)
+
+### Safari
+
+- [JSON View](https://apps.apple.com/ru/app/json-peep-for-safari/id1458969831?l=en&mt=12)
+- [Octotree](https://apps.apple.com/ru/app/octotree/id1457450145?l=en&mt=12)
+
+## Linter and Formatter
+
+Lint code (ESLint) is a code quality tool that runs on the command line. It checks for errors and warnings in your code, such as missing semicolons or improper spacing between lines. Code formats (prettier) reformat your source file using the style rules defined in its configuration file.
+
+**. prettierrc**
+
+```json
+{"printWidth": 80,"tabWidth": 2,"semi": false,"singleQuote": true,"trailingComma": "none","bracketSpacing": true,"arrowParens": "avoid","proseWrap": "always"}
+```
+
+## Misc Tips
+
+The first step is to specify the node and npm version for each project. This ensures that your projects use the same versions of these tools as you do in your local environment.
+
+Leave versions of each project in package.json:
+
+```json
+"engines": {
+   "npm": ">=8.5.1",
+   "node": ">=16.4.0"
+ }
+```
+
+## Conclusion
+
+I'm happy to congratulate you with finishing setting up your new laptop! Let me give you some tips on how you did it.

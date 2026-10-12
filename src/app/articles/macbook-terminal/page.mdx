@@ -1,0 +1,47 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import image1 from './941f548e.webp'
+
+export const article = {
+  "author": "Aleksei Volkov",
+  "date": "2023-06-12",
+  "title": "MacBook Terminal",
+  "description": "Learn how to configure your MacBook terminal for an optimized coding experience. Ideal for React and JavaScript developers aiming to improve efficiency and workflow."
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default ({ children }) => (
+  <ArticleLayout article={article}>{children}</ArticleLayout>
+)
+
+<Image src={image1} alt="" />
+
+Hey there! Today, we’re going to set up your MacBook’s terminal. Make your React and JavaScript coding even more awesome. I’ve got some cool tips and tricks for both newbies and pros. Let’s jump right in!
+
+> ### Fonts
+>
+> Want to make your terminal look cool? 
+>
+> Check out [Nerd Fonts](https://www.nerdfonts.com/font-downloads)! These fonts are fun and functional — they’ll give your terminal a fun, fresh look.
+
+## Terminal
+
+Before I start, let’s clear up some terms. Your terminal has a “shell” (like zsh or bash), and an interface or terminal (like [iTerm](https://iterm2.com/) or HyperTerm). The shell is like the brain—it figures out what your commands mean. The interface is like your keyboard—it lets you talk to the shell. When you type commands, you’re typing them into the “prompt” or console.
+
+## Starship
+
+Next up: Starship. It’s a handy tool that makes your terminal faster and easier to use. Confused with [iTerm](https://iterm2.com/) and [powerlevel10k](https://github.com/romkatv/powerlevel10k) plugins? [Starship](https://starship.rs/) saves you time by doing everything through [brew](https://brew.sh/).
+
+## Wrap-Up
+
+We’re nearly there. Let’s finish off with a few more tips:
+
+- **Faster Typing**: Use [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) to speed up typing commands.
+- **Last Login Message**: Tired of the “last login” message? You can [remove it](https://medium.com/macoclock/how-to-remove-the-last-login-prompt-from-iterm-terminal-on-macos-8d70dea0f2e)!
+- **Personal Touch**: Make your terminal yours by [customizing your computer’s name](https://support.apple.com/en-gb/guide/mac-help/mchlp2322/mac).
+- **Look and Feel**: [Choose a look for your VSCode terminal](https://code.visualstudio.com/docs/terminal/appearance) that matches your style.
+
+Getting your terminal set up just right can make your coding quicker and more enjoyable. Whether you’re working on a mobile-friendly design, making a website accessible (following W3C/WCAG standards), or just coding up a storm in JavaScript or React. Make your terminal a best friend.

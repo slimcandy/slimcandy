@@ -1,0 +1,140 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import image1 from './8be4812d.webp'
+
+export const article = {
+  "author": "Aleksei Volkov",
+  "date": "2023-07-03",
+  "title": "Event Loop",
+  "description": "Crack the code of JavaScript's non-blocking nature! Master the concept of the Event Loop and boost your prowess for technical interviews. Dive deep into Promises, timers, user events, and understand the dance of micro and macrotasks. Don't just code, code smart!"
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default ({ children }) => (
+  <ArticleLayout article={article}>{children}</ArticleLayout>
+)
+
+<Image src={image1} alt="" />
+
+Hello there, code enthusiast! Let's dive into a captivating part of JavaScript's core - the Event Loop. This knowledge can not only boost your coding skills but also your income after acing those job interviews! So, get ready!
+
+> You can dig deeper with the [MDN's excellent guide on the Concurrency model and Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop).
+
+## How Does it Work?
+
+When JavaScript initiates an asynchronous operation, like a network request, it doesn’t wait around. It continues executing the rest of the code. Once the response comes back, the callback function is queued. The Event Loop continually checks if the call stack is empty, and if so, it processes the first task from the queue. This way, JavaScript isn't blocked by async operations.
+
+> To get a comprehensive understanding, don't miss [Jake Archibald's fantastic article, In the loop](https://jakearchibald.com/2018/tasks-microtasks-queues-and-schedules/).
+
+## Event Loop
+
+The Event Loop is like the heart of JavaScript, continuously pumping events and messages.
+
+The Event Loop plays a vital role in handling:
+
+- Promises
+- Timers
+- User events
+
+Do note that because of the Event Loop, timers may not fire at the exact time you specify. User interactions, network requests, and other events are also directed by the Event Loop.
+
+> Check out the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) for an in-depth look at Promises.
+
+## Promises
+
+Promises are a JavaScript **language-level** feature that debuted in ECMAScript 6 (ES6). They brought a new way to handle async operations.
+
+Interestingly, each Promise has its private microtask queue that trumps the regular task queue. Hence, the callbacks for `.then` or `.catch` of a Promise are executed as soon as the current stack is cleared, even before any task in the regular queue.
+
+> You can read more about timers in the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop#timer_phase).
+
+## Timers
+
+Unlike Promises, timers (`setTimeout` and `setInterval`) are **not part of the JavaScript** language. They are Web APIs offered by the browser.
+
+When you set a timer, the browser starts it. Once it expires, the callback function is queued. But, if the JavaScript thread is busy, the callback must wait for its turn. So, timers in JavaScript don't assure execution at the precise time specified.
+
+> **Important Note on User Interaction:**
+>
+> In JavaScript, infinite loops within `setTimeout` or `Promise` constructor can freeze user interactions such as button clicks or text copying. Only operations like network requests are truly asynchronous and won't block the main thread. So, while writing code, ensure these scenarios are well-handled to maintain your application's responsiveness.
+
+## Microtasks vs. Macrotasks
+
+The Event Loop's task queue is broadly divided into:
+
+Macrotasks:
+
+- Scripts
+- **User events**
+- `setTimeout`, `setInterval`, `setImmediate` operations
+
+Microtasks:
+
+- `process.nextTick`
+- Promises
+- `Object.observe`
+- `MutationObserver`
+
+The Event Loop gives priority to microtasks over macrotasks, ensuring promises resolve as swiftly as possible, keeping up JavaScript's non-blocking nature.
+
+> Even though JavaScript runs on one thread, you can still do many tasks at once [using Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers). These let you run hard tasks separately, making your program faster and easier to use.
+
+## Event Loop
+
+Here's how the Event Loop works:
+
+1. JavaScript starts by running the entire script as a callstack (a macrotask).
+1. After the initial script finishes, JavaScript checks the microtask queue. Any microtasks queued up during the initial script execution get processed.
+1. If a microtask schedules another microtask, it gets added to the queue, and the process continues until the microtask queue is empty.
+1. After all microtasks are done, control goes back to the Event Loop. It checks for any other macrotasks in the queue.
+1. After each macrotask, JavaScript checks the microtask queue again and processes all microtasks.
+
+> Remember that if a **user** triggers an event, its listeners go to the macro tasks queue.  
+> But if your **code** triggers the event, the listeners run right away, without waiting in line.
+>
+> [Jake Archibald's example](https://www.youtube.com/watch?v=cCOL7MC4Pl0).
+
+## Example
+
+Try out this code to see the Event Loop in action:
+
+```
+console.log('1');
+
+setTimeout(function log5() {
+  console.log('5');
+});
+
+var promise = new Promise(function log2(resolve) {
+  console.log('2');
+  setTimeout(function log6() {
+    console.log('6');
+    var promiseInsideTimer = new Promise(function log7(resolveInsideTimer) {
+      console.log('7');
+      resolveInsideTimer(console.log('8'));
+    });
+
+    promiseInsideTimer.then(function logUndefined(result) {
+      console.log('First undefined:', result);
+      resolve(console.log('9'));
+    });
+  });
+});
+
+console.log('3');
+promise.then(function logUndefined(result) {
+  console.log('Secont undefined:', result);
+});
+console.log('4');
+```
+
+You'll see this output: `1, 2, 3, 4, 5, 6, 7, 8, First undefined: undefined, 9, Second undefined: undefined`.
+
+## Useful links
+
+1. [What the heck is the event loop anyway? \| Philip Roberts \| JSConf EU](https://www.youtube.com/watch?v=8aGhZQkoFbQ).
+1. [Что такое Event Loop в JavaScript? За 5 минут](https://www.youtube.com/watch?v=377qAu37OTE).
+1. [Event Loop от А до Я](https://www.youtube.com/watch?v=zDlg64fsQow).

@@ -1,0 +1,51 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import image1 from './a0f7326d.webp'
+
+export const article = {
+  "author": "Aleksei Volkov",
+  "date": "2023-06-05",
+  "title": "AR Quick Look",
+  "description": "With the unveiling of Apple Vision Pro, we've officially stepped into the future of Augmented Reality (AR). Our iOS devices, already packed with AR technology, are providing an exciting sneak peek into the transformative potential of AR on websites across a multitude of real-world applications."
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default ({ children }) => (
+  <ArticleLayout article={article}>{children}</ArticleLayout>
+)
+
+<Image src={image1} alt="" />
+
+With the unveiling of Apple Vision Pro, we've officially stepped into the future of Augmented Reality (AR). Our iOS devices, already packed with AR technology, are providing an exciting sneak peek into the transformative potential of AR on websites across a multitude of real-world applications.
+
+## Harnessing the Power of AR Quick Look
+
+To spark AR functionality into life, the process calls for a link infused with the `rel="ar"` attribute, an ar-object link, and an image nestled inside:
+
+```html
+<a rel="ar" href="/assets/models/my-model.usdz">
+    <img src="/assets/models/my-model-thumbnail.jpg" /> 
+</a> 
+```
+
+### Adding a Dash of Commerce with the Pay Button
+
+If you're looking to enhance your AR experience with commerce features, you'll need to attach link hash parameters such as `applePayButtonType`. Check out this example:
+
+```html
+https://whatarquicklookcandotoday.js.garden/ar-objects/room-plan.usdz#callToAction=Просмотр&checkoutTitle=46%2C5%20м2&checkoutSubtitle=%22Водный%20на%20Талисмане%22&price=22%20000%20000%20₽
+```
+
+Custom banners follow a similar drill:
+
+```html
+https://whatarquicklookcandotoday.js.garden/ar-objects/Mask_pumpkin.usdz#custom=https://whatarquicklookcandotoday.js.garden/ar-banner.html
+```
+
+- [What AR QuickLook can do today?](https://ar.js.garden/)
+    - [GitHub](https://github.com/slimcandy/WhatARQuickLookCanDoToday)
+- [Random AR objects](https://nextart.netlify.app/)
+    - [GitHub](https://github.com/slimcandy/randomARt)

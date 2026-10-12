@@ -1,0 +1,172 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const article = {
+  "author": "Aleksei Volkov",
+  "date": "2024-01-09",
+  "title": "macOS Terminal: A Guide for Front-End Developers",
+  "description": "Hello, fellow front-end developers! Imagine a tool that’s not about punching in commands but a gateway to a world of coding artistry. That’s what the macOS Terminal became for me at Luxoft."
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default ({ children }) => (
+  <ArticleLayout article={article}>{children}</ArticleLayout>
+)
+
+## Introduction
+
+Hello, fellow front-end developers! Imagine a tool that’s not about punching in commands but a gateway to a world of coding artistry. That’s what the macOS Terminal became for me at Luxoft.
+
+Snazzy theme with default Starship prompt using the font Hack with Nerd Font symbols
+
+**Why the Terminal Matters in Front-End Development:**
+
+- **macOS Terminal**: It's at the heart of the macOS ecosystem. Offering robust command-line capabilities.
+- **Visual Studio Code Integration**: A favorite editor among us. It integrates with Terminal, becoming a one-stop solution for coding and command-line tasks.
+- **SSH Connections**: Essential for managing remote servers and deployments. Understanding Terminal commands is pivotal.
+
+In my role at Luxoft, I've contributed to the development of logistics software for a global fashion retailer. Leveraging the power of the Terminal has been essential.
+
+## My Story
+
+Bash terminal without customization
+
+In my career, I've always held the Terminal in high esteem, much like my father, a seasoned coder who relied on it. My journey of Terminal evolution began when I chanced upon tech bloggers' terminals. They were more than command lines; they were dynamic, displaying node versions, highlighted folders, and even offering autosuggestions. This led me to delve deeper, exploring the intricacies of terminal customization. I immersed myself in a variety of online courses, finding invaluable guidance. Courses from Luxoft's internal system played a crucial role, offering insights that were applicable to my work environment.
+
+After much testing, I found my sweet spot: the default macOS Terminal, enhanced with Fish Shell and Starship prompt. This setup struck the perfect balance, blending functionality with an intuitive interface.
+
+Joining the Luxoft team, I was amidst skilled developers. I assumed they'd all have sophisticated Terminal setups. Many hadn't ventured beyond the basics. Seeing an opportunity, I conducted a simple three-step demo: introducing Fish Shell, integrating Starship, and showing its seamless functionality. This small intervention revolutionized our approach to work, making our Terminal not a tool, but an ally in our coding endeavors.
+
+## Core Concepts of Command Line Interfaces
+
+**Terminal Emulator**
+
+> A terminal emulator mimics old computer terminals in a graphical interface. It’s allowing users to interact with the shell and operating system. It differentiates current software from the original, physical computer terminals. Terminal emulators bring these capabilities into modern graphical interfaces. They are offering command-line access and leveraging current computing power.
+
+Imagine stepping back in time to the era of old computer terminals. Now, blend that with the sleekness of modern graphical interfaces. That's what terminal emulators like iTerm2 and the default macOS Terminal do. They're your bridge to the command world, offering a blend of nostalgic charm and cutting-edge functionality.
+
+- [**iTerm2**](https://iterm2.com/): A feature-rich terminal emulator for macOS. Its support of split panes, advanced search, and extensive customization options is well-known.
+- [**macOS Terminal**](https://support.apple.com/en-gb/guide/terminal/welcome/mac): The default terminal emulator included with macOS. It provides fundamental functionalities required for shell interaction and basic terminal tasks.
+
+[**Shell**](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18)
+
+> A shell is a user interface for accessing an operating system's services. This program takes commands from the keyboard and gives them to the operating system.
+
+The shell is like the command center of your operating system - where your keystrokes turn into actions. From the classic Bash, to the more modern Zsh and user-friendly Fish, each shell has its own flavor and strengths. Think of choosing one like picking your favorite coffee blend - it's all about what suits your taste!
+
+- [**Bash (Bourne Again SHell)**](https://www.gnu.org/software/bash/): One of the most common Unix shells. It's the default shell in many Linux distributions and older macOS versions. Bash is a scripting flexibility and compatibility.
+- [**Zsh (Z Shell)**](https://www.zsh.org/): An enhanced version of the Bourne shell. It’s incorporating features from Bash, ksh, and tcsh. Zsh is notable for its improvements in scriptability and interactive use. It's the default shell in newer macOS versions.
+- [**Fish (Friendly Interactive Shell)**](https://fishshell.com/): Designed for user-friendliness and interactivity. Fish offers features like syntax highlighting and autosuggestions. It’s a favorite among developers who focus on ease of use and efficiency.
+
+**Prompts**
+
+> A prompt, within the context of a shell, is a textual sign that the shell is ready to receive commands. It often contains information like the current user, host, and directory, and it's customizable to suit various needs and preferences.
+
+A prompt is your shell's way of saying, "I'm ready for your next command!" It's not functional; it's customizable. With tools like Starship, you can make your prompt informative, stylish, and yours. It's like dressing up your command line in a tuxedo or a ball gown - classy and functional.
+
+- [**Starship**](https://starship.rs/): A cross-shell prompt adapts its display based on the context, such as the Git branch or the currently selected programming language version. It's known for its customization capabilities and aesthetic appeal.
+- **Default Bash, Zsh, and Fish Prompts**: Display the user's name, current directory, and other essential information. They offer a baseline level of information useful for everyday tasks.
+
+Starship theme example
+
+## Customizing macOS Terminal
+
+**Fonts and Colors**
+
+Let's talk aesthetics. Your Terminal doesn't have to be a bland sea of text. With the right fonts, like the programmer-friendly FiraCode Nerd Font, and a splash of color from schemes like Snazzy, you're not coding - you're creating art.
+
+- **Fonts**: A popular choice for macOS Terminal is the FiraCode Nerd Font, a monospaced font with programming ligatures. It improves readability and provides a range of glyphs for enhanced coding experience. [Download FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads#FiraCode_Nerd_Font).
+- **Colors**: The Snazzy color scheme, known for its vibrant and contrasting colors, offers better visibility and differentiation of text in the terminal. [Snazzy color profile for Terminal](https://github.com/sindresorhus/terminal-snazzy).
+    - Right-click [Snazzy.terminal](https://github.com/sindresorhus/terminal-snazzy/raw/main/Snazzy.terminal) and choose Save Link As….
+
+Terminal setting window
+
+The Terminal application allows the import of color schemes and selection of fonts under its Preferences settings.
+
+**Fish Shell and Starship Prompt**
+
+Pairing Fish Shell with Starship is like having a personal assistant in your Terminal. They bring syntax highlighting, autosuggestions, and contextual information right to your fingertips. It's not about efficiency; it's about enjoying every keystroke.
+
+- **Fish Shell**: Fish (Friendly Interactive Shell) is a smart and user-friendly command-line shell for macOS that includes features like syntax highlighting, autosuggestion, and scriptability. It streamlines command-line operations, making it a favorable choice for developers. [Fish Shell Official Website](https://fishshell.com/).
+
+Terminal setting window
+
+- **Starship Prompt**: Starship is a cross-shell prompt that adapts based on the environment and context. It displays information like the current Git branch, programming language version, and more. Starship is customizable and brings a modern touch to the terminal prompt. [Starship Prompt Official Website](https://starship.rs/).
+
+Fish autocomplete example
+
+To set up Starship, one must install it and then integrate it with the Fish Shell, as detailed in the Starship documentation.
+
+## Extra Features
+
+**Autocomplete**
+
+Autocomplete example
+
+Autocomplete is a critical feature that enhances the efficiency of command line interfaces. It predicts text input by the user and completes commands and file names, reducing the need for repetitive typing.
+
+**Implementation**: In macOS Terminal, autocomplete implements with tools like zsh-autosuggestions. It suggests commands as the user types, based on history and context. [zsh-autosuggestions on GitHub](https://github.com/zsh-users/zsh-autosuggestions).
+
+**Zen Terminal Tips**
+
+Zen Terminal window
+
+Transform your Terminal into a Zen garden. Cut clutter, personalize your settings, and streamline your interface. It's not a tool; it's your workspace. A clean, tailored Terminal is like a breath of fresh air for your coding sessions.
+
+- **Remove Last Login Message**: To clean your startup view, remove the recurring last login message by altering system profile files. Find step-by-step guides online, like [How to Remove the Last Login Prompt](https://medium.com/macoclock/how-to-remove-the-last-login-prompt-from-iterm-terminal-on-macos-8d70dea0f2e).
+- **Change Your Computer Name**: Customizing the computer name displayed in the terminal prompt can make it more personalized. You can change this name from the macOS System Preferences under 'Sharing' or by using the scutil command in the terminal. Instructions for changing the computer name are available in macOS support resources or online guides.
+- **Fish config**: Update config with [Matchai’s one](https://github.com/matchai/dotfiles/blob/b6c6a701d0af8d145a8370288c00bb9f0648b5c2/.config/fish/config.fish), for example:
+    1. `cd ~/.config/fish && cat config.fish`
+        1. Take only below #Fish syntax highlighting part.
+- [Remove greeting message](https://fishshell.com/docs/current/faq.html#how-do-i-change-the-greeting-message).
+
+## Integration
+
+In my projects at Luxoft, such as the development of a microfrontend interface for a large fashion retailer, integrating the Terminal within Visual Studio Code has been vital. Spearheaded by my initiative, this integration has streamlined our development process. By researching and selecting the best shell, terminal, and prompt helpers for macOS and front-end development, I've equipped our team with a powerful toolset.
+
+Our VSCode settings are fine-tuned for optimal performance:
+
+```json
+{
+  // Terminal
+  "terminal.integrated.fontFamily": "'FiraCode Nerd Font Mono', 'JetBrains Mono', Consolas, Courier, monospace",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontWeight": "100",
+  "terminal.integrated.smoothScrolling": true,
+  "terminal.integrated.cursorBlinking": true,
+}
+```
+
+This setup is not about working smarter; it's about creating a seamless, enjoyable experience for every developer on our team.
+
+## Summary
+
+**Terms**
+
+"Shell," "bash," "emulator," "terminal," and "CLI" often confuse due to their similar yet distinct meanings.
+
+- **Terminal** vs **Terminal Emulator** (gnome terminal, alacritty, rxvt-unicode): A terminal was a physical device for input and output. Today's terminal emulators are software versions of these devices, within a graphical interface.
+- **Shell** and **Bash** (bash, zsh, fish): A shell is a broad term for interfaces accessing an OS's services, while Bash is a specific Unix shell.
+- **CLI**: Command Line Interface, a general term for text-based software interactions.
+
+**Why Choose This Setup**
+
+Choosing macOS Terminal with Fish Shell, Starship prompt, and zsh-autosuggestions balances functionality and ease of use.
+
+- **Manual Configuration of ~/.zshrc or Terminal Preferences**: Offers in-depth customization but is time-consuming and complex for beginners.
+- **Oh My Zsh**: Customizable, but its wide range of options can overwhelm and demand frequent maintenance.
+- **iTerm2**: Feature-rich but overly complex for straightforward terminal needs.
+
+The Terminal is more than a gateway to your operating system; it's a canvas for your creativity. Understanding the nuances between Terminal, Shell, Emulator, and CLI is key to mastering this art. My chosen setup with macOS Terminal, Fish Shell, Starship prompt, and zsh-autosuggestions strikes the perfect balance between functionality and ease of use. It's a setup that welcomes beginners and satisfies experts - a true testament to the power of customization.
+
+## References
+
+1. [Change the default shell in Terminal on Mac](https://support.apple.com/en-gb/guide/terminal/trml113/mac)
+1. [Change your computer’s name or local hostname on Mac](https://support.apple.com/en-gb/guide/mac-help/mchlp2322/mac)
+1. [Change the default shell in Terminal on Mac](https://support.apple.com/en-gb/guide/terminal/trml113/mac)
+1. [Главред Хакера о терминалах](https://xakep.ru/2022/02/16/terminal-tricks/)
+1. [Terminal Basics](https://code.visualstudio.com/docs/terminal/basics)
+1. [Terminal Appearance](https://code.visualstudio.com/docs/terminal/appearance)

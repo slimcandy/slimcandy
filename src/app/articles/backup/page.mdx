@@ -1,0 +1,117 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import image1 from './73ab82e1.webp'
+import image2 from './d3c0cc9b.webp'
+import image3 from './4149697b.webp'
+import image4 from './6ca9abed.webp'
+import image5 from './a50b387e.webp'
+import image6 from './355ccd8c.webp'
+
+export const article = {
+  "author": "Aleksei Volkov",
+  "date": "2023-08-28",
+  "title": "Backup",
+  "description": "Ready to make your digital life bulletproof like a Siberian bunker? Check out our latest step-by-step guide on backing up your entire MacBook, fortified with Russian-hacker-approved methods! From activating iCloud's Advanced Data Protection to open-source alternatives that make you untouchable, we cover it all."
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default ({ children }) => (
+  <ArticleLayout article={article}>{children}</ArticleLayout>
+)
+
+Sit down, my friend. Here's the deal: The big shots want to own your life through your data. Passwords, photos, Bitcoins — secure them like you'd secure your own mother. Write that master password on paper, then lock it up tight. Encrypt your disk so not even the KGB can snoop.
+
+Let us embark on a journey to protect what is dear to you.
+
+## iCloud
+
+> If you’re unable to turn on Advanced Data Protection for a certain period of time, the onscreen instructions may provide more details.
+
+- **Choose** Apple menu \> System Settings.
+- **Click** your name, then click iCloud.
+- **Click** Advanced Data Protection, then click Turn On.
+- **Follow** the onscreen instructions to review your recovery methods and enable Advanced Data Protection.
+
+<Image src={image1} alt="macOS iCloud settings: Advanced Data Protection is on, listing end-to-end encrypted data types" />
+
+## Prepare Disk
+
+> Yes, it takes a day, but good security is worth the wait.
+
+**Open Disk Utility:** Go to 'Applications' \> 'Utilities' \> 'Disk Utility'.
+
+**Choose Drive:** Select the drive you want to erase.
+
+**Erase it, Comrade:** Click 'Erase', then under 'Security Options,' choose the most secure erase method. 
+
+<Image src={image2} alt="Disk Utility dialog to erase the external drive “Backup”, with the Security Options button" />
+
+> Mind [some errors](https://github.com/cryptomator/cryptomator/issues/2436#issuecomment-1249972294) may appear.
+
+**Install Cryptomator:** [Download and install](https://cryptomator.org) this gem.
+
+**Create a Vault:** Open Cryptomator, choose 'Create New Vault,' and give it a cool hacker name.
+
+**Unlock:** Drag your files in there, and lock it when you're done.
+
+<Image src={image3} alt="Cryptomator window with an unlocked vault named “Cryptomated”" />
+
+## Passwords
+
+- **Utilize** open-source password managers, such as [KeePassXC](https://keepassxc.org/).
+- **Export** all your passwords from browsers and import them into your chosen manager.
+
+### Export from Safari
+
+- **Open** Safari.
+- **Click** on "Preferences" \> "Passwords."
+- **Enter** your Mac password to view saved passwords.
+- **Select** the passwords you want to export, or select all.
+- **Click** on three dots icon and choose "Export".
+
+<Image src={image4} alt="Safari Passwords menu with options to import, export selected or export all passwords" />
+
+### Import into KeePassXC
+
+> Create a secure offline backup on encrypted USB drives. Keep it somewhere safe, perhaps next to your vodka stash.
+
+- **Open** KeePassXC.
+- **Click** on "Database" \> "Import" \> "CSV."
+- **Navigate** to the CSV file you've created, select it, and follow the on-screen instructions to import the passwords. Match columns.
+
+## Photos
+
+- **Change** the storage format to keep original files on your Mac. Go to "Photos" \> "Preferences" \> "iCloud" and select "Download Originals to this Mac."
+- **Open** the Photos app on your Mac.
+- **Zoom out** the library so you can see all your files.
+- **Select** all files (you can use the Command + A shortcut).
+- **Click** "File" \> "Export" \> "Export Unmodified Original."
+- **Choose** your desired format and location to export.
+- **Store** copies on external hard drives, protected like the secrets of a Siberian mastermind.
+
+<Image src={image5} alt="Photos File menu: Export Unmodified Originals for 2,950 items" />
+
+## Contacts
+
+- **Open** Contacts, select the list of your allies and connections.
+- **Go** to "File" \> "Export" \> "Export vCard."Now they are with you, always.
+
+## Documents, Notes, Books
+
+Just copy iCloud folder to external drive.
+
+## Music and Rest
+
+- **Open** Music.
+- **Select** all files, like gathering the family at the dinner table.
+- **Click** "File" \> "Library" \> "Export Library.".
+- **Click** on "File" \> " Print". In the print dialog, select "Save as PDF." They’re now protected, like the boss's reputation.
+
+<Image src={image6} alt="Music app print dialog set to print the song list" />
+
+## Conclusion
+
+Nice job, you're now untouchable. But remember, we stand stronger together. Governments and corporations want to divide and conquer. Don't let them. Stay vigilant, stay united, and most of all, keep your own counsel. Got it? Now go and be free, comrade.

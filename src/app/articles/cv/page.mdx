@@ -1,0 +1,47 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import image1 from './daf28012.webp'
+
+export const article = {
+  "author": "Aleksei Volkov",
+  "date": "2023-12-12",
+  "title": "CV",
+  "description": ""
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default ({ children }) => (
+  <ArticleLayout article={article}>{children}</ArticleLayout>
+)
+
+<Image src={image1} alt="" />
+
+1. Automate Your LinkedIn Profile Update with ChatGPT
+    - **Use this ChatGPT Prompt for a Customized Bio and Work Experience:**
+
+```yaml
+My current highlight: «». 
+My current bio: «».   
+
+Rewrite my work experience in COMPANY_NAME based on examples below.
+Explain domain and company scales. Highlight numbers of users, stores and other metrics applicable. Explain my role and areas of responsibility. 
+Highlight I can work alone OR in a team,
+show that I’ve led a project from scratch to production OR maintained an ongoing project,
+collaborated with other teams, managed tasks and brought them to completion.
+Keep it short, 400 characters maximum. Use simple and active language, no cliches.
+
+Use format: ``. // schema of example
+Like that: ``. // example
+
+My job description: «». // copy 'About Us' from its website
+My work experience now: «».    
+
+Other people examples: «».
+```
+
+    - **Examples for Inspiration:** Search for attractive positions in your preferred locations. Use these findings to fill in the gaps in your profile.
+1. Expand Your Network
+    - Seek out senior professionals and architects in your preferred companies and locations. Connect with them without needing an introduction.

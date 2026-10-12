@@ -1,0 +1,323 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import image1 from './30dab679.webp'
+
+export const article = {
+  "author": "Aleksei Volkov",
+  "date": "2024-01-17",
+  "title": "How Closures Work and Why It Matters",
+  "description": "They might sound complicated, but they are actually a fundamental part of the language. In this article, we’ll explore closures in a straightforward and practical way. Let’s clear up common misunde…"
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default ({ children }) => (
+  <ArticleLayout article={article}>{children}</ArticleLayout>
+)
+
+<Image src={image1} alt="" />
+
+They might sound complicated, but they are actually a fundamental part of the language. In this article, we’ll explore closures in a straightforward and practical way. Let’s clear up common misunderstandings. Walk through real-world examples. Nail those tricky interview questions about closures. By the end, you’ll see closures not as a hurdle, but as a valuable part of your JavaScript toolkit.
+
+## Common Misconceptions Debunked: Clarifying What Closures Are Not
+
+Understanding closures in JavaScript is crucial, especially in a dynamic work environment like Luxoft. Thanks to our internal courses, which keep us updated on the latest in JavaScript, I’ve deepened my understanding of closures beyond the common myths. Let’s debunk some of these myths with clear examples:
+
+### Myth 1: Closures Are Functions Returning Functions
+
+**Example:**
+
+```
+function sayAlex() {
+  console.log("alex");
+}
+function nameGenerator() {
+  return sayAlex;
+}
+
+var myName = nameGenerator();
+myName();
+```
+
+**Reality:** Here, **nameGenerator** returns the function **sayAlex**, but there’s no closure because nothing is closed over the function. A closure involves a function retaining access to its lexical scope, not just returning another function.
+
+### Myth 2: Closures Are About Functions Remembering Their Own Variable Values
+
+**Example:**
+
+```
+function nameGenerator() {
+  var name = "alex";
+  function sayAlex() {
+    console.log(name);
+  }
+
+  name = "jane";
+  return sayAlex;
+}
+
+var myName = nameGenerator();
+myName(); // Logs 'jane'
+```
+
+**Reality:** This example demonstrates a closure. The function **sayAlex** closes over the variable **name**, not its value at the time of definition. The closure retains a reference to the variable, which is why it logs ‘jane’ instead of ‘alex’.
+
+### Myth 3: You Can Only Create a Closure with a Function Expression
+
+**Reality:** Closures can be formed with both function declarations and expressions. The defining characteristic of a closure is its ability to access variables from an outer function’s scope, regardless of how the function was defined.
+
+### Myth 4: Closures Are Complex and Rarely Needed
+
+**Reality:** Closures are a fundamental part of JavaScript, essential in many common programming scenarios. They are frequently used in:
+
+- **Event Handlers:** To remember the state of certain elements.
+- **Callbacks:** Especially in asynchronous operations.
+- **Modules:** To create private variables and functions.
+- **Memoization:** Storing the results of expensive function calls.
+- **Libraries/Frameworks:** Many JavaScript libraries use closures.
+- **Bundlers like Webpack:** To manage module references.
+
+Understanding closures is key to excelling in JavaScript programming and technical interviews. They are not just an advanced topic but a daily tool in a developer’s toolkit. In the next chapter, we’ll explore practical examples of closures at various experience levels.
+
+## Closures in Action: Practical Examples
+
+This chapter showcases how closures function at different levels of coding expertise. These examples will show the versatility and power of closures in JavaScript.
+
+### Junior Level: The Slot Machine Function
+
+Consider a simple slot machine game function:
+
+```
+function createSlotMachine() {
+  var symbols = ["🍒", "🍍", "🍌"];
+  var combination = [];
+
+  function spin() {
+    combination = [];
+    for (var i = 0; i < 3; i++) {
+      var randomIndex = Math.floor(Math.random() * symbols.length);
+      combination.push(symbols[randomIndex]);
+    }
+    console.log(`Combination: ${combination.join("")}`);
+  }
+
+  return spin;
+}
+
+var spin = createSlotMachine();
+
+// Example usage:
+spin(); // 'Combination: 🍒🍌🍍'
+spin(); // 'Combination: 🍍🍍🍌'
+spin(); // 'Combination: 🍌🍒🍍'
+```
+
+In this example, **spin** is a closure that remembers the variable of **combination** from its parent function **createSlotMachine**. Each time **spin** is called, it accesses and modifies the **combination** variable, illustrating how closures capture local state from their containing function.
+
+### Middle Level: The Wrapper Function
+
+At a slightly more advanced level, consider a function that uses **setTimeout**:
+
+```
+function createDebouncedAlert() {
+  var timeoutId: NodeJS.Timeout | null = null;
+  var delay = 3 * 1000; // 3 seconds
+
+  function debounceAlert(message: string) {
+    if (timeoutId) {
+      clearTimeout(timeoutId); // Clear the previous timer if it exists
+    }
+
+    timeoutId = setTimeout(function () {
+      console.log(message);
+      timeoutId = null; // Reset the timer ID
+    }, delay);
+  }
+
+  return debounceAlert;
+}
+
+const debounceAlert = createDebouncedAlert();
+
+// Example usage:
+debounceAlert("Alert 1");
+debounceAlert("Alert 2");
+debounceAlert("Alert 3"); // only the last one is shown
+```
+
+Here, **debounceAlert** is a closure that captures the value of **timeoutId** from **createDebouncedAlert**. Despite the asynchronous **setTimeout**, each **debounceAlert** function remembers the correct value of its **createDebouncedAlert**. This illustrates closures in an asynchronous context, a common scenario in real-world JavaScript applications.
+
+### Senior Level: Unique Execution Contexts
+
+For a more advanced example:
+
+```
+function createTraffic() {
+  var vehicles = ["🚐", "🚕", "🚗", "🚎", "🛵"];
+  var traffic = [];
+
+  function increasePopulation() {
+    var randomIndex = Math.floor(Math.random() * vehicles.length);
+    traffic.push(vehicles[randomIndex]);
+    console.log(traffic.join(" "));
+  }
+
+  return increasePopulation;
+}
+
+var increasePopulation = createTraffic();
+increasePopulation(); // '🚗'
+increasePopulation(); // '🚗 🚕'
+
+var decreasePublicTransport = createTraffic();
+decreasePublicTransport(); // '🚐'
+decreasePublicTransport(); // '🚐 🚕'
+```
+
+This example highlights execution contexts created by closures. Each **createTraffic** call generates a new closure with its own **traffic** variable. The **increasePopulation** and **decreasePublicTransport** instances are separate, demonstrating how closures can encapsulate state uniquely across different instances.
+
+These practical examples show how closures are not theoretical constructs but powerful tools for maintaining state, handling asynchronous operations, and creating modular and maintainable code. In the next chapter, we’ll explore real-world applications of closures to provide further context on their usefulness in everyday programming.
+
+## Applications of Closures: Real-World Scenarios
+
+In this chapter, we’ll delve into the real-world applications of closures. By understanding how closures are used in everyday coding, you’ll be better prepared for technical interviews and practical JavaScript development.
+
+**Data Privacy and Encapsulation**
+
+One of the primary uses of closures is to create private data and methods. This is crucial in many programming paradigms, especially in modular JavaScript design. Consider a simple module:
+
+```
+function createCounter() {
+  var count = 0;
+
+  return {
+    increment: function() { count++; },
+    getCount: function() { return count; }
+  };
+}
+
+var counter = createCounter();
+counter.increment();
+console.log(counter.getCount()); // 1
+```
+
+In this module, **count** is private. External code can’t access or change it, only through **increment** and **getCount**. This pattern is used in creating APIs and modules, where you need to protect the internal state from external interference.
+
+**Event Handling**
+
+Closures are used in event handling. They allow the event handler to access the context in which it was created. For instance:
+
+```
+function setupAlert(buttonId, alertMessage) {
+  var button = document.getElementById(buttonId);
+  button.addEventListener('click', function() {
+    alert(alertMessage);
+  });
+}
+```
+
+Here, the anonymous function inside **addEventListener** is a closure. It has access to **alertMessage** from the outer **setupAlert** function.
+
+**Callbacks and Asynchronous Programming**
+
+Closures are integral to asynchronous programming, especially with callbacks and promises. They ensure that callback functions have access to the surrounding local variables at the time they are executed.
+
+```
+function fetchData(callback) {
+  // Fetch some data asynchronously
+  setTimeout(() => {
+    callback('Data retrieved');
+  }, 1000);
+}
+
+fetchData(data => {
+  console.log(data); // 'Data retrieved'
+});
+```
+
+In this example, the callback function is a closure that accesses the **data** variable when it’s executed.
+
+**Memoization**
+
+Closures allow the implementation of memoization, an optimization technique that caches the results of expensive function calls:
+
+```
+function memoize(fn) {
+  var cache = {};
+  return function(...args) {
+    var key = JSON.stringify(args);
+    if (!cache[key]) {
+      cache[key] = fn.apply(this, args);
+    }
+    return cache[key];
+  };
+}
+
+var complexCalculation = memoize(function(arg) {
+  // Perform some complex calculation here
+});
+```
+
+In this pattern, the inner function has access to **cache**, making it possible to store and retrieve values based on arguments.
+
+**Libraries and Frameworks**
+
+Many JavaScript libraries and frameworks make extensive use of closures. For example, jQuery uses closures for event handling and managing state. React leverages closures for hooks like **useState** and **useEffect**, allowing components to maintain state across renders.
+
+**Module Management in Bundlers**
+
+Bundlers like Webpack use closures to wrap modules. Each module is wrapped in a function closure, which helps in isolating module scope and managing dependencies.
+
+Through these examples, closures emerge as practical tools for JavaScript developers. At Luxoft, applying our understanding of closures within the Scrum methodology streamlines our development process, allowing for more efficient sprint planning and reduced coding time. Closures aid in data encapsulation, event handling, and asynchronous programming. This knowledge is vital for both technical interviews and daily coding, enhancing efficiency and innovation in our projects.
+
+## Interview Prep: Typical Closure Questions and How to Answer Them
+
+In this final chapter, we’ll explore some typical closure-related interview questions and how to answer them. These questions will not only test your understanding of closures but also your ability to apply them in practical scenarios.
+
+**Question 1: What is a Closure in JavaScript?**
+
+**How to Answer:**
+
+Begin by defining a closure: A closure in JavaScript is when a function retains access to its lexical scope even when that function is executed outside of its original scope. Then, provide a simple example, like the **createCounter** function from a previous chapter, to illustrate the concept.
+
+**Question 2: Can Closures Be Used for Data Privacy?**
+
+**How to Answer:**
+
+Affirm that closures are a great tool for data privacy in JavaScript. Use the module pattern as an example, where you return an object with methods to interact with private variables, without exposing the variables themselves.
+
+**Question 3: How Do Closures Work with Asynchronous Code?**
+
+**How to Answer:**
+
+Explain that closures are very useful in asynchronous code, especially in callbacks and promises, as they allow the callback function to access the scope in which it was declared. Provide an example of using closures in an **fetch** request or with **setTimeout**.
+
+**Question 4: Describe a Scenario Where Closures Might Be Preferable to Global Variables**
+
+**How to Answer:**
+
+Discuss the benefits of closures in avoiding global variables, which can lead to code conflicts and security issues. Use an example like encapsulating functionality within a function to maintain state between function calls, without polluting the global namespace.
+
+**Question 5: How Do Closures Work in Loops, Especially with var and let?**
+
+**How to Answer:**
+
+Explain that **var** shares the same variable across loop iterations, leading to closures capturing the last value of the variable. **let** creates a new binding for each iteration, allowing each closure within the loop to capture a unique copy of the loop variable. This difference is crucial for ensuring closures within loops behave as expected.
+
+**Question 6: How Are Closures Used in Functional Programming?**
+
+**How to Answer:**
+
+Closures are a cornerstone of functional programming in JavaScript, particularly in higher-order functions and currying. Explain how closures enable functions to be returned from other functions with “remembered” environments.
+
+Getting ready for these interview questions does more than just prepare you for interviews; it helps you really understand JavaScript closures. At Luxoft, I’m happy to share what I know about it. It’s important to not only know the answers in technical interviews but to explain them well, often using real examples. If you’re interested, I can help guide you through Luxoft’s technical interview process and share more about what I’ve learned.
+
+## References
+
+1. [“You Don’t Know JS” by Kyle Simpson](https://github.com/getify/You-Dont-Know-JS)
+1. [Mozilla Developer Network (MDN) Web Docs on Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
+1. [ECMAScript Specification](https://262.ecma-international.org/14.0/)
+1. [“ES6 In Depth: let and const” by Mozilla Hacks](https://hacks.mozilla.org/2015/07/es6-in-depth-let-and-const/)
+1. [Flavio Copes’ Blog on JavaScript ES6](https://flaviocopes.com/es6/)

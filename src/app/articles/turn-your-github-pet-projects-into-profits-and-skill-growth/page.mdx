@@ -1,0 +1,189 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import image1 from './f51dc2ae.webp'
+import image2 from './c52a049c.webp'
+import image3 from './4f16d8f1.webp'
+
+export const article = {
+  "author": "Aleksei Volkov",
+  "date": "2023-02-08",
+  "title": "GitHub Repo Boilerplate",
+  "description": "Unleash the potential of your coding pet projects and transform them into profitable ventures. Discover how to leverage your JavaScript and React skills to become a pro in the programming world. Don't just code, code with a purpose!"
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default ({ children }) => (
+  <ArticleLayout article={article}>{children}</ArticleLayout>
+)
+
+<Image src={image1} alt="" />
+
+## Introduction
+
+As a programmer, you are likely familiar with the excitement from pet projects. Whether it's a passion project or an experiment with new technologies, these projects can be rewarding. But what if you could turn your pet projects into profits and become a programming pro? This guide will show you how to do that.
+
+## GitHub
+
+The first step in turning your pet projects into profits is to make your GitHub repository contribution-ready. This means adding a license and contribution files to your repository.
+
+### License
+
+I've read [Gina Häußge's article](https://github.com/readme/guides/open-source-licensing) about choosing a license and came up with [MIT](https://opensource.org/licenses/MIT). You may compare them with [choosealicense.com](https://choosealicense.com). After choosing one, copy its content and put into file _LICENSE.md_.
+
+Copy code of conduct from any repo you like. Standard source is [contributor-covenant.org](https://www.contributor-covenant.org/version/2/1/code_of_conduct/) sample. I choose [Atlassian one](https://developer.atlassian.com/platform/open-source/code-of-conduct/).
+
+### Thumbnail
+
+> 1. GitHub Repository
+> 1. Settings
+> 1. Scroll to Social Preview
+
+<Image src={image2} alt="GitHub repository settings, Social Preview section with an “HDR check” banner image" />
+
+Choose a catchy project thumbnail that will help attract users to your project.
+
+### Issues board
+
+<Image src={image3} alt="GitHub project board “hdr roadmap” with Backlog, In progress and In review columns" />
+
+Create a kanban board and pin a few issues on it to give contributors an idea of future work. Don't forget labeling issues. It's easier to get a _good first issue_ for a fresh project.
+
+### package.json
+
+```json
+{
+  "name": "isit-hdr-ready",
+  "version": "1.1.1",
+  "description": "Pure js NPM package to check hdr support in css (browser and hardware)",
+  "keywords": [
+    "javascript",
+    "css",
+    "hdr",
+  ],
+  "author": "@slimcandy",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slimcandy/isit-hdr-ready.git"
+  },
+  "bugs": {
+    "url": "https://github.com/slimcandy/isit-hdr-ready/issues"
+  },
+  "homepage": "https://hdr.js.garden"
+}
+```
+
+Update title, description and link inside package.json.
+
+### Misc
+
+Describe your project strategy in github milestones. It reflects the roadmap of your project. Finally, recognize contributors for their efforts and thank them for their help. I use [these badges](https://contrib.rocks/preview?repo=angular%2Fangular-ja).
+
+## CI/CD
+
+Continuous Integration/Continuous Deployment (CI/CD) is an important aspect of software development. It helps streamline the process of testing, building, and deploying code. Setting up CI/CD once and forgetting it will save you time and effort in the long run.
+
+### CI
+
+Start with a local setup using tools like Husky, ESLint, and Prettier.
+
+> `npx create-react-app my-app --template typescript`
+
+1. [Install Create React App with Typescript](https://create-react-app.dev/docs/adding-typescript/).
+
+> `npm init @eslint/config`
+
+1. ESLint is already in CRA, no need to [install it](https://eslint.org/docs/user-guide/getting-started). Initialize it.
+
+> `npm install --save-dev --save-exact prettier`
+
+1. [Install Prettier](https://prettier.io/docs/en/install.html). 
+
+> `npm install --save-dev eslint-config-prettier`
+
+    1. Integrate it into eslint. I prefer [standard way](https://prettier.io/docs/en/integrating-with-linters.html) - [https://github.com/prettier/eslint-config-prettier#installation](https://github.com/prettier/eslint-config-prettier#installation).
+    1. Configure _.eslintrc.json_.
+1. Install Airbnb ESLint configs. It is [made for JS](https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb-base/rules/imports.js#L139).
+
+> `npm install --save-dev eslint-config-airbnb-typescript`
+
+    1. Install [eslint-config-airbnb-typescript](https://github.com/iamturns/eslint-config-airbnb-typescript) to bind it with typescript.
+    1. Configure _.eslintrc.json_.
+1. Add scripts to _package.json_.
+
+> `npx husky-init && npm install`
+
+1. Install [husky](https://typicode.github.io/husky/#/?id=automatic-recommended).
+
+```json
+{
+   "format": "prettier --write src/**/*.{ts,tsx}",
+   "lint": "eslint --fix src/**/*.{ts,tsx}",
+   "test": "react-scripts test --watchAll=false && npm run format && npm run lint"
+ }
+```
+
+Now every time you commit, it will run npm run test.
+
+### CD
+
+Then, set up your repository using GitHub Actions and Netlify Deploy to make your workflow even smoother.
+
+> Generally, create _.github/workflows/pre-merge.yml_.
+
+Open [GitHub Actions docs](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions) and follow the steps. I use the very basic _.yml_ config:
+
+```yaml
+name: 📦 Install ➡ 📝 Format ➡ 🕵️ Lint ➡ 🔨 Build
+
+on:
+  push:
+    branches: ["master"] # Change this to your main branch
+  pull_request:
+    branches: ["master"] # Change this to your main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16, 18, 20] # Change this to your node versions
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: 🌳 Install Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+
+      - name: 📦 Install dependencies
+        run: npm install
+      - name: 📝 Format code
+        run: npm run format
+      - name: 🕵️ Lint code
+        run: npm run lint
+      - name: 🧪 Run tests
+        run: npm run test
+      - name: 🔨 Build project
+        run: npm run build
+```
+
+I use [Netlify](https://docs.netlify.com/#get-started) to deploy my websites. It integrates to my github repo and runs all checks and deploys.
+
+## Contribute to competitors
+
+One way to become a programming pro is to contribute to your competitors' projects. This helps you build your skills and gain experience. It also helps you build a network of contacts in your field. You never know when a collaboration opportunity will arise, so it's always a good idea to prepare.
+
+## Monetise it!
+
+There are [several ways](https://github.com/hzoo/awesome-oss) to [monetize your pet projects](https://github.com/nayafia/lemonade-stand). Including adding a "Buy Me a Coffee" button, getting a GitHub Pro status, and offering a support service. By taking advantage of [these opportunities](https://github.com/mrjoelkemp/awesome-paid-open-source), you can turn your pet projects into a source of income and become [a successful programmer](https://kentcdodds.com/blog/how-getting-into-open-source-has-been-awesome-for-me).
+
+## Conclusion
+
+Turning your pet projects into profits and becoming a programming pro is within reach. Now you can make your GitHub repository contribution-ready. Set up CI/CD, contribute to competitors, and monetize your projects. With hard work and determination, you can achieve success in the field of programming.
