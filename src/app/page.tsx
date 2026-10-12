@@ -2,6 +2,7 @@ import Link from 'next/link'
 
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
+import { Carousel, CarouselItem } from '@/components/Carousel'
 import { Container } from '@/components/Container'
 import {
   GitHubIcon,
@@ -12,7 +13,9 @@ import {
 import { type Role, roles } from '@/content/work'
 import { type ArticleWithSlug, getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
+import { type LinkedInPost, getLinkedInPosts } from '@/lib/linkedin'
 import { site } from '@/lib/site'
+import { type Video, getVideos } from '@/lib/youtube'
 
 function BriefcaseIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -62,6 +65,57 @@ function Article({ article }: { article: ArticleWithSlug }) {
       <Card.Description>{article.description}</Card.Description>
       <Card.Cta>Read article</Card.Cta>
     </Card>
+  )
+}
+
+function VideoCard({ video }: { video: Video }) {
+  return (
+    <a
+      href={video.url}
+      className="group block rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-500"
+    >
+      <img
+        src={video.thumbnail}
+        alt=""
+        width={320}
+        height={180}
+        loading="lazy"
+        decoding="async"
+        className="aspect-video w-full rounded-2xl bg-zinc-100 object-cover ring-1 ring-zinc-900/5 dark:bg-zinc-800 dark:ring-white/10"
+      />
+      <h3 className="mt-4 text-base font-semibold tracking-tight text-zinc-800 group-hover:text-teal-600 dark:text-zinc-100 dark:group-hover:text-teal-400">
+        {video.title}
+      </h3>
+      <time
+        dateTime={video.published}
+        className="mt-1 block text-sm text-zinc-500 dark:text-zinc-400"
+      >
+        {formatDate(video.published)}
+      </time>
+    </a>
+  )
+}
+
+function LinkedInCard({ post }: { post: LinkedInPost }) {
+  return (
+    <a
+      href={post.url}
+      className="group flex h-full flex-col rounded-2xl border border-zinc-100 p-6 transition hover:bg-zinc-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-500 dark:border-zinc-700/40 dark:hover:bg-zinc-800/50"
+    >
+      <time
+        dateTime={post.date}
+        className="text-sm text-zinc-500 dark:text-zinc-400"
+      >
+        {formatDate(post.date)}
+      </time>
+      <p className="mt-3 line-clamp-6 flex-auto text-sm text-zinc-600 dark:text-zinc-400">
+        {post.text}
+      </p>
+      <span className="mt-4 text-sm font-medium text-teal-600 dark:text-teal-400">
+        Read on LinkedIn
+        <span className="sr-only">: post from {formatDate(post.date)}</span>
+      </span>
+    </a>
   )
 }
 
@@ -140,7 +194,11 @@ function Resume() {
 }
 
 export default async function Home() {
-  let articles = (await getAllArticles()).slice(0, 4)
+  let [articles, videos, posts] = await Promise.all([
+    getAllArticles().then((all) => all.slice(0, 4)),
+    getVideos(),
+    getLinkedInPosts(),
+  ])
 
   return (
     <>
@@ -180,6 +238,32 @@ export default async function Home() {
           </div>
         </div>
       </Container>
+      {videos.length > 0 && (
+        <Carousel
+          title="Latest videos"
+          href={site.social.youtube}
+          linkLabel="YouTube channel"
+        >
+          {videos.map((video) => (
+            <CarouselItem key={video.id}>
+              <VideoCard video={video} />
+            </CarouselItem>
+          ))}
+        </Carousel>
+      )}
+      {posts.length > 0 && (
+        <Carousel
+          title="On LinkedIn"
+          href={site.social.linkedin}
+          linkLabel="LinkedIn profile"
+        >
+          {posts.map((post) => (
+            <CarouselItem key={post.url}>
+              <LinkedInCard post={post} />
+            </CarouselItem>
+          ))}
+        </Carousel>
+      )}
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">

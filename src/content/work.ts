@@ -11,7 +11,7 @@ export interface Role {
 export const roles: Array<Role> = [
   {
     company: 'DXC Technology',
-    summary: 'Hedge fund trading platform · retail logistics',
+    summary: 'Hedge fund trading · retail logistics',
     start: '2022',
     end: null,
   },
