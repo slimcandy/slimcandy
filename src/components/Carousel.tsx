@@ -128,5 +128,7 @@ export function Carousel({
 }
 
 export function CarouselItem({ children }: { children: React.ReactNode }) {
-  return <li className="relative w-72 flex-none snap-start sm:w-80">{children}</li>
+  return (
+    <li className="relative w-72 flex-none snap-start sm:w-80">{children}</li>
+  )
 }
