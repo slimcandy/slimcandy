@@ -1,4 +1,5 @@
-.cache
-package.json
+out
+.next
 package-lock.json
-public
+PLAN.md
+README.md
