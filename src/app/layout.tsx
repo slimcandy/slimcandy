@@ -19,7 +19,6 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: `${site.name} - ${site.title}`,
     description: site.description,
-    url: site.url,
     images: [{ url: '/og.jpg', width: 1200, height: 630 }],
   },
   alternates: {

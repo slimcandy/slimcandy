@@ -11,6 +11,15 @@ export const article = {
 export const metadata = {
   title: article.title,
   description: article.description,
+  alternates: { canonical: '/articles/cv' },
+  openGraph: {
+    type: 'article',
+    url: '/articles/cv',
+    title: article.title,
+    description: article.description,
+    publishedTime: article.date,
+    images: ['/og.jpg'],
+  },
 }
 
 export default ({ children }) => (

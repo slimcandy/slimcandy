@@ -72,7 +72,7 @@ function VideoCard({ video }: { video: Video }) {
   return (
     <a
       href={video.url}
-      className="group block rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-500"
+      className="group block rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-700 dark:focus-visible:outline-teal-400"
     >
       <img
         src={video.thumbnail}
@@ -83,7 +83,7 @@ function VideoCard({ video }: { video: Video }) {
         decoding="async"
         className="aspect-video w-full rounded-2xl bg-zinc-100 object-cover ring-1 ring-zinc-900/5 dark:bg-zinc-800 dark:ring-white/10"
       />
-      <h3 className="mt-4 text-base font-semibold tracking-tight text-zinc-800 group-hover:text-teal-600 dark:text-zinc-100 dark:group-hover:text-teal-400">
+      <h3 className="mt-4 text-base font-semibold tracking-tight text-zinc-800 group-hover:text-teal-700 dark:text-zinc-100 dark:group-hover:text-teal-400">
         {video.title}
       </h3>
       <time
@@ -100,7 +100,7 @@ function LinkedInCard({ post }: { post: LinkedInPost }) {
   return (
     <a
       href={post.url}
-      className="group flex h-full flex-col rounded-2xl border border-zinc-100 p-6 transition hover:bg-zinc-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-500 dark:border-zinc-700/40 dark:hover:bg-zinc-800/50"
+      className="group flex h-full flex-col rounded-2xl border border-zinc-100 p-6 transition hover:bg-zinc-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-700 dark:border-zinc-700/40 dark:hover:bg-zinc-800/50 dark:focus-visible:outline-teal-400"
     >
       <time
         dateTime={post.date}
@@ -111,7 +111,7 @@ function LinkedInCard({ post }: { post: LinkedInPost }) {
       <p className="mt-3 line-clamp-6 flex-auto text-sm text-zinc-600 dark:text-zinc-400">
         {post.text}
       </p>
-      <span className="mt-4 text-sm font-medium text-teal-600 dark:text-teal-400">
+      <span className="mt-4 text-sm font-medium text-teal-700 dark:text-teal-400">
         Read on LinkedIn
         <span className="sr-only">: post from {formatDate(post.date)}</span>
       </span>

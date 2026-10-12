@@ -55,7 +55,7 @@ export default async function Projects() {
             {project.homepage && (
               <a
                 href={project.homepage}
-                className="relative z-30 mt-4 flex text-sm font-medium text-zinc-500 transition hover:text-teal-600 dark:text-zinc-300 dark:hover:text-teal-400"
+                className="relative z-30 mt-4 flex text-sm font-medium text-zinc-500 transition hover:text-teal-700 dark:text-zinc-300 dark:hover:text-teal-400"
               >
                 <LinkIcon className="h-6 w-6 flex-none" />
                 <span className="ml-2">

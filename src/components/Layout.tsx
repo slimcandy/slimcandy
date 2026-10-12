@@ -10,8 +10,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </div>
       <div className="relative flex w-full flex-col">
+        <a
+          href="#main"
+          className="fixed top-4 left-4 z-50 -translate-y-24 rounded-md bg-white px-3 py-2 text-sm font-medium text-zinc-800 shadow-md focus:translate-y-0 dark:bg-zinc-800 dark:text-zinc-100"
+        >
+          Skip to content
+        </a>
         <Header />
-        <main className="flex-auto">{children}</main>
+        <main id="main" className="flex-auto">
+          {children}
+        </main>
         <Footer />
       </div>
     </>

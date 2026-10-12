@@ -97,7 +97,7 @@ export function Carousel({
           <div className="flex items-center gap-3">
             <a
               href={href}
-              className="text-sm font-medium text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300"
+              className="text-sm font-medium text-teal-700 hover:text-teal-800 dark:text-teal-400 dark:hover:text-teal-300"
             >
               {linkLabel}
             </a>

@@ -6,6 +6,29 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-teal-700);
+    outline-offset: 2px;
+  }
+  /* Long inline code (paths, commands) must wrap on narrow screens. */
+  .prose :not(pre) > code {
+    overflow-wrap: anywhere;
+  }
+  .dark :focus-visible {
+    outline-color: var(--color-teal-400);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
 @theme {
   --text-xs: 0.8125rem;
   --text-xs--line-height: 1.5rem;

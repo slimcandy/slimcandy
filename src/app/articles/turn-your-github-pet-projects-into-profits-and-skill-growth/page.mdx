@@ -13,6 +13,15 @@ export const article = {
 export const metadata = {
   title: article.title,
   description: article.description,
+  alternates: { canonical: '/articles/turn-your-github-pet-projects-into-profits-and-skill-growth' },
+  openGraph: {
+    type: 'article',
+    url: '/articles/turn-your-github-pet-projects-into-profits-and-skill-growth',
+    title: article.title,
+    description: article.description,
+    publishedTime: article.date,
+    images: ['/og.jpg'],
+  },
 }
 
 export default ({ children }) => (
