@@ -82,7 +82,14 @@ function renderSpans(block: Block) {
       if (marks.includes('strong')) text = `**${text}**`
       for (let mark of marks) {
         let def = defs.get(mark)
-        if (def?._type === 'link' && def.href) text = `[${text}](${def.href})`
+        if (def?._type === 'link' && def.href) {
+          // Old blog links point at the dead js.garden domain.
+          let href = def.href.replace(
+            /^https?:\/\/js\.garden\/posts\/([^/]+)\/?$/,
+            '/articles/$1',
+          )
+          text = `[${text}](${href})`
+        }
       }
       return lead + text + trail
     })

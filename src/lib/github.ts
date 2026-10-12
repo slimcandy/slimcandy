@@ -45,13 +45,13 @@ async function fetchRepo(repo: string): Promise<GitHubRepo | null> {
 // build never breaks because of GitHub.
 export async function getProjects(): Promise<Array<Project>> {
   return Promise.all(
-    projects.map(async ({ repo, description }) => {
+    projects.map(async ({ repo, description, homepage }) => {
       let data = await fetchRepo(repo)
       return {
         name: data?.name ?? repo,
         description: description ?? data?.description ?? '',
         url: data?.html_url ?? `https://github.com/${OWNER}/${repo}`,
-        homepage: data?.homepage || null,
+        homepage: homepage === undefined ? data?.homepage || null : homepage,
         language: data?.language ?? null,
         pushedAt: data?.pushed_at ?? null,
       }

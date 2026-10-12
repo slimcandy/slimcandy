@@ -1,10 +1,15 @@
 // Featured repos from github.com/slimcandy, in display order.
-// `description` overrides the GitHub one (used when GitHub has none).
-export const projects: Array<{ repo: string; description?: string }> = [
+// `description` and `homepage` override the GitHub values;
+// `homepage: null` hides a dead demo link.
+export const projects: Array<{
+  repo: string
+  description?: string
+  homepage?: string | null
+}> = [
   { repo: 'MetaCleaner' },
   { repo: 'fe-fwk-ts-react' },
   { repo: 'my-own-babel' },
-  { repo: 'isit-hdr-ready' },
+  { repo: 'isit-hdr-ready', homepage: null }, // hdr.js.garden is down
   {
     repo: 'tailwind-hanging-punctuation',
     description:
@@ -17,7 +22,7 @@ export const projects: Array<{ repo: string; description?: string }> = [
   },
   { repo: 'rss-reader' },
   { repo: 'WhatARQuickLookCanDoToday' },
-  { repo: 'openNotes' },
+  { repo: 'openNotes', homepage: null }, // note.js.garden is down
   { repo: 'css3IsAwesome' },
   { repo: 'tailwindcss-text-rendering' },
   { repo: 'randomARt' },
