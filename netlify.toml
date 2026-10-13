@@ -5,6 +5,8 @@
 [build.environment]
   NODE_VERSION = "22"
   NEXT_PUBLIC_SITE_URL = "https://avolkov.dev"
+  # Static export: plain files in out/, no Next.js runtime/functions needed.
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
 
 # Hashed build assets (JS, CSS, fonts, imported images) never change.
 [[headers]]
