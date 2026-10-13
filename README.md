@@ -2,7 +2,7 @@
 
 # Aleksei Volkov
 
-**Lead Frontend Engineer · 12+ Years · React · TypeScript · AI-Assisted Development**
+**Lead Full Stack Engineer · 12+ Years · Node.js · TypeScript · React · Agentic Development**
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/aleksei-volkov-react/)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/slimcandy)
