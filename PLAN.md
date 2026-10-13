@@ -128,5 +128,11 @@ Note: `scripts/import-sanity.ts` regenerates all posts. Once you hand-edit any M
 ### Later
 
 17. Umami: create a site at cloud.umami.is, set `NEXT_PUBLIC_UMAMI_WEBSITE_ID` in Netlify.
+
+### Fonts
+
+MonoLisa files live in the private repo `slimcandy/monolisa-font` (license: no redistribution).
+`scripts/fetch-fonts.sh` clones it during the Netlify build with a read-only deploy key stored in the
+`FONTS_DEPLOY_KEY` env var (base64, builds scope). Locally the files sit in gitignored `public/fonts/`.
 18. Old Mailchimp list (JS.Garden newsletter) is no longer used — export subscribers if you care.
 19. Old Sanity project `qtyf8bhl` can be deleted after you're happy with the migration.

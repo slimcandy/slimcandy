@@ -36,3 +36,6 @@ next-env.d.ts
 
 # Licensed fonts: must not be published (see scripts/fetch-fonts.sh)
 /public/fonts/
+
+# Netlify CLI link state
+.netlify
