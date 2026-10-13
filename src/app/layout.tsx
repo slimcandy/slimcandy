@@ -2,7 +2,7 @@ import { type Metadata, type Viewport } from 'next'
 
 import { Providers } from '@/app/providers'
 import { Layout } from '@/components/Layout'
-import { site } from '@/lib/site'
+import { ogImage, site } from '@/lib/site'
 
 import '@/styles/tailwind.css'
 
@@ -17,11 +17,12 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     siteName: site.name,
-    title: `${site.name} - ${site.title}`,
-    description: site.description,
-    images: [{ url: '/og.jpg', width: 1200, height: 630 }],
+    url: './',
+    locale: 'en_US',
+    images: [ogImage],
   },
   alternates: {
+    canonical: './',
     types: {
       'application/rss+xml': '/feed.xml',
     },

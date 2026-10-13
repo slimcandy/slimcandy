@@ -31,6 +31,11 @@
     Cache-Control = "public, max-age=86400, must-revalidate"
 
 [[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
   for = "/cv/*"
   [headers.values]
     Cache-Control = "public, max-age=86400, must-revalidate"

@@ -1,4 +1,5 @@
 import { ArticleLayout } from '@/components/ArticleLayout'
+import { ogImage } from '@/lib/site'
 import image1 from './c669042e.webp'
 
 export const article = {
@@ -17,8 +18,10 @@ export const metadata = {
     url: '/articles/pwa-a-step-by-step-guide',
     title: article.title,
     description: article.description,
+    locale: 'en_US',
     publishedTime: article.date,
-    images: ['/og.jpg'],
+    authors: [article.author],
+    images: [ogImage],
   },
 }
 

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 import { Button } from '@/components/Button'
@@ -138,16 +139,23 @@ function Role({ role }: { role: Role }) {
 
   return (
     <li className="flex gap-4">
-      <div
-        aria-hidden="true"
-        className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full text-sm font-semibold text-zinc-600 shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:text-zinc-300 dark:ring-0"
-      >
-        {role.company[0]}
+      <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full bg-white shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+        <Image
+          src={role.logo}
+          alt=""
+          className="h-7 w-7 rounded-md"
+          unoptimized
+        />
       </div>
       <dl className="flex flex-auto flex-wrap gap-x-2">
         <dt className="sr-only">Company</dt>
         <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-          {role.company}
+          <a
+            href={role.url}
+            className="hover:text-teal-700 dark:hover:text-teal-400"
+          >
+            {role.company}
+          </a>
         </dd>
         <dt className="sr-only">Focus</dt>
         <dd className="text-xs text-zinc-500 dark:text-zinc-400">
@@ -205,7 +213,7 @@ export default async function Home() {
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            Lead Full Stack Engineer building trading and operations systems.
+            Lead Full Stack Engineer building trading systems.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
             I’m Aleksei, a full stack engineer with 12+ years across financial

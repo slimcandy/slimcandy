@@ -1,7 +1,17 @@
 // Source of truth: ~/Downloads/cv-generator-2/cv/cv-master.md
+import { type ImageProps } from 'next/image'
+
+import logoArtezio from '@/images/logos/artezio.png'
+import logoBrandContrast from '@/images/logos/brandcontrast.png'
+import logoDxc from '@/images/logos/dxc.png'
+import logoInnoscripta from '@/images/logos/innoscripta.png'
+import logoLightspeed from '@/images/logos/lightspeed.svg'
 
 export interface Role {
   company: string
+  url: string
+  // Company favicon, downloaded from its website.
+  logo: ImageProps['src']
   // Client domain from the CV. Per-role job titles: TODO(Alex) — not in cv-master.md
   summary: string
   start: string
@@ -11,30 +21,40 @@ export interface Role {
 export const roles: Array<Role> = [
   {
     company: 'DXC Technology',
+    url: 'https://dxc.com',
+    logo: logoDxc,
     summary: 'Hedge fund trading · retail logistics',
     start: '2022',
     end: null,
   },
   {
     company: 'Artezio',
+    url: 'https://www.artezio.com',
+    logo: logoArtezio,
     summary: 'Universal banking platform',
     start: '2021',
     end: '2022',
   },
   {
     company: 'innoscripta',
+    url: 'https://www.innoscripta.com',
+    logo: logoInnoscripta,
     summary: 'R&D funding SaaS',
     start: '2020',
     end: '2021',
   },
   {
     company: 'BrandContrast',
+    url: 'https://www.brandcontrast.de',
+    logo: logoBrandContrast,
     summary: 'PR & brand-communication agency',
     start: '2015',
     end: '2019',
   },
   {
     company: 'Lightspeed Commerce',
+    url: 'https://www.lightspeedhq.com',
+    logo: logoLightspeed,
     summary: 'Cloud POS & payments (Ecwid)',
     start: '2014',
     end: '2015',

@@ -194,6 +194,7 @@ async function convert(post: Post) {
 
   let mdx = [
     `import { ArticleLayout } from '@/components/ArticleLayout'`,
+    `import { ogImage } from '@/lib/site'`,
     ...imports,
     '',
     `export const article = ${JSON.stringify(article, null, 2)}`,
@@ -207,8 +208,10 @@ async function convert(post: Post) {
     url: '/articles/${slug}',
     title: article.title,
     description: article.description,
+    locale: 'en_US',
     publishedTime: article.date,
-    images: ['/og.jpg'],
+    authors: [article.author],
+    images: [ogImage],
   },
 }`,
     '',

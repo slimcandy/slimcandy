@@ -5,7 +5,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "npx serve@14.2.4 out",
-    "lint": "eslint"
+    "lint": "eslint",
+    "prebuild": "sh scripts/fetch-fonts.sh"
   },
   "type": "module",
   "browserslist": "defaults, not ie <= 11",
