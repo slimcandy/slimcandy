@@ -60,7 +60,7 @@ src/app/articles/<slug>/page.mdx # + WebP images
 src/content/
   work.ts                        # roles, impact highlights, skills (from cv-master.md)
   projects.ts                    # featured repos + description/homepage overrides
-  linkedin/Shares.csv            # ← add from LinkedIn export
+  linkedin/Shares.csv            # npm run linkedin -- <export>; images in public/linkedin/
 src/lib/
   site.ts                        # name, email, socials, URLs — single source
   youtube.ts, linkedin.ts, github.ts  # build-time loaders, all fail soft
@@ -104,9 +104,10 @@ netlify.toml                     # build, caching, security headers
    Regenerate in cv-generator-2 and replace `public/cv/aleksei-volkov-cv.pdf` if you want them to match.
 8. **Review my copy**: home headline + intro, About text, Projects intro, Articles intro — written
    from `cv-master.md`, please check tone and facts.
-9. ~~LinkedIn~~ — done: `Shares.csv` (44 public posts, export of 2026-10-14) shows the latest 10.
-   To refresh, copy `Shares_<id>.csv` from a new export over `src/content/linkedin/Shares.csv`.
-   Only that file — the rest of the archive is private. Connections-only posts are skipped.
+9. ~~LinkedIn~~ — done: latest 10 public posts with images. To refresh, download a new export and run
+   `npm run linkedin -- ~/Downloads/Complete_LinkedInDataExport_<date>.zip` (zip or unpacked folder),
+   then commit `src/content/linkedin/Shares.csv` + `public/linkedin/` and push. macOS only (`sips`).
+   Images come from each public post page (og:image), saved as ≤800px JPEG; the build never calls LinkedIn.
 
 ### Article curation
 

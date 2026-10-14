@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -103,16 +104,32 @@ function LinkedInCard({ post }: { post: LinkedInPost }) {
       href={post.url}
       className="group flex h-full flex-col rounded-2xl border border-zinc-100 p-6 transition hover:bg-zinc-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-700 dark:border-zinc-700/40 dark:hover:bg-zinc-800/50 dark:focus-visible:outline-teal-400"
     >
+      {post.image && (
+        <img
+          src={post.image}
+          alt=""
+          width={320}
+          height={180}
+          loading="lazy"
+          decoding="async"
+          className="mb-4 aspect-video w-full rounded-lg bg-zinc-100 object-cover object-top ring-1 ring-zinc-900/5 dark:bg-zinc-800 dark:ring-white/10"
+        />
+      )}
       <time
         dateTime={post.date}
         className="text-sm text-zinc-500 dark:text-zinc-400"
       >
         {formatDate(post.date)}
       </time>
-      <p className="mt-3 line-clamp-6 flex-auto text-sm whitespace-pre-line text-zinc-600 dark:text-zinc-400">
+      <p
+        className={clsx(
+          'mt-3 text-sm whitespace-pre-line text-zinc-600 dark:text-zinc-400',
+          post.image ? 'line-clamp-4' : 'line-clamp-[10]',
+        )}
+      >
         {post.text}
       </p>
-      <span className="mt-4 text-sm font-medium text-teal-700 dark:text-teal-400">
+      <span className="mt-auto pt-4 text-sm font-medium text-teal-700 dark:text-teal-400">
         Read on LinkedIn
         <span className="sr-only">: post from {formatDate(post.date)}</span>
       </span>

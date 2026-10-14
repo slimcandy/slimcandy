@@ -1,14 +1,21 @@
+import { existsSync } from 'node:fs'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 
-// Drop Shares.csv from the LinkedIn data export (Settings → Data privacy →
-// Get a copy of your data) into this path. No file → no LinkedIn section.
-const FILE = path.join(process.cwd(), 'src/content/linkedin/Shares.csv')
+// Filled by `npm run linkedin -- <export>` (scripts/import-linkedin.ts) from the
+// LinkedIn data export. No file → no LinkedIn section.
+export const CSV_FILE = path.join(
+  process.cwd(),
+  'src/content/linkedin/Shares.csv',
+)
+export const IMAGE_DIR = path.join(process.cwd(), 'public/linkedin')
 
 export interface LinkedInPost {
+  id: string
   date: string
   url: string
   text: string
+  image: string | null
 }
 
 // RFC 4180: quoted fields may contain commas, newlines and "" escapes.
@@ -66,7 +73,7 @@ export async function getLinkedInPosts(
 ): Promise<Array<LinkedInPost>> {
   let csv: string
   try {
-    csv = await readFile(FILE, 'utf8')
+    csv = await readFile(CSV_FILE, 'utf8')
   } catch {
     return []
   }
@@ -83,11 +90,19 @@ export async function getLinkedInPosts(
   return rows
     .filter((row) => row[link] && row[text]?.trim())
     .filter((row) => !/CONNECTIONS/i.test(row[visibility] ?? ''))
-    .map((row) => ({
-      date: row[date].slice(0, 10),
-      url: row[link],
-      text: clean(row[text]),
-    }))
+    .map((row) => {
+      // ShareLink ends in the post URN: …urn%3Ali%3Ashare%3A7509998258547707905
+      let id = row[link].match(/(\d+)\/?$/)?.[1] ?? ''
+      return {
+        id,
+        date: row[date].slice(0, 10),
+        url: row[link],
+        text: clean(row[text]),
+        image: existsSync(path.join(IMAGE_DIR, `${id}.jpg`))
+          ? `/linkedin/${id}.jpg`
+          : null,
+      }
+    })
     .sort((a, z) => z.date.localeCompare(a.date))
     .slice(0, limit)
 }

@@ -6,6 +6,7 @@
     "build": "next build",
     "start": "npx serve@14.2.4 out",
     "lint": "eslint",
+    "linkedin": "node scripts/import-linkedin.ts",
     "prebuild": "sh scripts/fetch-fonts.sh"
   },
   "type": "module",
