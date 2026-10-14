@@ -48,10 +48,17 @@ function parseCsv(input: string) {
 }
 
 function clean(text: string) {
-  return text
-    .replace(/\{hashtag\|\\?#\|([^}]+)\}/g, '#$1')
-    .replace(/\s+/g, ' ')
-    .trim()
+  return (
+    text
+      // LinkedIn wraps each line break of a post in extra quotes: `line1"⏎"line2`.
+      .replace(/"\r?\n"/g, '\n')
+      .replace(/\{hashtag\|\\?#\|([^}]+)\}/g, '#$1')
+      // Keep line breaks (the hook is usually its own line), drop blank lines.
+      .split('\n')
+      .map((line) => line.replace(/\s+/g, ' ').trim())
+      .filter(Boolean)
+      .join('\n')
+  )
 }
 
 export async function getLinkedInPosts(

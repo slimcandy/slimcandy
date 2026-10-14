@@ -109,7 +109,7 @@ function LinkedInCard({ post }: { post: LinkedInPost }) {
       >
         {formatDate(post.date)}
       </time>
-      <p className="mt-3 line-clamp-6 flex-auto text-sm text-zinc-600 dark:text-zinc-400">
+      <p className="mt-3 line-clamp-6 flex-auto text-sm whitespace-pre-line text-zinc-600 dark:text-zinc-400">
         {post.text}
       </p>
       <span className="mt-4 text-sm font-medium text-teal-700 dark:text-teal-400">

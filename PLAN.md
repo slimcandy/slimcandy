@@ -7,7 +7,7 @@ replacing the Gatsby + Sanity "JS.Garden" blog. Work happens on the `master` bra
 ## Status
 
 Phases 1–6 are done and pushed to `master`; CI (prettier, eslint, build) is green.
-The site is **not live yet** — it needs the Netlify/DNS steps under "Your decisions & actions".
+The site is live at https://avolkov.dev.
 
 ## Goals
 
@@ -104,8 +104,9 @@ netlify.toml                     # build, caching, security headers
    Regenerate in cv-generator-2 and replace `public/cv/aleksei-volkov-cv.pdf` if you want them to match.
 8. **Review my copy**: home headline + intro, About text, Projects intro, Articles intro — written
    from `cv-master.md`, please check tone and facts.
-9. **LinkedIn**: put `Shares.csv` at `src/content/linkedin/Shares.csv` and push. Only Shares.csv —
-   the rest of the archive is private. Connections-only posts are skipped automatically.
+9. ~~LinkedIn~~ — done: `Shares.csv` (44 public posts, export of 2026-10-14) shows the latest 10.
+   To refresh, copy `Shares_<id>.csv` from a new export over `src/content/linkedin/Shares.csv`.
+   Only that file — the rest of the archive is private. Connections-only posts are skipped.
 
 ### Article curation
 
