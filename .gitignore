@@ -39,3 +39,6 @@ next-env.d.ts
 
 # Netlify CLI link state
 .netlify
+
+# YouTube thumbnails, downloaded at build time (src/lib/youtube.ts)
+/public/youtube/

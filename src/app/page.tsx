@@ -76,15 +76,19 @@ function VideoCard({ video }: { video: Video }) {
       href={video.url}
       className="group block rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-700 dark:focus-visible:outline-teal-400"
     >
-      <img
-        src={video.thumbnail}
-        alt=""
-        width={320}
-        height={180}
-        loading="lazy"
-        decoding="async"
-        className="aspect-video w-full rounded-2xl bg-zinc-100 object-cover ring-1 ring-zinc-900/5 dark:bg-zinc-800 dark:ring-white/10"
-      />
+      {video.thumbnail ? (
+        <img
+          src={video.thumbnail}
+          alt=""
+          width={320}
+          height={180}
+          loading="lazy"
+          decoding="async"
+          className="aspect-video w-full rounded-2xl bg-zinc-100 object-cover ring-1 ring-zinc-900/5 dark:bg-zinc-800 dark:ring-white/10"
+        />
+      ) : (
+        <div className="aspect-video w-full rounded-2xl bg-zinc-100 ring-1 ring-zinc-900/5 dark:bg-zinc-800 dark:ring-white/10" />
+      )}
       <h3 className="mt-4 text-base font-semibold tracking-tight text-zinc-800 group-hover:text-teal-700 dark:text-zinc-100 dark:group-hover:text-teal-400">
         {video.title}
       </h3>

@@ -41,6 +41,11 @@
     Cache-Control = "public, max-age=86400, must-revalidate"
 
 [[headers]]
+  for = "/youtube/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, must-revalidate"
+
+[[headers]]
   for = "/cv/*"
   [headers.values]
     Cache-Control = "public, max-age=86400, must-revalidate"
