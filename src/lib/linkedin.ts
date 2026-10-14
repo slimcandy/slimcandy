@@ -1,4 +1,4 @@
-import { existsSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 
@@ -15,7 +15,35 @@ export interface LinkedInPost {
   date: string
   url: string
   text: string
-  image: string | null
+  image: { src: string; width: number; height: number } | null
+}
+
+// Width/height from the JPEG header (SOFn marker), so the card reserves the
+// image's own aspect ratio before it loads.
+function jpegSize(buffer: Buffer) {
+  let i = 2
+  while (i + 9 < buffer.length) {
+    if (buffer[i] !== 0xff) return null
+    let marker = buffer[i + 1]
+    if (
+      marker >= 0xc0 &&
+      marker <= 0xcf &&
+      ![0xc4, 0xc8, 0xcc].includes(marker)
+    ) {
+      return {
+        height: buffer.readUInt16BE(i + 5),
+        width: buffer.readUInt16BE(i + 7),
+      }
+    }
+    i += 2 + buffer.readUInt16BE(i + 2)
+  }
+  return null
+}
+
+function image(id: string) {
+  let file = path.join(IMAGE_DIR, `${id}.jpg`)
+  let size = existsSync(file) && jpegSize(readFileSync(file))
+  return size ? { src: `/linkedin/${id}.jpg`, ...size } : null
 }
 
 // RFC 4180: quoted fields may contain commas, newlines and "" escapes.
@@ -98,9 +126,7 @@ export async function getLinkedInPosts(
         date: row[date].slice(0, 10),
         url: row[link],
         text: clean(row[text]),
-        image: existsSync(path.join(IMAGE_DIR, `${id}.jpg`))
-          ? `/linkedin/${id}.jpg`
-          : null,
+        image: image(id),
       }
     })
     .sort((a, z) => z.date.localeCompare(a.date))

@@ -110,13 +110,13 @@ function LinkedInCard({ post }: { post: LinkedInPost }) {
     >
       {post.image && (
         <img
-          src={post.image}
+          src={post.image.src}
           alt=""
-          width={320}
-          height={180}
+          width={post.image.width}
+          height={post.image.height}
           loading="lazy"
           decoding="async"
-          className="mb-4 aspect-video w-full rounded-lg bg-zinc-100 object-cover object-top ring-1 ring-zinc-900/5 dark:bg-zinc-800 dark:ring-white/10"
+          className="mb-4 h-auto w-full rounded-lg bg-zinc-100 ring-1 ring-zinc-900/5 dark:bg-zinc-800 dark:ring-white/10"
         />
       )}
       <time
@@ -128,7 +128,7 @@ function LinkedInCard({ post }: { post: LinkedInPost }) {
       <p
         className={clsx(
           'mt-3 text-sm whitespace-pre-line text-zinc-600 dark:text-zinc-400',
-          post.image ? 'line-clamp-4' : 'line-clamp-[10]',
+          post.image ? 'line-clamp-4' : 'line-clamp-[14]',
         )}
       >
         {post.text}
