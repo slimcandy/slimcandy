@@ -19,7 +19,7 @@ function LinkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 export const metadata: Metadata = {
   title: 'Projects',
   description:
-    'Six open-source projects rebuilt with Claude Code in October 2026. The code is AI-written; each core is verified by an independent judge: ExifTool, react-dom, acorn, the Tailwind compiler, usdchecker. All live on avolkov.dev.',
+    'Six small open-source projects by Aleksei Volkov: a photo metadata cleaner, a React-like runtime, a small Babel, CSS-only drawings, Tailwind typography packages and an AR capsule toy machine. All live on avolkov.dev.',
 }
 
 export default async function Projects() {
@@ -27,8 +27,8 @@ export default async function Projects() {
 
   return (
     <SimpleLayout
-      title="Six small projects, rebuilt with AI. An independent judge checks each one."
-      intro="In October 2026 I rebuilt six small projects with Claude Code: the code is AI-written, and the core of each is verified by an independent judge such as ExifTool, react-dom or Apple’s usdchecker. Everything is live on *.avolkov.dev and open source, with the hand-written code it replaced kept under a legacy tag in each repo."
+      title="Six small projects, each with a live demo."
+      intro="Browser tools, a React-like runtime, a small compiler, CSS drawings, Tailwind packages and an AR toy. Everything is live on *.avolkov.dev and open source on GitHub."
     >
       <ul
         role="list"
@@ -48,36 +48,14 @@ export default async function Projects() {
               <Card.Link href={project.url}>{project.repo}</Card.Link>
             </h2>
             <Card.Description>{project.description}</Card.Description>
-            <p className="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-              <span className="font-medium text-zinc-800 dark:text-zinc-100">
-                Judge:
-              </span>{' '}
-              {project.judge}
-            </p>
             <p className="relative z-30 mt-4 text-xs text-zinc-500 dark:text-zinc-400">
-              {project.before && (
-                <>
-                  Before:{' '}
-                  <a
-                    href={project.before.href}
-                    className="underline decoration-zinc-300 underline-offset-2 transition hover:text-teal-700 dark:decoration-zinc-600 dark:hover:text-teal-400"
-                  >
-                    {project.before.label}
-                    <span className="sr-only">
-                      {' '}
-                      (the code of {project.repo} before the rebuild)
-                    </span>
-                  </a>
-                </>
-              )}
               {[
                 project.language,
                 project.pushedAt &&
                   `Updated ${new Date(project.pushedAt).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}`,
               ]
                 .filter(Boolean)
-                .map((item) => (project.before ? ` · ${item}` : item))
-                .join('')}
+                .join(' · ')}
             </p>
             <a
               href={project.homepage}

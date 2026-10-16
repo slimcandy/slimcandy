@@ -54,16 +54,16 @@ I build large-scale React and TypeScript applications for financial trading plat
 
 ## Projects
 
-Six small projects rebuilt with Claude Code in October 2026. The code is AI-written; the core of each is verified by an independent judge. All live on `*.avolkov.dev`, all open source: [avolkov.dev/projects](https://avolkov.dev/projects).
+Six small open-source projects, all live on `*.avolkov.dev`: [avolkov.dev/projects](https://avolkov.dev/projects).
 
-| Project | What it is | Judge |
+| Project | What it is | Live |
 |---|---|---|
-| [MetaCleaner](https://github.com/slimcandy/MetaCleaner) · [meta.avolkov.dev](https://meta.avolkov.dev) | Removes EXIF, GPS, XMP and IPTC from photos in the browser; nothing is uploaded | The real ExifTool checks every cleaned file: 7 formats, byte level, pixels never re-encoded |
-| [fe-fwk-ts-react](https://github.com/slimcandy/fe-fwk-ts-react) · [react.avolkov.dev](https://react.avolkov.dev) | A React-like runtime in TypeScript; the demo counts renders and DOM writes per edit | The same edits in this runtime and in react-dom 19 must give identical DOM (fast-check random edits, 212 tests) |
-| [no-magic-babel](https://github.com/slimcandy/no-magic-babel) · [babel.avolkov.dev](https://babel.avolkov.dev) | A small Babel (parse, traverse, generate) with a scroll story of every step | The output must parse as ES5 with acorn and run the same as the input |
-| [css3IsAwesome](https://github.com/slimcandy/css3IsAwesome) · [css.avolkov.dev](https://css.avolkov.dev) | CSS-only drawings from 2015 and 2021, redrawn with modern CSS; drag to compare | None: the page shows the hand-made, redrawn and AI versions side by side |
-| [tailwind-typography-extras](https://github.com/slimcandy/tailwind-typography-extras) · [type.avolkov.dev](https://type.avolkov.dev) | Four Tailwind CSS v4 packages for typography properties Tailwind doesn't ship; on npm | 31 tests against the real Tailwind v4 compiler |
-| [capsule-toys](https://github.com/slimcandy/capsule-toys) · [ar.avolkov.dev](https://ar.avolkov.dev) | A capsule toy machine for AR Quick Look on iPhone and Vision Pro | Every model passes Apple's `usdchecker --arkit`, plus anchor, size and licence checks |
+| [MetaCleaner](https://github.com/slimcandy/MetaCleaner) | Removes EXIF, GPS, XMP and IPTC from photos in the browser; nothing is uploaded. Installs as a PWA | [meta.avolkov.dev](https://meta.avolkov.dev) |
+| [fe-fwk-ts-react](https://github.com/slimcandy/fe-fwk-ts-react) | A React-like runtime in TypeScript; the demo counts renders and DOM writes per edit | [react.avolkov.dev](https://react.avolkov.dev) |
+| [no-magic-babel](https://github.com/slimcandy/no-magic-babel) | A small Babel (parse, traverse, generate) with a scroll story of every step | [babel.avolkov.dev](https://babel.avolkov.dev) |
+| [css3IsAwesome](https://github.com/slimcandy/css3IsAwesome) | CSS-only drawings from 2015 and 2021, redrawn with modern CSS; drag to compare | [css.avolkov.dev](https://css.avolkov.dev) |
+| [tailwind-typography-extras](https://github.com/slimcandy/tailwind-typography-extras) | Four Tailwind CSS v4 packages for typography properties Tailwind doesn't ship; on npm | [type.avolkov.dev](https://type.avolkov.dev) |
+| [capsule-toys](https://github.com/slimcandy/capsule-toys) | A capsule toy machine for AR Quick Look on iPhone and Vision Pro | [ar.avolkov.dev](https://ar.avolkov.dev) |
 
 ---
 
