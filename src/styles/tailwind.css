@@ -29,25 +29,9 @@
   }
 }
 
-/* MonoLisa is licensed for this site only, so the files are NOT in git:
-   scripts/fetch-fonts.sh puts them in public/fonts/ before the build.
-   Without them, code falls back to the system monospace font. */
-@font-face {
-  font-family: 'MonoLisa';
-  src: url('/fonts/MonoLisa-Normal.ttf') format('truetype');
-  font-weight: 100 1000;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'MonoLisa';
-  src: url('/fonts/MonoLisa-Italic.ttf') format('truetype');
-  font-weight: 100 1000;
-  font-style: italic;
-  font-display: swap;
-}
-
+/* MonoLisa is licensed for this site only, so the files are NOT in git: scripts/fetch-fonts.sh
+   puts MonoLisa.css and its WOFF2 files in public/fonts/ before the build, and layout.tsx links
+   the stylesheet. Without them, code falls back to the system monospace font. */
 @theme {
   --font-mono:
     'MonoLisa', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;

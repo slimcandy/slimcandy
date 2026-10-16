@@ -43,6 +43,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="h-full antialiased" suppressHydrationWarning>
+      <head>
+        <link rel="stylesheet" href="/fonts/MonoLisa.css" />
+      </head>
       <body className="flex h-full bg-zinc-50 dark:bg-black">
         {process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID && (
           <script
