@@ -52,32 +52,18 @@ I build large-scale React and TypeScript applications for financial trading plat
 
 ---
 
-## Pinned Projects
+## Projects
 
-### [`MetaCleaner`](https://github.com/slimcandy/MetaCleaner) — strip image metadata, entirely in-browser
+Six small projects rebuilt with Claude Code in October 2026. The code is AI-written; the core of each is verified by an independent judge. All live on `*.avolkov.dev`, all open source: [avolkov.dev/projects](https://avolkov.dev/projects).
 
-![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
-
-Installable PWA that removes EXIF/metadata from images instantly — drag, drop, done. No uploads, no storage, all processing happens client-side.
-
----
-
-### [`fe-fwk-ts-react`](https://github.com/slimcandy/fe-fwk-ts-react) — React framework from scratch
-
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
-
-Built a learning implementation of a React-like framework in TypeScript — virtual DOM reconciliation, component lifecycle, hooks. Process: read the React source, reproduce core primitives, write tests against known behavior.
-
----
-
-### [`my-own-babel`](https://github.com/slimcandy/my-own-babel) — Babel-like compiler from scratch
-
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-
-Implements a simplified JS compiler — parse (Acorn) → traverse (visitor pattern) → generate — to understand what Babel actually does under the hood.
+| Project | What it is | Judge |
+|---|---|---|
+| [MetaCleaner](https://github.com/slimcandy/MetaCleaner) · [meta.avolkov.dev](https://meta.avolkov.dev) | Removes EXIF, GPS, XMP and IPTC from photos in the browser; nothing is uploaded | The real ExifTool checks every cleaned file: 7 formats, byte level, pixels never re-encoded |
+| [fe-fwk-ts-react](https://github.com/slimcandy/fe-fwk-ts-react) · [react.avolkov.dev](https://react.avolkov.dev) | A React-like runtime in TypeScript; the demo counts renders and DOM writes per edit | The same edits in this runtime and in react-dom 19 must give identical DOM (fast-check random edits, 212 tests) |
+| [no-magic-babel](https://github.com/slimcandy/no-magic-babel) · [babel.avolkov.dev](https://babel.avolkov.dev) | A small Babel (parse, traverse, generate) with a scroll story of every step | The output must parse as ES5 with acorn and run the same as the input |
+| [css3IsAwesome](https://github.com/slimcandy/css3IsAwesome) · [css.avolkov.dev](https://css.avolkov.dev) | CSS-only drawings from 2015 and 2021, redrawn with modern CSS; drag to compare | None: the page shows the hand-made, redrawn and AI versions side by side |
+| [tailwind-typography-extras](https://github.com/slimcandy/tailwind-typography-extras) · [type.avolkov.dev](https://type.avolkov.dev) | Four Tailwind CSS v4 packages for typography properties Tailwind doesn't ship; on npm | 31 tests against the real Tailwind v4 compiler |
+| [capsule-toys](https://github.com/slimcandy/capsule-toys) · [ar.avolkov.dev](https://ar.avolkov.dev) | A capsule toy machine for AR Quick Look on iPhone and Vision Pro | Every model passes Apple's `usdchecker --arkit`, plus anchor, size and licence checks |
 
 ---
 
