@@ -46,7 +46,8 @@ The site is live at https://avolkov.dev.
 /about            Bio, impact, skills, education, contacts, portrait
 /articles         Article list
 /articles/<slug>  MDX article (old Sanity slugs preserved)
-/projects         12 curated GitHub repos: description, language, last update, live demo link
+/projects         The six projects rebuilt with Claude Code: description, judge, legacy tag, live demo;
+                  language and last push from GitHub at build time
 /feed.xml         RSS of articles
 /sitemap.xml, /robots.txt
 ```
@@ -89,7 +90,7 @@ netlify.toml                     # build, caching, security headers
 2. **Domain**: add `avolkov.dev` in Netlify → Domain management, point DNS, enable HTTPS.
 3. **Build hook**: Netlify → Build hooks → create one → add as GitHub repo secret
    `NETLIFY_BUILD_HOOK` (enables the weekly refresh).
-4. Optional: add `GITHUB_TOKEN` (read-only, public repos) as a Netlify env var. Builds make 12
+4. Optional: add `GITHUB_TOKEN` (read-only, public repos) as a Netlify env var. Builds make 6
    unauthenticated GitHub API calls; Netlify's shared IPs can hit the 60/hour limit. On failure the
    Projects page still builds, just without language/update date.
 5. After it's live: GitHub → Settings → default branch → `master`.

@@ -1,21 +1,14 @@
-import { projects } from '@/content/projects'
+import { type ProjectEntry, projects } from '@/content/projects'
 
 const OWNER = 'slimcandy'
 
-export interface Project {
-  name: string
-  description: string
+export interface Project extends ProjectEntry {
   url: string
-  homepage: string | null
   language: string | null
   pushedAt: string | null
 }
 
 interface GitHubRepo {
-  name: string
-  description: string | null
-  html_url: string
-  homepage: string | null
   language: string | null
   pushed_at: string
 }
@@ -41,17 +34,16 @@ async function fetchRepo(repo: string): Promise<GitHubRepo | null> {
   }
 }
 
-// Build-time only. A failed request falls back to the local entry so the
-// build never breaks because of GitHub.
+// Build-time only. GitHub adds the language and the last push date; when the
+// request fails the card is shown without them, so the build never breaks
+// because of GitHub.
 export async function getProjects(): Promise<Array<Project>> {
   return Promise.all(
-    projects.map(async ({ repo, description, homepage }) => {
-      let data = await fetchRepo(repo)
+    projects.map(async (entry) => {
+      let data = await fetchRepo(entry.repo)
       return {
-        name: data?.name ?? repo,
-        description: description ?? data?.description ?? '',
-        url: data?.html_url ?? `https://github.com/${OWNER}/${repo}`,
-        homepage: homepage === undefined ? data?.homepage || null : homepage,
+        ...entry,
+        url: `https://github.com/${OWNER}/${entry.repo}`,
         language: data?.language ?? null,
         pushedAt: data?.pushed_at ?? null,
       }

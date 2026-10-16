@@ -1,8 +1,8 @@
 import { type Metadata } from 'next'
+import Image from 'next/image'
 
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
-import { GitHubIcon } from '@/components/SocialIcons'
 import { getProjects } from '@/lib/github'
 
 function LinkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
@@ -19,7 +19,7 @@ function LinkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 export const metadata: Metadata = {
   title: 'Projects',
   description:
-    'Open-source side projects: educational rebuilds of React and Babel, Tailwind CSS plugins, privacy tools, and AR experiments.',
+    'Six open-source projects rebuilt with Claude Code in October 2026. The code is AI-written; each core is verified by an independent judge: ExifTool, react-dom, acorn, the Tailwind compiler, usdchecker. All live on avolkov.dev.',
 }
 
 export default async function Projects() {
@@ -27,46 +27,68 @@ export default async function Projects() {
 
   return (
     <SimpleLayout
-      title="Things I’ve built to learn how the web really works."
-      intro="Side projects from my GitHub: educational rebuilds of React and Babel, Tailwind CSS plugins, a privacy tool, and AR experiments. All open source — have a look at the code."
+      title="Six small projects, rebuilt with AI. An independent judge checks each one."
+      intro="In October 2026 I rebuilt six small projects with Claude Code: the code is AI-written, and the core of each is verified by an independent judge such as ExifTool, react-dom or Apple’s usdchecker. Everything is live on *.avolkov.dev and open source, with the hand-written code it replaced kept under a legacy tag in each repo."
     >
       <ul
         role="list"
         className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
       >
         {projects.map((project) => (
-          <Card as="li" key={project.name}>
+          <Card as="li" key={project.repo}>
             <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-              <GitHubIcon className="h-6 w-6 fill-zinc-700 dark:fill-zinc-300" />
+              <Image
+                src={project.icon}
+                alt=""
+                className="h-7 w-7 rounded-md dark:ring-1 dark:ring-white/10 dark:ring-inset"
+                unoptimized
+              />
             </div>
             <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-              <Card.Link href={project.url}>{project.name}</Card.Link>
+              <Card.Link href={project.url}>{project.repo}</Card.Link>
             </h2>
             <Card.Description>{project.description}</Card.Description>
-            <p className="relative z-10 mt-4 text-xs text-zinc-500 dark:text-zinc-400">
+            <p className="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+              <span className="font-medium text-zinc-800 dark:text-zinc-100">
+                Judge:
+              </span>{' '}
+              {project.judge}
+            </p>
+            <p className="relative z-30 mt-4 text-xs text-zinc-500 dark:text-zinc-400">
+              {project.before && (
+                <>
+                  Before:{' '}
+                  <a
+                    href={project.before.href}
+                    className="underline decoration-zinc-300 underline-offset-2 transition hover:text-teal-700 dark:decoration-zinc-600 dark:hover:text-teal-400"
+                  >
+                    {project.before.label}
+                    <span className="sr-only">
+                      {' '}
+                      (the code of {project.repo} before the rebuild)
+                    </span>
+                  </a>
+                </>
+              )}
               {[
                 project.language,
                 project.pushedAt &&
                   `Updated ${new Date(project.pushedAt).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}`,
               ]
                 .filter(Boolean)
-                .join(' · ')}
+                .map((item) => (project.before ? ` · ${item}` : item))
+                .join('')}
             </p>
-            {project.homepage && (
-              <a
-                href={project.homepage}
-                className="relative z-30 mt-4 flex text-sm font-medium text-zinc-500 transition hover:text-teal-700 dark:text-zinc-300 dark:hover:text-teal-400"
-              >
-                <LinkIcon className="h-6 w-6 flex-none" />
-                <span className="ml-2">
-                  {new URL(project.homepage).host}
-                  <span className="sr-only">
-                    {' '}
-                    (live demo of {project.name})
-                  </span>
-                </span>
-              </a>
-            )}
+            <a
+              href={project.homepage}
+              className="relative z-30 mt-4 flex text-sm font-medium text-zinc-500 transition hover:text-teal-700 dark:text-zinc-300 dark:hover:text-teal-400"
+            >
+              <LinkIcon className="h-6 w-6 flex-none" />
+              <span className="ml-2">
+                {new URL(project.homepage).host}
+                <span className="sr-only"> (live demo of {project.repo})</span>
+              </span>
+            </a>
           </Card>
         ))}
       </ul>
