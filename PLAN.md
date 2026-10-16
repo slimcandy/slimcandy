@@ -6,7 +6,7 @@ replacing the Gatsby + Sanity "JS.Garden" blog. Work happens on the `master` bra
 
 ## Status
 
-Phases 1–6 are done and pushed to `master`; CI (prettier, eslint, build) is green.
+Phases 1–6 are done and pushed to `master`. No CI: Netlify builds every push; the weekly rebuild workflow refreshes build-time data.
 The site is live at https://avolkov.dev.
 
 ## Goals
@@ -67,7 +67,7 @@ src/lib/
   youtube.ts, linkedin.ts, github.ts  # build-time loaders, all fail soft
 src/components/Carousel.tsx
 netlify.toml                     # build, caching, security headers
-.github/workflows/ci.yml, weekly-rebuild.yml
+.github/workflows/weekly-rebuild.yml
 ```
 
 ## Done
