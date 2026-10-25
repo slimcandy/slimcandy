@@ -1,11 +1,11 @@
 export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://avolkov.dev',
   name: 'Aleksei Volkov',
-  title: 'Lead Full Stack Engineer',
+  title: 'AI Solutions Architect · Forward Deployed Engineer',
   description:
-    'Lead Full Stack Engineer with 12+ years across financial services, banking, and retail. React, TypeScript, Node.js and agentic development.',
+    'AI Solutions Architect and Forward Deployed Engineer with 12+ years in the JavaScript ecosystem. I design AI solutions on TypeScript, Node.js and React and take them to production.',
   email: 'volkov.dev@icloud.com',
-  cv: '/cv/Aleksei_Volkov_12yr_Lead_Fullstack_Engineer.pdf',
+  cv: '/cv/Aleksei_Volkov_Forward_Deployed_Engineer_12yr.pdf',
   social: {
     github: 'https://github.com/slimcandy',
     linkedin: 'https://www.linkedin.com/in/aleksei-volkov-react/',

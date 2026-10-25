@@ -234,14 +234,14 @@ export default async function Home() {
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            Lead Full Stack Engineer building trading systems.
+            AI Solutions Architect building AI into trading systems.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m Aleksei, a full stack engineer with 12+ years across financial
-            services, banking, and retail. I own React interfaces, Node.js
-            services, databases, testing, and cloud delivery end to end — and
-            orchestrate agentic coding with Claude Code, Codex, and GitHub
-            Copilot.
+            I’m Aleksei, a Forward Deployed Engineer with 12+ years in the
+            JavaScript ecosystem across financial services, banking, and retail.
+            I design AI solutions on TypeScript, Node.js, and React, take them
+            to production, and leave behind the standards and tooling that keep
+            them running. Claude Certified Architect – Professional.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink

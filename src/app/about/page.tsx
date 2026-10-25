@@ -41,7 +41,7 @@ function SocialLink({
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'I’m Aleksei Volkov, a Lead Full Stack Engineer with 12+ years in financial services, banking, and retail.',
+    'I’m Aleksei Volkov, an AI Solutions Architect and Forward Deployed Engineer with 12+ years in financial services, banking, and retail.',
 }
 
 export default function About() {
@@ -66,15 +66,14 @@ export default function About() {
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
-              I’m a full stack engineer with 12+ years across financial
-              services, banking, and retail. My core is deep JavaScript and
-              TypeScript: I own React interfaces, Node.js services, SQL
-              databases, testing, and cloud delivery from requirements to
-              production.
+              I’m an AI Solutions Architect and Forward Deployed Engineer with
+              12+ years in the JavaScript ecosystem. I join client teams and
+              take a stakeholder’s problem through discovery, architecture, and
+              production, building on TypeScript, React, Node.js, and SQL.
             </p>
             <p>
               Today I build trading and operations systems for a $6.4B hedge
-              fund with 55+ portfolio-manager teams: full stack support tools,
+              fund with 55+ portfolio-manager teams: MCP tools in live trading workflows,
               real-time analytics, and developer automation. Before that I moved
               a global fashion retailer’s logistics apps to microfrontends,
               built a banking design system and form runtime, and spent five
@@ -84,7 +83,8 @@ export default function About() {
             <p>
               I work with AI agents every day — Claude Code, Codex, and GitHub
               Copilot — defining tasks, reviewing generated code, and turning
-              what works into shared standards for the team.
+              what works into shared standards for the team. I hold the Claude
+              Certified Architect – Professional credential.
             </p>
           </div>
 
