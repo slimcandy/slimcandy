@@ -1,6 +1,6 @@
-<a href="https://www.credly.com/badges/a9eab4b3-3144-4dc5-87b1-5f91028b1032/public_url"><img src=".github/profile/claude-certified-architect.png" align="right" width="130" alt="Claude Certified Architect – Professional badge"></a>
-
 # Aleksei Volkov
+
+<a href="https://www.credly.com/badges/a9eab4b3-3144-4dc5-87b1-5f91028b1032/public_url"><img src=".github/profile/claude-certified-architect.png" align="right" width="130" alt="Claude Certified Architect – Professional badge"></a>
 
 ### AI Solutions Architect · Forward Deployed Engineer
 
